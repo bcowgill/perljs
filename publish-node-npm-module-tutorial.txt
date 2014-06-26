@@ -98,3 +98,9 @@ git push origin master --tags
 direct install before publishing on npm registry
 
 npm install git://github.com/bcowgill/perljs.git
+
+$ npm install git://github.com/bcowgill/perljs.git
+npm WARN `git config --get remote.origin.url` returned wrong result (git://github.com/bcowgill/perljs.git)
+perljs@0.1.0 node_modules\perljs
+
+
