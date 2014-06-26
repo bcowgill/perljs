@@ -47,4 +47,4 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Release History
 
-* 0.1.0 Initial release q qq qw x
+* 0.1.0 Initial release q qq qw x - go forth and perlize
