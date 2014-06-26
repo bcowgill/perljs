@@ -1,0 +1,22 @@
+{
+  "name": "perljs",
+  "version": "0.0.0",
+  "description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
+  "main": "perl.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bcowgill/perljs.git"
+  },
+  "keywords": [
+    "perl"
+  ],
+  "author": "Brent Cowgill <brent@blismedia.com> (http://github.com/bcowgill)",
+  "license": "The Unlicense",
+  "bugs": {
+    "url": "https://github.com/bcowgill/perljs/issues"
+  },
+  "homepage": "https://github.com/bcowgill/perljs"
+}
