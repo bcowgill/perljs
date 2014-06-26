@@ -3,6 +3,8 @@ publish-node-npm-module-tutorial.txt
 Publishing a node module
 http://quickleft.com/blog/creating-and-publishing-a-node-js-module
 
+===================
+
 npm set init.author.name "Brent Cowgill"
 npm set init.author.email "brent@blismedia.com"
 npm set init.author.url "http://github.com/bcowgill"
@@ -20,6 +22,8 @@ Password:
 Email: (this IS public) brent@blismedia.com
 npm http PUT https://registry.npmjs.org/-/user/org.couchdb.user:bcowgill
 npm http 201 https://registry.npmjs.org/-/user/org.couchdb.user:bcowgill
+
+===================
 
 npm init
 
@@ -70,3 +74,9 @@ About to write to D:\d\s\github\perljs\package.json:
 
 
 Is this ok? (yes) yes
+
+===================
+
+npm install mocha --save-dev
+npm install chai --save-dev
+
