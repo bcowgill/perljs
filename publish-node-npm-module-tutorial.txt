@@ -94,3 +94,7 @@ update readme and package.json version/license then tag and release
 
 git tag 0.1.0
 git push origin master --tags
+
+direct install before publishing on npm registry
+
+npm install git://github.com/bcowgill/perljs.git

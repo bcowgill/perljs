@@ -15,10 +15,11 @@
   ],
   "author": "Brent Cowgill <brent@blismedia.com> (http://github.com/bcowgill)",
   "licenses": [
-  {
-    "type": "The Unlicense",
-    "url": "http://unlicense.org/"
-  },
+    {
+      "type": "The Unlicense",
+      "url": "http://unlicense.org/"
+    },
+  ],
   "bugs": {
     "url": "https://github.com/bcowgill/perljs/issues"
   },
