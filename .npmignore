@@ -1,0 +1,5 @@
+./.gitignore
+./lib/perl.js
+./publish-node-npm-module-tutorial.txt
+./test/perl-test.js
+./doc

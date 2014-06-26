@@ -95,13 +95,52 @@ update readme and package.json version/license then tag and release
 git tag 0.1.0
 git push origin master --tags
 
-direct install before publishing on npm registry
+Verify that the package installs properly. From your package root directory, enter the following to install your package globally.
+
+npm install . -g
+Check to see if it exists.
+
+npm ls -g
+
+direct install from github before publishing on npm registry
 
 npm install git://github.com/bcowgill/perljs.git
-npm install git://github.com/brentertz/scapegoat.git#0.1.0
+npm install git://github.com/bcowgill/perljs.git#0.1.0
 
-$ npm install git://github.com/bcowgill/perljs.git
-npm WARN `git config --get remote.origin.url` returned wrong result (git://github.com/bcowgill/perljs.git)
+test module actually works
+
+node
+var p=require('perljs');
+console.log(p.qq('what'));
+process.exit();
+
+===================
+
+npm publish
+
+$ npm publish
+npm http PUT https://registry.npmjs.org/perljs
+npm+ perljs@0.1.0
+ http 201 https://registry.npmjs.org/perljs
+
+$ cd somewhere; npm install perljs
 perljs@0.1.0 node_modules\perljs
 
+node
+var p=require('perljs');
+console.log(p.qq('what'));
+process.exit();
+
+Visible on npmjs.org now.
+https://www.npmjs.org/package/perljs
+
+===================
+
+jsDoc
+
+npm install -g jsdoc@"<=3.3.0"
+
+./node_modules/.bin/jsdoc yourJavaScriptFile.js
+
+ npm install -g mocha jsdoc
 

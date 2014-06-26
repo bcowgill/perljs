@@ -4,7 +4,8 @@
   "description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
   "main": "perl.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter nyan"
+    "docs": "jsdoc --destination doc lib/perl.js",
+    "test": "mocha --reporter nyan"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   "homepage": "https://github.com/bcowgill/perljs",
   "devDependencies": {
     "mocha": "^1.20.1",
-    "chai": "^1.9.1"
+    "chai": "^1.9.1",
+    "jsdoc": "^3.3.0-alpha8"
   }
 }
