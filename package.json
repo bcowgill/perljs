@@ -4,7 +4,7 @@
   "description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
   "main": "perl.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "./node_modules/.bin/mocha --reporter nyan"
   },
   "repository": {
     "type": "git",
