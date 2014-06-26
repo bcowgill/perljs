@@ -1,7 +1,14 @@
 // perl-test.js
 
 var should = require('chai').should(),
-    perl = require('../lib/perl');
+  perl = require('../lib/perl'),
+  q = perl.q,
+  qq = perl.qq,
+  qw = perl.qw,
+  x = perl.x,
+  name = 'perl rocks the javascript world';
+
+//console.log('q', q(name), 'qq', qq(name), 'qw', qw(name), 'x', x(name + '\n', 3));
 
 describe('#perl.q()', function() {
   it('single quotes a string', function() {

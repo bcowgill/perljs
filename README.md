@@ -3,73 +3,40 @@ perljs
 
 Perl for Javascript. Just some functions that a perl developer misses in Javascript.
 
-Publishing a node module
-http://quickleft.com/blog/creating-and-publishing-a-node-js-module
+## Installation
 
-npm set init.author.name "Brent Cowgill"
-npm set init.author.email "brent@blismedia.com"
-npm set init.author.url "http://github.com/bcowgill"
-npm adduser
+  npm install perljs --save
 
-D:\d\s\github\perljs>npm set init.author.name "Brent Cowgill"
+## Usage
 
-D:\d\s\github\perljs>npm set init.author.email "brent@blismedia.com"
+  var perl = require('perljs')
+      q = perl.q,
+      qq = perl.qq,
+      qw = perl.qw,
+      x = perl.x,
+      name = 'perl rocks the javascript world';
 
-D:\d\s\github\perljs>npm set init.author.url "http://github.com/bcowgill"
+  console.log('q', q(name), 'qq', qq(name), 'qw', qw(name), 'x', x(name + '\n', 3));
 
-D:\d\s\github\perljs>npm adduser
-Username: bcowgill
-Password:
-Email: (this IS public) brent@blismedia.com
-npm http PUT https://registry.npmjs.org/-/user/org.couchdb.user:bcowgill
-npm http 201 https://registry.npmjs.org/-/user/org.couchdb.user:bcowgill
+## Tests
 
-npm init
+  npm test
 
-This utility will walk you through creating a package.json file.
-It only covers the most common items, and tries to guess sane defaults.
+## Perl Goodness Presently Supported
 
-See `npm help json` for definitive documentation on these fields
-and exactly what they do.
+q('what') => ''what''
 
-Use `npm install <pkg> --save` afterwards to install a package and
-save it as a dependency in the package.json file.
+qq('what') => '"what"'
 
-Press ^C at any time to quit.
-name: (perljs)
-version: (0.0.0)
-description: Perl for Javascript. Just some functions that a perl developer miss
-es in Javascript.
-entry point: (index.js) perl.js
-test command:
-git repository: (https://github.com/bcowgill/perljs.git)
-keywords: perl
-license: (ISC) The Unlicense
-About to write to D:\d\s\github\perljs\package.json:
+qw('this is it') => ['this', 'is', 'it']
 
-{
-  "name": "perljs",
-  "version": "0.0.0",
-  "description": "Perl for Javascript. Just some functions that a perl developer
- misses in Javascript.",
-  "main": "perl.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bcowgill/perljs.git"
-  },
-  "keywords": [
-    "perl"
-  ],
-  "author": "Brent Cowgill <brent@blismedia.com> (http://github.com/bcowgill)",
-  "license": "The Unlicense",
-  "bugs": {
-    "url": "https://github.com/bcowgill/perljs/issues"
-  },
-  "homepage": "https://github.com/bcowgill/perljs"
-}
+x('=', 76) => 76 equal signs in a row
 
+## Contributing
 
-Is this ok? (yes) yes
+In lieu of a formal styleguide, take care to maintain the existing coding style.
+Add unit tests for any new or changed functionality. Lint and test your code.
+
+## Release History
+
+* 0.1.0 Initial release q qq qw x
