@@ -80,3 +80,11 @@ Is this ok? (yes) yes
 npm install mocha --save-dev
 npm install chai --save-dev
 
+package.json
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+
+
+npm test
+
