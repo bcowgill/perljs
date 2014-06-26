@@ -9,6 +9,7 @@ Perl for Javascript. Just some functions that a perl developer misses in Javascr
 
 ## Usage
 
+```javascript
   var perl = require('perljs')
       q = perl.q,
       qq = perl.qq,
@@ -17,6 +18,7 @@ Perl for Javascript. Just some functions that a perl developer misses in Javascr
       name = 'perl rocks the javascript world';
 
   console.log('q', q(name), 'qq', qq(name), 'qw', qw(name), 'x', x(name + '\n', 3));
+```
 
 ## Tests
 
@@ -24,13 +26,13 @@ Perl for Javascript. Just some functions that a perl developer misses in Javascr
 
 ## Perl Goodness Presently Supported
 
-q('what') => ''what''
+	q('what') => ''what''
 
-qq('what') => '"what"'
+	qq('what') => '"what"'
 
-qw('this is it') => ['this', 'is', 'it']
+	qw('this is it') => ['this', 'is', 'it']
 
-x('=', 76) => 76 equal signs in a row
+	x('=', 76) => 76 equal signs in a row
 
 ## Contributing
 
