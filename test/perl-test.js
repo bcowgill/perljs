@@ -2,6 +2,7 @@
 	Test plan for perljs module
 
 	@file test/perl-test.js
+	@author Brent S.A. Cowgill
 	@requires chai
 
 	@see {@link http://chaijs.com/api/bdd/ Chai Documentation}
