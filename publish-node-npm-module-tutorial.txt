@@ -144,3 +144,11 @@ npm install -g jsdoc@"<=3.3.0"
 
  npm install -g mocha jsdoc
 
+More links on documenting
+
+best documentation for node
+http://samwize.com/2014/01/31/the-best-documentation-generator-for-node/
+docco adds to jsdoc
+http://jashkenas.github.io/docco/
+themes
+https://github.com/terryweiss/docstrap

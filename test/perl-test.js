@@ -1,4 +1,11 @@
-// perl-test.js
+/**
+	Test plan for perljs module
+
+	@file test/perl-test.js
+	@requires chai
+
+	@see {@link http://chaijs.com/api/bdd/ Chai Documentation}
+*/
 
 var should = require('chai').should(),
   perl = require('../lib/perl'),
