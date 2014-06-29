@@ -5,7 +5,7 @@
   "main": "perl.js",
   "scripts": {
     "docs": "jsdoc --destination doc --recurse test/ lib/perl.js",
-    "test": "mocha --reporter nyan"
+    "test": "mocha --reporter tap"
   },
   "repository": {
     "type": "git",
