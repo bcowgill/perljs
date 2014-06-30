@@ -1,0 +1,4 @@
+**/*.min.js
+dist/**/*-bundle.js
+lib/3rdparty/**/*.js
+node_modules/**/*.js

@@ -1,0 +1,36 @@
+// jshint warning codes are in:
+// node_modules/grunt-contrib-jshint/node_modules/jshint/src/messages.js
+{
+	"node": true,
+	// closest support for tabs possible at moment jshint considers a tab 4 spaces
+	// internally so have to set indent to 4 if you will use tabs for indentation.
+	// cannot force the use of tabs though.
+	"indent": 4,
+	"smarttabs": true,
+	"maxparams": 4,
+	"maxdepth": 3,
+	"maxstatements": 11,
+	"maxcomplexity": 5,
+	"maxlen": 100,
+	"bitwise": true,
+	"curly": true,
+	"eqeqeq": true,
+	"forin": true,
+	"freeze": true,
+	"immed": true,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": true,
+	"plusplus": true,
+	"quotmark": true,
+	"undef": true,
+	"unused": "strict",
+	"globalstrict": true,
+	"trailing": true,
+	"laxcomma": true,
+	"laxbreak": true,
+	"multistr": true,
+	"maxerr": 5000
+}

@@ -7,16 +7,20 @@
 
 	@see {@link http://chaijs.com/api/bdd/ Chai Documentation}
 */
+/*jshint maxlen: 145 */
+/*global describe, it */
+'use strict';
 
-var should = require('chai').should(),
-	perl = require('../lib/perl'),
-	q = perl.q,
+require('chai').should();
+var perl = require('../lib/perl');
+/*	q = perl.q,
 	qq = perl.qq,
 	qw = perl.qw,
 	x = perl.x,
 	name = 'perl rocks the javascript world';
 
-//console.log('q', q(name), 'qq', qq(name), 'qw', qw(name), 'x', x(name + '\n', 3));
+	console.log('q', q(name), 'qq', qq(name), 'qw', qw(name), 'x', x(name + '\n', 3));
+*/
 
 describe('#perl', function () {
 
