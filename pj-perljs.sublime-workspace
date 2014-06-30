@@ -1,0 +1,806 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"INDENT",
+				"INDENT_LEN"
+			],
+			[
+				"quot",
+				"quotmarkSingle"
+			],
+			[
+				"quotm",
+				"quotmarkDouble"
+			],
+			[
+				"getGro",
+				"getGroupNodes"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 893,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "publish-node-npm-module-tutorial.txt",
+			"settings":
+			{
+				"buffer_size": 3646,
+				"line_ending": "Windows",
+				"name": "publish-node-npm-module-tutorial.txt"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 535,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/perl.js",
+			"settings":
+			{
+				"buffer_size": 2075,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/d/s/blismedia/play/node-postgres/test/using-dbi_test.js",
+			"settings":
+			{
+				"buffer_size": 3223,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 827,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "LICENSE",
+			"settings":
+			{
+				"buffer_size": 1209,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/perl-test.js",
+			"settings":
+			{
+				"buffer_size": 1155,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "test/chai-test.js",
+			"settings":
+			{
+				"buffer_size": 10395,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Makefile.txt",
+			"settings":
+			{
+				"buffer_size": 143,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/sublime-grunt-build/grunt.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"pakage",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 230.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/cygwin64/home/me/.bash_history",
+		"/D/d/s/github/jshint-test/lib/header.js",
+		"/D/d/s/github/jshint-test/lib/relax/supernew.js",
+		"/D/d/s/github/jshint-test/lib/relax/FAIL-proto.js",
+		"/D/d/s/github/jshint-test/lib/relax/noyeild.js",
+		"/D/d/s/github/jshint-test/lib/relax/noyield.js",
+		"/D/d/s/github/jshint-test/lib/relax/validthis.js",
+		"/D/d/s/github/jshint-test/lib/relax/sub.js",
+		"/D/d/s/github/jshint-test/lib/relax/shadow.js",
+		"/D/d/s/github/jshint-test/lib/relax/smarttabs.js",
+		"/D/d/s/github/jshint-test/lib/relax/scripturl.js",
+		"/D/d/s/github/jshint-test/lib/relax/proto.js",
+		"/D/d/s/github/jshint-test/lib/relax/lastsemic.js",
+		"/D/d/s/github/jshint-test/lib/relax/funcscope.js",
+		"/D/d/s/github/jshint-test/lib/relax/laxbreak.js",
+		"/D/d/s/github/jshint-test/lib/relax/laxcomma.js",
+		"/D/d/s/github/jshint-test/lib/relax/notypeof.js",
+		"/D/d/s/github/jshint-test/lib/relax/multistr.js",
+		"/D/d/s/github/jshint-test/lib/relax/loopfunc.js",
+		"/D/d/s/github/jshint-test/lib/relax/TODO_moz.js",
+		"/D/d/s/github/jshint-test/lib/relax/iterator.js",
+		"/D/d/s/github/jshint-test/pj-jshint-test.sublime-project",
+		"/D/d/s/github/jshint-test/lib/_inline_jshint_opts.js",
+		"/D/d/s/github/jshint-test/lib/permissive_inline_jshint_opts.js",
+		"/D/d/s/github/jshint-test/lib/pref_inline_jshint_opts.js",
+		"/D/d/s/github/jshint-test/lib/relax/expr.js",
+		"/D/d/s/github/jshint-test/lib/relax/globalstrict.js",
+		"/D/d/s/github/jshint-test/lib/relax/TODO_gcl.js",
+		"/D/d/s/github/jshint-test/dist/relax.js",
+		"/D/d/s/github/jshint-test/lib/relax/evil.js",
+		"/D/d/s/github/jshint-test/lib/relax/TODO_asi.js",
+		"/D/d/s/github/jshint-test/lib/relax/TODO_esnext.js",
+		"/D/d/s/github/jshint-test/lib/relax/eqnull.js",
+		"/D/d/s/github/jshint-test/lib/relax/debug.js",
+		"/D/d/s/github/jshint-test/lib/relax/asi.js",
+		"/D/d/s/github/jshint-test/lib/relax/boss.js",
+		"/D/d/s/js-play/jshint/bin/jshint-inline.pl",
+		"/D/d/s/js-play/jshint/Gruntfile.js",
+		"/D/d/s/js-play/jshint/lib/empty.js",
+		"/D/d/s/js-play/jshint/package.json",
+		"/D/d/s/js-play/jshint/lib/relax/asi.js",
+		"/D/d/s/js-play/jshint/lib/permissive_inline_jshint_opts.js",
+		"/D/d/s/js-play/jshint/lib/_inline_jshint_opts.js",
+		"/D/d/s/js-play/jshint/lib/enforce/nonbsp.js",
+		"/D/d/s/js-play/jshint/lib/enforce/maxlen.js",
+		"/D/d/s/js-play/jshint/lib/ignore/bad.js",
+		"/D/d/s/js-play/jshint/lib/header.js",
+		"/D/d/s/js-play/jshint/lib/enforce/maxomplexity.js",
+		"/D/d/s/js-play/jshint/lib/enforce/maxstatements.js",
+		"/D/d/s/js-play/jshint/lib/enforce/maxdepth.js",
+		"/D/d/s/js-play/jshint/lib/enforce/maxparams.js",
+		"/D/d/s/js-play/jshint/lib/enforce/trailing.js",
+		"/D/d/s/js-play/jshint/lib/enforce/undef.js",
+		"/D/d/s/js-play/jshint/lib/enforce/FAIL_undef_function_scope.js",
+		"/D/d/s/js-play/jshint/lib/enforce/nonew.js",
+		"/D/d/s/js-play/jshint/lib/enforce/quotmark_single.js",
+		"/D/d/s/js-play/jshint/lib/enforce/quotmark_double.js",
+		"/D/d/s/js-play/jshint/lib/enforce/quotmark.js",
+		"/D/d/s/js-play/jshint/lib/enforce/plusplus.js",
+		"/D/d/s/js-play/jshint/lib/enforce/noarg.js",
+		"/D/d/s/js-play/jshint/lib/enforce/indent.js",
+		"/D/d/s/js-play/jshint/lib/enforce/immed.js",
+		"/D/d/s/js-play/jshint/lib/enforce/freeze.js",
+		"/D/d/s/js-play/jshint/lib/enforce/FAIL_noempty.js",
+		"/D/d/s/js-play/jshint/dist/enforce.js",
+		"/D/d/s/js-play/jshint/lib/enforce/strict.js",
+		"/D/d/s/js-play/jshint/lib/enforce/strict_function_scoped.js",
+		"/D/d/s/js-play/jshint/lib/jshintopts.txt",
+		"/D/d/s/js-play/jshint/lib/enforce/unused_vars.js",
+		"/D/d/s/js-play/jshint/lib/enforce/unused_strict.js",
+		"/D/d/s/js-play/jshint/lib/enforce/unused.js",
+		"/D/d/s/js-play/jshint/lib/enforce/TODO_es3.js",
+		"/D/d/s/js-play/jshint/lib/enforce/newcap.js",
+		"/D/d/s/js-play/jshint/lib/enforce/latedef_nofurc.js",
+		"/D/d/s/js-play/jshint/lib/enforce/latedef.js",
+		"/D/d/s/js-play/jshint/lib/enforce/forin.js",
+		"/D/d/s/js-play/jshint/lib/enforce/FAIL_camelcase_function_scope.js",
+		"/D/d/s/js-play/jshint/lib/enforce/eqeqeq.js",
+		"/D/d/s/js-play/jshint/lib/enforce/curly.js",
+		"/D/d/s/js-play/jshint/lib/enforce/camelcase.js",
+		"/D/d/s/js-play/jshint/lib/enforce/bitwise.js",
+		"/D/d/s/js-play/jshint/lib/enforce/FAIL_unused_function_scope.js",
+		"/D/d/s/js-play/jshint/lib/enforce/camelcase_function_scope.js",
+		"/D/d/s/js-play/jshint/lib/enforce/noempty.js",
+		"/D/d/s/js-play/jshint/lib/enforce/TODO_latedef_nofunc.js",
+		"/D/d/s/js-play/jshint/lib/enforce/es3.js",
+		"/D/d/s/js-play/jshint/.jshintignore",
+		"/D/d/s/js-play/jshint/lib/bad-forin.js",
+		"/D/d/s/js-play/jshint/lib/bitwise.js",
+		"/D/d/s/js-play/jshint/lib/bad.js",
+		"/D/d/s/js-play/jshint/utf.pl",
+		"/D/d/s/ontology/play/d3/WebContent/package.json",
+		"/D/d/s/github/QUnitChainer/dist/qunit.css",
+		"/D/d/s/github/QUnitChainer/0-control.html",
+		"/D/d/s/github/QUnitChainer/0-monitor.html",
+		"/D/d/s/github/QUnitChainer/replace.pl",
+		"/D/d/s/github/QUnitChainer/_test_failures/q-test3.html",
+		"/D/d/s/github/QUnitChainer/_test_failures/test-plan.js",
+		"/D/d/s/github/QUnitChainer/_test_passes/q-test3.html",
+		"/D/d/s/github/QUnitChainer/_test_passes/test-plan.js",
+		"/D/d/s/github/QUnitChainer/sample/q-test.html",
+		"/D/d/s/github/QUnitChainer/sample/q-test2.html",
+		"/D/d/s/github/QUnitChainer/sample/q-test3.html",
+		"/D/d/s/github/QUnitChainer/sample/q-test4.html",
+		"/D/d/s/github/QUnitChainer/sample/test-plan.js",
+		"/D/d/s/github/QUnitChainer/Gruntfile.js",
+		"/D/d/s/github/QUnitChainer/jasmine/jasmine-html.js",
+		"/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/Default/Side Bar.sublime-menu",
+		"/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/User/JSON.sublime-settings",
+		"/D/d/s/ontology/play/d3/WebContent/dataflow/resources/dagre-d3.js",
+		"/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/D/d/s/github/BigScreen/pj-BigScreen.sublime-workspace",
+		"/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/D/d/s/github/BigScreen/js/jquery-ui-1.8.16.custom.min.js",
+		"/D/d/s/github/BigScreen/js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js",
+		"/C/Users/me/AppData/Roaming/Sublime Text 2/Packages/User/JavaScript.sublime-settings"
+	],
+	"find":
+	{
+		"height": 42.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"TODO",
+			"  ",
+			"    ",
+			"  ",
+			"    ",
+			"TODO",
+			"throw",
+			"TODO",
+			"    ",
+			"throw",
+			"tODO",
+			"TODO",
+			"  ",
+			"plugin",
+			"new",
+			"jshint",
+			"new",
+			"yeild",
+			"yield",
+			"setting",
+			"   ",
+			"  ",
+			"undef",
+			"not_at_all",
+			"nonew",
+			"freeze",
+			"forin",
+			"border-radius",
+			"install_npm_global_from",
+			"getendpointnode",
+			"forIdx",
+			"edge",
+			"ExternalEdges",
+			"severedEdges",
+			"forKeys",
+			"forIdx",
+			"getEndpointNode",
+			"getEndpointNod",
+			"assert",
+			"testLog",
+			".error",
+			"idx",
+			"forIdx",
+			"severedEdge",
+			"collapseGroup",
+			"addGroupNode",
+			"addNode",
+			"addGroupNode",
+			"addNode",
+			"outEdges",
+			"function outEdges",
+			"outEdges",
+			"outEdge",
+			"outEdges",
+			"graphlib",
+			"nodesFromList",
+			"nodes",
+			"collapseGroup",
+			"console.clear",
+			"logVar",
+			"renderer",
+			"layout",
+			"clicked",
+			"edges",
+			"nodes",
+			"dagre",
+			"g",
+			"logEvent",
+			"all",
+			"_postLayout",
+			"layout",
+			"run",
+			"render",
+			"node",
+			"rect",
+			"20800731",
+			"FB84C0",
+			"layout",
+			"nodes_d",
+			"layout",
+			"dataflow",
+			"transform",
+			"BSAC",
+			"console.logVar",
+			"logVar",
+			"d3bug.log",
+			"console.",
+			"log",
+			"logVar",
+			"clear",
+			"render",
+			"; g",
+			";",
+			"dagre",
+			"find",
+			"dark",
+			"menu",
+			"tab_label",
+			"color",
+			"dark_content",
+			"color",
+			"clicktozoom",
+			"OP",
+			"URLs",
+			"log",
+			"checkFor",
+			"chooseRandom",
+			"debugging",
+			"Effects",
+			"Effect",
+			"bounce",
+			"TheEffect",
+			"freeze",
+			"console",
+			"fixedEffect",
+			"loadedURL",
+			"setFloatURL"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\t",
+			"yield",
+			"yeild",
+			"noyield",
+			"validthis",
+			"supernew",
+			"sub",
+			"shadow",
+			"smarttabs",
+			"scripturl",
+			"proto",
+			"notypeof",
+			"multistr",
+			"moz",
+			"loopfunc",
+			"laxcomma",
+			"laxbreak",
+			"lastsemic",
+			"iterator",
+			"globalstrict",
+			"funcscope",
+			"expr",
+			"evil",
+			"eqnull",
+			"debug",
+			"\\t",
+			"logZoom",
+			"Renderer",
+			"Layout",
+			"Clicked",
+			"svgEdges",
+			"svgNodes",
+			"svgDagre",
+			"DAGRenderer",
+			"Graph",
+			"activeView",
+			"dataflow",
+			"console.logVar",
+			";\\ng",
+			";\\n"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "README.md",
+					"settings":
+					{
+						"buffer_size": 893,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 719.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "publish-node-npm-module-tutorial.txt",
+					"settings":
+					{
+						"buffer_size": 3646,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3633,
+								3633
+							]
+						],
+						"settings":
+						{
+							"auto_name": "publish-node-npm-module-tutorial.txt",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4859.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": ".gitignore",
+					"settings":
+					{
+						"buffer_size": 535,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lib/perl.js",
+					"settings":
+					{
+						"buffer_size": 2075,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								46,
+								46
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/D/d/s/blismedia/play/node-postgres/test/using-dbi_test.js",
+					"settings":
+					{
+						"buffer_size": 3223,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2799,
+								2799
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3147.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 827,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								248,
+								248
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 217.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"file": "LICENSE",
+					"settings":
+					{
+						"buffer_size": 1209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								279,
+								279
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "test/perl-test.js",
+					"settings":
+					{
+						"buffer_size": 1155,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								582,
+								431
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 300.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "test/chai-test.js",
+					"settings":
+					{
+						"buffer_size": 10395,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5354,
+								5354
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4033.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Makefile.txt",
+					"settings":
+					{
+						"buffer_size": 143,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								143,
+								143
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 42.0
+	},
+	"input":
+	{
+		"height": 46.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.577764277036,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 240.0
+	},
+	"replace":
+	{
+		"height": 86.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"dagre",
+				"play/d3/WebContent/dagre-d3.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 274.0,
+	"status_bar_visible": true
+}
