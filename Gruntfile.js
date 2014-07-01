@@ -44,7 +44,9 @@ module.exports = function(grunt) {
 					'README.md'
 				],
 				// jsdoc options: http://usejsdoc.org/about-commandline.html
-				options: {}
+				options: {
+					configure: 'jsdoc.conf.json'
+				}
 			}
 		},
 		watch: {
