@@ -1,5 +1,5 @@
 test:
-	mocha --reporter nyan
+	mocha --reporter nyan test/
 
 docs:
 	rm -rf doc/
