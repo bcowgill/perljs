@@ -1,5 +1,5 @@
 test:
-	./node_modules/.bin/mocha --reporter nyan
+	mocha --reporter nyan
 
 docs:
 	rm -rf doc/
