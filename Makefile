@@ -2,8 +2,7 @@ test:
 	mocha --reporter nyan test/
 
 docs:
-	rm -rf doc/
-	grunt jsdoc
+	grunt docs
 
 doc: docs
 
