@@ -7,6 +7,12 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		// Metadata.
 		pkg: grunt.file.readJSON('package.json'),
+    // Task configuration.
+    clean: {
+      jsdoc: {
+        src: ['doc/']
+      }
+    },
 		jshint: {
 			// warning codes for jshint are in:
 			// node_modules/grunt-contrib-jshint/node_modules/jshint/src/messages.js
@@ -85,14 +91,20 @@ module.exports = function(grunt) {
 	});
 
 	// These plugins provide necessary tasks.
-	//grunt.loadNpmTasks('grunt-contrib-nodeunit');
-	grunt.loadNpmTasks('grunt-mocha-chai-sinon');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-jsdoc');
+	[
+		//'grunt-contrib-nodeunit');
+		'grunt-contrib-clean',
+		'grunt-contrib-jshint',
+		'grunt-jsdoc',
+		'grunt-mocha-chai-sinon',
+		'grunt-contrib-watch'
+	].forEach(function (task) {
+		grunt.loadNpmTasks(task);
+	});
 
 	// Default task.
 	grunt.registerTask('default', ['all']);
+	grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc']);
 	grunt.registerTask('test', [
 		//'nodeunit'
 		'mocha-chai-sinon'
@@ -101,8 +113,8 @@ module.exports = function(grunt) {
 		'jshint:gruntfile',
 		'jshint:lib',
 		'jshint:test',
-		'test',
-		'jsdoc'
+		'docs',
+		'test'
 	]);
 	grunt.registerTask('single', ['jshint:single']);
 };
