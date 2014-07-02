@@ -4,5 +4,6 @@
 		{
 			"path": "/D/d/s/github/perljs"
 		}
-	]
+	],
+	"settings": { "build_on_save": 1 }
 }
