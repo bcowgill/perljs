@@ -83,6 +83,7 @@ module.exports = function(grunt) {
 			}
 		},
 		/**
+			Generate application documentation with jsdoc
 			@see {@link https://github.com/krampstudio/grunt-jsdoc Grunt jsdoc plugin}
 			@see {@link http://usejsdoc.org/ jsdoc documentation tags}
 			@see {@link http://usejsdoc.org/about-commandline.html jsdoc command line options}
