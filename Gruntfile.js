@@ -11,7 +11,7 @@
 */
 
 /**
-	Project 42 Grunt build configuration.
+	Grunt build configuration.
 	@module Gruntfile
 */
 module.exports = function(grunt) {
