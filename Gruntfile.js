@@ -104,17 +104,16 @@ module.exports = function(grunt) {
 
 	// Default task.
 	grunt.registerTask('default', ['all']);
+	grunt.registerTask('all', ['windows', 'docs', 'test']);
 	grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc']);
 	grunt.registerTask('test', [
 		//'nodeunit'
 		'mocha-chai-sinon'
 	]);
-	grunt.registerTask('all', [
+	grunt.registerTask('windows', [
 		'jshint:gruntfile',
 		'jshint:lib',
-		'jshint:test',
-		'docs',
-		'test'
+		'jshint:test'
 	]);
 	grunt.registerTask('single', ['jshint:single']);
 };
