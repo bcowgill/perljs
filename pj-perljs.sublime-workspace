@@ -52,7 +52,7 @@
 			"file": "lib/perl.js",
 			"settings":
 			{
-				"buffer_size": 2075,
+				"buffer_size": 3923,
 				"line_ending": "Unix"
 			}
 		},
@@ -68,7 +68,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 827,
+				"buffer_size": 1031,
 				"line_ending": "Unix"
 			}
 		},
@@ -84,15 +84,23 @@
 			"file": "test/perl-test.js",
 			"settings":
 			{
-				"buffer_size": 1155,
+				"buffer_size": 2834,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "pj-perljs.sublime-project",
+			"settings":
+			{
+				"buffer_size": 101,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "test/chai-test.js",
 			"settings":
 			{
-				"buffer_size": 10395,
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		},
@@ -100,8 +108,16 @@
 			"file": "Makefile.txt",
 			"settings":
 			{
-				"buffer_size": 143,
+				"buffer_size": 0,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "perl/perl-test.pl",
+			"settings":
+			{
+				"buffer_size": 492,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -137,6 +153,7 @@
 	},
 	"file_history":
 	[
+		"/D/d/s/github/perljs/lib/jsdoc.js",
 		"/C/cygwin64/home/me/.bash_history",
 		"/D/d/s/github/jshint-test/lib/header.js",
 		"/D/d/s/github/jshint-test/lib/relax/supernew.js",
@@ -536,15 +553,15 @@
 					"file": "lib/perl.js",
 					"settings":
 					{
-						"buffer_size": 2075,
+						"buffer_size": 3923,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								46,
-								46
+								2260,
+								2260
 							]
 						],
 						"settings":
@@ -553,7 +570,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2280.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -590,15 +607,15 @@
 					"file": "package.json",
 					"settings":
 					{
-						"buffer_size": 827,
+						"buffer_size": 1031,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								248,
-								248
+								0,
+								0
 							]
 						],
 						"settings":
@@ -616,7 +633,7 @@
 			]
 		},
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -650,43 +667,69 @@
 					"file": "test/perl-test.js",
 					"settings":
 					{
-						"buffer_size": 1155,
+						"buffer_size": 2834,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								582,
-								431
+								2129,
+								2129
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 300.0,
+						"translation.y": 1683.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "test/chai-test.js",
+					"file": "pj-perljs.sublime-project",
 					"settings":
 					{
-						"buffer_size": 10395,
+						"buffer_size": 101,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5354,
-								5354
+								99,
+								99
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "test/chai-test.js",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -702,19 +745,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "Makefile.txt",
 					"settings":
 					{
-						"buffer_size": 143,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								143,
-								143
+								0,
+								0
 							]
 						],
 						"settings":
@@ -723,6 +766,32 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "perl/perl-test.pl",
+					"settings":
+					{
+						"buffer_size": 492,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								224,
+								224
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Perl/Perl.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 17.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -758,7 +827,7 @@
 		"cols":
 		[
 			0.0,
-			0.577764277036,
+			0.57411907655,
 			1.0
 		],
 		"rows":
@@ -770,7 +839,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 240.0
+		"height": 198.0
 	},
 	"replace":
 	{

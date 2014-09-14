@@ -134,6 +134,217 @@ console.log(qq('what'));
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name" id="_console"><span class="type-signature">(protected, static) </span>_console<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+        <h5 class="subsection-title">Properties:</h5>
+
+        <dl>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>_console</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Console logging object to use for warnings. default to the console.</td>
+        </tr>
+
+    
+    </tbody>
+</table></dl>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line48">line 48</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="_valueMap"><span class="type-signature">(protected, static) </span>_valueMap<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+        <h5 class="subsection-title">Properties:</h5>
+
+        <dl>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>_valueMap</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Map of strings to values for Perlish automatic type detection.
+	Used by qw(), _value() exposure means you can customise as you like.</td>
+        </tr>
+
+    
+    </tbody>
+</table></dl>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        </dl>
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -141,7 +352,149 @@ console.log(qq('what'));
         <dl>
             
 <dt>
-    <h4 class="name" id="q"><span class="type-signature">(static) </span>q<span class="signature">(string)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    <h4 class="name" id="_value"><span class="type-signature">(protected, static) </span>_value<span class="signature">(string)</span><span class="type-signature"> &rarr; {Mixed}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Perlish automatic type detection. Looks at a string and turns it
+	into a boolean, number, etc if possible.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>string</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">some string to turn into a native type.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line100">line 100</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    a boolean, number, undefined, null, Nan, +/-Infinity
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Mixed</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="q"><span class="type-signature">(static) </span>q<span class="signature">(string, open, close)</span><span class="type-signature"> &rarr; {String}</span></h4>
 
     
 </dt>
@@ -203,6 +556,52 @@ console.log(qq('what'));
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>open</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">(optional) opening quote character. default ' single quote character</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>close</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">(optional) closing quote character. default = open</td>
+        </tr>
+
+    
     </tbody>
 </table>
     
@@ -230,7 +629,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line34">line 34</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line61">line 61</a>
     </li></ul></dd>
     
 
@@ -380,7 +779,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line47">line 47</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line76">line 76</a>
     </li></ul></dd>
     
 
@@ -528,7 +927,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line58">line 58</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line87">line 87</a>
     </li></ul></dd>
     
 
@@ -567,6 +966,158 @@ console.log(qq('what'));
     <dd>
         
 <span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="qwm"><span class="type-signature">(static) </span>qwm<span class="signature">(string)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Create an Object (key-value map) from a space separated list of items.
+	Like perl my %Map = qw(key1 value1 key2 value2);
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>string</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">some string to turn into an Object (key/value map).</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line125">line 125</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+    <dt class="tag-todo">To Do:</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>replace true/false and numbers with boolean/number values.</li>
+        
+            <li>refactor into mapFromArray to just convert an array into a map</li>
+        </ul>
+    </dd>
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    an object formed by splitting the string on whitespace and
+	getting key/value words.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
 
 
     </dd>
@@ -692,7 +1243,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line73">line 73</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line158">line 158</a>
     </li></ul></dd>
     
 
@@ -772,7 +1323,7 @@ console.log(qq('what'));
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sat Aug 16 2014 19:42:59 GMT+0100 (GMT Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Sep 14 2014 01:36:24 GMT+0100 (GMT Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>
