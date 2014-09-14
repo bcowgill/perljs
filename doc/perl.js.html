@@ -48,13 +48,17 @@
 
 'use strict';
 
+// Standard node exports var, we alias perljs to it and tell jsdoc below
 module.exports = {};
-
+/**
+	@exports perljs
+*/
+var perljs = module.exports;
 /**
 	@property {object} _console Console logging object to use for warnings. default to the console.
 	@protected
 */
-module.exports._console = console;
+perljs._console = console;
 
 /**
 	@property {object} _valueMap Map of strings to values for Perlish automatic type detection.
@@ -70,7 +74,7 @@ module.exports._console = console;
 	@property {number} _valueMap.Infinity 'Infinity' becomes number Infinity
 	@property {number} _valueMap."-Infinity" '-Infinity' becomes number -Infinity
 */
-module.exports._valueMap = {
+perljs._valueMap = {
 	'null' : null,
 	'undefined' : void 0,
 	'undef' : void 0, // perl version of undefined
@@ -92,7 +96,7 @@ module.exports._valueMap = {
 	@return {Mixed} a boolean, number, undefined, null, Nan, +/-Infinity, empty string
 	see {@link module:perljs._valueMap}
 */
-module.exports._value = function (string)
+perljs._value = function (string)
 {
 	var value = string;
 	if (! /^function|object|array$/.test(typeof string))
@@ -100,8 +104,8 @@ module.exports._value = function (string)
 		value = Number(string);
 		if (isNaN(value))
 		{
-			value = (string in module.exports._valueMap) ?
-				module.exports._valueMap[string] : string;
+			value = (string in perljs._valueMap) ?
+				perljs._valueMap[string] : string;
 		}
 	}
 	return value;
@@ -116,12 +120,12 @@ module.exports._value = function (string)
 	@param  {Mixed} mixed a native data type to stringify.
 	@return {string} string representation of the native data type.
 */
-module.exports._stringify = function (mixed)
+perljs._stringify = function (mixed)
 {
 	/* jshint maxcomplexity: 8 */
 	if ('function' === typeof mixed)
 	{
-		return module.exports._stringify(mixed());
+		return perljs._stringify(mixed());
 	}
 	if (mixed === null || mixed === undefined ||
 		'number' === typeof mixed &amp;&amp; (isNaN(mixed) || mixed === Infinity || mixed === -Infinity))
@@ -137,7 +141,7 @@ module.exports._stringify = function (mixed)
 };
 
 /**
-	Enquote a string with single quotes. Like perl's q// operator
+	Enquote a string with single quotes. Like perl's q// operator.
 	@see {@link http://tinyurl.com/qxpg7xg Perl q// operator documentation}
 
 	@param  {Mixed} string some string to enquote. Other native Javascript types
@@ -147,109 +151,117 @@ module.exports._stringify = function (mixed)
 	@return {String} the original string with single quotes around it. null and
 	undefined are quoted as the empty string. see {@link module:perljs._stringify}() method.
 */
-module.exports.q = function (string, open, close)
+perljs.q = function (string, open, close)
 {
 	open = open || '\'';
 	close = close || open;
 	if (Array.isArray(string))
 	{
-		return module.exports.qA(string, open, close);
+		return perljs.qA(string, open, close);
 	}
 	if ('object' === typeof string &amp;&amp; string !== null)
 	{
-		return module.exports.qO(string, open, close);
+		return perljs.qO(string, open, close);
 	}
-	return open + module.exports._stringify(string) + close;
+	return open + perljs._stringify(string) + close;
 };
 
 /**
-	Enquote a string with double quotes. Like perl's qq// operator
+	Enquote a string with double quotes. Like perl's qq// operator.
 	@see {@link http://tinyurl.com/qxpg7xg Perl qq// operator documentation}
 
-	@param  {String} string some string to enquote
-	@return {String} the original string with double quotes around it.
+	@param  {Mixed} string some string to enquote. Other native Javascript types
+	are stringified by the {@link module:perljs._stringify}() method.
+	@param  {String} open (optional) opening quote character. default " double quote character
+	@param  {String} close (optional) closing quote character. default = open
+	@return {String} the original string with double quotes around it. null and
+	undefined are quoted as the empty string. see {@link module:perljs._stringify}() method.
 
 	@todo qx// for nodejs
 */
-module.exports.qq = function (string, open, close)
+perljs.qq = function (string, open, close)
 {
-	return module.exports.q(string, open || '"', close);
+	return perljs.q(string, open || '"', close);
 };
 
 /**
-	Create an Array from a space separated list of items. Like perl's qw// operator
+	Create an Array from a space separated list of items. Like perl's qw// operator.
 	@see {@link http://tinyurl.com/qxpg7xg Perl qw// operator documentation}
 
 	@param  {String} string some string to turn into an Array.
 	@return {Array} an array formed by splitting the string on whitespace.
 */
-module.exports.qw = function (string)
+perljs.qw = function (string)
 {
 	return string.replace(/^\s+/, '').replace(/\s+$/, '').split(/\s+/g);
 };
 
 /**
-	Enquote an Array with single quotes. Inspired by perl's q// operator
-	Returns an Array with all the elements single quoted.
+	Enquote an Array with single quotes. Inspired by perl's q// operator.
+	Used automatically by {@link module:perljs.q}() if an Array was passed in.
+	Returns a new Array with all the elements single quoted.
 
 	@param  {Array} aArray some Array whose elements should be single quoted.
 	@param  {String} open (optional) opening quote character. default ' single quote character
 	@param  {String} close (optional) closing quote character. default = open
 	@return {Array} a new Array with single quoted elements.
 */
-module.exports.qA = function (aArray, open, close)
+perljs.qA = function (aArray, open, close)
 {
 	var aNewArray = [];
 	aArray.forEach(function (value) {
-		aNewArray.push(module.exports.q(value, open, close));
+		aNewArray.push(perljs.q(value, open, close));
 	});
 	return aNewArray;
 };
 
 /**
-	Enquote an Array with double quotes. Inspired by perl's qq// operator
-	Returns an Array with all the elements double quoted.
+	Enquote an Array with double quotes. Inspired by perl's qq// operator.
+	Used automatically by {@link module:perljs.qq}() if an Array was passed in.
+	Returns a new Array with all the elements double quoted.
 
 	@param  {Array} aArray some Array whose elements should be double quoted.
 	@param  {String} open (optional) opening quote character. default " double quote character
 	@param  {String} close (optional) closing quote character. default = open
 	@return {Array} a new Array with double quoted elements.
 */
-module.exports.qqA = function (aArray, open, close)
+perljs.qqA = function (aArray, open, close)
 {
-	return module.exports.qA(aArray, open || '"', close);
+	return perljs.qA(aArray, open || '"', close);
 };
 
 /**
-	Enquote an Object with single quotes. Inspired by perl's q// operator
-	Returns an Object with all the values single quoted.
+	Enquote an Object with single quotes. Inspired by perl's q// operator.
+	Used automatically by {@link module:perljs.q}() if an Object was passed in.
+	Returns a new Object with all the values single quoted.
 
 	@param  {Object} oObject some Object whose values should be single quoted.
 	@param  {String} open (optional) opening quote character. default ' single quote character
 	@param  {String} close (optional) closing quote character. default = open
 	@return {Object} a new Object with single quoted values.
 */
-module.exports.qO = function (oObject, open, close)
+perljs.qO = function (oObject, open, close)
 {
 	var oNewObject = {};
 	Object.keys(oObject).forEach(function (key) {
-		oNewObject[key] = module.exports.q(oObject[key], open, close);
+		oNewObject[key] = perljs.q(oObject[key], open, close);
 	});
 	return oNewObject;
 };
 
 /**
-	Enquote an Object with double quotes. Inspired by perl's qq// operator
-	Returns an Object with all the values double quoted.
+	Enquote an Object with double quotes. Inspired by perl's qq// operator.
+	Used automatically by {@link module:perljs.qq}() if an Object was passed in.
+	Returns a new Object with all the values double quoted.
 
 	@param  {Object} oObject some Object whose values should be double quoted.
 	@param  {String} open (optional) opening quote character. default " double quote character
 	@param  {String} close (optional) closing quote character. default = open
 	@return {Object} a new Object with double quoted values.
 */
-module.exports.qqO = function (oObject, open, close)
+perljs.qqO = function (oObject, open, close)
 {
-	return module.exports.qO(oObject, open || '"', close);
+	return perljs.qO(oObject, open || '"', close);
 };
 
 /**
@@ -274,45 +286,54 @@ module.exports.qqO = function (oObject, open, close)
 	getting key/value words.
 	@todo refactor into mapFromArray to just convert an array into a map
 */
-module.exports.qwm = function (string)
+perljs.qwm = function (string)
 {
 	var oMap = {}, key;
-	module.exports.qw(string).forEach(function (keyValue) {
+	perljs.qw(string).forEach(function (keyValue) {
 		if ('undefined' === typeof key)
 		{
 			key = keyValue;
 		}
 		else
 		{
-			oMap[key] = module.exports._value(keyValue);
+			oMap[key] = perljs._value(keyValue);
 			key = void 0;
 		}
 	});
 	if ('undefined' !== typeof key)
 	{
 		oMap[key] = void 0;
-		module.exports._console.warn('Odd number of elements in hash assignment from '
-		 + module.exports.q(string));
+		perljs._console.warn('Odd number of elements in hash assignment from '
+		 + perljs.q(string));
 	}
 	return oMap;
 };
+/**
+	An alternate name for the {@link module:perljs.qwm}() method.
+	@method
+	@param  {String} string some string to turn into an Object (key/value map).
+	@return {Object} an object formed by splitting the string on whitespace and
+	getting key/value words.
+*/
+perljs.mapFromString = perljs.qwm;
 
 /**
-	Create string by repeating a substring N times. Like perl's $string x $number operator
+	Create string by repeating a substring N times. Like perl's $string x $number operator.
 	@see {@link http://tinyurl.com/65u7r2p Perl x operator documentation}
 
 	@param  {String} token some sub-string to repeat over and over.
 	@param  {Number} repeat the number of times to repeat the string.
-	@return {String} the sub-string repeated N times.
+	@return {String} the sub-string repeated N times. undefined, null and
+	some other values are repeated as an empty string. see {@link module:perljs._stringify}()
 */
-module.exports.x = function (token, repeat)
+perljs.x = function (token, repeat)
 {
 	var idx, string = '';
-	token = module.exports._stringify(token);
+	token = perljs._stringify(token);
 	if (isNaN(repeat))
 	{
-		module.exports._console.warn('Argument '
-			+ module.exports.qq(repeat) +
+		perljs._console.warn('Argument '
+			+ perljs.qq(repeat) +
 			' isn\'t numeric in repeat .x()');
 	}
 	repeat = parseInt(repeat);
@@ -323,7 +344,7 @@ module.exports.x = function (token, repeat)
 	return string;
 };
 
-// string.prototype.x ...
+// @todo string.prototype.x ...
 
 </code></pre>
         </article>
@@ -341,7 +362,7 @@ module.exports.x = function (token, repeat)
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Sep 14 2014 16:54:47 GMT+0100 (GMT Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Sep 14 2014 20:19:44 GMT+0100 (GMT Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>
