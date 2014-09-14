@@ -41,7 +41,20 @@
 var chai = require('chai'),
 	should = chai.should(),
 	expect = chai.expect,
-	perl = require('../lib/perl');
+	perl = require('../lib/perl'),
+	oLogger = {
+		'logged': '',
+		'check': function () {
+			// checking what was logged clears it.
+			var log = oLogger.logged;
+			oLogger.logged = '';
+			return log;
+		},
+		'warn': function () {
+			oLogger.logged += Array.prototype.slice.call(arguments).join('\n');
+		}
+	};
+
 /*	q = perl.q,
 	qq = perl.qq,
 	qw = perl.qw,
@@ -110,6 +123,43 @@ describe('#perl helpers', function () {
 			perl._value(regex).should.equal(regex);
 		});
 	});
+	describe('._stringify()', function() {
+		it('handles undefined as empty string', function() {
+			perl._stringify().should.equal('');
+		});
+		it('handles null as empty string', function() {
+			perl._stringify(null).should.equal('');
+		});
+		it('handles true as true', function() {
+			perl._stringify(true).should.equal('true');
+		});
+		it('handles false as false', function() {
+			perl._stringify(true).should.equal('true');
+		});
+		it('handles numbers', function() {
+			perl._stringify(12.345).should.equal('12.345');
+		});
+		it('handles NaN as empty string', function() {
+			perl._stringify(NaN).should.equal('');
+		});
+		it('handles Infinity as empty string', function() {
+			perl._stringify(Infinity).should.equal('');
+		});
+		it('handles -Infinity as empty string', function() {
+			perl._stringify(-Infinity).should.equal('');
+		});
+		it('handles an array by returning the array', function() {
+			var anArray = [1, 2, 3];
+			perl._stringify(anArray).should.equal(anArray);
+		});
+		it('handles an object by returning the object', function() {
+			var anObject = { '1': 2, '3': 4 };
+			perl._stringify(anObject).should.equal(anObject);
+		});
+		it('handles a function by calling it and stringifying the result', function() {
+			perl._stringify(function () { return null; }).should.equal('');
+		});
+	});
 });
 
 describe('#perl', function () {
@@ -120,12 +170,49 @@ describe('#perl', function () {
 		it('single quotes a string but doesn\'t enquote single quotes', function() {
 			perl.q('quote \'me\' baby').should.equal('\'quote \'me\' baby\'');
 		});
-		// Not perl q// behaviour
-		it('quotes a string with any string', function() {
-			perl.q('quote me baby', '@').should.equal('@quote me baby@');
-		});
-		it('quotes a string with any pair of strings', function() {
-			perl.q('quote me baby', '&lt;', '>').should.equal('&lt;quote me baby>');
+		describe('non-perl q// operator behaviour', function () {
+			it('quotes a string with any string', function() {
+				perl.q('quote me baby', '@').should.equal('@quote me baby@');
+			});
+			it('quotes a string with any pair of strings', function() {
+				perl.q('quote me baby', '&lt;', '>').should.equal('&lt;quote me baby>');
+			});
+			it('single quotes undefined as empty string', function() {
+				perl.q().should.equal('\'\'');
+			});
+			it('single quotes null as empty string', function() {
+				perl.q(null).should.equal('\'\'');
+			});
+			it('single quotes true as \'true\'', function() {
+				perl.q(true).should.equal('\'true\'');
+			});
+			it('single quotes false as \'false\'', function() {
+				perl.q(true).should.equal('\'true\'');
+			});
+			it('single quotes numbers', function() {
+				perl.q(12.345).should.equal('\'12.345\'');
+			});
+			it('single quotes NaN as empty string', function() {
+				perl.q(NaN).should.equal('\'\'');
+			});
+			it('single quotes Infinity as empty string', function() {
+				perl.q(Infinity).should.equal('\'\'');
+			});
+			it('single quotes -Infinity as empty string', function() {
+				perl.q(-Infinity).should.equal('\'\'');
+			});
+			it('a.k.a qA() single quotes an Array by quoting all the elements of the array', function() {
+				var fn = function () { return null; }, aArray = [1, 2, fn];
+				perl.q(aArray).should.deep.equal(['\'1\'', '\'2\'', '\'\'']);
+				// ensure original array not modified
+				aArray.should.deep.equal([1, 2, fn]);
+			});
+			it('a.k.a qO() single quotes an Object by quoting all the values of the object', function() {
+				var oObject = {'1': 2, '3': 4};
+				perl.q(oObject).should.deep.equal({'1': '\'2\'', '3': '\'4\''});
+				// ensure original object not modified
+				oObject.should.deep.equal({'1': 2, '3': 4});
+			});
 		});
 	});
 
@@ -133,12 +220,13 @@ describe('#perl', function () {
 		it('double quotes a string', function() {
 			perl.qq('quote me baby').should.equal('"quote me baby"');
 		});
-		// Not perl qq// behaviour
-		it('quotes a string with any string', function() {
-			perl.qq('quote me baby', '@').should.equal('@quote me baby@');
-		});
-		it('quotes a string with any pair of strings', function() {
-			perl.qq('quote me baby', '&lt;', '>').should.equal('&lt;quote me baby>');
+		describe('non-perl q// operator behaviour', function () {
+			it('quotes a string with any string', function() {
+				perl.qq('quote me baby', '@').should.equal('@quote me baby@');
+			});
+			it('quotes a string with any pair of strings', function() {
+				perl.qq('quote me baby', '&lt;', '>').should.equal('&lt;quote me baby>');
+			});
 		});
 	});
 
@@ -150,48 +238,75 @@ describe('#perl', function () {
 
 	// Not a direct perl function, but equivalent to
 	// my %Map = qw( key1 value1 key2 value2 );
-	describe('.qwm()', function() {
+	describe('.qwm() equivalent perl %Map = qw{key1 value1 key2 value2}', function() {
 		it('makes object out of string', function() {
 			var oMap = 	perl.qwm('   split   me 	baby\n\nyou know you want to   ');
 			Object.keys(oMap).join('/').should.equal('split/baby/know/want');
 		});
 
 		it('makes object out of string, warning about odd number of elements', function() {
-			var konsole = perl._console,
-				logged = '', oMap;
+			var oMap, konsole = perl._console;
 
-			perl._console = {
-				'warn': function () { logged += Array.prototype.slice.call(arguments).join('\n'); }
-			};
+			perl._console = oLogger;
 			oMap = 	perl.qwm('   split   me 	baby\n\nyou know you want   ');
 			Object.keys(oMap).join('/').should.equal('split/baby/know/want');
 			expect(oMap.want).to.equal(void 0);
-			logged.should.be.equal('Odd number of elements in hash assignment from \'   split   me \tbaby\n\nyou know you want   \'');
+			oLogger.check().should.be.equal('Odd number of elements in hash assignment from \'   split   me \tbaby\n\nyou know you want   \'');
 			perl._console = konsole;
 		});
 
-		it('makes object out of string, handling base types boolean, number', function() {
-			var oMap = 	perl.qwm(
-					'   split 42  me 	true baby false\n\n'
-					+ 'you null know undefined you NaN want  -12.3 it null to Infinity be -Infinity empty empty');
+		describe('non-perl q// operator behaviour', function () {
+			it('makes object out of string, handling base types boolean, number', function() {
+				var oMap = 	perl.qwm(
+						'   split 42  me 	true baby false\n\n'
+						+ 'you null know undefined you NaN want  -12.3 it null to Infinity be -Infinity empty empty');
 
-			Object.keys(oMap).join('/').should.equal('split/me/baby/you/know/want/it/to/be/empty');
-			oMap.split.should.be.equal(42);
-			oMap.me.should.be.equal(true);
-			oMap.baby.should.be.equal(false);
-			oMap.you.should.deep.equal(NaN);
-			expect(oMap.know).to.equal(undefined);
-			oMap.want.should.be.equal(-12.3);
-			expect(oMap.it).to.equal(null);
-			oMap.to.should.be.equal(Infinity);
-			oMap.be.should.be.equal(-Infinity);
-			oMap.empty.should.be.equal('');
+				Object.keys(oMap).join('/').should.equal('split/me/baby/you/know/want/it/to/be/empty');
+				oMap.split.should.be.equal(42);
+				oMap.me.should.be.equal(true);
+				oMap.baby.should.be.equal(false);
+				oMap.you.should.deep.equal(NaN);
+				expect(oMap.know).to.equal(undefined);
+				oMap.want.should.be.equal(-12.3);
+				expect(oMap.it).to.equal(null);
+				oMap.to.should.be.equal(Infinity);
+				oMap.be.should.be.equal(-Infinity);
+				oMap.empty.should.be.equal('');
+			});
 		});
 	});
 
 	describe('.x()', function() {
 		it('repeats itself N times', function() {
 			perl.x('repeat after me', 4).should.equal('repeat after merepeat after merepeat after merepeat after me');
+		});
+		it('repeats itself \'N\' times', function() {
+			perl.x('repeat after me', '4').should.equal('repeat after merepeat after merepeat after merepeat after me');
+		});
+		it('repeat isn\'t fully numeric but will repeat partially', function() {
+			var konsole = perl._console;
+
+			perl._console = oLogger;
+			perl.x('repeat after me', '4.2c').should.equal('repeat after merepeat after merepeat after merepeat after me');
+			oLogger.check().should.be.equal('Argument "4.2c" isn\'t numeric in repeat .x()');
+			perl._console = konsole;
+		});
+		describe('non-perl x operator behaviour', function () {
+			it('handles undefined as empty string', function() {
+				perl.x(undefined, 4).should.equal('');
+			});
+			it('handles null as empty string', function() {
+				perl.x(null, 4).should.equal('');
+			});
+			it('handles NaN as empty string', function() {
+				perl.x(NaN, 4).should.equal('');
+			});
+			it('handles Infinity as empty string', function() {
+				perl.x(Infinity, 4).should.equal('');
+			});
+			it('handles -Infinity as empty string', function() {
+				perl.x(-Infinity, 4).should.equal('');
+			});
 		});
 	});
 
@@ -212,7 +327,7 @@ describe('#perl', function () {
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Sep 14 2014 11:12:40 GMT+0100 (GMT Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Sep 14 2014 16:54:47 GMT+0100 (GMT Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>
