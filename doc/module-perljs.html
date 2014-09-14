@@ -222,7 +222,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line48">line 48</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line30">line 30</a>
     </li></ul></dd>
     
 
@@ -298,7 +298,238 @@ console.log(qq('what'));
             
 
             <td class="description last">Map of strings to values for Perlish automatic type detection.
-	Used by qw(), _value() exposure means you can customise as you like.</td>
+	Used by qw(), _value() exposure means you can customise as you like.
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>null</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">null</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">'null' becomes a null</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>undefined</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">undefined</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">'undefined' becomes undefined</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>undef</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">undefined</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">'undef' becomes undefined</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>empty</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">'empty' becomes '' empty string</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>true</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">'true' becomes boolean true</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>false</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">'false' becomes boolean false</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NaN</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">'NaN' becomes number NaN</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Infinity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">'Infinity' becomes number Infinity</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>"-Infinity"</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">'-Infinity' becomes number -Infinity</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+            </td>
         </tr>
 
     
@@ -326,7 +557,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line31">line 31</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line46">line 46</a>
     </li></ul></dd>
     
 
@@ -442,7 +673,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line104">line 104</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line67">line 67</a>
     </li></ul></dd>
     
 
@@ -469,7 +700,7 @@ console.log(qq('what'));
     
             
 <div class="param-desc">
-    a boolean, number, undefined, null, Nan, +/-Infinity
+    a boolean, number, undefined, null, Nan, +/-Infinity, empty string
 </div>
 
 
@@ -629,7 +860,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line63">line 63</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line94">line 94</a>
     </li></ul></dd>
     
 
@@ -639,7 +870,7 @@ console.log(qq('what'));
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a href="http://tinyurl.com/qxpg7xg">Perl q// operator</a></li>
+            <li><a href="http://tinyurl.com/qxpg7xg">Perl q// operator documentation</a></li>
         </ul>
     </dd>
     
@@ -786,7 +1017,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line80">line 80</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line111">line 111</a>
     </li></ul></dd>
     
 
@@ -796,7 +1027,7 @@ console.log(qq('what'));
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a href="http://tinyurl.com/qxpg7xg">Perl q// operator</a></li>
+            <li><a href="http://tinyurl.com/qxpg7xg">Perl qq// operator documentation</a></li>
         </ul>
     </dd>
     
@@ -943,12 +1174,19 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line91">line 91</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line123">line 123</a>
     </li></ul></dd>
     
 
     
 
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://tinyurl.com/qxpg7xg">Perl qw// operator documentation</a></li>
+        </ul>
+    </dd>
     
 
     
@@ -1005,6 +1243,8 @@ console.log(qq('what'));
     <div class="description">
         Create an Object (key-value map) from a space separated list of items.
 	Like perl my %Map = qw(key1 value1 key2 value2);
+	Some words have special meaning and will be converted into Javascript values
+	as dictated by the <a href="module-perljs.html#_valueMap">module:perljs._valueMap</a>.
     </div>
     
 
@@ -1085,7 +1325,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line129">line 129</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line151">line 151</a>
     </li></ul></dd>
     
 
@@ -1140,6 +1380,20 @@ console.log(qq('what'));
 </dl>
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.qwm('width 42 height 13 title empty radius Infinity');
+
+{
+	width: 42,
+	height: 13,
+	title: '',
+	radius: Infinity
+}
+
+</code></pre>
 
     
 </dd>
@@ -1259,12 +1513,19 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line162">line 162</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line185">line 185</a>
     </li></ul></dd>
     
 
     
 
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://tinyurl.com/65u7r2p">Perl x operator documentation</a></li>
+        </ul>
+    </dd>
     
 
     
@@ -1339,7 +1600,7 @@ console.log(qq('what'));
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Sep 14 2014 09:30:22 GMT+0100 (GMT Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Sep 14 2014 11:12:40 GMT+0100 (GMT Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>
