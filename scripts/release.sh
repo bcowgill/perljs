@@ -54,3 +54,4 @@ sleep 3
 echo checking npm site
 curl.exe https://www.npmjs.org/package/perljs | grep Version --after-context=5
 
+npm install -g perljs
