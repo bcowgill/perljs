@@ -8,6 +8,7 @@ if [ "${REL_VER:-}" == "" ]; then
 	echo Please supply a release version number i.e. 0.2.1
 	exit 1
 fi
+
 if grep "* $REL_VER" README.md ; then
 	echo ok README.md release note present
 else
@@ -31,8 +32,25 @@ if git status ; then
 	echo ok git status fine
 else
 	echo you have uncommitted changes, will not release
+	exit 1
 fi
 
-exit 1
-#git tag $REL_VER
-#git push origin master --tags
+if git tag "$REL_VER" ; then
+	echo ok tagged for release as $REL_VER
+else
+	echo already tagged for release -- has it been?
+	exit 1
+fi
+
+git push origin master --tags
+
+# install module globally
+npm ls -g | grep perljs
+npm install . -g
+npm ls -g | grep perljs
+
+npm publish
+sleep 3
+echo checking npm site
+curl.exe https://www.npmjs.org/package/perljs | grep Version --after-context=5
+

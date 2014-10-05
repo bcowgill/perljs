@@ -15,8 +15,13 @@ perl -i.bak -pne 's{(\@version \s+)([\.0-9]+)}{$1$ENV{REL_VER}}xmsg; \
 
 perl -i.bak -pne 's{("version": \s+ ")([\.0-9]+)(",)}{$1$ENV{REL_VER}$3}xmsg' package.json
 
-if [ grep "* $REL_VER" README.md ]; then
+if grep "\* $REL_VER" README.md ; then
 	echo ok
 else
 	echo README.md does not contain a release note
 fi
+
+cp lib/perl.js index.js
+
+npm pack && tar tvzf perljs-*.tgz
+rm perljs-*.tgz
