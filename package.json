@@ -1,6 +1,6 @@
 {
   "name": "perljs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
   "main": "perl.js",
   "scripts": {
