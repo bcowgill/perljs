@@ -26,6 +26,10 @@ print "equivalent qwm() odd elements\n";
 my %MapOdd = qw(one two three);
 print Dumper(\%MapOdd);
 
+print "equivalent qwm() duplicate keys - no warning\n";
+my %MapDups = qw(one two three four one more);
+print Dumper(\%MapDups);
+
 print "undef x repeat\n";
 print "undef?\n" . ($var x 12) . "\n";
 

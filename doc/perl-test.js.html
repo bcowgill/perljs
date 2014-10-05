@@ -276,6 +276,103 @@ describe('#perl', function () {
 		});
 	});
 
+	// Not a direct perl function, but an idiom of creating a map from an array
+	describe('.mapFromArray()', function() {
+		it('makes an Object out of an Array', function () {
+			var aArray = perl.qw('key1 value1 key2 value2');
+			perl.mapFromArray(aArray).should.deep.equal({ key1: 'value1', key2: 'value2' });
+		});
+		it('makes an Object out of an Array, warning about odd elements', function () {
+			var aArray, konsole = perl._console;
+
+			perl._console = oLogger;
+			aArray = perl.qw('key1 value1 key2 value2 key1');
+			perl.mapFromArray(aArray).should.deep.equal({ key1: void 0, key2: 'value2' });
+			oLogger.check().should.be.equal('Odd number of elements in hash assignment from [key1, value1, key2, value2, key1]');
+			perl._console = konsole;
+		});
+		it('makes an Object out of an Array of strange things', function () {
+			var aArray = ['key1', ['value1'], true, 'value2'];
+			perl.mapFromArray(aArray).should.deep.equal({ key1: ['value1'], 'true': 'value2' });
+		});
+	});
+
+	// Not a direct perl function, but an idiom of creating a map with all keys from an array
+	describe('.makeMap()', function() {
+		it('makes a map Object out of an Array (default true)', function () {
+			var aArray = perl.qw('key1 value1 key2 value2');
+			perl.makeMap(aArray)
+				.should.deep.equal({ key1: true, value1: true, key2: true, value2: true });
+		});
+		it('makes a map Object out of an Array with a specific value (undefined -> true)', function () {
+			var aArray = perl.qw('key1 value1 key2 value2');
+			perl.makeMap(aArray, void 0)
+				.should.deep.equal({ key1: true, value1: true, key2: true, value2: true });
+		});
+		it('makes a map Object out of an Array with a specific value (false)', function () {
+			var aArray = perl.qw('key1 value1 key2 value2');
+			perl.makeMap(aArray, false)
+				.should.deep.equal({ key1: false, value1: false, key2: false, value2: false });
+		});
+		it('makes a map Object out of an Array with a specific value (0)', function () {
+			var aArray = perl.qw('key1 value1 key2 value2');
+			perl.makeMap(aArray, 0)
+				.should.deep.equal({ key1: 0, value1: 0, key2: 0, value2: 0 });
+		});
+		it('makes a map Object out of an Array with a specific value (null)', function () {
+			var aArray = perl.qw('key1 value1 key2 value2');
+			perl.makeMap(aArray, null)
+				.should.deep.equal({ key1: null, value1: null, key2: null, value2: null });
+		});
+		it('makes a map Object out of an Array with a valuation function', function () {
+			var aArray = perl.qw('key1 value1 key2 value2');
+			perl.makeMap(aArray, function (value) { return String(value).substring(0, 1); })
+				.should.deep.equal({ key1: 'k', value1: 'v', key2: 'k', value2: 'v' });
+		});
+		it('makes a map Object out of an Array with a function to actually set undefined', function () {
+			var aArray = perl.qw('key1 value1 key2 value2');
+			perl.makeMap(aArray, function () {return void 0;})
+				.should.deep.equal({ key1: void 0, value1: void 0, key2: void 0, value2: void 0 });
+		});
+		it('makes a map Object out of an Array of strange things', function () {
+			var aArray = ['key1', ['value1'], true, 'value2'];
+			perl.makeMap(aArray)
+				.should.deep.equal({ key1: true, 'value1': true, 'true': true, 'value2': true });
+		});
+	});
+
+	// Not a direct perl function, but an idiom of reversing a key/value map to value/key
+	// like perl %ReverseMap = map { ($Map{$ARG}, $ARG) } keys(%Map)
+	describe('.reverseMap()', function() {
+		it('reverses the key/values of an object so the values look up the keys', function () {
+			var oMap = perl.qwm('key1 value1 key2 value2');
+			perl.reverseMap(oMap)
+				.should.deep.equal({ value1: 'key1', value2: 'key2' });
+		});
+		it('reverse the key/values but values not unique', function () {
+			var oMap = perl.qwm('key1 value1 key2 value2 key3 value1');
+			perl.reverseMap(oMap)
+				.should.deep.equal({ value1: 'key3', value2: 'key2' });
+		});
+		it('reverse the key/values with a hashing function', function () {
+			/* jshint plusplus: false */
+			var idx = 0, oMap = perl.qwm('key1 value1 key2 value2 key3 value1');
+			perl.reverseMap(oMap, function (key) { return key + idx++;})
+				.should.deep.equal({ value10: 'key1', value21: 'key2', value12: 'key3' });
+		});
+		it('reverse the key/values with a hashing function which checks existence', function () {
+			/* jshint plusplus: false */
+			var idx = 0, oMap = perl.qwm('key1 value1 key2 value2 key3 value1');
+			perl.reverseMap(oMap, function (key, oRevMap) { return (key in oRevMap) ? key + idx++ : key; })
+				.should.deep.equal({ value1: 'key1', value2: 'key2', value10: 'key3' });
+		});
+		it('reverse the key/values where values are not just strings', function () {
+			var oMap = {'key1': ['value1'], 'true': 'value2'};
+			perl.reverseMap(oMap)
+				.should.deep.equal({ value1: 'key1', value2: true });
+		});
+	});
+
 	describe('.x()', function() {
 		it('repeats itself N times', function() {
 			perl.x('repeat after me', 4).should.equal('repeat after merepeat after merepeat after merepeat after me');
@@ -327,7 +424,7 @@ describe('#perl', function () {
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Sep 14 2014 20:19:44 GMT+0100 (GMT Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Oct 05 2014 09:11:26 GMT+0100 (GMT Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

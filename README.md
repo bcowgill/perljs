@@ -38,6 +38,17 @@ Perl for Javascript. Just some functions that a perl developer misses in Javascr
 	qw('this is it') => ['this', 'is', 'it']
 
 	x('=', 76) => 76 equal signs in a row
+
+	// my %Map = qw( key1 value1 key2 value2 );
+	qwm('key1 value1 key2 value2') => { 'key1': 'value1', 'key2': 'value2' }
+
+	mapFromArray() - does the same for an array instead of a string.
+
+	// my %Map = map { ( $ARG, 1 ) } @Array;
+	makeMap(['key1', 'key2']); => { 'key1': true, 'key2': true }
+
+	// my %ReverseMap = map { ($Map{$ARG}, $ARG) } keys(%Map)
+	reverseMap({ 'inch': 1, 'foot': 12 }) => { '1': 'inch', '12': 'foot' }
 ```
 
 ## Contributing

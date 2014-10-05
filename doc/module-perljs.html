@@ -103,6 +103,17 @@
             <li>build replaces version number from package.json</li>
         
             <li>build copies lib/perl.js to index.js with copyright banner</li>
+        
+            <li>vivify(window, 'path.to.key', value) window.path.to.key = value</li>
+        
+            <li>vivify('path.to.key', value) global.path.to.key = value</li>
+        
+            <li>unless(function () {}) = returns a function which returns negation
+	 of the return of the function</li>
+        
+            <li>unless(condition, fn) - executes the function if !condition</li>
+        
+            <li>array(item) like @{} make the thing you have an array.</li>
         </ul>
     </dd>
     
@@ -222,7 +233,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line34">line 34</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line40">line 40</a>
     </li></ul></dd>
     
 
@@ -298,7 +309,8 @@ console.log(qq('what'));
             
 
             <td class="description last">Map of strings to values for Perlish automatic type detection.
-	Used by qw(), _value() exposure means you can customise as you like.
+	Used by <a href="module-perljs.html#qw">module:perljs.qw</a>(), <a href="module-perljs.html#_value">module:perljs._value</a>()
+	exposure means you can customise as you like.
                 <h6>Properties</h6>
 
 <table class="props">
@@ -557,7 +569,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line50">line 50</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line57">line 57</a>
     </li></ul></dd>
     
 
@@ -674,7 +686,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line96">line 96</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line103">line 103</a>
     </li></ul></dd>
     
 
@@ -816,7 +828,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line72">line 72</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line79">line 79</a>
     </li></ul></dd>
     
 
@@ -862,6 +874,341 @@ console.log(qq('what'));
 </dl>
 
         
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="makeMap"><span class="type-signature">(static) </span>makeMap<span class="signature">(aArray, defaultValue)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Create a new Object from an Array so you can check whether an item is
+	in the array. Like perl %Map = map { ($ARG, 1) } @Array;
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>aArray</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the array to make a map Object from.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>defaultValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Mixed</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the default value to associate with each
+	array item. Defaults to true. If a function passed in, it will be
+	called on each array value to determine what to use. To associate
+	undefined you would actually have to use a function which returns
+	undefined.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line435">line 435</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the object created with keys/values from the array.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.makeMap(['width', 'height', 'title', 'radius');
+
+{
+	width: true,
+	height: true,
+	title: true,
+	radius: true
+}</code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="mapFromArray"><span class="type-signature">(static) </span>mapFromArray<span class="signature">(aArray)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Create a new Object from an Array like perl %Map = @Array would.
+	Even element indices (0, 2, ...) are used as keys, odd element indices
+	are used as values.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>aArray</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the array to make an Object from.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line353">line 353</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the object created with keys/values from the array.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.mapFromArray( [ 'inch', 1, 'foot', 12, 'yard', 36 ] );
+
+{
+	'inch': 1,
+	'foot': 12,
+	'yard': 36
+}</code></pre>
 
     
 </dd>
@@ -958,7 +1305,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line291">line 291</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line333">line 333</a>
     </li></ul></dd>
     
 
@@ -1147,7 +1494,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line127">line 127</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line134">line 134</a>
     </li></ul></dd>
     
 
@@ -1344,7 +1691,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line182">line 182</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line196">line 196</a>
     </li></ul></dd>
     
 
@@ -1389,6 +1736,13 @@ console.log(qq('what'));
 </dl>
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.qA( [ 'inch', 'foot', 'yard' ] );
+
+[ '\'inch\'', '\'foot\'', '\'yard\'' ]</code></pre>
 
     
 </dd>
@@ -1533,7 +1887,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line216">line 216</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line248">line 248</a>
     </li></ul></dd>
     
 
@@ -1578,6 +1932,17 @@ console.log(qq('what'));
 </dl>
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.qO( { 'inch': 1, 'foot': 12, 'yard': 36 } );
+
+{
+	'inch': '\'1\'',
+	'foot': '\'12\',
+	'yard': '\'36\'
+}</code></pre>
 
     
 </dd>
@@ -1721,7 +2086,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line155">line 155</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line162">line 162</a>
     </li></ul></dd>
     
 
@@ -1925,7 +2290,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line201">line 201</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line222">line 222</a>
     </li></ul></dd>
     
 
@@ -1970,6 +2335,13 @@ console.log(qq('what'));
 </dl>
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.qqA( [ 'inch', 'foot', 'yard' ] );
+
+[ '"inch"', '"foot"', '"yard"' ]</code></pre>
 
     
 </dd>
@@ -2114,7 +2486,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line235">line 235</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line278">line 278</a>
     </li></ul></dd>
     
 
@@ -2159,6 +2531,17 @@ console.log(qq('what'));
 </dl>
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.qqO( { 'inch': 1, 'foot': 12, 'yard': 36 } );
+
+{
+	'inch': '"1"',
+	'foot': '"12"',
+	'yard': '"36"'
+}</code></pre>
 
     
 </dd>
@@ -2255,7 +2638,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line167">line 167</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line174">line 174</a>
     </li></ul></dd>
     
 
@@ -2406,7 +2789,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line262">line 262</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line304">line 304</a>
     </li></ul></dd>
     
 
@@ -2414,13 +2797,6 @@ console.log(qq('what'));
 
     
 
-    
-    <dt class="tag-todo">To Do:</dt>
-    <dd class="tag-todo">
-        <ul>
-            <li>refactor into mapFromArray to just convert an array into a map</li>
-        </ul>
-    </dd>
     
 </dl>
 
@@ -2473,6 +2849,193 @@ console.log(qq('what'));
 }
 
 </code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="reverseMap"><span class="type-signature">(static) </span>reverseMap<span class="signature">(oMap, fn)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Create a new Object from an existing Object by reversing the key/values.
+	Like perl %ReverseMap = map { ($Map{$ARG}, $ARG) } keys(%Map) would.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>oMap</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the map object to reverse.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a function to hash the values so they are unique
+	if necessary.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line401">line 401</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+    <dt class="tag-todo">To Do:</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>duplicate keys turn the value into an array</li>
+        </ul>
+    </dd>
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the reverse map object whose keys are values from
+	the original object and whose values are the keys. Note, keys in the
+	original object which could be native values are converted using
+	<a href="module-perljs.html#_value">module:perljs._value</a>() function.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.reverseMap( { 'inch': 1, 'foot': 12, 'yard': 36 } );
+
+{
+	'1': 'inch',
+	'12': 'foot',
+	'36': 'yard'
+}</code></pre>
 
     
 </dd>
@@ -2592,7 +3155,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line302">line 302</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line460">line 460</a>
     </li></ul></dd>
     
 
@@ -2703,7 +3266,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line29">line 29</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -2820,7 +3383,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line34">line 34</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line40">line 40</a>
     </li></ul></dd>
     
 
@@ -2896,7 +3459,8 @@ console.log(qq('what'));
             
 
             <td class="description last">Map of strings to values for Perlish automatic type detection.
-	Used by qw(), _value() exposure means you can customise as you like.
+	Used by <a href="module-perljs.html#qw">module:perljs.qw</a>(), <a href="module-perljs.html#_value">module:perljs._value</a>()
+	exposure means you can customise as you like.
                 <h6>Properties</h6>
 
 <table class="props">
@@ -3155,7 +3719,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line50">line 50</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line57">line 57</a>
     </li></ul></dd>
     
 
@@ -3272,7 +3836,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line96">line 96</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line103">line 103</a>
     </li></ul></dd>
     
 
@@ -3414,7 +3978,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line72">line 72</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line79">line 79</a>
     </li></ul></dd>
     
 
@@ -3460,6 +4024,341 @@ console.log(qq('what'));
 </dl>
 
         
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="makeMap"><span class="type-signature">(static) </span>makeMap<span class="signature">(aArray, defaultValue)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Create a new Object from an Array so you can check whether an item is
+	in the array. Like perl %Map = map { ($ARG, 1) } @Array;
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>aArray</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the array to make a map Object from.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>defaultValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Mixed</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the default value to associate with each
+	array item. Defaults to true. If a function passed in, it will be
+	called on each array value to determine what to use. To associate
+	undefined you would actually have to use a function which returns
+	undefined.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line435">line 435</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the object created with keys/values from the array.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.makeMap(['width', 'height', 'title', 'radius');
+
+{
+	width: true,
+	height: true,
+	title: true,
+	radius: true
+}</code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="mapFromArray"><span class="type-signature">(static) </span>mapFromArray<span class="signature">(aArray)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Create a new Object from an Array like perl %Map = @Array would.
+	Even element indices (0, 2, ...) are used as keys, odd element indices
+	are used as values.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>aArray</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the array to make an Object from.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line353">line 353</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the object created with keys/values from the array.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.mapFromArray( [ 'inch', 1, 'foot', 12, 'yard', 36 ] );
+
+{
+	'inch': 1,
+	'foot': 12,
+	'yard': 36
+}</code></pre>
 
     
 </dd>
@@ -3556,7 +4455,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line291">line 291</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line333">line 333</a>
     </li></ul></dd>
     
 
@@ -3745,7 +4644,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line127">line 127</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line134">line 134</a>
     </li></ul></dd>
     
 
@@ -3942,7 +4841,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line182">line 182</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line196">line 196</a>
     </li></ul></dd>
     
 
@@ -3987,6 +4886,13 @@ console.log(qq('what'));
 </dl>
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.qA( [ 'inch', 'foot', 'yard' ] );
+
+[ '\'inch\'', '\'foot\'', '\'yard\'' ]</code></pre>
 
     
 </dd>
@@ -4131,7 +5037,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line216">line 216</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line248">line 248</a>
     </li></ul></dd>
     
 
@@ -4176,6 +5082,17 @@ console.log(qq('what'));
 </dl>
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.qO( { 'inch': 1, 'foot': 12, 'yard': 36 } );
+
+{
+	'inch': '\'1\'',
+	'foot': '\'12\',
+	'yard': '\'36\'
+}</code></pre>
 
     
 </dd>
@@ -4319,7 +5236,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line155">line 155</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line162">line 162</a>
     </li></ul></dd>
     
 
@@ -4523,7 +5440,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line201">line 201</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line222">line 222</a>
     </li></ul></dd>
     
 
@@ -4568,6 +5485,13 @@ console.log(qq('what'));
 </dl>
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.qqA( [ 'inch', 'foot', 'yard' ] );
+
+[ '"inch"', '"foot"', '"yard"' ]</code></pre>
 
     
 </dd>
@@ -4712,7 +5636,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line235">line 235</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line278">line 278</a>
     </li></ul></dd>
     
 
@@ -4757,6 +5681,17 @@ console.log(qq('what'));
 </dl>
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.qqO( { 'inch': 1, 'foot': 12, 'yard': 36 } );
+
+{
+	'inch': '"1"',
+	'foot': '"12"',
+	'yard': '"36"'
+}</code></pre>
 
     
 </dd>
@@ -4853,7 +5788,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line167">line 167</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line174">line 174</a>
     </li></ul></dd>
     
 
@@ -5004,7 +5939,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line262">line 262</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line304">line 304</a>
     </li></ul></dd>
     
 
@@ -5012,13 +5947,6 @@ console.log(qq('what'));
 
     
 
-    
-    <dt class="tag-todo">To Do:</dt>
-    <dd class="tag-todo">
-        <ul>
-            <li>refactor into mapFromArray to just convert an array into a map</li>
-        </ul>
-    </dd>
     
 </dl>
 
@@ -5071,6 +5999,193 @@ console.log(qq('what'));
 }
 
 </code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="reverseMap"><span class="type-signature">(static) </span>reverseMap<span class="signature">(oMap, fn)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Create a new Object from an existing Object by reversing the key/values.
+	Like perl %ReverseMap = map { ($Map{$ARG}, $ARG) } keys(%Map) would.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>oMap</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the map object to reverse.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a function to hash the values so they are unique
+	if necessary.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line401">line 401</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+    <dt class="tag-todo">To Do:</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>duplicate keys turn the value into an array</li>
+        </ul>
+    </dd>
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the reverse map object whose keys are values from
+	the original object and whose values are the keys. Note, keys in the
+	original object which could be native values are converted using
+	<a href="module-perljs.html#_value">module:perljs._value</a>() function.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>perl.reverseMap( { 'inch': 1, 'foot': 12, 'yard': 36 } );
+
+{
+	'1': 'inch',
+	'12': 'foot',
+	'36': 'yard'
+}</code></pre>
 
     
 </dd>
@@ -5190,7 +6305,7 @@ console.log(qq('what'));
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line302">line 302</a>
+        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line460">line 460</a>
     </li></ul></dd>
     
 
@@ -5269,7 +6384,7 @@ console.log(qq('what'));
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Sep 14 2014 20:19:44 GMT+0100 (GMT Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Oct 05 2014 09:11:26 GMT+0100 (GMT Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>
