@@ -271,6 +271,7 @@ describe('#perl', function () {
 	});
 
 	// Not a direct perl function, but an idiom of creating a map with all keys from an array
+	// my %Map = map { ( $ARG, 1 ) } @Array;
 	describe('.makeMap()', function() {
 		it('makes a map Object out of an Array (default true)', function () {
 			var aArray = perl.qw('key1 value1 key2 value2');
