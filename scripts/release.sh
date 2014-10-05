@@ -49,6 +49,7 @@ npm ls -g | grep perljs
 npm install . -g
 npm ls -g | grep perljs
 
+# publish it on the npm registry and check it
 npm publish
 sleep 3
 echo checking npm site
