@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/jsdoc-templates/file.jsdoc</title>
+    <title>JSDoc: Source: lib/jsdoc-templates/module.jsdoc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/jsdoc-templates/file.jsdoc</h1>
+    <h1 class="page-title">Source: lib/jsdoc-templates/module.jsdoc</h1>
 
     
 
@@ -27,22 +27,36 @@
         <article>
             <pre class="prettyprint source linenums"><code>/**
 	@file
-	jsdoc example Description of what's in the file. This appears on the index page of the generated documentation. Might be good to include links to the namespaces, modules, classes contained within the file so you have an index.
-
-	@author Brent S.A. Cowgill
-	@version  0.2.2
-	@license {@link http://unlicense.org The Unlicense}
-
-	@example
-
-	Examples for the file
-
-	@see {@link http://usejsdoc.org/index.html jsDoc Documentation}
-	@see contains {@link SomethingGlobal}
-
-	@todo items still to do in the file
+	A jsdoc sample use of javascript modules. Demonstrates modules and creating jsdoc links to specific members within the module.
+	All symbols in the file are assumed to be members of the module unless documented otherwise.
+	@see jsdoc on modules {@link http://usejsdoc.org/tags-module.html}
+	@see contains {@link module:JSDocModule}
 */
-</code></pre>
+
+/**
+	Demonstration of simple jsdoc module definition. If the name of the module is omitted, it is derived from the filename.
+	See jsdoc for more information {@link http://usejsdoc.org/tags-module.html}
+	@module JSDocModule
+*/
+/** simplest documentation of an internal module member */
+var CONST = 42;
+
+/** indicate a private module member so it won't be documented
+	@private
+*/
+var PRIVATE = 42;
+
+/**
+	will be {@link module:JSDocModule~value}
+	@member {number} value - initial value counter
+*/
+var value = 1;
+
+/**
+	will be {@link module:JSDocModule~method}()
+	@method {number} method - does something useful
+*/
+var method = function() {};</code></pre>
         </article>
     </section>
 
