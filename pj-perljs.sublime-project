@@ -3,7 +3,13 @@
 	[
 		{
 			"path": "/D/d/s/github/perljs"
+		},
+		{
+			"path": "lib/jsdoc-examples"
 		}
 	],
-	"settings": { "build_on_save": 1 }
+	"settings":
+	{
+		"build_on_save": 1
+	}
 }
