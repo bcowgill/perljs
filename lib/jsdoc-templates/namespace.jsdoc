@@ -1,0 +1,65 @@
+/**
+	@file
+	A jsdoc sample use of javascript namespaces to define singleton values and functions. Demonstrates namespaces, nested namespaces and creating jsdoc links to specific members within namespaces.
+*/
+
+/**
+	JSDoc namespace.
+	@namespace
+	@see JSDocVirtualNamespace
+*/
+var JSDocNamespace = {
+	/** documented as JSDocNamespace.foo */
+	foo: function() {},
+	/** documented as JSDocNamespace.bar */
+	bar: 1
+};
+
+/**
+	A virtual namespace.
+	@namespace JSDocVirtualNamespace
+	@see JSDocNamespace
+	@see {@link JSDocNamespace.foo}()
+	@see {@link JSDocNamespace.ui.JSDocFunction2}()
+	@see {@link window."!"}()
+*/
+
+// no explicit JS code creates namespace, could be done with extends, or other functions.
+
+/**
+	A function in JSDocVirtualNamespace (JSDocVirtualNamespace.JSDocFunction).
+	@function JSDocFunction
+	@memberof JSDocVirtualNamespace
+*/
+
+/**
+	A nested namespace.
+	@namespace JSDocNamespace.ui
+	@see ui
+*/
+
+/**
+	A function in JSDocNamespace.ui (JSDocNamespace.ui.JSDocFunction2).
+	@function JSDocFunction2
+	@memberof JSDocNamespace.ui
+*/
+
+/**
+	A global namespace like a nested one
+	@namespace ui
+	@see JSDocNamespace.ui
+*/
+/**
+	A function in the UI namespace
+	@function update
+	@memberof ui
+*/
+
+/** @namespace window */
+
+/**
+	Shorthand for the alert function.
+	Demonstrates documenting and linking to symbols with non-standard characters.
+	Refer to it as {@link window."!"} (note the double quotes).
+*/
+window["!"] = function(msg) { alert(msg); };

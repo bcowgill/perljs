@@ -1,0 +1,16 @@
+/**
+	@file
+	jsdoc example Description of what's in the file
+
+	@author Brent S.A. Cowgill
+	@version  0.2.2
+	@license {@link http://unlicense.org The Unlicense}
+
+	@example
+
+	Examples for the file
+
+	@see {@link http://usejsdoc.org/index.html jsDoc Documentation}
+
+	@todo items still to do in the file
+*/
