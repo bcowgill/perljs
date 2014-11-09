@@ -1,0 +1,50 @@
+/*jshint unused: false, maxlen: 200 */
+/*global define */
+/**
+	@file
+	A jsdoc sample of defining multiple modules in a single file using exports.
+	@see jsdoc on exports {@link http://usejsdoc.org/howto-commonjs-modules.html#document-multiple-amd-modules-defined-in-a-single-file}
+
+	@see contains namespace {@link JSDocMultiModules}
+	@see contains module {@link module:JSDocMultiModules/DOM}
+	@see contains module {@link module:JSDocMultiModules/HTMLTag}
+*/
+
+"use strict";
+
+
+/**
+	Virtual namespace for defined multiple modules
+	@namespace JSDocMultiModules */
+
+// one module
+define("JSDocMultiModules/DOM",
+	/**
+		Utility functions to ease working with DOM elements.
+		@exports JSDocMultiModules/DOM
+	*/
+	function() {
+		var exports = {
+			/** Get the value of a property on an element.*/
+			getStyleProperty: function(element, propertyName) { }
+		};
+
+		/** Determine if an element is in the document head.*/
+		exports.isInHead = function(element) { };
+
+		return exports;
+	}
+);
+
+// another module
+define("JSDocMultiModules/HTMLTag",
+	/** @exports JSDocMultiModules/HTMLTag */
+	function() {
+		var exports = {
+			/** @class */
+			Tag: function(tagName) { }
+		};
+
+		return exports;
+	}
+);

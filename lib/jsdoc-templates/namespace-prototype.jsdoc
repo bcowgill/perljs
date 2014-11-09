@@ -6,7 +6,7 @@
 
 	@see contains {@link JSDocNS.util}
 	@see contains class {@link "JSDocNS.util.Point2D"}
-	@see contains {@link JSDocNS.util.Point2D#magnitude}()
+	@see contains {@link "JSDocNS.util.Point2D"#magnitude}()
 	@todo ERROR can't figure out how to create a link to a method in a namespaced prototype class
 */
 
