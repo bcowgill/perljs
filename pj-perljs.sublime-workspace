@@ -24,11 +24,38 @@
 	"buffers":
 	[
 		{
+			"file": "lib/jsdoc-templates/namespace-prototype.jsdoc",
+			"settings":
+			{
+				"buffer_size": 1776,
+				"line_ending": "Windows",
+				"name": "namespace-prototype.jsdoc"
+			}
+		},
+		{
 			"file": "README.md",
 			"settings":
 			{
 				"buffer_size": 1452,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/namespace.jsdoc",
+			"settings":
+			{
+				"buffer_size": 2044,
+				"line_ending": "Windows",
+				"name": "namespace.jsdoc"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/module-class.jsdoc",
+			"settings":
+			{
+				"buffer_size": 1741,
+				"line_ending": "Windows",
+				"name": "module.jsdoc"
 			}
 		},
 		{
@@ -49,11 +76,12 @@
 			}
 		},
 		{
-			"file": "lib/perl.js",
+			"file": "lib/jsdoc-templates/file2.jsdoc",
 			"settings":
 			{
-				"buffer_size": 14083,
-				"line_ending": "Unix"
+				"buffer_size": 519,
+				"line_ending": "Windows",
+				"name": "file.jsdoc"
 			}
 		},
 		{
@@ -81,6 +109,81 @@
 			}
 		},
 		{
+			"file": "index.js",
+			"settings":
+			{
+				"buffer_size": 14126,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/module-exports.jsdoc",
+			"settings":
+			{
+				"buffer_size": 863,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/module-prototype.jsdoc",
+			"settings":
+			{
+				"buffer_size": 1619,
+				"line_ending": "Windows",
+				"name": "module-prototype.jsdoc"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/module-export-object.jsdoc",
+			"settings":
+			{
+				"buffer_size": 783,
+				"line_ending": "Windows",
+				"name": "module-export-object.jsdoc"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/module-amd.jsdoc",
+			"settings":
+			{
+				"buffer_size": 632,
+				"line_ending": "Windows",
+				"name": "module-amd.jsdoc"
+			}
+		},
+		{
+			"file": "Gruntfile.js",
+			"settings":
+			{
+				"buffer_size": 3777,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/file.jsdoc",
+			"settings":
+			{
+				"buffer_size": 522,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/module.jsdoc",
+			"settings":
+			{
+				"buffer_size": 1375,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/cygwin.sh",
+			"settings":
+			{
+				"buffer_size": 467,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "scripts/release.sh",
 			"settings":
 			{
@@ -100,7 +203,7 @@
 			"file": "/D/d/s/github/foundation-test/README.md",
 			"settings":
 			{
-				"buffer_size": 120,
+				"buffer_size": 1156,
 				"line_ending": "Unix"
 			}
 		},
@@ -161,18 +264,34 @@
 			}
 		},
 		{
-			"file": "scripts/cygwin.sh",
-			"settings":
-			{
-				"buffer_size": 354,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": ".npmignore",
 			"settings":
 			{
 				"buffer_size": 127,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".jshintignore",
+			"settings":
+			{
+				"buffer_size": 100,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "jsdoc.conf.json",
+			"settings":
+			{
+				"buffer_size": 239,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/perl.js",
+			"settings":
+			{
+				"buffer_size": 14136,
 				"line_ending": "Unix"
 			}
 		}
@@ -209,6 +328,7 @@
 	},
 	"file_history":
 	[
+		"/D/d/s/github/perljs/lib/perl.js",
 		"/D/d/s/github/perljs/lib/jsdoc.js",
 		"/C/cygwin64/home/me/.bash_history",
 		"/D/d/s/github/jshint-test/lib/header.js",
@@ -345,6 +465,23 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"    ",
+			" \\* ",
+			"    ",
+			"module.exports",
+			"My",
+			"\\{Function",
+			"\\{Object",
+			"\\{Array",
+			"\\{Number",
+			"\\{String",
+			"{String",
+			"{string",
+			"String",
+			"number",
+			"@class",
+			"Doclet",
+			"jsdoc",
 			"reverseMap",
 			"example",
 			"todo",
@@ -455,24 +592,7 @@
 			"node",
 			"rect",
 			"20800731",
-			"FB84C0",
-			"layout",
-			"nodes_d",
-			"layout",
-			"dataflow",
-			"transform",
-			"BSAC",
-			"console.logVar",
-			"logVar",
-			"d3bug.log",
-			"console.",
-			"log",
-			"logVar",
-			"clear",
-			"render",
-			"; g",
-			";",
-			"dagre"
+			"FB84C0"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -480,6 +600,13 @@
 		"regex": true,
 		"replace_history":
 		[
+			"\\t",
+			"JSDoc",
+			"{function",
+			"{object",
+			"{array",
+			"{number",
+			"{string",
 			"makeMap",
 			"map Object",
 			"makeMap",
@@ -537,11 +664,38 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 12,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "lib/jsdoc-templates/namespace-prototype.jsdoc",
+					"settings":
+					{
+						"buffer_size": 1776,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1079,
+								1079
+							]
+						],
+						"settings":
+						{
+							"auto_name": "namespace-prototype.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1155.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
 					"file": "README.md",
 					"settings":
 					{
@@ -568,7 +722,61 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 2,
+					"file": "lib/jsdoc-templates/namespace.jsdoc",
+					"settings":
+					{
+						"buffer_size": 2044,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								801,
+								801
+							]
+						],
+						"settings":
+						{
+							"auto_name": "namespace.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2001.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lib/jsdoc-templates/module-class.jsdoc",
+					"settings":
+					{
+						"buffer_size": 1741,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								412,
+								412
+							]
+						],
+						"settings":
+						{
+							"auto_name": "module.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "publish-node-npm-module-tutorial.txt",
 					"settings":
 					{
@@ -579,8 +787,8 @@
 						"selection":
 						[
 							[
-								3647,
-								3647
+								2119,
+								2119
 							]
 						],
 						"settings":
@@ -591,13 +799,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4799.0,
+						"translation.y": 14159.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 5,
 					"file": ".gitignore",
 					"settings":
 					{
@@ -623,34 +831,34 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "lib/perl.js",
+					"buffer": 6,
+					"file": "lib/jsdoc-templates/file2.jsdoc",
 					"settings":
 					{
-						"buffer_size": 14083,
+						"buffer_size": 519,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14083,
-								14083
+								426,
+								426
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"auto_name": "file.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 13705.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 7,
 					"file": "/D/d/s/blismedia/play/node-postgres/test/using-dbi_test.js",
 					"settings":
 					{
@@ -677,7 +885,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 8,
 					"file": "package.json",
 					"settings":
 					{
@@ -705,7 +913,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 9,
 					"file": "scripts/check-ver.sh",
 					"settings":
 					{
@@ -729,15 +937,257 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "index.js",
+					"settings":
+					{
+						"buffer_size": 14126,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "lib/jsdoc-templates/module-exports.jsdoc",
+					"settings":
+					{
+						"buffer_size": 863,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "lib/jsdoc-templates/module-prototype.jsdoc",
+					"settings":
+					{
+						"buffer_size": 1619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								878,
+								878
+							]
+						],
+						"settings":
+						{
+							"auto_name": "module-prototype.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1240.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "lib/jsdoc-templates/module-export-object.jsdoc",
+					"settings":
+					{
+						"buffer_size": 783,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "module-export-object.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "lib/jsdoc-templates/module-amd.jsdoc",
+					"settings":
+					{
+						"buffer_size": 632,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								628,
+								628
+							]
+						],
+						"settings":
+						{
+							"auto_name": "module-amd.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 641.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "Gruntfile.js",
+					"settings":
+					{
+						"buffer_size": 3777,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1193,
+								1193
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 320.0,
+						"translation.y": 1377.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "lib/jsdoc-templates/file.jsdoc",
+					"settings":
+					{
+						"buffer_size": 522,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								522,
+								522
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 466.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "lib/jsdoc-templates/module.jsdoc",
+					"settings":
+					{
+						"buffer_size": 1375,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1375,
+								1375
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1801.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 7,
+					"buffer": 18,
+					"file": "scripts/cygwin.sh",
+					"settings":
+					{
+						"buffer_size": 467,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								330,
+								330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 259.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 19,
 					"file": "scripts/release.sh",
 					"settings":
 					{
@@ -764,7 +1214,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 20,
 					"file": "/D/d/s/github/foundation-test/LICENSE",
 					"settings":
 					{
@@ -790,11 +1240,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 21,
 					"file": "/D/d/s/github/foundation-test/README.md",
 					"settings":
 					{
-						"buffer_size": 120,
+						"buffer_size": 1156,
 						"regions":
 						{
 						},
@@ -816,7 +1266,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 22,
 					"file": "scripts/pre-release.sh",
 					"settings":
 					{
@@ -842,7 +1292,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 23,
 					"file": "LICENSE",
 					"settings":
 					{
@@ -868,7 +1318,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 24,
 					"file": "test/perl-test.js",
 					"settings":
 					{
@@ -896,7 +1346,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 25,
 					"file": "pj-perljs.sublime-project",
 					"settings":
 					{
@@ -922,7 +1372,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 26,
 					"file": "test/chai-test.js",
 					"settings":
 					{
@@ -950,7 +1400,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 27,
 					"file": "Makefile.txt",
 					"settings":
 					{
@@ -976,7 +1426,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 28,
 					"file": "perl/perl-test.pl",
 					"settings":
 					{
@@ -996,39 +1446,13 @@
 							"syntax": "Packages/Perl/Perl.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 588.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "scripts/cygwin.sh",
-					"settings":
-					{
-						"buffer_size": 354,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 29,
 					"file": ".npmignore",
 					"settings":
 					{
@@ -1049,6 +1473,85 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 30,
+					"file": ".jshintignore",
+					"settings":
+					{
+						"buffer_size": 100,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								73,
+								73
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 31,
+					"file": "jsdoc.conf.json",
+					"settings":
+					{
+						"buffer_size": 239,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								223,
+								223
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 32,
+					"file": "lib/perl.js",
+					"settings":
+					{
+						"buffer_size": 14136,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1506,
+								1506
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 283.0,
+						"translation.y": 1927.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1084,7 +1587,7 @@
 		"cols":
 		[
 			0.0,
-			0.471445929527,
+			0.945191806979,
 			1.0
 		],
 		"rows":
@@ -1096,7 +1599,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 190.0
+		"height": 174.0
 	},
 	"replace":
 	{
