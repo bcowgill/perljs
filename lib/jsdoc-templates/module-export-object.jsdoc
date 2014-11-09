@@ -1,0 +1,30 @@
+/*jshint unused: false */
+/*global define */
+/**
+	@file
+	A jsdoc sample use of javascript modules with exporting of a specific variable.
+	Demonstrates modules and creating jsdoc links to specific
+	members within the module.
+	All symbols in the file are assumed to be members of the
+	module unless documented otherwise.
+	@see jsdoc on modules {@link http://usejsdoc.org/tags-exports.html}
+	@see contains {@link module:JSDocModule/ExportVar}
+*/
+
+"use strict";
+
+define(function () {
+
+    /**
+     * A module that exports a variable other than using exports or module.exports.
+     * @exports JSDocModule/ExportVar
+     */
+    var JSDocExportVar = {};
+
+    /** Say hello. */
+    JSDocExportVar.sayHello = function() {
+        return "Hello world";
+    };
+
+    return JSDocExportVar;
+});

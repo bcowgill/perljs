@@ -1,0 +1,29 @@
+/*global define */
+/**
+	@file
+	A jsdoc sample use of javascript AMD modules with exports.
+	Demonstrates modules and creating jsdoc links to specific
+	members within the module.
+	All symbols in the file are assumed to be members of the
+	module unless documented otherwise.
+	@see jsdoc on exports {@link http://usejsdoc.org/tags-exports.html}
+	@see contains {@link module:JSDocModule/AMD}
+*/
+
+'use strict';
+
+define(function() {
+
+	/**
+		Example of an AMD module that whispers hello!
+		@module JSDocModule/AMD
+	*/
+	var exports = {};
+
+	/** say hello. */
+	exports.sayHello = function() {
+		return 'hello world';
+	};
+
+	return exports;
+});

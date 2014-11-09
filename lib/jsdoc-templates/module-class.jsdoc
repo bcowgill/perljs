@@ -8,7 +8,7 @@
 	module unless documented otherwise.
 	@see jsdoc on modules {@link http://usejsdoc.org/tags-module.html}
 	@see contains {@link module:JSDocModuleClass}
-	@see contains {@link module:JSDocModuleClass.JSDocClass}
+	@see contains class {@link module:JSDocModuleClass.JSDocClass}
 */
 
 "use strict";
@@ -48,7 +48,6 @@ this.JSDocClass = function (title) {
 
 	/** An instance method. {@link module:JSDocModuleClass.JSDocClass#method}()
 		The hash indicates an instance method.
-		@todo ERROR get link to instance method right.
 		@param {number} value - invoke the method with the value.
 		@return {string} value converted to string.
 	*/

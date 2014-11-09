@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/jsdoc-templates/module-exports.jsdoc</title>
+    <title>JSDoc: Source: lib/jsdoc-templates/module-prototype.jsdoc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/jsdoc-templates/module-exports.jsdoc</h1>
+    <h1 class="page-title">Source: lib/jsdoc-templates/module-prototype.jsdoc</h1>
 
     
 
@@ -25,34 +25,55 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/*jshint unused: false */
+            <pre class="prettyprint source linenums"><code>/*global define */
 /**
 	@file
-	A jsdoc sample use of javascript modules with exports.
+	A jsdoc sample use of javascript objects defined with prototype functions.
 	Demonstrates modules and creating jsdoc links to specific
 	members within the module.
 	All symbols in the file are assumed to be members of the
 	module unless documented otherwise.
-	@see jsdoc on modules {@link http://usejsdoc.org/tags-module.html}
-	@see contains {@link module:JSDocModule/Exports}
+	@see jsdoc on exports {@link http://usejsdoc.org/tags-exports.html}
+	@see contains {@link module:JSDocModule/Prototype}
+	@see contains class {@link module:JSDocModule/Prototype.JSDocProto}
 */
 
-"use strict";
+'use strict';
 
-/**
-	Demonstration of simple jsdoc module definition with
-	module.exports (nodejs) or exports (CommonJS). If the name of the module is omitted, it is
-	derived from the filename.
-	See jsdoc for more information {@link http://usejsdoc.org/tags-module.html}
-	@module JSDocModule/Exports
-*/
-module.exports = {
-	/** Blend two colours together. */
-	blend: function (color1, color2) {}
-};
-/** Darkens a color. */
-exports.darken = function (color, shade) {};
-</code></pre>
+define(function() {
+	/**
+		A module that uses a constructor and prototype functions.
+		@module JSDocModule/Prototype
+	*/
+
+	/**
+		A class defined with prototype functions
+		jsdoc will automatically call it
+		(require("JSDocModule/Prototype"))
+		since it doesn't really have a defined name.
+		@see {@link module:JSDocModule/Prototype.'(require("JSDocModule/Prototype"))'}
+		@todo ERROR can't figure out how to create a link to this type of class.
+		@constructor
+		@param {string} subject - The subject to greet.
+	*/
+	var exports = function(subject) {
+		this.subject = subject || 'world';
+	};
+
+	/** Say hello to the subject. */
+	exports.prototype.sayHello = function() {
+		return 'Hello ' + this.subject;
+	};
+
+	/**
+		Another class in module which we can link to.
+		@see {@link module:JSDocModule/Prototype.JSDocProto}
+		@class
+	*/
+	exports.JSDocProto = function () {};
+
+	return exports;
+});</code></pre>
         </article>
     </section>
 

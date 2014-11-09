@@ -80,8 +80,8 @@ window["!"] = function(msg) { alert(msg); };
 
 /**
 	Document namespace for easy DOM access
-	@type {Object}
 	@namespace document
+	@type {Object}
 	@todo ERROR unable to get this working in jsdoc. the type param is ignored.
 */
 

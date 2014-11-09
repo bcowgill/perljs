@@ -14,14 +14,14 @@
 
 /**
 	Demonstration of simple jsdoc module definition with
-	exports. If the name of the module is omitted, it is
+	module.exports (nodejs) or exports (CommonJS). If the name of the module is omitted, it is
 	derived from the filename.
 	See jsdoc for more information {@link http://usejsdoc.org/tags-module.html}
 	@module JSDocModule/Exports
 */
 module.exports = {
-    /** Blend two colours together. */
-    blend: function (color1, color2) {}
+	/** Blend two colours together. */
+	blend: function (color1, color2) {}
 };
 /** Darkens a color. */
 exports.darken = function (color, shade) {};
