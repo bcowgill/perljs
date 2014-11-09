@@ -10,9 +10,9 @@
 	@see jsdoc on alias {@link http://usejsdoc.org/tags-alias.html}
 
 	@see contains namespace {@link JSDocKlass}
-	@see contains class {@link JSDocKlass.CookieManager}
-	@see contains class member {@link JSDocKlass.CookieManager#value}
-	@see contains class method {@link JSDocKlass.CookieManager#encode}()
+	@see contains class {@link JSDocKlass.JSDCookieManager}
+	@see contains class member {@link JSDocKlass.JSDCookieManager#value}
+	@see contains class method {@link JSDocKlass.JSDCookieManager#encode}()
 */
 
 "use strict";
@@ -22,13 +22,13 @@
 	@namespace JSDocKlass
 */
 
-klass("JSDocKlass.CookieManager",
+klass("JSDocKlass.JSDCookieManager",
 
 	/**
 		@class
-		@alias JSDocKlass.CookieManager
+		@alias JSDocKlass.JSDCookieManager
 		@param {Object} kv cookie key value string
-		@return JSDocKlass.CookieManager
+		@return JSDocKlass.JSDCookieManager
 	*/
 	function(kv) {
 		/** The value. */
