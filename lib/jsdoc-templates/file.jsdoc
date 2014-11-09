@@ -1,6 +1,9 @@
 /**
 	@file
-	jsdoc example Description of what's in the file. This appears on the index page of the generated documentation. Might be good to include links to the namespaces, modules, classes contained within the file so you have an index.
+	jsdoc example Description of what's in the file.
+	This appears on the index page of the generated documentation.
+	Might be good to include links to the namespaces, modules,
+	classes contained within the file so you have an index.
 
 	@author Brent S.A. Cowgill
 	@version  0.2.2

@@ -1,13 +1,21 @@
+/*jshint unused: false */
 /**
 	@file
-	A jsdoc sample use of javascript modules. Demonstrates modules and creating jsdoc links to specific members within the module.
-	All symbols in the file are assumed to be members of the module unless documented otherwise.
+	A jsdoc sample use of javascript modules. Demonstrates
+	modules and creating jsdoc links to specific members
+	within the module.
+	All symbols in the file are assumed to be members of the
+	module unless documented otherwise.
 	@see jsdoc on modules {@link http://usejsdoc.org/tags-module.html}
 	@see contains {@link module:JSDocModule}
 */
 
+"use strict";
+
 /**
-	Demonstration of simple jsdoc module definition. If the name of the module is omitted, it is derived from the filename.
+	Demonstration of simple jsdoc module definition. If the
+	name of the module is omitted, it is derived from the
+	filename.
 	See jsdoc for more information {@link http://usejsdoc.org/tags-module.html}
 	@module JSDocModule
 */
@@ -18,6 +26,10 @@ var CONST = 42;
 	@private
 */
 var PRIVATE = 42;
+
+// this just for jshint validthis scoping not a real js module
+(function () {
+	/*jshint validthis: true */
 
 /**
 	@member {number} value - Full documentation of a member with data type.
@@ -36,3 +48,5 @@ this.value = 1;
 	@returns {string} converts value to string.
 */
 this.method = function() {};
+
+})();

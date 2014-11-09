@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 					jshintrc: '.jshintrc-gruntfile',
 					globals: {},
 				},
-				src: ['package.json', 'Gruntfile.js']
+				src: ['package.json', 'Gruntfile.js', 'lib/jsdoc-templates/*.jsdoc']
 			},
 			single: {
 				src: ['package.json'] // set to just check a single file

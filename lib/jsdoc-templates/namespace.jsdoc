@@ -1,6 +1,11 @@
+/*jshint unused: false */
+/*global window, alert */
 /**
 	@file
-	A jsdoc sample use of javascript namespaces to define singleton values and functions. Demonstrates namespaces, nested namespaces and creating jsdoc links to specific members within namespaces.
+	A jsdoc sample use of javascript namespaces to define
+	singleton values and functions. Demonstrates namespaces,
+	nested namespaces and creating jsdoc links to specific
+	members within namespaces.
 	@see jsdoc on namespaces {@link http://usejsdoc.org/tags-namespace.html}
 
 	@see contains {@link JSDocNamespace}
@@ -9,6 +14,8 @@
 	@see contains {@link ui}
 	@see contains {@link window."!"}
 */
+
+"use strict";
 
 /**
 	JSDoc namespace.
