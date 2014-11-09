@@ -18,6 +18,6 @@ echo Check Versions
 echo " "
 echo Create jsdoc documentation
 rm -rf doc
-jsdoc --configure 'jsdoc.conf.json' --destination doc --recurse test/ lib/perl.js lib/jsdoc-templates/ Gruntfile.js README.md
+jsdoc --configure 'jsdoc.conf.json' --destination doc --recurse test/ lib/perl.js Gruntfile.js README.md lib/jsdoc-templates/*.jsdoc
 
 echo Done
