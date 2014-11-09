@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/jsdoc-templates/module.jsdoc</title>
+    <title>JSDoc: Source: lib/jsdoc-templates/module-exports.jsdoc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/jsdoc-templates/module.jsdoc</h1>
+    <h1 class="page-title">Source: lib/jsdoc-templates/module-exports.jsdoc</h1>
 
     
 
@@ -27,42 +27,24 @@
         <article>
             <pre class="prettyprint source linenums"><code>/**
 	@file
-	A jsdoc sample use of javascript modules. Demonstrates modules and creating jsdoc links to specific members within the module.
+	A jsdoc sample use of javascript modules with exports. Demonstrates modules and creating jsdoc links to specific members within the module.
 	All symbols in the file are assumed to be members of the module unless documented otherwise.
 	@see jsdoc on modules {@link http://usejsdoc.org/tags-module.html}
-	@see contains {@link module:JSDocModule}
+	@see contains {@link module:JSDocModule/Exports}
 */
 
 /**
-	Demonstration of simple jsdoc module definition. If the name of the module is omitted, it is derived from the filename.
+	Demonstration of simple jsdoc module definition with exports. If the name of the module is omitted, it is derived from the filename.
 	See jsdoc for more information {@link http://usejsdoc.org/tags-module.html}
-	@module JSDocModule
+	@module JSDocModule/Exports
 */
-/** simplest documentation of an internal module member with no data type. */
-var CONST = 42;
-
-/** indicate a private module member so it won't be documented.
-	@private
-*/
-var PRIVATE = 42;
-
-/**
-	@member {number} value - Full documentation of a member with data type.
-	Will be {@link module:JSDocModule~value}
-	The tilde indicates data members.
-*/
-this.value = 1;
-
-/**
-	A static method that does something useful, returns nothing.
-	Will be {@link module:JSDocModule.method}()
-	The dot indicates static method members.
-
-	@method
-	@param {number} value - the value.
-	@returns {string} converts value to string.
-*/
-this.method = function() {};</code></pre>
+module.exports = {
+    /** Blend two colours together. */
+    blend: function (color1, color2) {}
+};
+/** Darkens a color. */
+exports.darken = function (color, shade) {};
+</code></pre>
         </article>
     </section>
 

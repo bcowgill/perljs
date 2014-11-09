@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: JSDocModule</title>
+    <title>JSDoc: Class: JSDocClass</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: JSDocModule</h1>
+    <h1 class="page-title">Class: JSDocClass</h1>
 
     
 
@@ -27,7 +27,9 @@
 
 <header>
     <h2>
-    JSDocModule
+        <span class="ancestors"><a href="module-JSDocModuleClass.html">JSDocModuleClass</a>.</span>
+    
+    JSDocClass
     </h2>
     
 </header>
@@ -38,11 +40,75 @@
 
     
         
-            <div class="description">Demonstration of simple jsdoc module definition. If the name of the module is omitted, it is derived from the filename.
-	See jsdoc for more information <a href="http://usejsdoc.org/tags-module.html">http://usejsdoc.org/tags-module.html</a></div>
+<dt>
+    <h4 class="name" id="JSDocClass"><span class="type-signature"></span>new JSDocClass<span class="signature">(title)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        A class within a module must be in its own comment block apart from the module comment.
+	It documents the constructor method.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
         
 
         
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>title</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The title of the new object.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
 <dl class="details">
     
 
@@ -65,19 +131,42 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="module.jsdoc.html">lib/jsdoc-templates/module.jsdoc</a>, <a href="module.jsdoc.html#line9">line 9</a>
+        <a href="module-class.jsdoc.html">lib/jsdoc-templates/module-class.jsdoc</a>, <a href="module-class.jsdoc.html#line24">line 24</a>
     </li></ul></dd>
     
 
     
 
     
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>contained in <a href="module-JSDocModuleClass.html">module:JSDocModuleClass</a></li>
+        
+            <li>self reference <a href="module-JSDocModuleClass.JSDocClass.html">module:JSDocModuleClass.JSDocClass</a></li>
+        </ul>
+    </dd>
+    
 
     
 </dl>
 
 
-        
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
     
     </div>
 
@@ -99,14 +188,14 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="CONST"><span class="type-signature">(inner) </span>CONST<span class="type-signature"></span></h4>
+    <h4 class="name" id="counter"><span class="type-signature"></span>counter<span class="type-signature"></span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        simplest documentation of an internal module member with no data type.
+        Simple data member documentation without data type is easy in the constructor.
     </div>
     
 
@@ -135,7 +224,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="module.jsdoc.html">lib/jsdoc-templates/module.jsdoc</a>, <a href="module.jsdoc.html#line15">line 15</a>
+        <a href="module-class.jsdoc.html">lib/jsdoc-templates/module-class.jsdoc</a>, <a href="module-class.jsdoc.html#line26">line 26</a>
     </li></ul></dd>
     
 
@@ -155,16 +244,14 @@
         
             
 <dt>
-    <h4 class="name" id="value"><span class="type-signature">(inner) </span>value<span class="type-signature"> :number</span></h4>
+    <h4 class="name" id="title"><span class="type-signature"></span>title<span class="type-signature"> :string</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        Full documentation of a member with data type.
-	Will be <a href="module-JSDocModule.html#value">module:JSDocModule~value</a>
-	The tilde indicates data members.
+        The title. Full documentation of data members. <a href="module-JSDocModuleClass.JSDocClass.html#title">module:JSDocModuleClass.JSDocClass#title</a> The hash indicates an instance data member.
     </div>
     
 
@@ -173,7 +260,7 @@
         <ul>
             <li>
                 
-<span class="param-type">number</span>
+<span class="param-type">string</span>
 
 
             </li>
@@ -203,7 +290,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="module.jsdoc.html">lib/jsdoc-templates/module.jsdoc</a>, <a href="module.jsdoc.html#line22">line 22</a>
+        <a href="module-class.jsdoc.html">lib/jsdoc-templates/module-class.jsdoc</a>, <a href="module-class.jsdoc.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -229,7 +316,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="method"><span class="type-signature">(static) </span>method<span class="signature">(value)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="method"><span class="type-signature"></span>method<span class="signature">(value)</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
 </dt>
@@ -237,9 +324,8 @@
 
     
     <div class="description">
-        A static method that does something useful, returns nothing.
-	Will be <a href="module-JSDocModule.html#method">module:JSDocModule.method</a>()
-	The dot indicates static method members.
+        An instance method. <a href="module-JSDocModuleClass.JSDocClass.html#method">module:JSDocModuleClass.JSDocClass#method</a>()
+		The hash indicates an instance method.
     </div>
     
 
@@ -289,7 +375,7 @@
 
             
 
-            <td class="description last">the value.</td>
+            <td class="description last">invoke the method with the value.</td>
         </tr>
 
     
@@ -320,7 +406,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="module.jsdoc.html">lib/jsdoc-templates/module.jsdoc</a>, <a href="module.jsdoc.html#line38">line 38</a>
+        <a href="module-class.jsdoc.html">lib/jsdoc-templates/module-class.jsdoc</a>, <a href="module-class.jsdoc.html#line39">line 39</a>
     </li></ul></dd>
     
 
@@ -328,6 +414,13 @@
 
     
 
+    
+    <dt class="tag-todo">To Do:</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>ERROR get link to instance method right.</li>
+        </ul>
+    </dd>
     
 </dl>
 
@@ -347,7 +440,7 @@
     
             
 <div class="param-desc">
-    converts value to string.
+    value converted to string.
 </div>
 
 

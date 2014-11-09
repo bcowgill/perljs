@@ -29,7 +29,7 @@ this.value = 1;
 /**
 	A static method that does something useful, returns nothing.
 	Will be {@link module:JSDocModule.method}()
-	The dot indicates method members.
+	The dot indicates static method members.
 
 	@method
 	@param {number} value - the value.
