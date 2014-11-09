@@ -11,22 +11,28 @@
 	See jsdoc for more information {@link http://usejsdoc.org/tags-module.html}
 	@module JSDocModule
 */
-/** simplest documentation of an internal module member */
+/** simplest documentation of an internal module member with no data type. */
 var CONST = 42;
 
-/** indicate a private module member so it won't be documented
+/** indicate a private module member so it won't be documented.
 	@private
 */
 var PRIVATE = 42;
 
 /**
-	will be {@link module:JSDocModule~value}
-	@member {number} value - initial value counter
+	@member {number} value - Full documentation of a member with data type.
+	Will be {@link module:JSDocModule~value}
+	The tilde indicates data members.
 */
-var value = 1;
+this.value = 1;
 
 /**
-	will be {@link module:JSDocModule~method}()
-	@method {number} method - does something useful
+	A static method that does something useful, returns nothing.
+	Will be {@link module:JSDocModule.method}()
+	The dot indicates method members.
+
+	@method
+	@param {number} value - the value.
+	@returns {string} converts value to string.
 */
-var method = function() {};
+this.method = function() {};
