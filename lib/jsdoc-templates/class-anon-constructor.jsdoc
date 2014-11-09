@@ -1,0 +1,42 @@
+/*global klass */
+/**
+	@file
+	A jsdoc sample use of javascript anonymous functions
+	creating a class.
+	Alias is used to create a long name for the class,
+	but only the short name shows in the index.
+	You create links to the class and members using the
+	long alias though.
+	@see jsdoc on alias {@link http://usejsdoc.org/tags-alias.html}
+
+	@see contains namespace {@link JSDocKlass}
+	@see contains class {@link JSDocKlass.CookieManager}
+	@see contains class member {@link JSDocKlass.CookieManager#value}
+	@see contains class method {@link JSDocKlass.CookieManager#encode}()
+*/
+
+"use strict";
+
+/**
+	Define virtual namespace for top level of class name
+	@namespace JSDocKlass
+*/
+
+klass("JSDocKlass.CookieManager",
+
+	/**
+		@class
+		@alias JSDocKlass.CookieManager
+		@param {Object} kv cookie key value string
+		@return JSDocKlass.CookieManager
+	*/
+	function(kv) {
+		/** The value. */
+		this.value = kv;
+
+		/** An encoding function
+			@return {string} cookie encoded
+		*/
+		this.encode = function () {};
+	}
+);

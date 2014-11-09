@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/jsdoc-templates/module-amd.jsdoc</title>
+    <title>JSDoc: Source: lib/jsdoc-templates/namespace-prototype.jsdoc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/jsdoc-templates/module-amd.jsdoc</h1>
+    <h1 class="page-title">Source: lib/jsdoc-templates/namespace-prototype.jsdoc</h1>
 
     
 
@@ -25,36 +25,63 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/*global define */
+            <pre class="prettyprint source linenums"><code>/* global window */
 /**
 	@file
-	A jsdoc sample use of javascript AMD modules with exports.
-	Demonstrates modules and creating jsdoc links to specific
-	members within the module.
-	All symbols in the file are assumed to be members of the
-	module unless documented otherwise.
-	@see jsdoc on exports {@link http://usejsdoc.org/tags-exports.html}
-	@see contains {@link module:JSDocModule/AMD}
+	A jsdoc sample of a Class defined as a global
+	namespaced constructor function.
+
+	@see contains {@link JSDocNS.util}
+	@see contains class {@link "JSDocNS.util.Point2D"}
+	@see contains {@link JSDocNS.util.Point2D#magnitude}()
+	@todo ERROR can't figure out how to create a link to a method in a namespaced prototype class
 */
 
-'use strict';
+"use strict";
 
-define(function() {
+(function () {
+	/**
+		A top-level namespace to hold a class within it.
+		@namespace JSDocNS
+	*/
+	this.JSDocNS = this.JSDocNS || {};
 
 	/**
-		Example of an AMD module that whispers hello!
-		@module JSDocModule/AMD
+		A sub-level namespace within the top-level JSDocNS
+		@namespace util
+		@memberof JSDocNS
+		@see contains class {@link "JSDocNS.util.Point2D"}
 	*/
-	var exports = {};
+	this.JSDocNS.util = this.JSDocNS.util || {};
 
-	/** say hello. */
-	exports.sayHello = function() {
-		return 'hello world';
+	/**
+		A Point2D utility class in JSDocNS.util namespace.
+		You must explicitly define the class name.
+		If you omit the specific names on class and
+		memberof it will simply appear as Point2D in the
+		list of classes. That may be acceptable to you.
+		@class "JSDocNS.util.Point2D"
+		@param {number} x optional. the horizontal position of the point.
+		@param {number} y optional. the vertical position of the point.
+		@return {JSDocNS.util.Point2D} a 2D Point object.
+	*/
+	this.JSDocNS.util.Point2D = function(x,y) {
+		this.x = x || 0;
+		this.y = y || 0;
+		return this;
 	};
 
-	return exports;
-});
-</code></pre>
+	/**
+		Compute the magnitude of the 2D point.
+		You must explicitly set the method name and memberof settings.
+		@method magnitude
+		@memberof "JSDocNS.util.Point2D"
+		@return {number} the distance of the 2D point from the origin.
+	*/
+	this.JSDocNS.util.Point2D.prototype.magnitude = function () {
+		return Math.sqrt(this.x * this.x + this.y * this.y);
+	};
+})(window || global);</code></pre>
         </article>
     </section>
 

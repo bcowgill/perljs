@@ -1,0 +1,27 @@
+/**
+	@file
+	A jsdoc sample use of javascript nested namespaces.
+	@see jsdoc on nesting namespaces {@link http://usejsdoc.org/tags-alias.html}
+
+	@see contains {@link JSDocTopNS}
+	@see contains {@link JSDocTopNS.JSDocCore}
+	@see contains {@link JSDocTopNS.JSDocCore.seed}()
+*/
+
+"use strict";
+
+/** @namespace */
+var JSDocTopNS = {};
+
+(function(ns) {
+    /**
+     * @namespace
+     * @alias JSDocTopNS.JSDocCore
+     */
+    var core = {};
+
+    /** Documented as JSDocTopNS.JSDocCore.seed */
+    core.seed = function() {};
+
+    ns.JSDocCore = core;
+})(JSDocTopNS);
