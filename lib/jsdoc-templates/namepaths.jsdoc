@@ -1,0 +1,93 @@
+/*jshint unused: false, quotmark: false */
+/**
+	@file
+	A jsdoc sample use of namepaths and links.
+
+	@example
+	in JSDoc3, basic namepaths:
+	myFunction
+	MyConstructor
+	MyConstructor#instanceMember
+	MyConstructor.staticMember
+	MyConstructor~innerMember // note that JSDoc 2 uses a dash
+
+	@see jsdoc on namepaths {@link http://usejsdoc.org/about-namepaths.html}
+
+	@see contains class {@link JSDocNamepath}
+	@see contains class static member {@link JSDocNamepath.say}
+	@see contains class instance member {@link JSDocNamepath#say}
+	@see contains class inner member {@link JSDocNamepath~say}
+	@see contains module {@link module:JSDocNamepath/Module}
+	@see contains event {@link module:JSDocNamepath/Module.event:MyEvent}
+	@see contains namespace {@link funnyChars}
+	@see contains namespace {@link funnyChars."#channel"}
+	@see contains namespaced member {@link funnyChars."#channel".open}
+	@see contains namespaced method {@link funnyChars."#channel"."say-\"hello\""}()
+	@see contains namespaced event {@link event:funnyChars."#channel"."op:announce-motd"}
+	@todo ERROR the funny character entries really don't work very well.
+*/
+
+"use strict";
+
+/** The built in string object. Its name is external:string.
+	@external string
+*/
+/** The built in number object. Its name is external:number.
+	@external number
+*/
+
+/** Constructor for class
+	@constructor
+*/
+var JSDocNamepath = function() {
+	/** An instance method
+		@return {external:string} tells you something.
+	*/
+	this.say = function() {
+		return "I'm an instance.";
+	};
+	/** In inner function
+		@return {string} tells you something on the inside.
+	*/
+	function say() {
+		return "I'm inner.";
+	}
+};
+/** A static method
+	@return {external:String} tells you something statically*/
+JSDocNamepath.say = function() {
+	return "I'm static.";
+};
+
+var p = new JSDocNamepath();
+p.say();	  // I'm an instance.
+JSDocNamepath.say(); // I'm static.
+// there is no way to directly access the inner function from here
+
+/** @namespace*/
+var funnyChars = {
+	/**
+		Refer to this by {@link funnyChars."#channel"}.
+		@namespace
+	*/
+	"#channel": {
+		/**
+			Refer to this by {@link funnyChars."#channel".open}.
+			@type {boolean}
+			@defaultvalue
+		*/
+		open: true,
+		/**
+			Internal quotes have to be escaped by backslash. This is
+			{@link funnyChars."#channel"."say-\"hello\""}().
+		*/
+		'say-"hello"': function (msg) {}
+	}
+};
+
+/**
+	Now we define an event in our {@link funnyChars."#channel"} namespace.
+	This is {@link event:funnyChars."#channel"."op:announce-motd"}
+	@event funnyChars."#channel"."op:announce-motd"
+*/
+

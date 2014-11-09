@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/jsdoc-templates/module-class.jsdoc</title>
+    <title>JSDoc: Source: lib/jsdoc-templates/namepaths.jsdoc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/jsdoc-templates/module-class.jsdoc</h1>
+    <h1 class="page-title">Source: lib/jsdoc-templates/namepaths.jsdoc</h1>
 
     
 
@@ -25,64 +25,99 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/*jshint unused: false */
+            <pre class="prettyprint source linenums"><code>/*jshint unused: false, quotmark: false */
 /**
 	@file
-	A jsdoc sample use of javascript class modules.
-	Demonstrates module based classes and creating jsdoc links
-	to specific members of the class.
-	All symbols in the file are assumed to be members of the
-	module unless documented otherwise.
-	@see jsdoc on modules {@link http://usejsdoc.org/tags-module.html}
-	@see contains {@link module:JSDocModuleClass}
-	@see contains class {@link module:JSDocModuleClass.JSDocClass}
+	A jsdoc sample use of namepaths and links.
+
+	@example
+	in JSDoc3, basic namepaths:
+	myFunction
+	MyConstructor
+	MyConstructor#instanceMember
+	MyConstructor.staticMember
+	MyConstructor~innerMember // note that JSDoc 2 uses a dash
+
+	@see jsdoc on namepaths {@link http://usejsdoc.org/about-namepaths.html}
+
+	@see contains class {@link JSDocNamepath}
+	@see contains class static member {@link JSDocNamepath.say}
+	@see contains class instance member {@link JSDocNamepath#say}
+	@see contains class inner member {@link JSDocNamepath~say}
+	@see contains module {@link module:JSDocNamepath/Module}
+	@see contains event {@link module:JSDocNamepath/Module.event:MyEvent}
+	@see contains namespace {@link funnyChars}
+	@see contains namespace {@link funnyChars."#channel"}
+	@see contains namespaced member {@link funnyChars."#channel".open}
+	@see contains namespaced method {@link funnyChars."#channel"."say-\"hello\""}()
+	@see contains namespaced event {@link event:funnyChars."#channel"."op:announce-motd"}
+	@todo ERROR the funny character entries really don't work very well.
 */
 
 "use strict";
 
-// This just to satisfy jshint validthis scoping
-(function () {
-	/*jshint validthis: true */
-
-/**
-	Demonstration of simple jsdoc module class definition.
-	If the name of the module is omitted, it is derived from
-	the filename.
-	See jsdoc for more information {@link http://usejsdoc.org/tags-module.html}
-	@module JSDocModuleClass
+/** The built in string object. Its name is external:string.
+	@external string
+*/
+/** The built in number object. Its name is external:number.
+	@external number
 */
 
-/**
-	A class within a module must be in its own comment block
-	apart from the module comment.
-	It documents the constructor method.
-	@see contained in {@link module:JSDocModuleClass}
-	@see self reference {@link module:JSDocModuleClass.JSDocClass}
-	@class
-	@param {string} title The title of the new object.
+/** Constructor for class
+	@constructor
 */
-this.JSDocClass = function (title) {
-	/** Simple data member documentation without data type is
-	easy in the constructor. */
-	this.counter = 0;
-
-	/** The title. Full documentation of data members.
-		{@link module:JSDocModuleClass.JSDocClass#title}
-		The hash indicates an instance data member.
-		@type string
+var JSDocNamepath = function() {
+	/** An instance method
+		@return {external:string} tells you something.
 	*/
-	this.title = title;
-
-	/** An instance method. {@link module:JSDocModuleClass.JSDocClass#method}()
-		The hash indicates an instance method.
-		@param {number} value - invoke the method with the value.
-		@return {string} value converted to string.
+	this.say = function() {
+		return "I'm an instance.";
+	};
+	/** In inner function
+		@return {string} tells you something on the inside.
 	*/
-	this.method = function (value) {};
-	return this;
+	function say() {
+		return "I'm inner.";
+	}
+};
+/** A static method
+	@return {external:String} tells you something statically*/
+JSDocNamepath.say = function() {
+	return "I'm static.";
 };
 
-})();
+var p = new JSDocNamepath();
+p.say();	  // I'm an instance.
+JSDocNamepath.say(); // I'm static.
+// there is no way to directly access the inner function from here
+
+/** @namespace*/
+var funnyChars = {
+	/**
+		Refer to this by {@link funnyChars."#channel"}.
+		@namespace
+	*/
+	"#channel": {
+		/**
+			Refer to this by {@link funnyChars."#channel".open}.
+			@type {boolean}
+			@defaultvalue
+		*/
+		open: true,
+		/**
+			Internal quotes have to be escaped by backslash. This is
+			{@link funnyChars."#channel"."say-\"hello\""}().
+		*/
+		'say-"hello"': function (msg) {}
+	}
+};
+
+/**
+	Now we define an event in our {@link funnyChars."#channel"} namespace.
+	This is {@link event:funnyChars."#channel"."op:announce-motd"}
+	@event funnyChars."#channel"."op:announce-motd"
+*/
+
 </code></pre>
         </article>
     </section>

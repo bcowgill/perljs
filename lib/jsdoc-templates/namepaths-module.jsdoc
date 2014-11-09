@@ -1,0 +1,24 @@
+/**
+	@file
+	A jsdoc sample use of namepaths and links. (module)
+
+	@example
+	in JSDoc3, basic namepaths:
+	myFunction
+	MyConstructor
+	MyConstructor#instanceMember
+	MyConstructor.staticMember
+	MyConstructor~innerMember // note that JSDoc 2 uses a dash
+
+	@see jsdoc on namepaths {@link http://usejsdoc.org/about-namepaths.html}
+
+	@see contains module {@link module:JSDocNamepath/Module}
+	@see contains event {@link module:JSDocNamepath/Module.event:MyEvent}
+*/
+
+/** A module. Its name is module:JSDocNamepath/Module.
+	@module JSDocNamepath/Module
+*/
+/** An event. Its name is {@link module:JSDocNamepath/Module.event:MyEvent}.
+	@event module:JSDocNamepath/Module.event:MyEvent
+*/
