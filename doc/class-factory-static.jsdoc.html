@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: JSDocNS</title>
+    <title>JSDoc: Source: lib/jsdoc-templates/class-factory-static.jsdoc</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,98 +17,68 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: JSDocNS</h1>
+    <h1 class="page-title">Source: lib/jsdoc-templates/class-factory-static.jsdoc</h1>
 
     
 
 
-
-<section>
-
-<header>
-    <h2>
-    JSDocNS
-    </h2>
     
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*jshint unused: false */
+/*global makeClass */
+/**
+	@file
+	A jsdoc sample use of javascript class factories.
+	Lends is used to indicate that the properties of a
+	literal object are made into static class members
+	or instance class members.
+	@see jsdoc on lends {@link http://usejsdoc.org/tags-lends.html}
 
-<article>
-    <div class="container-overview">
-    
+	@see contains class {@link FactoryStatic}
+	@see contains class static member {@link FactoryStatic.say}
+	@see contains class {@link FactoryInstance}
+	@see contains class instance member {@link FactoryInstance#say}
+*/
 
-    
-        
-            <div class="description">A top-level namespace to hold a class within it.</div>
-        
+"use strict";
 
-        
-<dl class="details">
-    
+/** FactoryStatic created by calling a function with an object literal.
+	@class
+*/
+var FactoryStatic = makeClass(
+	/** @lends FactoryStatic */
+	{
+		/** Initialisation */
+		initialize: function(name) {
+			this.name = name;
+		},
 
-    
+		/** Static method */
+		say: function(message) {
+			return this.name + " says: " + message;
+		}
+	}
+);
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="namespace-prototype.jsdoc.html">lib/jsdoc-templates/namespace-prototype.jsdoc</a>, <a href="namespace-prototype.jsdoc.html#line16">line 16</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-     
-
-    
-        <h3 class="subsection-title">Namespaces</h3>
-
-        <dl>
-            <dt><a href="namespaces.html#JSDocNS.util"><a href="JSDocNS.util.html">util</a></a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+// omit the at class declaration or you'll see the class twice.
+var FactoryInstance = makeClass(
+	/** @lends FactoryInstance.prototype */
+	{
+		/** This initialize member is being marked as the constructor for the FactoryInstance class
+			@constructs */
+		initialize: function(name) {
+			this.name = name;
+		},
+		/** Instance method now */
+		say: function(message) {
+			return this.name + " says: " + message;
+		}
+	}
+);
+</code></pre>
+        </article>
+    </section>
 
 
 

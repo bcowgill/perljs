@@ -1,0 +1,51 @@
+/*jshint unused: false */
+/*global makeClass */
+/**
+	@file
+	A jsdoc sample use of javascript class factories.
+	Lends is used to indicate that the properties of a
+	literal object are made into static class members
+	or instance class members.
+	@see jsdoc on lends {@link http://usejsdoc.org/tags-lends.html}
+
+	@see contains class {@link FactoryStatic}
+	@see contains class static member {@link FactoryStatic.say}
+	@see contains class {@link FactoryInstance}
+	@see contains class instance member {@link FactoryInstance#say}
+*/
+
+"use strict";
+
+/** FactoryStatic created by calling a function with an object literal.
+	@class
+*/
+var FactoryStatic = makeClass(
+	/** @lends FactoryStatic */
+	{
+		/** Initialisation */
+		initialize: function(name) {
+			this.name = name;
+		},
+
+		/** Static method */
+		say: function(message) {
+			return this.name + " says: " + message;
+		}
+	}
+);
+
+// omit the at class declaration or you'll see the class twice.
+var FactoryInstance = makeClass(
+	/** @lends FactoryInstance.prototype */
+	{
+		/** This initialize member is being marked as the constructor for the FactoryInstance class
+			@constructs */
+		initialize: function(name) {
+			this.name = name;
+		},
+		/** Instance method now */
+		say: function(message) {
+			return this.name + " says: " + message;
+		}
+	}
+);
