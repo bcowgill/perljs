@@ -27,7 +27,7 @@
 			"file": "lib/jsdoc-templates/namespace-prototype.jsdoc",
 			"settings":
 			{
-				"buffer_size": 1776,
+				"buffer_size": 1659,
 				"line_ending": "Windows",
 				"name": "namespace-prototype.jsdoc"
 			}
@@ -47,6 +47,40 @@
 				"buffer_size": 2044,
 				"line_ending": "Windows",
 				"name": "namespace.jsdoc"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/class-factory-static.jsdoc",
+			"settings":
+			{
+				"buffer_size": 1291,
+				"line_ending": "Windows",
+				"name": "class-factory-static.jsdoc"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/namepaths.jsdoc",
+			"settings":
+			{
+				"buffer_size": 2545,
+				"line_ending": "Windows",
+				"name": "namepaths.jsdoc"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/namepaths-module.jsdoc",
+			"settings":
+			{
+				"buffer_size": 676,
+				"line_ending": "Windows",
+				"name": "namepaths-module.jsdoc"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -79,7 +113,7 @@
 			"file": "lib/jsdoc-templates/file2.jsdoc",
 			"settings":
 			{
-				"buffer_size": 519,
+				"buffer_size": 0,
 				"line_ending": "Windows",
 				"name": "file.jsdoc"
 			}
@@ -112,7 +146,7 @@
 			"file": "index.js",
 			"settings":
 			{
-				"buffer_size": 14126,
+				"buffer_size": 14083,
 				"line_ending": "Unix"
 			}
 		},
@@ -125,10 +159,22 @@
 			}
 		},
 		{
-			"file": "lib/jsdoc-templates/module-prototype.jsdoc",
+			"file": "lib/jsdoc-templates/module-multiple.jsdoc",
 			"settings":
 			{
-				"buffer_size": 1619,
+				"buffer_size": 1182,
+				"line_ending": "Windows",
+				"name": "module-multiple.jsdoc"
+			}
+		},
+		{
+			"contents": "/*global define */\n/**\n	@file\n	A jsdoc sample use of javascript objects defined with prototype functions.\n	Demonstrates modules and creating jsdoc links to specific\n	members within the module.\n	All symbols in the file are assumed to be members of the\n	module unless documented otherwise.\n	@see jsdoc on exports {@link http://usejsdoc.org/tags-exports.html}\n	@see contains {@link module:JSDocModule/Prototype}\n	@see contains class {@link module:JSDocModule/Prototype.JSDocProto}\n*/\n\n'use strict';\n\ndefine(function() {\n	/**\n		A module that uses a constructor and prototype functions.\n		@module JSDocModule/Prototype\n	*/\n\n	/**\n		A class defined with prototype functions\n		jsdoc will automatically call it\n		(require(\"JSDocModule/Prototype\"))\n		since it doesn't really have a defined name.\n		@see {@link module:JSDocModule/Prototype.'(require(\"JSDocModule/Prototype\"))'}\n		@todo ERROR can't figure out how to create a link to this type of class.\n		@constructor\n		@param {string} subject - The subject to greet.\n	*/\n	var exports = function(subject) {\n		this.subject = subject || 'world';\n	};\n\n	/** Say hello to the subject. */\n	exports.prototype.sayHello = function() {\n		return 'Hello ' + this.subject;\n	};\n\n	/**\n		Another class in module which we can link to.\n		@see {@link module:JSDocModule/Prototype.JSDocProto}\n		@class\n	*/\n	exports.JSDocProto = function () {};\n\n	return exports;\n});",
+			"file": "lib/jsdoc-templates/module-prototype.jsdoc",
+			"file_size": 1432,
+			"file_write_time": 130600263003463179,
+			"settings":
+			{
+				"buffer_size": 1384,
 				"line_ending": "Windows",
 				"name": "module-prototype.jsdoc"
 			}
@@ -173,6 +219,24 @@
 			{
 				"buffer_size": 1375,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/class-anon-constructor.jsdoc",
+			"settings":
+			{
+				"buffer_size": 1023,
+				"line_ending": "Windows",
+				"name": "class-anon-constructor.jsdoc"
+			}
+		},
+		{
+			"file": "lib/jsdoc-templates/namespace-nesting.jsdoc",
+			"settings":
+			{
+				"buffer_size": 560,
+				"line_ending": "Windows",
+				"name": "namespace-nesting.jsdoc"
 			}
 		},
 		{
@@ -235,7 +299,7 @@
 			"file": "pj-perljs.sublime-project",
 			"settings":
 			{
-				"buffer_size": 101,
+				"buffer_size": 146,
 				"line_ending": "Unix"
 			}
 		},
@@ -465,6 +529,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"'",
+			" \\*/",
+			" \\* ",
+			"    ",
+			"exports",
+			"%%channel",
+			"//channel",
+			"#channel",
+			" \\*/",
+			"    ",
+			" \\* ",
+			" * ",
+			"constructor",
+			"Person",
+			"    ",
+			"CookieManager",
+			"JSDocClass",
+			"JSDocNamespace",
 			"    ",
 			" \\* ",
 			"    ",
@@ -574,25 +656,7 @@
 			"nodesFromList",
 			"nodes",
 			"collapseGroup",
-			"console.clear",
-			"logVar",
-			"renderer",
-			"layout",
-			"clicked",
-			"edges",
-			"nodes",
-			"dagre",
-			"g",
-			"logEvent",
-			"all",
-			"_postLayout",
-			"layout",
-			"run",
-			"render",
-			"node",
-			"rect",
-			"20800731",
-			"FB84C0"
+			"console.clear"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -600,6 +664,19 @@
 		"regex": true,
 		"replace_history":
 		[
+			"\"",
+			"*/",
+			"\\t",
+			"#channel",
+			"%%channel",
+			"//channel",
+			"*/",
+			"\\t",
+			"JSDocNamepath",
+			"\\t",
+			"JSDCookieManager",
+			"JSDocKlass",
+			"JSDocNS",
 			"\\t",
 			"JSDoc",
 			"{function",
@@ -664,7 +741,7 @@
 	"groups":
 	[
 		{
-			"selected": 12,
+			"selected": 16,
 			"sheets":
 			[
 				{
@@ -672,24 +749,25 @@
 					"file": "lib/jsdoc-templates/namespace-prototype.jsdoc",
 					"settings":
 					{
-						"buffer_size": 1776,
+						"buffer_size": 1659,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1079,
-								1079
+								601,
+								601
 							]
 						],
 						"settings":
 						{
 							"auto_name": "namespace-prototype.jsdoc",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1155.0,
+						"translation.y": 840.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -733,23 +811,130 @@
 						"selection":
 						[
 							[
-								801,
-								801
+								52,
+								522
 							]
 						],
 						"settings":
 						{
 							"auto_name": "namespace.jsdoc",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2001.0,
+						"translation.y": 163.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
+					"file": "lib/jsdoc-templates/class-factory-static.jsdoc",
+					"settings":
+					{
+						"buffer_size": 1291,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								48,
+								540
+							]
+						],
+						"settings":
+						{
+							"auto_name": "class-factory-static.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 163.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "lib/jsdoc-templates/namepaths.jsdoc",
+					"settings":
+					{
+						"buffer_size": 2545,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								865,
+								865
+							]
+						],
+						"settings":
+						{
+							"auto_name": "namepaths.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 795.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "lib/jsdoc-templates/namepaths-module.jsdoc",
+					"settings":
+					{
+						"buffer_size": 676,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								676,
+								676
+							]
+						],
+						"settings":
+						{
+							"auto_name": "namepaths-module.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 243.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
 					"file": "lib/jsdoc-templates/module-class.jsdoc",
 					"settings":
 					{
@@ -767,7 +952,8 @@
 						"settings":
 						{
 							"auto_name": "module.jsdoc",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -776,7 +962,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 8,
 					"file": "publish-node-npm-module-tutorial.txt",
 					"settings":
 					{
@@ -805,7 +991,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 9,
 					"file": ".gitignore",
 					"settings":
 					{
@@ -831,19 +1017,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 10,
 					"file": "lib/jsdoc-templates/file2.jsdoc",
 					"settings":
 					{
-						"buffer_size": 519,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								426,
-								426
+								0,
+								0
 							]
 						],
 						"settings":
@@ -858,7 +1044,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 11,
 					"file": "/D/d/s/blismedia/play/node-postgres/test/using-dbi_test.js",
 					"settings":
 					{
@@ -885,7 +1071,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 12,
 					"file": "package.json",
 					"settings":
 					{
@@ -913,7 +1099,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 13,
 					"file": "scripts/check-ver.sh",
 					"settings":
 					{
@@ -939,11 +1125,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 14,
 					"file": "index.js",
 					"settings":
 					{
-						"buffer_size": 14126,
+						"buffer_size": 14083,
 						"regions":
 						{
 						},
@@ -966,7 +1152,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 15,
 					"file": "lib/jsdoc-templates/module-exports.jsdoc",
 					"settings":
 					{
@@ -977,8 +1163,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								84,
+								91
 							]
 						],
 						"settings":
@@ -993,34 +1179,62 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "lib/jsdoc-templates/module-prototype.jsdoc",
+					"buffer": 16,
+					"file": "lib/jsdoc-templates/module-multiple.jsdoc",
 					"settings":
 					{
-						"buffer_size": 1619,
+						"buffer_size": 1182,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								878,
-								878
+								1182,
+								1182
 							]
 						],
 						"settings":
 						{
-							"auto_name": "module-prototype.jsdoc",
+							"auto_name": "module-multiple.jsdoc",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1240.0,
+						"translation.y": 1563.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 17,
+					"file": "lib/jsdoc-templates/module-prototype.jsdoc",
+					"settings":
+					{
+						"buffer_size": 1384,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								883,
+								883
+							]
+						],
+						"settings":
+						{
+							"auto_name": "module-prototype.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 749.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
 					"file": "lib/jsdoc-templates/module-export-object.jsdoc",
 					"settings":
 					{
@@ -1038,7 +1252,9 @@
 						"settings":
 						{
 							"auto_name": "module-export-object.jsdoc",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1047,7 +1263,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 19,
 					"file": "lib/jsdoc-templates/module-amd.jsdoc",
 					"settings":
 					{
@@ -1065,7 +1281,8 @@
 						"settings":
 						{
 							"auto_name": "module-amd.jsdoc",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 641.0,
@@ -1074,7 +1291,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 20,
 					"file": "Gruntfile.js",
 					"settings":
 					{
@@ -1095,13 +1312,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 320.0,
-						"translation.y": 1377.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 21,
 					"file": "lib/jsdoc-templates/file.jsdoc",
 					"settings":
 					{
@@ -1112,8 +1329,8 @@
 						"selection":
 						[
 							[
-								522,
-								522
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1122,13 +1339,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 466.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 22,
 					"file": "lib/jsdoc-templates/module.jsdoc",
 					"settings":
 					{
@@ -1139,8 +1356,8 @@
 						"selection":
 						[
 							[
-								1375,
-								1375
+								391,
+								0
 							]
 						],
 						"settings":
@@ -1149,7 +1366,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1801.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1161,7 +1378,61 @@
 			"sheets":
 			[
 				{
-					"buffer": 18,
+					"buffer": 23,
+					"file": "lib/jsdoc-templates/class-anon-constructor.jsdoc",
+					"settings":
+					{
+						"buffer_size": 1023,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18,
+								601
+							]
+						],
+						"settings":
+						{
+							"auto_name": "class-anon-constructor.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 5283.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 24,
+					"file": "lib/jsdoc-templates/namespace-nesting.jsdoc",
+					"settings":
+					{
+						"buffer_size": 560,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "namespace-nesting.jsdoc",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 25,
 					"file": "scripts/cygwin.sh",
 					"settings":
 					{
@@ -1172,8 +1443,8 @@
 						"selection":
 						[
 							[
-								330,
-								330
+								179,
+								179
 							]
 						],
 						"settings":
@@ -1181,13 +1452,13 @@
 							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 259.0,
+						"translation.y": 85.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 26,
 					"file": "scripts/release.sh",
 					"settings":
 					{
@@ -1214,7 +1485,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 27,
 					"file": "/D/d/s/github/foundation-test/LICENSE",
 					"settings":
 					{
@@ -1240,7 +1511,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 28,
 					"file": "/D/d/s/github/foundation-test/README.md",
 					"settings":
 					{
@@ -1266,7 +1537,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 22,
+					"buffer": 29,
 					"file": "scripts/pre-release.sh",
 					"settings":
 					{
@@ -1292,7 +1563,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 23,
+					"buffer": 30,
 					"file": "LICENSE",
 					"settings":
 					{
@@ -1318,7 +1589,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 24,
+					"buffer": 31,
 					"file": "test/perl-test.js",
 					"settings":
 					{
@@ -1346,24 +1617,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 25,
+					"buffer": 32,
 					"file": "pj-perljs.sublime-project",
 					"settings":
 					{
-						"buffer_size": 101,
+						"buffer_size": 146,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								99,
-								99
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1372,7 +1644,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 26,
+					"buffer": 33,
 					"file": "test/chai-test.js",
 					"settings":
 					{
@@ -1400,7 +1672,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 27,
+					"buffer": 34,
 					"file": "Makefile.txt",
 					"settings":
 					{
@@ -1426,7 +1698,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 28,
+					"buffer": 35,
 					"file": "perl/perl-test.pl",
 					"settings":
 					{
@@ -1452,7 +1724,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 29,
+					"buffer": 36,
 					"file": ".npmignore",
 					"settings":
 					{
@@ -1478,7 +1750,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 30,
+					"buffer": 37,
 					"file": ".jshintignore",
 					"settings":
 					{
@@ -1504,7 +1776,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 31,
+					"buffer": 38,
 					"file": "jsdoc.conf.json",
 					"settings":
 					{
@@ -1530,7 +1802,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 32,
+					"buffer": 39,
 					"file": "lib/perl.js",
 					"settings":
 					{
@@ -1551,7 +1823,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 283.0,
-						"translation.y": 1927.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1587,7 +1859,7 @@
 		"cols":
 		[
 			0.0,
-			0.945191806979,
+			0.839896240477,
 			1.0
 		],
 		"rows":
