@@ -22,6 +22,10 @@ module.exports = function(grunt) {
 		// Metadata.
 		pkg: grunt.file.readJSON('package.json'),
 		// Task configuration.
+		/**
+			clean up files on disk before build.
+			@see {@link https://github.com/gruntjs/grunt-contrib-clean About clean grunt plugin}
+		*/
 		clean: {
 			jsdoc: {
 				src: ['doc/']
@@ -87,7 +91,7 @@ module.exports = function(grunt) {
 			@see {@link https://github.com/krampstudio/grunt-jsdoc Grunt jsdoc plugin}
 			@see {@link http://usejsdoc.org/ jsdoc documentation tags}
 			@see {@link http://usejsdoc.org/about-commandline.html jsdoc command line options}
-			*/
+		*/
 		jsdoc : {
 			docs : {
 				dest: 'doc',
@@ -102,6 +106,10 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		/**
+			Watch files and run build targets on change
+			@see {@link https://github.com/gruntjs/grunt-contrib-watch Grunt watch plugin}
+		*/
 		watch: {
 			gruntfile: {
 				files: '<%= jshint.gruntfile.src %>',
