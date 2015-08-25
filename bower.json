@@ -1,0 +1,24 @@
+{
+  "name": "perljs",
+  "main": "index.js",
+  "version": "0.2.2",
+  "homepage": "https://github.com/bcowgill/perljs",
+  "authors": [
+    "Brent S.A. Cowgill <brent.cowgill@workshare.com>"
+  ],
+  "description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "perl"
+  ],
+  "license": "The Unlicense",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
