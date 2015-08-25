@@ -13,7 +13,7 @@
   "keywords": [
     "perl"
   ],
-  "license": "The Unlicense",
+  "license": "Unlicense",
   "ignore": [
     "**/.*",
     "node_modules",
