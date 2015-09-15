@@ -335,7 +335,7 @@ describe('#perl', function () {
 				.should.deep.equal({ value10: 'key1', value21: 'key2', value12: 'key3' });
 		});
 		it('reverse the key/values with a hashing function which checks existence', function () {
-			/* jshint plusplus: false */
+			/* jshint maxcomplexity: 2, plusplus: false */
 			var idx = 0, oMap = perl.qwm('key1 value1 key2 value2 key3 value1');
 			perl.reverseMap(oMap, function (key, oRevMap) { return (key in oRevMap) ? key + idx++ : key; })
 				.should.deep.equal({ value1: 'key1', value2: 'key2', value10: 'key3' });

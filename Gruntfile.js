@@ -7,6 +7,15 @@
 	@description
 	Grunt build configuration.
 
+ 	@example
+ 	grunt all watch --reporter landing --force
+
+ 	# jshint check a single file
+ 	grunt jshint:single --check-file filename.js
+
+ 	# run tests with a chosen reporter style
+ 	grunt test --reporter spec
+
 	@see {@link http://usejsdoc.org/ JSDoc Documentation}
 */
 
@@ -45,9 +54,9 @@ module.exports = function(grunt) {
 			gruntfile: {
 				options: {
 					jshintrc: '.jshintrc-gruntfile',
-					globals: {},
+					globals: {}
 				},
-				src: ['package.json', 'Gruntfile.js']
+				src: ['package.json', '.jshintrc*', 'Gruntfile.js']
 			},
 			single: {
 				// grunt jshint:single --check-file filename
@@ -57,11 +66,12 @@ module.exports = function(grunt) {
 				src: ['lib/**/*.js', 'lib/jsdoc-templates/*.jsdoc']
 			},
 			test: {
+				options: {
+					jshintrc: '.jshintrc-mocha-chai-sinon',
+					globals: {}
+				},
 				src: ['test/**/*.js']
 			}
-		},
-		nodeunit: {
-			files: ['test/**/*-test.js'],
 		},
 		/**
 			Running tests in the console using mocha/chai.
@@ -75,7 +85,7 @@ module.exports = function(grunt) {
 				options: {
 					ui: 'bdd',
 					// spec, list, tap, nyan, progress, dot, min, landing, doc, markdown, html-cov, json-cov, json, json-stream, xunit
-					reporter: 'tap',
+					reporter: grunt.option('reporter') || 'tap',
 					bail: false, // true to bail after first test failure
 					//grep: '.*', // invert: true, // filter to run subset of tests
 					sort: true, // sort order of test files
@@ -114,22 +124,21 @@ module.exports = function(grunt) {
 		watch: {
 			gruntfile: {
 				files: '<%= jshint.gruntfile.src %>',
-				tasks: ['jshint:gruntfile']
+				tasks: ['jshint:gruntfile', 'test']
 			},
 			lib: {
 				files: '<%= jshint.lib.src %>',
-				tasks: ['jshint:lib', 'nodeunit']
+				tasks: ['jshint:lib', 'test']
 			},
 			test: {
 				files: '<%= jshint.test.src %>',
-				tasks: ['jshint:test', 'nodeunit']
+				tasks: ['jshint:test', 'test']
 			}
 		}
 	});
 
 	// These plugins provide necessary tasks.
 	[
-		//'grunt-contrib-nodeunit');
 		'grunt-contrib-clean',
 		'grunt-contrib-jshint',
 		'grunt-jsdoc',
@@ -144,7 +153,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('all', ['windows', 'docs', 'test']);
 	grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc']);
 	grunt.registerTask('test', [
-		//'nodeunit'
 		'mocha-chai-sinon'
 	]);
 	grunt.registerTask('windows', [

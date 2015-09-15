@@ -1,4 +1,4 @@
-// jshint warning codes are in:
+// warning codes for jshint are in:
 // node_modules/grunt-contrib-jshint/node_modules/jshint/src/messages.js
 {
 	"node": true,
