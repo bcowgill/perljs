@@ -8,6 +8,8 @@
 	Grunt build configuration.
 
  	@example
+
+ 	# build all, then watch for changes use the airplane test reporter
  	grunt all watch --reporter landing --force
 
  	# jshint check a single file
@@ -70,22 +72,24 @@ module.exports = function(grunt) {
 					jshintrc: '.jshintrc-mocha-chai-sinon',
 					globals: {}
 				},
+				spec: ['test/**/*-test.js'], // for coverage
 				src: ['test/**/*.js']
 			}
 		},
 		/**
-			Running tests in the console using mocha/chai.
+			Running tests in the console using mocha/chai/sinon.
 			@see {@link https://github.com/thepeg/grunt-mocha-chai-sinon Grunt plugin for mocha, chai, and sinon}
 			@see {@link http://visionmedia.github.io/mocha/ mocha documentation}
 			@see {@link http://chaijs.com/api/ chai documentation}
+		 	@see {@link http://sinonjs.org/docs/ sinon documentation}
 		*/
 		'mocha-chai-sinon': {
 			test: {
-				src: ['./test/**/*-test.js'],
+				src: '<%= jshint.test.spec %>',
 				options: {
-					ui: 'bdd',
+					ui:  '<%= mocha_istanbul.coverage.options.ui %>',
 					// spec, list, tap, nyan, progress, dot, min, landing, doc, markdown, html-cov, json-cov, json, json-stream, xunit
-					reporter: grunt.option('reporter') || 'tap',
+					reporter:  '<%= mocha_istanbul.coverage.options.reporter %>',
 					bail: false, // true to bail after first test failure
 					//grep: '.*', // invert: true, // filter to run subset of tests
 					sort: true, // sort order of test files
@@ -97,6 +101,57 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		/**
+			Generate code coverage reports using istanbul.
+			@see {@link https://www.npmjs.com/package/grunt-mocha-istanbul Grunt plugin for mocha istanbul coverage}
+			@see {@link http://gotwarlost.github.io/istanbul/ istanbul documentation}
+		 	@see {@link https://github.com/nickmerwin/node-coveralls coveralls documentation}
+			@see {@link http://tbusser.net/articles/js-unit-testing-part-02/#disqus_thread coverage under the hood}
+		 */
+		mocha_istanbul: {
+			// use your browser to view this url for coverage report
+			coverageUrl: '<%= mocha_istanbul.coverage.options.coverageFolder %>/index.html',
+			coverage: {
+				src: '<%= jshint.test.spec %>',
+				options: {
+					dryRun: false, // to debug the istanbul command line
+					coverageFolder: 'doc/coverage',
+					excludes: [],  // use istanbul help cover to see how excludes work
+					reportFormats: [
+						// html, lcovonly, lcov, cobertura, text-summary, text, teamcity
+						'html',
+						'text'
+					],
+
+					// Mocha options
+					reporter: grunt.option('reporter') || 'spec',
+					ui: 'bdd',
+
+					// check percentage coverage to be a good build
+					check: {
+						functions:   99,
+						branches:    99,
+						lines:       99,
+						statements:  99
+					}
+				}
+			},
+			coveralls: {
+				src: '<%= jshint.test.spec %>',
+				options: {
+					coverage: true, // this will make the grunt.event.on('coverage') event listener to be triggered
+					check: {
+						functions:   99,
+						branches:    99,
+						lines:       99,
+						statements:  99
+					},
+					root: './lib', // define where the cover task should consider the root of libraries that are covered by tests
+					reportFormats: ['cobertura','lcovonly']
+				}
+			}
+		},
+
 		/**
 			Generate application documentation with jsdoc
 			@see {@link https://github.com/krampstudio/grunt-jsdoc Grunt jsdoc plugin}
@@ -124,15 +179,15 @@ module.exports = function(grunt) {
 		watch: {
 			gruntfile: {
 				files: '<%= jshint.gruntfile.src %>',
-				tasks: ['jshint:gruntfile', 'test']
+				tasks: ['jshint:gruntfile', 'coverage']
 			},
 			lib: {
 				files: '<%= jshint.lib.src %>',
-				tasks: ['jshint:lib', 'test']
+				tasks: ['jshint:lib', 'coverage']
 			},
 			test: {
 				files: '<%= jshint.test.src %>',
-				tasks: ['jshint:test', 'test']
+				tasks: ['jshint:test', 'coverage']
 			}
 		}
 	});
@@ -143,17 +198,32 @@ module.exports = function(grunt) {
 		'grunt-contrib-jshint',
 		'grunt-jsdoc',
 		'grunt-mocha-chai-sinon',
+		'grunt-mocha-istanbul',
 		'grunt-contrib-watch'
 	].forEach(function (task) {
 		grunt.loadNpmTasks(task);
 	});
 
+	// Important not to remove this if coveralls.options.coverage:true or grunt will hang
+	grunt.event.on('coverage', function (lcovFileContents, done) {
+		void lcovFileContents;
+		done();
+	});
+
 	// Default task.
 	grunt.registerTask('default', ['all']);
-	grunt.registerTask('all', ['windows', 'docs', 'test']);
+	grunt.registerTask('all', ['windows', 'docs', 'coverage']);
 	grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc']);
 	grunt.registerTask('test', [
+		// hyphens in name make the config section annoying
+		// as template lookup with <%= mocha-chai-sinon %> won't work
 		'mocha-chai-sinon'
+	]);
+	grunt.registerTask('coverage', [
+		'mocha_istanbul:coverage'
+	]);
+	grunt.registerTask('coveralls', [
+		'mocha_istanbul:coveralls'
 	]);
 	grunt.registerTask('windows', [
 		'jshint:gruntfile',

@@ -200,12 +200,52 @@ describe('#perl', function () {
 			it('quotes a string with any pair of strings', function() {
 				perl.qq('quote me baby', '<', '>').should.equal('<quote me baby>');
 			});
+			it('a.k.a qqO() double quotes an Object by quoting all the values of the object', function() {
+				var oObject = {'1': 2, '3': 4};
+				perl.qq(oObject).should.deep.equal({'1': '"2"', '3': '"4"'});
+				// ensure original object not modified
+				oObject.should.deep.equal({'1': 2, '3': 4});
+			});
 		});
 	});
 
 	describe('.qw()', function() {
 		it('makes array out of string', function() {
 			perl.qw('   split   me 	baby\n\nyou know you want to   ').join('/').should.equal('split/me/baby/you/know/you/want/to');
+		});
+	});
+
+	// Not a direct perl function, but equivalent to
+	// my @Quoted = map { qq{"$ARG"} } qw( value1 value2 );
+	describe('.qqA()', function() {
+		var aList = ['one', 'two'];
+		it('double quotes the strings in an array', function() {
+			perl.qqA(aList).should.deep.equal(['"one"', '"two"']);
+		});
+		describe('non-perl qq// operator behaviour', function () {
+			it('quotes an array with any string', function() {
+				perl.qqA(aList, '@').should.deep.equal(['@one@', '@two@']);
+			});
+			it('quotes an array with any pair of strings', function() {
+				perl.qqA(aList, '<', '>').should.deep.equal(['<one>', '<two>']);
+			});
+		});
+	});
+
+	// Not a direct perl function, but equivalent to
+	// my %Quoted = map { ($ARG, qq{"$Map{$ARG}"}) } %Map;
+	describe('.qqO()', function() {
+		var oObject = {'1': 2, '3': 4};
+		it('double quotes the values in an object', function() {
+			perl.qqO(oObject).should.deep.equal({'1': '"2"', '3': '"4"'});
+		});
+		describe('non-perl qq// operator behaviour', function () {
+			it('quotes the values of an object with any string', function() {
+				perl.qqO(oObject, '@').should.deep.equal({'1': '@2@', '3': '@4@'});
+			});
+			it('quotes the values of an object with any pair of strings', function() {
+				perl.qqO(oObject, '<', '>').should.deep.equal({'1': '<2>', '3': '<4>'});
+			});
 		});
 	});
 
@@ -255,6 +295,9 @@ describe('#perl', function () {
 			var aArray = perl.qw('key1 value1 key2 value2');
 			perl.mapFromArray(aArray).should.deep.equal({ key1: 'value1', key2: 'value2' });
 		});
+		it('makes an Object out of an undefined Array', function () {
+			perl.mapFromArray().should.deep.equal({});
+		});
 		it('makes an Object out of an Array, warning about odd elements', function () {
 			var aArray, konsole = perl._console;
 
@@ -277,6 +320,10 @@ describe('#perl', function () {
 			var aArray = perl.qw('key1 value1 key2 value2');
 			perl.makeMap(aArray)
 				.should.deep.equal({ key1: true, value1: true, key2: true, value2: true });
+		});
+		it('makes a map Object out of an undefined Array', function () {
+			perl.makeMap()
+				.should.deep.equal({});
 		});
 		it('makes a map Object out of an Array with a specific value (undefined -> true)', function () {
 			var aArray = perl.qw('key1 value1 key2 value2');

@@ -1,3 +1,4 @@
+// configure jshint settings for node application code
 // warning codes for jshint are in:
 // node_modules/grunt-contrib-jshint/node_modules/jshint/src/messages.js
 {

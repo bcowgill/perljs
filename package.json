@@ -5,7 +5,11 @@
   "main": "perl.js",
   "scripts": {
     "docs": "jsdoc --destination doc --recurse test/ lib/perl.js",
-    "test": "mocha --reporter tap"
+    "test": "mocha --reporter tap",
+    "coverage-view": "chromium-browser doc/coverage/index.html",
+    "doc-view": "chromium-browser doc/index.html",
+    "docs-view": "chromium-browser doc/index.html",
+    "edit": "subl Gruntfile.js `find lib/ test/ -type f`"
   },
   "repository": {
     "type": "git",
@@ -14,7 +18,7 @@
   "keywords": [
     "perl"
   ],
-  "author": "Brent Cowgill <brent@blismedia.com> (http://github.com/bcowgill)",
+  "author": "Brent Cowgill <brent.cowgill@workshare.com> (http://github.com/bcowgill)",
   "licenses": [
     {
       "type": "The Unlicense",
@@ -34,6 +38,8 @@
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-jsdoc": "~0.5.6",
     "grunt-mocha-chai-sinon": "0.0.8",
-    "grunt-contrib-watch": "~0.6.1"
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-mocha-istanbul": "^3.0.1",
+    "istanbul": "^0.3.20"
   }
 }

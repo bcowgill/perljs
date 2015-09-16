@@ -1,3 +1,4 @@
+// configure jshint settings for the Gruntfile and JSON config files
 // warning codes for jshint are in:
 // node_modules/grunt-contrib-jshint/node_modules/jshint/src/messages.js
 {

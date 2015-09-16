@@ -1,3 +1,4 @@
+// configure jshint settings for test plans which can have tighter complexity settings
 // warning codes for jshint are in:
 // node_modules/grunt-contrib-jshint/node_modules/jshint/src/messages.js
 {
