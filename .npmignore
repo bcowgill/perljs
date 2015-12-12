@@ -1,5 +1,6 @@
 .gitignore
 bower_components
+umd
 lib/perl.js
 test
 perl
