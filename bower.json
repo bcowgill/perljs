@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "perljs",
-  "main": "index.js",
+  "main": ["index.js"],
   "version": "0.2.2",
   "homepage": "https://github.com/bcowgill/perljs",
   "authors": [

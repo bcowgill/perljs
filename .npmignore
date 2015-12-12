@@ -1,9 +1,11 @@
 .gitignore
+bower_components
 lib/perl.js
 test
 perl
 doc
 scripts
+.idea
 Makefile
 Gruntfile.js
 .jshint*
