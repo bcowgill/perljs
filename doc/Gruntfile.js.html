@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>JSDoc: Source: Gruntfile.js</title>
-
+    
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
@@ -16,16 +16,16 @@
 <body>
 
 <div id="main">
-
+    
     <h1 class="page-title">Source: Gruntfile.js</h1>
-
+    
     
 
 
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/*jshint indent: 4, smarttabs: true, maxstatements: 100, maxlen: 140 */
+            <pre class="prettyprint source"><code>/*jshint indent: 4, smarttabs: true, maxstatements: 100, maxlen: 140 */
 /*global module:false */
 /**
 	@file Gruntfile.js
@@ -33,6 +33,17 @@
 	@see {@link module:Gruntfile}
 	@description
 	Grunt build configuration.
+
+ 	@example
+
+ 	# build all, then watch for changes use the airplane test reporter
+ 	grunt all watch --reporter landing --force
+
+ 	# jshint check a single file
+ 	grunt jshint:single --check-file filename.js
+
+ 	# run tests with a chosen reporter style
+ 	grunt test --reporter spec
 
 	@see {@link http://usejsdoc.org/ JSDoc Documentation}
 */
@@ -72,36 +83,40 @@ module.exports = function(grunt) {
 			gruntfile: {
 				options: {
 					jshintrc: '.jshintrc-gruntfile',
-					globals: {},
+					globals: {}
 				},
-				src: ['package.json', 'Gruntfile.js']
+				src: ['package.json', '.jshintrc*', 'Gruntfile.js']
 			},
 			single: {
-				src: ['package.json'] // set to just check a single file
+				// grunt jshint:single --check-file filename
+				src: [grunt.option('check-file') || 'package.json']
 			},
 			lib: {
 				src: ['lib/**/*.js', 'lib/jsdoc-templates/*.jsdoc']
 			},
 			test: {
+				options: {
+					jshintrc: '.jshintrc-mocha-chai-sinon',
+					globals: {}
+				},
+				spec: ['test/**/*-test.js'], // for coverage
 				src: ['test/**/*.js']
 			}
 		},
-		nodeunit: {
-			files: ['test/**/*-test.js'],
-		},
 		/**
-			Running tests in the console using mocha/chai.
+			Running tests in the console using mocha/chai/sinon.
 			@see {@link https://github.com/thepeg/grunt-mocha-chai-sinon Grunt plugin for mocha, chai, and sinon}
 			@see {@link http://visionmedia.github.io/mocha/ mocha documentation}
 			@see {@link http://chaijs.com/api/ chai documentation}
+		 	@see {@link http://sinonjs.org/docs/ sinon documentation}
 		*/
 		'mocha-chai-sinon': {
 			test: {
-				src: ['./test/**/*-test.js'],
+				src: '&lt;%= jshint.test.spec %>',
 				options: {
-					ui: 'bdd',
+					ui:  '&lt;%= mocha_istanbul.coverage.options.ui %>',
 					// spec, list, tap, nyan, progress, dot, min, landing, doc, markdown, html-cov, json-cov, json, json-stream, xunit
-					reporter: 'tap',
+					reporter:  '&lt;%= mocha_istanbul.coverage.options.reporter %>',
 					bail: false, // true to bail after first test failure
 					//grep: '.*', // invert: true, // filter to run subset of tests
 					sort: true, // sort order of test files
@@ -113,6 +128,57 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		/**
+			Generate code coverage reports using istanbul.
+			@see {@link https://www.npmjs.com/package/grunt-mocha-istanbul Grunt plugin for mocha istanbul coverage}
+			@see {@link http://gotwarlost.github.io/istanbul/ istanbul documentation}
+		 	@see {@link https://github.com/nickmerwin/node-coveralls coveralls documentation}
+			@see {@link http://tbusser.net/articles/js-unit-testing-part-02/#disqus_thread coverage under the hood}
+		 */
+		mocha_istanbul: {
+			// use your browser to view this url for coverage report
+			coverageUrl: '&lt;%= mocha_istanbul.coverage.options.coverageFolder %>/index.html',
+			coverage: {
+				src: '&lt;%= jshint.test.spec %>',
+				options: {
+					dryRun: false, // to debug the istanbul command line
+					coverageFolder: 'doc/coverage',
+					excludes: [],  // use istanbul help cover to see how excludes work
+					reportFormats: [
+						// html, lcovonly, lcov, cobertura, text-summary, text, teamcity
+						'html',
+						'text'
+					],
+
+					// Mocha options
+					reporter: grunt.option('reporter') || 'spec',
+					ui: 'bdd',
+
+					// check percentage coverage to be a good build
+					check: {
+						functions:   99,
+						branches:    99,
+						lines:       99,
+						statements:  99
+					}
+				}
+			},
+			coveralls: {
+				src: '&lt;%= jshint.test.spec %>',
+				options: {
+					coverage: true, // this will make the grunt.event.on('coverage') event listener to be triggered
+					check: {
+						functions:   99,
+						branches:    99,
+						lines:       99,
+						statements:  99
+					},
+					root: './lib', // define where the cover task should consider the root of libraries that are covered by tests
+					reportFormats: ['cobertura','lcovonly']
+				}
+			}
+		},
+
 		/**
 			Generate application documentation with jsdoc
 			@see {@link https://github.com/krampstudio/grunt-jsdoc Grunt jsdoc plugin}
@@ -140,38 +206,51 @@ module.exports = function(grunt) {
 		watch: {
 			gruntfile: {
 				files: '&lt;%= jshint.gruntfile.src %>',
-				tasks: ['jshint:gruntfile']
+				tasks: ['jshint:gruntfile', 'coverage']
 			},
 			lib: {
 				files: '&lt;%= jshint.lib.src %>',
-				tasks: ['jshint:lib', 'nodeunit']
+				tasks: ['jshint:lib', 'coverage']
 			},
 			test: {
 				files: '&lt;%= jshint.test.src %>',
-				tasks: ['jshint:test', 'nodeunit']
+				tasks: ['jshint:test', 'coverage']
 			}
 		}
 	});
 
 	// These plugins provide necessary tasks.
 	[
-		//'grunt-contrib-nodeunit');
 		'grunt-contrib-clean',
 		'grunt-contrib-jshint',
 		'grunt-jsdoc',
 		'grunt-mocha-chai-sinon',
+		'grunt-mocha-istanbul',
 		'grunt-contrib-watch'
 	].forEach(function (task) {
 		grunt.loadNpmTasks(task);
 	});
 
+	// Important not to remove this if coveralls.options.coverage:true or grunt will hang
+	grunt.event.on('coverage', function (lcovFileContents, done) {
+		void lcovFileContents;
+		done();
+	});
+
 	// Default task.
 	grunt.registerTask('default', ['all']);
-	grunt.registerTask('all', ['windows', 'docs', 'test']);
+	grunt.registerTask('all', ['windows', 'docs', 'coverage']);
 	grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc']);
 	grunt.registerTask('test', [
-		//'nodeunit'
+		// hyphens in name make the config section annoying
+		// as template lookup with &lt;%= mocha-chai-sinon %> won't work
 		'mocha-chai-sinon'
+	]);
+	grunt.registerTask('coverage', [
+		'mocha_istanbul:coverage'
+	]);
+	grunt.registerTask('coveralls', [
+		'mocha_istanbul:coveralls'
 	]);
 	grunt.registerTask('windows', [
 		'jshint:gruntfile',
@@ -196,7 +275,7 @@ module.exports = function(grunt) {
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha8</a> on Sun Nov 23 2014 23:22:44 GMT+0000 (GMT Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Sat Dec 12 2015 22:22:20 GMT-0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>
