@@ -19,12 +19,10 @@
     "perl"
   ],
   "author": "Brent Cowgill <brent.cowgill@workshare.com> (http://github.com/bcowgill)",
-  "licenses": [
-    {
+  "license": {
       "type": "The Unlicense",
       "url": "http://unlicense.org/"
-    }
-  ],
+  },
   "bugs": {
     "url": "https://github.com/bcowgill/perljs/issues"
   },
