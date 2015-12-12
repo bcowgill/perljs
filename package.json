@@ -1,8 +1,10 @@
 {
   "name": "perljs",
+  "main": "index.js",
   "version": "0.2.2",
+  "homepage": "https://github.com/bcowgill/perljs",
+  "author": "Brent Cowgill <brent.cowgill@workshare.com> (http://github.com/bcowgill)",
   "description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
-  "main": "perl.js",
   "scripts": {
     "docs": "jsdoc --destination doc --recurse test/ lib/perl.js",
     "test": "mocha --reporter tap",
@@ -18,7 +20,6 @@
   "keywords": [
     "perl"
   ],
-  "author": "Brent Cowgill <brent.cowgill@workshare.com> (http://github.com/bcowgill)",
   "license": {
       "type": "The Unlicense",
       "url": "http://unlicense.org/"
@@ -26,7 +27,6 @@
   "bugs": {
     "url": "https://github.com/bcowgill/perljs/issues"
   },
-  "homepage": "https://github.com/bcowgill/perljs",
   "devDependencies": {
     "mocha": "^1.20.1",
     "chai": "^1.9.1",

@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "perljs",
   "main": "index.js",
   "version": "0.2.2",
@@ -8,6 +9,8 @@
   ],
   "description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
   "moduleType": [
+    "amd",
+    "globals",
     "node"
   ],
   "keywords": [
@@ -18,7 +21,18 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "lib/perl.js",
     "test",
-    "tests"
+    "tests",
+    "perl",
+    "doc",
+    "scripts",
+    "Makefile",
+    "Gruntfile.js",
+    "jsdoc.conf.json",
+    "*.txt",
+    "*.bak",
+    "*.sublime-*",
+    "*.timestamp"
   ]
 }
