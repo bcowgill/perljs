@@ -3,7 +3,7 @@
   "main": [
     "index.js"
   ],
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "https://github.com/bcowgill/perljs",
   "authors": [
     "Brent S.A. Cowgill <brent.cowgill@workshare.com>"

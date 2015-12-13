@@ -33,10 +33,6 @@ cp lib/perl.js index.js
 # generate updated documentation
 npm run docs
 
-# pack the module and show it to check there are no extra files included
+# pack the npm module and show it to check there are no extra files included
 npm pack && tar tvzf perljs-*.tgz
 rm perljs-*.tgz
-
-# bower install locally and list files
-bower install ./bower.json
-ls -al bower_components/perljs
