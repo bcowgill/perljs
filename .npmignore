@@ -5,6 +5,7 @@ lib/perl.js
 test
 perl
 doc
+coverage
 scripts
 .idea
 Makefile

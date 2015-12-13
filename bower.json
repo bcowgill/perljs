@@ -2,7 +2,7 @@
   "private": true,
   "name": "perljs",
   "main": ["index.js"],
-  "version": "0.2.2",
+  "version": "0.3.0",
   "homepage": "https://github.com/bcowgill/perljs",
   "authors": [
     "Brent S.A. Cowgill <brent.cowgill@workshare.com>"
@@ -27,6 +27,7 @@
     "tests",
     "perl",
     "doc",
+    "coverage",
     "scripts",
     "Makefile",
     "Gruntfile.js",
