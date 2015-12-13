@@ -4,16 +4,7 @@
 */
 (function(root, factory) {
     "use strict";
-    if ("function" === typeof define && define.amd) {
-        void 0;
-        define([], factory);
-    } else if ("object" === typeof module && module.exports) {
-        void 0;
-        module.exports = factory();
-    } else {
-        void 0;
-        root.perljs = factory();
-    }
+    if ("function" === typeof define && define.amd) define([], factory); else if ("object" === typeof module && module.exports) module.exports = factory(); else root.perljs = factory();
 })(this, function() {
     "use strict";
     var perljs = {

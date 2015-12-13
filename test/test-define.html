@@ -16,7 +16,7 @@
     });
 
     // Asynchronous module loading
-    require(['../../index'], function (perljs) {
+    require(['../../perljs.min'], function (perljs) {
         var versions = perljs.version.split('.');
         console.log('This is perljs version ' + versions[0] +
                 ', subversion ' + versions[1] + ', patch ' + versions[2] +
