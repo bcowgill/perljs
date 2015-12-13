@@ -32,6 +32,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		// Metadata.
 		pkg: grunt.file.readJSON('package.json'),
+		bower: grunt.file.readJSON('bower.json'),
 		// Task configuration.
 		/**
 			clean up files on disk before build.
@@ -58,7 +59,7 @@ module.exports = function(grunt) {
 					jshintrc: '.jshintrc-gruntfile',
 					globals: {}
 				},
-				src: ['package.json', '.jshintrc*', 'Gruntfile.js']
+				src: ['package.json', 'bower.json', '.jshintrc*', 'Gruntfile.js']
 			},
 			single: {
 				// grunt jshint:single --check-file filename
@@ -212,45 +213,21 @@ module.exports = function(grunt) {
 			@see {@link https://github.com/gruntjs/grunt-contrib-uglify Grunt uglify plugin}
 		 */
 		uglify: {
+			options: {
+				beautify: {
+					preamble: '/*  <%= pkg.name %> v<%= pkg.version %> ' +
+					'<%= pkg.homepage %>\n    <%= pkg.author %>\n' +
+					'    <%= pkg.license.type %> <%= pkg.license.url %>\n*/'
+				}
+			},
 			node: {
 				options: {
 					mangle: false,
-					compress: {
-						sequences: false,
-						properties: false,
-						dead_code: false,
-						drop_debugger: true,
-						unsafe: false,
-						unsafe_comps: false,
-						conditionals: false,
-						comparisons: false,
-						evaluate: false,
-						booleans: false,
-						loops: false,
-						unused: false,
-						hoist_funs: false,
-						keep_fargs: true,
-						keep_fnames: true,
-						hoist_vars: false,
-						if_return: false,
-						join_vars: false,
-						cascade: false,
-						side_effects: false,
-						pure_getters: false,
-						pure_funcs: null,
-						negate_iife: false,
-						screw_ie8: false,
-						drop_console: true,
-						angular: false,
-						warnings: true,
-						global_defs: {}
-					},
+					compress: false,
 					beautify: {
 						beautify: true,
 						max_line_len: 100,
-						preamble: '/*  <%= pkg.name %> v<%= pkg.version %> ' +
-							'<%= pkg.homepage %>\n    <%= pkg.author %>\n' +
-							'    <%= pkg.license.type %> <%= pkg.license.url %>\n*/'
+						preamble: '<%= uglify.options.beautify.preamble %>'
 					}
 				},
 				files: {
@@ -265,9 +242,7 @@ module.exports = function(grunt) {
 						drop_debugger: true
 					},
 					beautify: {
-						preamble: '/*  <%= pkg.name %> v<%= pkg.version %> ' +
-						'<%= pkg.homepage %>\n    <%= pkg.author %>\n' +
-						'    <%= pkg.license.type %> <%= pkg.license.url %>\n*/'
+						preamble: '<%= uglify.options.beautify.preamble %>'
 					}
 				},
 				files: {
@@ -313,10 +288,13 @@ module.exports = function(grunt) {
 	grunt.registerTask('coveralls', [
 		'mocha_istanbul:coveralls'
 	]);
-	grunt.registerTask('windows', [
+	grunt.registerTask('jshint:all', [
 		'jshint:gruntfile',
 		'jshint:lib',
 		'jshint:test'
+	]);
+	grunt.registerTask('windows', [
+		'jshint:all'
 	]);
 	grunt.registerTask('single', ['jshint:single']);
 };
