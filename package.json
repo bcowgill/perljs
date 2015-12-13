@@ -1,7 +1,7 @@
 {
   "name": "perljs",
   "main": "index.js",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/bcowgill/perljs",
   "author": "Brent Cowgill <brent.cowgill@workshare.com> (http://github.com/bcowgill)",
   "description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",

@@ -93,3 +93,4 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * 0.2.1 Release some (hash) mapping functions mapFromArray(), makeMap() and reverseMap()
 * 0.2.2 Create some release management scripts
 * 0.3.0 Made browser compatible as AMD or global and bower.json for bower packaging
+* 0.3.1 Made browser compatible as CommonJS/AMD or global and bower.json for bower packaging (private: false)

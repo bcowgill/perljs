@@ -21,6 +21,12 @@ else
 	echo package.json does not contain that release version
 	exit 1
 fi
+if grep "$REL_VER" bower.json ; then
+	echo ok bower.json version updated
+else
+	echo bower.json does not contain that release version
+	exit 1
+fi
 if grep "$REL_VER" lib/perl.js ; then
 	echo ok lib/perl.js version updated
 else
@@ -50,9 +56,22 @@ npm install . -g
 npm ls -g | grep perljs
 
 # publish it on the npm registry and check it
+npm adduser
 npm publish
 sleep 3
 echo checking npm site
-curl.exe https://www.npmjs.org/package/perljs | grep Version --after-context=5
+curl --silent --location https://www.npmjs.org/package/perljs \
+	| grep 'is the latest' --before-context=1 --after-context=1
 
 npm install -g perljs
+
+# publish it on the bower registry and check it
+bower register perljs https://github.com/bcowgill/perljs.git
+
+echo TODO bower register/publish
+
+bower ls | grep perljs
+bower install .
+bower ls | grep perljs
+
+echo TODO check bower site for version
