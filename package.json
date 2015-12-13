@@ -6,7 +6,7 @@
   "author": "Brent Cowgill <brent.cowgill@workshare.com> (http://github.com/bcowgill)",
   "description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
   "scripts": {
-    "docs": "jsdoc --destination doc --recurse test/ lib/perl.js",
+    "docs": "jsdoc --destination doc --recurse test/*.js lib/perl.js Gruntfile.js README.md",
     "test": "mocha --reporter tap",
     "coverage-view": "chromium-browser doc/coverage/index.html",
     "doc-view": "chromium-browser doc/index.html",
