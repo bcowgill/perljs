@@ -6,12 +6,25 @@ Perl for Javascript. Just some functions that a perl developer misses in Javascr
 ## Installation
 
 ```bash
-  npm install perljs --save
+	npm install perljs --save
+```
+
+or
+
+```bash
+	bower install perljs --save
+```
+
+or get it all
+
+```bash
+	git clone https://github.com/bcowgill/perljs.git
 ```
 
 ## Usage
 
 ```javascript
+
 	var perl = require('perljs')
 	   q = perl.q,
 	   qq = perl.qq,
@@ -24,13 +37,31 @@ Perl for Javascript. Just some functions that a perl developer misses in Javascr
 
 ## Tests
 
+For perlish test output:
+
 ```bash
-  npm test
+	npm test
+```
+
+Or more javascripty test output:
+
+```bash
+
+	grunt
+```
+
+## Full Documentation
+
+```bash
+
+	npm run doc
+	npm run doc-view
 ```
 
 ## Perl Goodness Presently Supported
 
 ```javascript
+
 	q('what') => ''what''
 
 	qq('what') => '"what"'

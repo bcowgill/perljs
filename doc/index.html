@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Index</title>
-    
+    <title>JSDoc: Home</title>
+
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
@@ -16,10 +16,11 @@
 <body>
 
 <div id="main">
+
+    <h1 class="page-title">Home</h1>
+
     
-    <h1 class="page-title">Index</h1>
-    
-    
+
 
 
     
@@ -35,56 +36,12 @@
 
 
 
+
     
 
 
 
 
-    <section>
-        <article><h1>perljs</h1>
-<p>Perl for Javascript. Just some functions that a perl developer misses in Javascript.</p>
-<h2>Installation</h2>
-<pre><code class="lang-bash">  npm install perljs --save</code></pre>
-<h2>Usage</h2>
-<pre><code class="lang-javascript">    var perl = require('perljs')
-       q = perl.q,
-       qq = perl.qq,
-       qw = perl.qw,
-       x = perl.x,
-       name = 'perl rocks the javascript world';
-
-    console.log('q', q(name), 'qq', qq(name), 'qw', qw(name), 'x', x(name + '\n', 3));</code></pre>
-<h2>Tests</h2>
-<pre><code class="lang-bash">  npm test</code></pre>
-<h2>Perl Goodness Presently Supported</h2>
-<pre><code class="lang-javascript">    q('what') =&gt; ''what''
-
-    qq('what') =&gt; '&quot;what&quot;'
-
-    qw('this is it') =&gt; ['this', 'is', 'it']
-
-    x('=', 76) =&gt; 76 equal signs in a row
-
-    // my %Map = qw( key1 value1 key2 value2 );
-    qwm('key1 value1 key2 value2') =&gt; { 'key1': 'value1', 'key2': 'value2' }
-
-    mapFromArray() - does the same for an array instead of a string.
-
-    // my %Map = map { ( $ARG, 1 ) } @Array;
-    makeMap(['key1', 'key2']); =&gt; { 'key1': true, 'key2': true }
-
-    // my %ReverseMap = map { ($Map{$ARG}, $ARG) } keys(%Map)
-    reverseMap({ 'inch': 1, 'foot': 12 }) =&gt; { '1': 'inch', '12': 'foot' }</code></pre>
-<h2>Contributing</h2>
-<p>In lieu of a formal styleguide, take care to maintain the existing coding style.
-Add unit tests for any new or changed functionality. Lint and test your code.</p>
-<h2>Release History</h2>
-<ul>
-<li>0.1.0 Initial release q qq qw x - go forth and perlize</li>
-<li>0.2.1 Release some (hash) mapping functions mapFromArray(), makeMap() and reverseMap()</li>
-<li>0.2.2 Create some release management scripts</li>
-</ul></article>
-    </section>
 
 
 
@@ -94,151 +51,45 @@ Add unit tests for any new or changed functionality. Lint and test your code.</p
 
 
 <section>
-    
+
 <header>
-    <h2>
-    Gruntfile.js
-    </h2>
     
-</header>  
+        <h2>lib/perl.js</h2>
+        
+    
+</header>
 
 <article>
     <div class="container-overview">
-    
-    
-    
-        
-            <div class="description">Grunt build configuration.</div>
-        
-        
-        
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Brent S.A. Cowgill</li>
-        </ul>
-    </dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Gruntfile.js.html">Gruntfile.js</a>, <a href="Gruntfile.js.html#line3">line 3</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="module-Gruntfile.html">module:Gruntfile</a></li>
-        
-            <li><a href="http://usejsdoc.org/">JSDoc Documentation</a></li>
-        </ul>
-    </dd>
-    
-    
-    
-</dl>
-
-        
-        
-            <h3>Example</h3>
-            
-    <pre class="prettyprint"><code> 	# build all, then watch for changes use the airplane test reporter
- 	grunt all watch --reporter landing --force
-
- 	# jshint check a single file
- 	grunt jshint:single --check-file filename.js
-
- 	# run tests with a chosen reporter style
- 	grunt test --reporter spec
-
-	</code></pre>
-
-        
-    
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</article>
-
-</section>  
-
-
-
-
-
-
-<section>
-    
-<header>
-    <h2>
-    lib/perl.js
-    </h2>
-    
-</header>  
-
-<article>
-    <div class="container-overview">
-    
-    
     
         
             <div class="description">File info for perljs to make javascript more perl-like.</div>
         
+
         
-        
+
+
 <dl class="details">
-    
-        
+
     
     <dt class="tag-version">Version:</dt>
-    <dd class="tag-version"><ul class="dummy"><li>0.2.2</li></ul></dd>
-    
-    
+    <dd class="tag-version"><ul class="dummy"><li>0.3.0</li></ul></dd>
     
 
     
+
     
+
     
+
     
+
+    
+
+    
+
+    
+
     
     <dt class="tag-author">Author:</dt>
     <dd class="tag-author">
@@ -247,25 +98,25 @@ Add unit tests for any new or changed functionality. Lint and test your code.</p
         </ul>
     </dd>
     
+
     
-    
-    
+
     
     <dt class="tag-license">License:</dt>
     <dd class="tag-license"><ul class="dummy"><li><a href="http://unlicense.org">The Unlicense</a></li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl.js.html">lib/perl.js</a>, <a href="perl.js.html#line3">line 3</a>
+        <a href="lib_perl.js.html">lib/perl.js</a>, <a href="lib_perl.js.html#line3">line 3</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -274,7 +125,7 @@ Add unit tests for any new or changed functionality. Lint and test your code.</p
         </ul>
     </dd>
     
-    
+
     
     <dt class="tag-todo">To Do:</dt>
     <dd class="tag-todo">
@@ -304,11 +155,11 @@ Add unit tests for any new or changed functionality. Lint and test your code.</p
     
 </dl>
 
-        
+
         
             <h3>Example</h3>
             
-    <pre class="prettyprint"><code>	var Perl = require(perljs), qq = Perl.qq;
+    <pre class="prettyprint"><code>var Perl = require(perljs), qq = Perl.qq;
 	console.log(qq('what'));
 
 	</code></pre>
@@ -316,27 +167,28 @@ Add unit tests for any new or changed functionality. Lint and test your code.</p
         
     
     </div>
+
     
+
     
+
     
+
+     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
 </article>
 
-</section>  
+</section>
+
 
 
 
@@ -344,35 +196,42 @@ Add unit tests for any new or changed functionality. Lint and test your code.</p
 
 
 <section>
-    
+
 <header>
-    <h2>
-    test/perl-test.js
-    </h2>
     
-</header>  
+        <h2>test/perl-test.js</h2>
+        
+    
+</header>
 
 <article>
     <div class="container-overview">
     
-    
-    
         
             <div class="description">test/perl-test.js</div>
         
+
         
-        
+
+
 <dl class="details">
-    
-        
-    
-    
+
     
 
     
+
     
+
     
+
     
+
+    
+
+    
+
+    
+
     
     <dt class="tag-author">Author:</dt>
     <dd class="tag-author">
@@ -381,22 +240,22 @@ Add unit tests for any new or changed functionality. Lint and test your code.</p
         </ul>
     </dd>
     
+
     
+
     
+
     
-    
-    
-    
-    
+
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="perl-test.js.html">test/perl-test.js</a>, <a href="perl-test.js.html#line1">line 1</a>
+        <a href="test_perl-test.js.html">test/perl-test.js</a>, <a href="test_perl-test.js.html#line1">line 1</a>
     </li></ul></dd>
     
+
     
-    
-    
+
     
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -405,41 +264,41 @@ Add unit tests for any new or changed functionality. Lint and test your code.</p
         </ul>
     </dd>
     
-    
+
     
 </dl>
 
-        
+
         
     
     </div>
+
     
-    
-    
-    
-    
+
     
         <h3 class="subsection-title">Requires</h3>
-        
+
         <ul>
             <li>module:chai</li>
         </ul>
     
+
     
+
+     
+
     
+
     
+
     
+
     
-    
-    
-    
-    
-    
-    
+
     
 </article>
 
-</section>  
+</section>
 
 
 
@@ -447,13 +306,13 @@ Add unit tests for any new or changed functionality. Lint and test your code.</p
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-Gruntfile.html">Gruntfile</a></li><li><a href="module-perljs.html">perljs</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-perljs.html">perljs</a></li></ul>
 </nav>
 
-<br clear="both">
+<br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Sat Dec 12 2015 23:59:19 GMT-0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Dec 13 2015 09:10:54 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>
