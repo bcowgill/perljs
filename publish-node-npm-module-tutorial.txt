@@ -180,3 +180,5 @@ npm install grunt-contrib-connect --save-dev
 For in browser AMD module loading
 bower install --save-dev definejs
 
+TODO
+use npm verion and bower version command in pre-release/release scripts

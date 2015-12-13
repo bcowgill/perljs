@@ -70,7 +70,7 @@ npm install -g perljs
 
 # publish it on the bower registry and check it
 #bower register perljs https://github.com/bcowgill/perljs.git
-bower version
+#bower version
 # wont show on bower search for an hour
 #curl --silent --location http://bower.io/search/?q=perljs
 
