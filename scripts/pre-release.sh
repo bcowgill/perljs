@@ -19,6 +19,8 @@ perl -i.bak -pne 's{(\@version \s+)([\.0-9]+)}{$1$ENV{REL_VER}}xmsg; \
    s{(version \s* = \s*.)([\.0-9]+)(.;)}{$1$ENV{REL_VER}$3}xmsg;' \
    lib/perl.js
 
+#npm version $REL_VER
+#bower version $REL_VER
 perl -i.bak -pne 's{("version": \s+ ")([\.0-9]+)(",)}{$1$ENV{REL_VER}$3}xmsg' package.json bower.json
 
 if grep "\* $REL_VER" README.md ; then
@@ -27,8 +29,8 @@ else
 	echo README.md does not contain a release note
 fi
 
-# module expects to be called index.js
-cp lib/perl.js index.js
+# build index.js and minified version for browser
+grunt build
 
 # generate updated documentation
 npm run docs

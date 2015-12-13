@@ -206,9 +206,76 @@ module.exports = function(grunt) {
 					}
 				}
 			}
+		},
+		/**
+			Minify the size of the built library for browser use.
+			@see {@link https://github.com/gruntjs/grunt-contrib-uglify Grunt uglify plugin}
+		 */
+		uglify: {
+			node: {
+				options: {
+					mangle: false,
+					compress: {
+						sequences: false,
+						properties: false,
+						dead_code: false,
+						drop_debugger: true,
+						unsafe: false,
+						unsafe_comps: false,
+						conditionals: false,
+						comparisons: false,
+						evaluate: false,
+						booleans: false,
+						loops: false,
+						unused: false,
+						hoist_funs: false,
+						keep_fargs: true,
+						keep_fnames: true,
+						hoist_vars: false,
+						if_return: false,
+						join_vars: false,
+						cascade: false,
+						side_effects: false,
+						pure_getters: false,
+						pure_funcs: null,
+						negate_iife: false,
+						screw_ie8: false,
+						drop_console: true,
+						angular: false,
+						warnings: true,
+						global_defs: {}
+					},
+					beautify: {
+						beautify: true,
+						max_line_len: 100,
+						preamble: '/*  <%= pkg.name %> v<%= pkg.version %> ' +
+							'<%= pkg.homepage %>\n    <%= pkg.author %>\n' +
+							'    <%= pkg.license.type %> <%= pkg.license.url %>\n*/'
+					}
+				},
+				files: {
+					'index.js': ['lib/perl.js']
+				}
+			},
+			dist: {
+				options: {
+					sourceMap: true,
+					compress: {
+						drop_console: true,
+						drop_debugger: true
+					},
+					beautify: {
+						preamble: '/*  <%= pkg.name %> v<%= pkg.version %> ' +
+						'<%= pkg.homepage %>\n    <%= pkg.author %>\n' +
+						'    <%= pkg.license.type %> <%= pkg.license.url %>\n*/'
+					}
+				},
+				files: {
+					'perljs.min.js': ['index.js']
+				}
+			}
 		}
 	});
-
 
 	// These plugins provide necessary tasks.
 	[
@@ -218,7 +285,8 @@ module.exports = function(grunt) {
 		'grunt-mocha-chai-sinon',
 		'grunt-mocha-istanbul',
 		'grunt-contrib-watch',
-		'grunt-contrib-connect'
+		'grunt-contrib-connect',
+		'grunt-contrib-uglify'
 	].forEach(function (task) {
 		grunt.loadNpmTasks(task);
 	});
@@ -232,6 +300,7 @@ module.exports = function(grunt) {
 	// Default task.
 	grunt.registerTask('default', ['all']);
 	grunt.registerTask('all', ['windows', 'docs', 'coverage']);
+	grunt.registerTask('build', ['uglify:node', 'uglify:dist']);
 	grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc']);
 	grunt.registerTask('test', [
 		// hyphens in name make the config section annoying

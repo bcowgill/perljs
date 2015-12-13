@@ -1,6 +1,8 @@
 {
   "name": "perljs",
   "main": [
+    "perljs.min.js",
+    "perljs.min.js.map",
     "index.js"
   ],
   "version": "0.3.2",
