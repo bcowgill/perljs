@@ -40,6 +40,7 @@
     "*.timestamp"
   ],
   "devDependencies": {
-    "require1k": "~1.0.0"
+    "require1k": "~1.0.0",
+    "definejs": "~0.2.91"
   }
 }
