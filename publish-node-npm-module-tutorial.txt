@@ -152,3 +152,31 @@ docco adds to jsdoc
 http://jashkenas.github.io/docco/
 themes
 https://github.com/terryweiss/docstrap
+
+=======================
+bower
+
+npm install -g bower
+
+bower init
+
+creates bower.json based on package.json
+
+bower register ./bower.json ??? will this work ? no
+if no, bower register perljs https://github.com/bcowgill/perljs.git
+takes an hour or so to show up bower search page
+http://bower.io/search/?q=perljs
+
+UMD github shows how to make a node/amd compatible module
+https://github.com/umdjs/umd/blob/master/templates/returnExports.js
+git clone https://github.com/umdjs/umd
+
+For in browser CommonJS module loading
+bower install require1k --save-dev
+
+Need a local web server for require to work
+npm install grunt-contrib-connect --save-dev
+
+For in browser AMD module loading
+bower install --save-dev definejs
+

@@ -23,7 +23,7 @@
     "node_modules",
     "bower_components",
     "umd",
-    "lib/perl.js",
+    "lib",
     "test",
     "tests",
     "perl",
