@@ -189,8 +189,26 @@ module.exports = function(grunt) {
 				files: '<%= jshint.test.src %>',
 				tasks: ['jshint:test', 'coverage']
 			}
+		},
+		/**
+			Start a webserver to view documentation or browser based tests.
+			@see {@link https://github.com/gruntjs/grunt-contrib-connect Grunt connect plugin}
+		*/
+		connect: {
+			server: {
+				options: {
+					port: 58008,
+					hostname: '*',
+					base: '.',
+					keepalive: 'true',
+					open: {
+						target: 'http://localhost:<%= connect.server.options.port %>/test/',
+					}
+				}
+			}
 		}
 	});
+
 
 	// These plugins provide necessary tasks.
 	[
@@ -199,7 +217,8 @@ module.exports = function(grunt) {
 		'grunt-jsdoc',
 		'grunt-mocha-chai-sinon',
 		'grunt-mocha-istanbul',
-		'grunt-contrib-watch'
+		'grunt-contrib-watch',
+		'grunt-contrib-connect'
 	].forEach(function (task) {
 		grunt.loadNpmTasks(task);
 	});
