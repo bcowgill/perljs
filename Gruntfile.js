@@ -165,6 +165,7 @@ module.exports = function(grunt) {
 				src: [
 					'test/**/*.js',
 					'lib/**/*.js',
+					'index.js',
 					'Gruntfile.js',
 					'README.md'
 				],
@@ -209,31 +210,30 @@ module.exports = function(grunt) {
 			}
 		},
 		/**
+			Create the distribution index.js removing debugging code
+			/ *dbg:* / -> //dbg:
+			@see {@link https://github.com/gruntjs/grunt-contrib-concat Grunt concat plugin}
+		 */
+		concat: {
+			options: {
+				banner: '/*  <%= pkg.name %> v<%= pkg.version %> ' +
+					'<%= pkg.homepage %>\n    <%= pkg.author %>\n' +
+					'    <%= pkg.license.type %> <%= pkg.license.url %>\n*/\n',
+				process: function (source) {
+					source = source.replace(/\/\*\s*dbg:\s*\*\/(\s*)/g, '//dbg: ');
+					return source;
+				}
+			},
+			dist: {
+				src: ['lib/perl.js'],
+				dest: 'index.js'
+			}
+		},
+		/**
 			Minify the size of the built library for browser use.
 			@see {@link https://github.com/gruntjs/grunt-contrib-uglify Grunt uglify plugin}
 		 */
 		uglify: {
-			options: {
-				beautify: {
-					preamble: '/*  <%= pkg.name %> v<%= pkg.version %> ' +
-					'<%= pkg.homepage %>\n    <%= pkg.author %>\n' +
-					'    <%= pkg.license.type %> <%= pkg.license.url %>\n*/'
-				}
-			},
-			node: {
-				options: {
-					mangle: false,
-					compress: false,
-					beautify: {
-						beautify: true,
-						max_line_len: 100,
-						preamble: '<%= uglify.options.beautify.preamble %>'
-					}
-				},
-				files: {
-					'index.js': ['lib/perl.js']
-				}
-			},
 			dist: {
 				options: {
 					sourceMap: true,
@@ -242,7 +242,7 @@ module.exports = function(grunt) {
 						drop_debugger: true
 					},
 					beautify: {
-						preamble: '<%= uglify.options.beautify.preamble %>'
+						preamble: '<%= concat.options.banner %>'
 					}
 				},
 				files: {
@@ -261,6 +261,7 @@ module.exports = function(grunt) {
 		'grunt-mocha-istanbul',
 		'grunt-contrib-watch',
 		'grunt-contrib-connect',
+		'grunt-contrib-concat',
 		'grunt-contrib-uglify'
 	].forEach(function (task) {
 		grunt.loadNpmTasks(task);
@@ -275,7 +276,7 @@ module.exports = function(grunt) {
 	// Default task.
 	grunt.registerTask('default', ['all']);
 	grunt.registerTask('all', ['windows', 'docs', 'coverage']);
-	grunt.registerTask('build', ['uglify:node', 'uglify:dist']);
+	grunt.registerTask('build', ['concat:dist', 'uglify:dist']);
 	grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc']);
 	grunt.registerTask('test', [
 		// hyphens in name make the config section annoying
