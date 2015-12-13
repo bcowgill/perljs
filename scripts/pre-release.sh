@@ -30,6 +30,9 @@ fi
 # module expects to be called index.js
 cp lib/perl.js index.js
 
+# generate updated documentation
+npm run docs
+
 # pack the module and show it to check there are no extra files included
 npm pack && tar tvzf perljs-*.tgz
 rm perljs-*.tgz
