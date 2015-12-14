@@ -2,6 +2,8 @@
 # npm version handler after version number has been bumped
 # https://docs.npmjs.com/cli/version
 
+# npm version patch -m "release %s featuring ..."
+
 # terminate on first error
 set -e
 # turn on trace of currently running command if you need it
