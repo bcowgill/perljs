@@ -275,7 +275,7 @@ module.exports = function(grunt) {
 
 	// Default task.
 	grunt.registerTask('default', ['all']);
-	grunt.registerTask('all', ['windows', 'docs', 'coverage']);
+	grunt.registerTask('all', ['windows', 'docs', 'build', 'coverage']);
 	grunt.registerTask('build', ['concat:dist', 'uglify:dist']);
 	grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc']);
 	grunt.registerTask('test', [
