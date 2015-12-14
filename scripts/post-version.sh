@@ -14,15 +14,17 @@ git push origin master --tags
 rm *.bak
 
 # install module globally
+echo checking npm package install
 npm ls -g | grep perljs
 npm install . -g
 npm ls -g | grep perljs
 
 # publish it on the npm registry and check it
-echo NPM add user
+echo NPM add user (git credentials)
 npm adduser
-echo NPM publish
+echo NPM publish (git credentials)
 npm publish
+
 sleep 3
 echo checking npm site
 curl --silent --location https://www.npmjs.org/package/perljs \
@@ -35,6 +37,7 @@ npm install -g perljs
 # wont show on bower search for an hour
 #curl --silent --location http://bower.io/search/?q=perljs
 
+echo checking bower package install
 bower ls | grep perljs
 bower install perljs
 bower ls | grep perljs
