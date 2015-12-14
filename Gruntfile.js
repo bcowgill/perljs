@@ -273,10 +273,10 @@ module.exports = function(grunt) {
 	});
 
 	// Default task.
-	grunt.registerTask('default', ['all']);
 	grunt.registerTask('all', ['windows', 'docs', 'build', 'coverage']);
-	grunt.registerTask('build', ['concat:dist', 'uglify:dist']);
+	grunt.registerTask('default', ['windows', 'coverage']);
 	grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc']);
+	grunt.registerTask('build', ['concat:dist', 'uglify:dist']);
 	grunt.registerTask('test', [
 		// hyphens in name make the config section annoying
 		// as template lookup with <%= mocha-chai-sinon %> won't work
