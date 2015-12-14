@@ -7,17 +7,18 @@ set -e
 # turn on trace of currently running command if you need it
 #set -x
 
-VER=`packagever.sh`
-if [ -z "$VER" ]; then
+export REL_VER=`packagever.sh`
+if [ -z "$REL_VER" ]; then
 	echo NOT OK getting version number
     exit 1
 fi
+echo ok version $REL_VER
 
 echo adding release note to README.md
-echo "* $VER " >> README.md
+echo "* $REL_VER " >> README.md
 $EDITOR README.md
 
-if grep "\* $VER" README.md ; then
+if grep "\* $REL_VER" README.md ; then
 	echo ok README.md
 else
 	echo NOT OK - README.md does not contain a release note
@@ -26,11 +27,11 @@ fi
 git add README.md
 
 # Update the version numbers in some files
-perl -i.bak -pne 's{(\@version \s+)([\.0-9]+)}{$1$ENV{VER}}xmsg; \
-   s{(version \s* = \s*.)([\.0-9]+)(.;)}{$1$ENV{VER}$3}xmsg;' \
+perl -i.bak -pne 's{(\@version \s+)([\.0-9]+)}{$1$ENV{REL_VER}}xmsg; \
+   s{(version \s* = \s*.)([\.0-9]+)(.;)}{$1$ENV{REL_VER}$3}xmsg;' \
    lib/perl.js
 
-perl -i.bak -pne 's{("version": \s+ ")([\.0-9]+)(",)}{$1$ENV{VER}$3}xmsg;' \
+perl -i.bak -pne 's{("version": \s+ ")([\.0-9]+)(",)}{$1$ENV{REL_VER}$3}xmsg;' \
    bower.json
 
 # Build documentation and minified distribution for web
