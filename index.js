@@ -1,4 +1,4 @@
-/*  perljs v0.3.2 https://github.com/bcowgill/perljs
+/*  perljs v0.3.3 https://github.com/bcowgill/perljs
     Brent Cowgill <brent.cowgill@workshare.com> (http://github.com/bcowgill)
     Unlicense http://unlicense.org/
 */
@@ -7,7 +7,7 @@
 	File info for perljs to make javascript more perl-like.
 
 	@author Brent S.A. Cowgill
-	@version  0.3.2
+	@version  0.3.3
 	@license {@link http://unlicense.org The Unlicense}
 
 	@example
@@ -58,7 +58,7 @@
 	*/
 	var perljs = { name: 'perljs' };
 
-	perljs.version = '0.3.2';
+	perljs.version = '0.3.3';
 	/**
 		@property {object} _console Console logging object to use for warnings.
 	 		default to the console.

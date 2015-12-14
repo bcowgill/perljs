@@ -5,7 +5,7 @@
     "perljs.min.js.map",
     "index.js"
   ],
-  "version": "0.3.2",
+  "version": "0.3.3",
   "homepage": "https://github.com/bcowgill/perljs",
   "authors": [
     "Brent S.A. Cowgill <brent.cowgill@workshare.com>"
