@@ -57,6 +57,3 @@ echo If there are files in then package which should not be, press Ctrl-C
 read prompt
 
 git add README.md index.js perljs.min.* lib/perl.js package.json bower.json doc/*.html
-
-git status
-exit 1
