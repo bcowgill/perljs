@@ -11,7 +11,7 @@ fi
 echo GIT push
 git push origin master --tags
 
-rm *.bak
+rm *.bak lib/*.bak
 
 # install module globally
 echo checking npm package install
