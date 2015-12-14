@@ -20,7 +20,7 @@ $EDITOR README.md
 if grep "\* $VER" README.md ; then
 	echo ok README.md
 else
-	echo README.md does not contain a release note
+	echo NOT OK - README.md does not contain a release note
 	exit 1
 fi
 git add README.md
