@@ -40,18 +40,14 @@
 	'use strict';
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
-		//dbg: debugger;
-		//dbg: console.log('perljs as AMD module');
 		define([], factory);
 	} else if (typeof module === 'object' && module.exports) {
 		// Node. Does not work with strict CommonJS, but
 		// only CommonJS-like environments that support module.exports,
 		// like Node.
-		//dbg: console.log('perljs as Node/CommonJS module');
 		module.exports = factory();
 	} else {
 		// Browser globals (root is window)
-		//dbg: console.log('perljs as browser global');
 		root.perljs = factory();
 	}
 }(this, function () {
