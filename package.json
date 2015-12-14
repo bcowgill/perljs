@@ -10,7 +10,7 @@
     "preversion": "./scripts/pre-version.sh",
     "version": "./scripts/version.sh",
     "postversion": "./scripts/post-version.sh",
-    "docs": "jsdoc --destination doc --recurse test/*.js lib/perl.js Gruntfile.js README.md",
+    "docs": "jsdoc --configure jsdoc.conf.json --destination doc --recurse test/*.js lib/perl.js Gruntfile.js README.md",
     "coverage-view": "chromium-browser doc/coverage/index.html",
     "doc-view": "chromium-browser doc/index.html",
     "docs-view": "chromium-browser doc/index.html",
@@ -39,11 +39,11 @@
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-uglify": "^0.11.0",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-jsdoc": "~0.5.6",
+    "grunt-jsdoc": "^1.1.0",
     "grunt-mocha-chai-sinon": "0.0.8",
     "grunt-mocha-istanbul": "^3.0.1",
     "istanbul": "^0.3.20",
-    "jsdoc": "^3.3.0-alpha8",
+    "jsdoc": "^3.4.0",
     "mocha": "^1.20.1",
     "uncommentify": "^0.1.1"
   }

@@ -66,7 +66,7 @@ module.exports = function(grunt) {
 				src: [grunt.option('check-file') || 'package.json']
 			},
 			lib: {
-				src: ['lib/**/*.js', 'lib/jsdoc-templates/*.jsdoc']
+				src: ['lib/**/*.js']
 			},
 			test: {
 				options: {
