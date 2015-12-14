@@ -165,7 +165,6 @@ module.exports = function(grunt) {
 				src: [
 					'test/**/*.js',
 					'lib/**/*.js',
-					'index.js',
 					'Gruntfile.js',
 					'README.md'
 				],
