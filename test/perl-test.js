@@ -8,13 +8,10 @@
 	@see {@link http://chaijs.com/api/bdd/ Chai Documentation}
 */
 /*jshint maxlen: 145, maxstatements: 25 */
-/*global describe, it */
+/*global describe, expect, it, should */
 'use strict';
 
-var chai = require('chai'),
-	should = chai.should(),
-	expect = chai.expect,
-	perl = require('../lib/perl'),
+var perl = require('../lib/perl'),
 	oLogger = {
 		'logged': '',
 		'check': function () {

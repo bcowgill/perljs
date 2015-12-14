@@ -86,7 +86,7 @@ module.exports = function(grunt) {
 		*/
 		'mocha-chai-sinon': {
 			test: {
-				src: '<%= jshint.test.spec %>',
+				src: '<%= mocha_istanbul.coverage.src %>',
 				options: {
 					ui:  '<%= mocha_istanbul.coverage.options.ui %>',
 					// spec, list, tap, nyan, progress, dot, min, landing, doc, markdown, html-cov, json-cov, json, json-stream, xunit
@@ -113,7 +113,7 @@ module.exports = function(grunt) {
 			// use your browser to view this url for coverage report
 			coverageUrl: '<%= mocha_istanbul.coverage.options.coverageFolder %>/index.html',
 			coverage: {
-				src: '<%= jshint.test.spec %>',
+				src: ['<%= jshint.test.src %>', '<%= jshint.test.spec %>'],
 				options: {
 					dryRun: false, // to debug the istanbul command line
 					coverageFolder: 'doc/coverage',
@@ -138,7 +138,7 @@ module.exports = function(grunt) {
 				}
 			},
 			coveralls: {
-				src: '<%= jshint.test.spec %>',
+				src: '<%= mocha_istanbul.coverage.src %>',
 				options: {
 					coverage: true, // this will make the grunt.event.on('coverage') event listener to be triggered
 					check: {
