@@ -21,18 +21,6 @@ else
 	echo package.json does not contain that release version
 	exit 1
 fi
-if grep "$REL_VER" bower.json ; then
-	echo ok bower.json version updated
-else
-	echo bower.json does not contain that release version
-	exit 1
-fi
-if grep "$REL_VER" lib/perl.js ; then
-	echo ok lib/perl.js version updated
-else
-	echo lib/perl.js does not contain that release version
-	exit 1
-fi
 
 if git status ; then
 	echo ok git status fine

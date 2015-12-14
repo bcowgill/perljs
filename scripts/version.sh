@@ -24,7 +24,6 @@ else
 	echo NOT OK - README.md does not contain a release note
 	exit 1
 fi
-git add README.md
 
 # Update the version numbers in some files
 perl -i.bak -pne 's{(\@version \s+)([\.0-9]+)}{$1$ENV{REL_VER}}xmsg; \
@@ -33,6 +32,19 @@ perl -i.bak -pne 's{(\@version \s+)([\.0-9]+)}{$1$ENV{REL_VER}}xmsg; \
 
 perl -i.bak -pne 's{("version": \s+ ")([\.0-9]+)(",)}{$1$ENV{REL_VER}$3}xmsg;' \
    bower.json
+
+if grep "$REL_VER" bower.json ; then
+	echo ok bower.json version updated
+else
+	echo NOT OK - bower.json does not contain $REL_VER release version
+	exit 1
+fi
+if grep "$REL_VER" lib/perl.js ; then
+	echo ok lib/perl.js version updated
+else
+	echo NOT OK - lib/perl.js does not contain $REL_VER release version
+	exit 1
+fi
 
 # Build documentation and minified distribution for web
 grunt all
@@ -44,4 +56,7 @@ rm perljs-*.tgz
 echo If there are files in then package which should not be, press Ctrl-C
 read prompt
 
+git add README.md index.js perljs.min.* lib/perl.js package.json bower.json doc/*.html
+
+git status
 exit 1
