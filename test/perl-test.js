@@ -132,7 +132,7 @@ describe('#perl helpers', function () {
 	});
 });
 
-describe('#perl', function () {
+describe('#perl methods', function () {
 	describe('.q()', function() {
 		it('single quotes a string', function() {
 			perl.q('quote me baby').should.equal('\'quote me baby\'');

@@ -1,4 +1,4 @@
-// setup.js - setup global functions for testing in node and browser
+// setup.js - setup global test framework functions for testing in node and browser
 'use strict';
 
 /* jshint -W054 */ // The Function constructor is a form of eval.
