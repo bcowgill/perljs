@@ -42,6 +42,7 @@
   ],
   "devDependencies": {
     "require1k": "~1.0.0",
-    "definejs": "~0.2.91"
+    "definejs": "~0.2.91",
+    "requirejs": "~2.1.22"
   }
 }

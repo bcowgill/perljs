@@ -28,6 +28,9 @@
 module.exports = function(grunt) {
 	'use strict';
 
+	var PORT_SERVER = 58008,
+		PORT_LIVERELOAD = 35729;
+
 	// Project configuration.
 	grunt.initConfig({
 		// Metadata.
@@ -180,15 +183,31 @@ module.exports = function(grunt) {
 		watch: {
 			gruntfile: {
 				files: '<%= jshint.gruntfile.src %>',
-				tasks: ['jshint:gruntfile', 'coverage']
+				tasks: ['jshint:gruntfile', 'coverage'],
+				options: {
+					livereload: PORT_LIVERELOAD
+				}
 			},
 			lib: {
 				files: '<%= jshint.lib.src %>',
-				tasks: ['jshint:lib', 'coverage']
+				tasks: ['jshint:lib', 'coverage'],
+				options: {
+					livereload: PORT_LIVERELOAD
+				}
 			},
 			test: {
 				files: '<%= jshint.test.src %>',
-				tasks: ['jshint:test', 'coverage']
+				tasks: ['jshint:test', 'coverage'],
+				options: {
+					livereload: PORT_LIVERELOAD
+				}
+			},
+			livereload: {
+				files: 'test/index.html',
+				tasks: [],
+				options: {
+					livereload: PORT_LIVERELOAD
+				}
 			}
 		},
 		/**
@@ -196,14 +215,15 @@ module.exports = function(grunt) {
 			@see {@link https://github.com/gruntjs/grunt-contrib-connect Grunt connect plugin}
 		*/
 		connect: {
-			server: {
+			test: {
 				options: {
-					port: 58008,
+					port: PORT_SERVER,
+					livereload: PORT_LIVERELOAD,
 					hostname: '*',
 					base: '.',
-					keepalive: 'true',
+					keepalive: false,
 					open: {
-						target: 'http://localhost:<%= connect.server.options.port %>/test/',
+						target: 'http://localhost:<%= connect.test.options.port %>/test/',
 					}
 				}
 			}
@@ -282,6 +302,10 @@ module.exports = function(grunt) {
 		// hyphens in name make the config section annoying
 		// as template lookup with <%= mocha-chai-sinon %> won't work
 		'mocha-chai-sinon'
+	]);
+	grunt.registerTask('serve:test', [
+		'connect:test',
+		'watch'
 	]);
 	grunt.registerTask('coverage', [
 		'mocha_istanbul:coverage'
