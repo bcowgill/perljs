@@ -1,7 +1,7 @@
 // test-suite.js - in browser test suite runner
 
 'use strict';
-/* global mocha */
+/* global mocha, window */
 
 /* jshint -W054 */ // The Function constructor is a form of eval.
 var isBrowser = new Function('try { return this === window; } catch (e) { return false; }');
@@ -21,6 +21,7 @@ if (isBrowser()) {
     require(['require'], function (require) {
         require(prerequisites, function() {
             require(specs, function() {
+                /* jshint maxcomplexity: 2 */
                 (window.mochaPhantomJS || mocha).run();
                 console.log(new Date());
             });
