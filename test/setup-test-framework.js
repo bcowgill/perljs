@@ -24,7 +24,6 @@ if (isBrowser()) {
         setupTestFramework();
         // invokes the test-suite-browser.js
         require(['require', 'test-suite-browser'], function () {
-            // nothing to do
             console.log(new Date(), 'setup-test-framework');
         });
     });
