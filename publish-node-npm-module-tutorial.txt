@@ -213,4 +213,9 @@ but couldn't do it. tried chai in the frameworks list and also tried
 to require() it from setup-test-framework but couldn't get it working.
 
 gave up as spent a lot of time on it for little gain.
+difficulty may be in trying to have the tests written so they run in both
+node and browser.
 
+these documents may be helpful for next time, try it in a virgin project.
+https://sean.is/writing/client-side-testing-with-mocha-and-karma/
+https://github.com/bbraithwaite/karma-seed
