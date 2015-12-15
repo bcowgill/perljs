@@ -11,6 +11,7 @@
 /*global describe, expect, it, should */
 'use strict';
 
+console.log(new Date(), 'perljs');
 var perl = require('../lib/perl'),
 	oLogger = {
 		'logged': '',
