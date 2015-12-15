@@ -111,7 +111,7 @@ module.exports = function(grunt) {
 			@see {@link http://gotwarlost.github.io/istanbul/ istanbul documentation}
 		 	@see {@link https://github.com/nickmerwin/node-coveralls coveralls documentation}
 			@see {@link http://tbusser.net/articles/js-unit-testing-part-02/#disqus_thread coverage under the hood}
-		*/
+		 */
 		mocha_istanbul: {
 			// use your browser to view this url for coverage report
 			coverageUrl: '<%= mocha_istanbul.coverage.options.coverageFolder %>/index.html',
@@ -152,24 +152,6 @@ module.exports = function(grunt) {
 					},
 					root: './lib', // define where the cover task should consider the root of libraries that are covered by tests
 					reportFormats: ['cobertura','lcovonly']
-				}
-			}
-		},
-
-		/**
-			Run browser tests stand alone with PhantomJS or a browser.
-			@see {@link https://github.com/karma-runner/grunt-karma Grunt karma plugin}
-		*/
-		karma: {
-			unit: {
-				options: {
-					singleRun: true,
-					browsers: ['PhantomJS'],
-					frameworks: ['mocha', 'requirejs'],
-					basePath: '',
-					files: ['test/setup-test-framework.js'],
-					reporters: 'dots',
-					logLevel: 'DEBUG' // OFF, ERROR, WARN, INFO, DEBUG
 				}
 			}
 		},
@@ -294,7 +276,6 @@ module.exports = function(grunt) {
 		'grunt-contrib-clean',
 		'grunt-contrib-jshint',
 		'grunt-jsdoc',
-		'grunt-karma',
 		'grunt-mocha-chai-sinon',
 		'grunt-mocha-istanbul',
 		'grunt-contrib-watch',
