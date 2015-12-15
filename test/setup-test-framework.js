@@ -1,4 +1,4 @@
-// setup.js - setup global test framework functions for testing in node and browser
+// setup-test-framework.js - setup global test framework functions for testing in node and browser
 'use strict';
 
 /* jshint -W054 */ // The Function constructor is a form of eval.
@@ -22,10 +22,10 @@ if (isBrowser()) {
     });
     require(['require', 'chai'], function (require) {
         setupTestFramework();
-        // invokes the test-suite.js
-        require(['require', 'test-suite'], function () {
+        // invokes the test-suite-browser.js
+        require(['require', 'test-suite-browser'], function () {
             // nothing to do
-            console.log(new Date());
+            console.log(new Date(), 'setup-test-framework');
         });
     });
 }

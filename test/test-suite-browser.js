@@ -23,7 +23,7 @@ if (isBrowser()) {
             require(specs, function() {
                 /* jshint maxcomplexity: 2 */
                 (window.mochaPhantomJS || mocha).run();
-                console.log(new Date());
+                console.log(new Date(), 'test-suite-browser');
             });
         });
     });
