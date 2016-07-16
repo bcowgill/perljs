@@ -21,12 +21,13 @@
 	@see {@link http://usejsdoc.org/ JSDoc Documentation}
 */
 
+'use strict';
+
 /**
 	Grunt build configuration.
 	@module Gruntfile
 */
 module.exports = function(grunt) {
-	'use strict';
 
 	var PORT_SERVER = 58008,
 		PORT_LIVERELOAD = 35729;
