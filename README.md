@@ -40,22 +40,22 @@ or get it all
 For perlish test output:
 
 ```bash
-	npm test
+	pnpm test:tap
 ```
 
 Or more javascripty test output:
 
 ```bash
 
-	grunt
+	pnpm test
 ```
 
 ## Full Documentation
 
 ```bash
 
-	npm run doc
-	npm run doc-view
+	pnpm run doc
+	pnpm run doc-view
 ```
 
 ## Perl Goodness Presently Supported
@@ -86,6 +86,10 @@ Or more javascripty test output:
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 Add unit tests for any new or changed functionality. Lint and test your code.
+
+## TODO
+
+Install husky and prettier with build targets.
 
 ## Release History
 
