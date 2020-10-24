@@ -58,6 +58,15 @@ Or more javascripty test output:
 	pnpm run doc-view
 ```
 
+## Development
+
+```bash
+
+	pnpm run usage
+```
+
+To see additional pnpm and grunt targets like watch or develop
+
 ## Perl Goodness Presently Supported
 
 ```javascript

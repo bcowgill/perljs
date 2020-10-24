@@ -6,10 +6,12 @@
   "author": "Brent Cowgill <brent.cowgill@workshare.com> (http://github.com/bcowgill)",
   "description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
   "scripts": {
-    "usage": "pnpm run",
+    "usage": "pnpm run; grunt --help",
     "check": "npm-check --color-always || true",
     "test": "grunt",
     "test:tap": "mocha --reporter tap",
+    "watch": "grunt watch",
+    "develop": "grunt all watch --force",
     "strip": "./scripts/strip.js",
     "preversion": "./scripts/pre-version.sh",
     "version": "./scripts/version.sh",

@@ -19,7 +19,6 @@
 
 	@todo Q(void 0) => 'undefined'
 	@todo quote with escaping q(isn't) => 'isn\'t'
-	@todo build replaces version number from package.json
 	@todo vivify(window, 'path.to.key', value) window.path.to.key = value
 	@todo vivify('path.to.key', value) global.path.to.key = value
 	@todo unless(function () {}) = returns a function which returns negation
@@ -37,6 +36,7 @@
 
 // module boilerplate based on https://github.com/umdjs/umd/blob/master/templates/returnExports.js
 (function (root, factory) {
+	/* jshint maxcomplexity: 5 */
 	'use strict';
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
@@ -129,7 +129,7 @@
 	*/
 	perljs._stringify = function (mixed)
 	{
-		/* jshint maxcomplexity: 8 */
+		/* jshint maxcomplexity: 9 */
 		if ('function' === typeof mixed)
 		{
 			return perljs._stringify(mixed());
@@ -161,7 +161,7 @@
 	*/
 	perljs.q = function (string, open, close)
 	{
-		// jshint maxcomplexity: 5
+		// jshint maxcomplexity: 6
 		open = open || '\'';
 		close = close || open;
 		if (Array.isArray(string))
