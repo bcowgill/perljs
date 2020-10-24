@@ -100,3 +100,4 @@ Install husky and prettier with build targets.
 * 0.3.1 Made browser compatible as CommonJS/AMD or global and bower.json for bower packaging (private: false)
 * 0.3.2 slight bower.json ignore change
 * 0.3.3 test of npm version command tooling
+* 2020-10-24 not released - updated all modules and switched to pnpm
