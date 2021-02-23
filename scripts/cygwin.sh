@@ -1,5 +1,6 @@
 #!/bin/bash
 # on my winpc with cygwin grunt-jsdoc not working so do by hand
+# TODO not tested recently (post 2020 changes)
 grunt windows
 
 echo " "

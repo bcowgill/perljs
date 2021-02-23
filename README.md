@@ -40,6 +40,7 @@ or get it all
 For perlish test output:
 
 ```bash
+	bash
 	source env.local
 	pnpm test:tap
 ```
@@ -63,6 +64,7 @@ Or more javascripty test output:
 
 ```bash
 
+	bash
 	source env.local
 	pnpm run usage
 ```
@@ -101,9 +103,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 ## TODO
 
 Check the releasing scripts for pnpm/npm.
+Document the version/release targets/procedure.
+Get rid of grunt, just use build targets.
 Install husky and prettier with build targets.
 Change to eslint from jshint.
-Get rid of grunt, just use build targets.
 
 ## Release History
 

@@ -4,6 +4,9 @@
 
 # TODO update npm commands to pnpm or npm for publishing?
 
+NPM=npm
+PNPM=pnpm
+
 # terminate on first error
 set -e
 # turn on trace of currently running command if you need it

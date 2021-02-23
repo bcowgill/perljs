@@ -6,6 +6,9 @@
 
 # npm version patch -m "release %s featuring ..."
 
+NPM=npm
+PNPM=pnpm
+
 # terminate on first error
 set -e
 # turn on trace of currently running command if you need it
@@ -57,7 +60,7 @@ grunt all
 npm pack && tar tvzf perljs-*.tgz
 rm perljs-*.tgz
 
-echo If there are files in then package which should not be, press Ctrl-C
+echo If there are files in the package which should not be, press Ctrl-C
 read prompt
 
 git add README.md index.js perljs.min.* lib/perl.js package.json bower.json doc/*.html

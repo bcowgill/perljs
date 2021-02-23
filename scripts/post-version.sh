@@ -4,6 +4,9 @@
 
 # TODO update npm commands to pnpm or npm for publishing?
 
+NPM=npm
+PNPM=pnpm
+
 REL_VER=`packagever.sh`
 if [ -z "$REL_VER" ]; then
 	echo NOT OK getting version number

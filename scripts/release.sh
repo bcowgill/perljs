@@ -3,6 +3,9 @@
 # TODO update npm commands to pnpm or npm for publishing?
 # TODO gruntify this. -- not any more
 
+NPM=npm
+PNPM=pnpm
+
 export REL_VER=$1
 
 if [ "${REL_VER:-}" == "" ]; then
