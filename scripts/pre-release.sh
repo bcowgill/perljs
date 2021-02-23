@@ -1,7 +1,8 @@
 #!/bin/bash
 # do pre-release actions
 # change version number, check that readme has release info.
-# TODO gruntify this.
+# TODO update npm commands to pnpm or npm for publishing?
+# TODO gruntify this. -- not any more...
 
 export REL_VER=$1
 

@@ -2,6 +2,8 @@
 # npm version handler after version number has been bumped
 # https://docs.npmjs.com/cli/version
 
+# TODO update npm commands to pnpm or npm for publishing?
+
 # npm version patch -m "release %s featuring ..."
 
 # terminate on first error

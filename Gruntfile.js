@@ -67,7 +67,7 @@ module.exports = function(grunt) {
 			},
 			single: {
 				// grunt jshint:single --check-file filename
-				src: [grunt.option('check-file') || 'package.json']
+				src: [grunt.option('check-file') || 'lib/perl.js']
 			},
 			lib: {
 				src: ['lib/**/*.js']

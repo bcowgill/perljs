@@ -2,6 +2,8 @@
 # post npm version handler
 # https://docs.npmjs.com/cli/version
 
+# TODO update npm commands to pnpm or npm for publishing?
+
 REL_VER=`packagever.sh`
 if [ -z "$REL_VER" ]; then
 	echo NOT OK getting version number
@@ -48,3 +50,4 @@ less packageinfo.txt
 
 find bower_components/perljs -ls
 echo check there are no extra files in then boser install.
+

@@ -1,6 +1,7 @@
 #!/bin/bash
 # do release actions
-# TODO gruntify this.
+# TODO update npm commands to pnpm or npm for publishing?
+# TODO gruntify this. -- not any more
 
 export REL_VER=$1
 

@@ -16,6 +16,7 @@
     "preversion": "./scripts/pre-version.sh",
     "version": "./scripts/version.sh",
     "postversion": "./scripts/post-version.sh",
+    "doc": "pnpm run docs",
     "docs": "jsdoc --configure jsdoc.conf.json --destination doc --recurse test/*.js lib/perl.js Gruntfile.js README.md",
     "coverage-view": "chromium-browser doc/coverage/index.html",
     "doc-view": "chromium-browser doc/index.html",
@@ -37,7 +38,7 @@
     "url": "https://github.com/bcowgill/perljs/issues"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
+    "chai": "4.3.0",
     "grunt": "^1.3.0",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
@@ -50,7 +51,7 @@
     "grunt-mocha-istanbul": "^5.0.1",
     "istanbul": "^0.4.3",
     "jsdoc": "^3.6.6",
-    "mocha": "^8.2.0",
+    "mocha": "8.3.0",
     "npm-check": "^5.9.2",
     "uncommentify": "^0.1.1"
   }
