@@ -6,20 +6,14 @@ http://quickleft.com/blog/creating-and-publishing-a-node-js-module
 ===================
 
 npm set init.author.name "Brent Cowgill"
-npm set init.author.email "brent@blismedia.com"
+npm set init.author.email "xxx@xxx.ccc"
 npm set init.author.url "http://github.com/bcowgill"
+npm login
 npm adduser
 
-D:\d\s\github\perljs>npm set init.author.name "Brent Cowgill"
-
-D:\d\s\github\perljs>npm set init.author.email "brent@blismedia.com"
-
-D:\d\s\github\perljs>npm set init.author.url "http://github.com/bcowgill"
-
-D:\d\s\github\perljs>npm adduser
 Username: bcowgill
 Password:
-Email: (this IS public) brent@blismedia.com
+Email: (this IS public) xxx@xxx.ccc
 npm http PUT https://registry.npmjs.org/-/user/org.couchdb.user:bcowgill
 npm http 201 https://registry.npmjs.org/-/user/org.couchdb.user:bcowgill
 
