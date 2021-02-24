@@ -100,6 +100,23 @@ To see additional pnpm and grunt targets like watch or develop
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 Add unit tests for any new or changed functionality. Lint and test your code.
 
+## Version and Release
+
+First you update the version number in package.json then run npm version command.
+
+i.e.
+
+might not be used...
+npm version patch -m "release %s featuring ..."
+
+pre-version.sh command does the lint and coverage check.
+version.sh takes the version number from package.json and injects it into source files and adds a note to README.md then builds everything and adds to git
+post-version.sh pushes everything, installs module globally, and publishes it to npm and bower
+
+this might be what's used now...
+pre-release.sh asks for version and updates files, runs build and docs and makes npm package
+release.sh takes a version number, pushes, publishes to npm and bower installs npm and bower modules locally
+
 ## TODO
 
 Check the releasing scripts for pnpm/npm.

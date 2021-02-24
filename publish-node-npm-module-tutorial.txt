@@ -1,7 +1,16 @@
 publish-node-npm-module-tutorial.txt
 
+gone -- http://quickleft.com/blog/creating-and-publishing-a-node-js-module
+
 Publishing a node module
-http://quickleft.com/blog/creating-and-publishing-a-node-js-module
+https://codeburst.io/how-to-create-and-publish-your-first-node-js-module-444e7585b738
+ - also shows how to do travis integration
+
+NPM version updating and hook scripts
+https://docs.npmjs.com/cli/v6/commands/npm-version
+
+NPM release management
+https://bytesafe.dev/posts/npm-release-management/
 
 ===================
 
