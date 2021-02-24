@@ -10,6 +10,7 @@ devDependencies:
   grunt-jsdoc: 2.4.1
   grunt-mocha-chai-sinon: 0.0.9
   grunt-mocha-istanbul: 5.0.2_grunt@1.3.0
+  grunt-prettier: 2.1.0
   istanbul: 0.4.5
   jsdoc: 3.6.6
   mocha: 8.3.0
@@ -1863,6 +1864,15 @@ packages:
       grunt: '>=0.4.0'
     resolution:
       integrity: sha1-I5Kaiz9Fpmxfqx9hRuYrWEGLeII=
+  /grunt-prettier/2.1.0:
+    dependencies:
+      prettier: 2.2.1
+      progress: 2.0.3
+    dev: true
+    engines:
+      node: '>= 10.0.0'
+    resolution:
+      integrity: sha512-PKPz5Qa+xJsoN30DNvjsmozA3ej/YsRXJGnwGK5Rk3XwuuBUIzDkd6tpfmp2xlxQBW91FgDy1EdESclIkB0GPA==
   /grunt/1.3.0:
     dependencies:
       dateformat: 3.0.3
@@ -3505,6 +3515,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
+  /progress/2.0.3:
+    dev: true
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
   /pseudomap/1.0.2:
     dev: true
     resolution:
@@ -4765,6 +4781,7 @@ specifiers:
   grunt-jsdoc: ^2.4.1
   grunt-mocha-chai-sinon: 0.0.9
   grunt-mocha-istanbul: ^5.0.1
+  grunt-prettier: ^2.1.0
   istanbul: ^0.4.3
   jsdoc: ^3.6.6
   mocha: 8.3.0

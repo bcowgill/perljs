@@ -47,6 +47,12 @@ module.exports = function(grunt) {
 				src: ['doc/']
 			}
 		},
+		prettier: {
+			options: { progress: true, },
+			files: {
+				src: [ 'lib/*.js', 'test/*.js', 'test/*.html' ],
+				}
+			},
 		/**
 			jshint validation of javascript code.
 			@see {@link https://github.com/gruntjs/grunt-contrib-jshint About jshint grunt plugin}
@@ -274,6 +280,7 @@ module.exports = function(grunt) {
 
 	// These plugins provide necessary tasks.
 	[
+		'grunt-prettier',
 		'grunt-contrib-clean',
 		'grunt-contrib-jshint',
 		'grunt-jsdoc',
@@ -315,6 +322,7 @@ module.exports = function(grunt) {
 		'mocha_istanbul:coveralls'
 	]);
 	grunt.registerTask('jshint:all', [
+		'prettier',
 		'jshint:gruntfile',
 		'jshint:lib',
 		'jshint:test'
