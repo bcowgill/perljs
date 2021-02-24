@@ -1,48 +1,36 @@
 {
-  "name": "perljs",
-  "main": [
-    "perljs.min.js",
-    "perljs.min.js.map",
-    "index.js"
-  ],
-  "version": "0.3.3",
-  "homepage": "https://github.com/bcowgill/perljs",
-  "authors": [
-    "Brent S.A. Cowgill <brent.cowgill@workshare.com>"
-  ],
-  "description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
-  "moduleType": [
-    "amd",
-    "globals",
-    "node"
-  ],
-  "keywords": [
-    "perl"
-  ],
-  "license": "Unlicense",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "umd",
-    "lib",
-    "test",
-    "tests",
-    "perl",
-    "doc",
-    "coverage",
-    "scripts",
-    "Makefile",
-    "Gruntfile.js",
-    "jsdoc.conf.json",
-    "*.txt",
-    "*.bak",
-    "*.sublime-*",
-    "*.timestamp"
-  ],
-  "devDependencies": {
-    "require1k": "~1.0.0",
-    "definejs": "~0.2.91",
-    "requirejs": "~2.1.22"
-  }
+	"name": "perljs",
+	"main": ["perljs.min.js", "perljs.min.js.map", "index.js"],
+	"version": "0.3.3",
+	"homepage": "https://github.com/bcowgill/perljs",
+	"authors": ["Brent S.A. Cowgill <brent.cowgill@workshare.com>"],
+	"description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
+	"moduleType": ["amd", "globals", "node"],
+	"keywords": ["perl"],
+	"license": "Unlicense",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"umd",
+		"lib",
+		"test",
+		"tests",
+		"perl",
+		"doc",
+		"coverage",
+		"scripts",
+		"Makefile",
+		"Gruntfile.js",
+		"jsdoc.conf.json",
+		"*.txt",
+		"*.bak",
+		"*.sublime-*",
+		"*.timestamp"
+	],
+	"devDependencies": {
+		"require1k": "~1.0.0",
+		"definejs": "~0.2.91",
+		"requirejs": "~2.1.22"
+	}
 }

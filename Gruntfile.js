@@ -21,16 +21,15 @@
 	@see {@link http://usejsdoc.org/ JSDoc Documentation}
 */
 
-'use strict';
+'use strict'
 
 /**
 	Grunt build configuration.
 	@module Gruntfile
 */
-module.exports = function(grunt) {
-
+module.exports = function (grunt) {
 	var PORT_SERVER = 58008,
-		PORT_LIVERELOAD = 35729;
+		PORT_LIVERELOAD = 35729
 
 	// Project configuration.
 	grunt.initConfig({
@@ -44,15 +43,28 @@ module.exports = function(grunt) {
 		*/
 		clean: {
 			jsdoc: {
-				src: ['doc/']
-			}
+				src: ['doc/'],
+			},
 		},
 		prettier: {
-			options: { progress: true, },
+			options: { progress: true },
 			files: {
-				src: [ 'lib/*.js', 'test/*.js', 'test/*.html' ],
-				}
+				src: ['lib/*.js', 'test/*.js', 'test/*.html', 'Gruntfile.js'],
 			},
+			json: {
+				options: { parser: 'json' },
+				files: {
+					src: [
+						'.prettierrc',
+						// more than one file not working???
+						//'bower.json',
+						//'jsdoc.conf.json',
+						//'npm-shrinkwrap.json',
+						//'package.json',
+					],
+				},
+			},
+		},
 		/**
 			jshint validation of javascript code.
 			@see {@link https://github.com/gruntjs/grunt-contrib-jshint About jshint grunt plugin}
@@ -67,25 +79,30 @@ module.exports = function(grunt) {
 			gruntfile: {
 				options: {
 					jshintrc: '.jshintrc-gruntfile',
-					globals: {}
+					globals: {},
 				},
-				src: ['package.json', 'bower.json', '.jshintrc*', 'Gruntfile.js']
+				src: [
+					'package.json',
+					'bower.json',
+					'.jshintrc*',
+					'Gruntfile.js',
+				],
 			},
 			single: {
 				// grunt jshint:single --check-file filename
-				src: [grunt.option('check-file') || 'lib/perl.js']
+				src: [grunt.option('check-file') || 'lib/perl.js'],
 			},
 			lib: {
-				src: ['lib/**/*.js']
+				src: ['lib/**/*.js'],
 			},
 			test: {
 				options: {
 					jshintrc: '.jshintrc-mocha-chai-sinon',
-					globals: {}
+					globals: {},
 				},
 				spec: ['test/**/*-test.js'], // for coverage
-				src: ['test/**/*.js']
-			}
+				src: ['test/**/*.js'],
+			},
 		},
 		/**
 			Running tests in the console using mocha/chai/sinon.
@@ -98,9 +115,9 @@ module.exports = function(grunt) {
 			test: {
 				src: '<%= mocha_istanbul.coverage.src %>',
 				options: {
-					ui:  '<%= mocha_istanbul.coverage.options.ui %>',
+					ui: '<%= mocha_istanbul.coverage.options.ui %>',
 					// spec, list, tap, nyan, progress, dot, min, landing, doc, markdown, html-cov, json-cov, json, json-stream, xunit
-					reporter:  '<%= mocha_istanbul.coverage.options.reporter %>',
+					reporter: '<%= mocha_istanbul.coverage.options.reporter %>',
 					bail: false, // true to bail after first test failure
 					//grep: '.*', // invert: true, // filter to run subset of tests
 					sort: true, // sort order of test files
@@ -108,9 +125,9 @@ module.exports = function(grunt) {
 					'check-leaks': true, // check for global variable leaks
 					'expose-gc': true,
 					//timeout: 10, slow: 10, // async ms timeout and slow test threshold
-					'inline-diffs': false// show actual/expected diffs inline
-				}
-			}
+					'inline-diffs': false, // show actual/expected diffs inline
+				},
+			},
 		},
 		/**
 			Generate code coverage reports using istanbul.
@@ -121,17 +138,18 @@ module.exports = function(grunt) {
 		 */
 		mocha_istanbul: {
 			// use your browser to view this url for coverage report
-			coverageUrl: '<%= mocha_istanbul.coverage.options.coverageFolder %>/index.html',
+			coverageUrl:
+				'<%= mocha_istanbul.coverage.options.coverageFolder %>/index.html',
 			coverage: {
 				src: ['<%= jshint.test.src %>', '<%= jshint.test.spec %>'],
 				options: {
 					dryRun: false, // to debug the istanbul command line
 					coverageFolder: 'doc/coverage',
-					excludes: [],  // use istanbul help cover to see how excludes work
+					excludes: [], // use istanbul help cover to see how excludes work
 					reportFormats: [
 						// html, lcovonly, lcov, cobertura, text-summary, text, teamcity
 						'html',
-						'text'
+						'text',
 					],
 
 					// Mocha options
@@ -140,27 +158,27 @@ module.exports = function(grunt) {
 
 					// check percentage coverage to be a good build
 					check: {
-						functions:   99,
-						branches:    95,
-						lines:       98,
-						statements:  98
-					}
-				}
+						functions: 99,
+						branches: 95,
+						lines: 98,
+						statements: 98,
+					},
+				},
 			},
 			coveralls: {
 				src: '<%= mocha_istanbul.coverage.src %>',
 				options: {
 					coverage: true, // this will make the grunt.event.on('coverage') event listener to be triggered
 					check: {
-						functions:   99,
-						branches:    95,
-						lines:       98,
-						statements:  98
+						functions: 99,
+						branches: 95,
+						lines: 98,
+						statements: 98,
 					},
 					root: './lib', // define where the cover task should consider the root of libraries that are covered by tests
-					reportFormats: ['cobertura','lcovonly']
-				}
-			}
+					reportFormats: ['cobertura', 'lcovonly'],
+				},
+			},
 		},
 
 		/**
@@ -169,19 +187,19 @@ module.exports = function(grunt) {
 			@see {@link http://usejsdoc.org/ jsdoc documentation tags}
 			@see {@link http://usejsdoc.org/about-commandline.html jsdoc command line options}
 		*/
-		jsdoc : {
-			docs : {
+		jsdoc: {
+			docs: {
 				dest: 'doc',
 				src: [
 					'test/**/*.js',
 					'lib/**/*.js',
 					'Gruntfile.js',
-					'README.md'
+					'README.md',
 				],
 				options: {
-					configure: 'jsdoc.conf.json'
-				}
-			}
+					configure: 'jsdoc.conf.json',
+				},
+			},
 		},
 		/**
 			Watch files and run build targets on change
@@ -192,30 +210,30 @@ module.exports = function(grunt) {
 				files: '<%= jshint.gruntfile.src %>',
 				tasks: ['jshint:gruntfile', 'coverage'],
 				options: {
-					livereload: PORT_LIVERELOAD
-				}
+					livereload: PORT_LIVERELOAD,
+				},
 			},
 			lib: {
 				files: '<%= jshint.lib.src %>',
 				tasks: ['jshint:lib', 'coverage'],
 				options: {
-					livereload: PORT_LIVERELOAD
-				}
+					livereload: PORT_LIVERELOAD,
+				},
 			},
 			test: {
 				files: '<%= jshint.test.src %>',
 				tasks: ['jshint:test', 'coverage'],
 				options: {
-					livereload: PORT_LIVERELOAD
-				}
+					livereload: PORT_LIVERELOAD,
+				},
 			},
 			livereload: {
 				files: 'test/index.html',
 				tasks: [],
 				options: {
-					livereload: PORT_LIVERELOAD
-				}
-			}
+					livereload: PORT_LIVERELOAD,
+				},
+			},
 		},
 		/**
 			Start a webserver to view documentation or browser based tests.
@@ -230,10 +248,11 @@ module.exports = function(grunt) {
 					base: '.',
 					keepalive: false,
 					open: {
-						target: 'http://localhost:<%= connect.test.options.port %>/test/',
-					}
-				}
-			}
+						target:
+							'http://localhost:<%= connect.test.options.port %>/test/',
+					},
+				},
+			},
 		},
 		/**
 			Create the distribution index.js removing debugging code
@@ -242,18 +261,22 @@ module.exports = function(grunt) {
 		 */
 		concat: {
 			options: {
-				banner: '/*  <%= pkg.name %> v<%= pkg.version %> ' +
+				banner:
+					'/*  <%= pkg.name %> v<%= pkg.version %> ' +
 					'<%= pkg.homepage %>\n    <%= pkg.author %>\n' +
 					'    <%= pkg.license.type %> <%= pkg.license.url %>\n*/\n',
 				process: function (source) {
-					source = source.replace(/\/\*\s*dbg:\s*\*\/(\s*)/g, '//dbg: ');
-					return source;
-				}
+					source = source.replace(
+						/\/\*\s*dbg:\s*\*\/(\s*)/g,
+						'//dbg: '
+					)
+					return source
+				},
 			},
 			dist: {
 				src: ['lib/perl.js'],
-				dest: 'index.js'
-			}
+				dest: 'index.js',
+			},
 		},
 		/**
 			Minify the size of the built library for browser use.
@@ -265,21 +288,21 @@ module.exports = function(grunt) {
 					sourceMap: true,
 					compress: {
 						drop_console: true,
-						drop_debugger: true
+						drop_debugger: true,
 					},
 					beautify: {
-						preamble: '<%= concat.options.banner %>'
-					}
+						preamble: '<%= concat.options.banner %>',
+					},
 				},
 				files: {
-					'perljs.min.js': ['index.js']
-				}
-			}
-		}
-	});
+					'perljs.min.js': ['index.js'],
+				},
+			},
+		},
+	})
 
 	// These plugins provide necessary tasks.
-	[
+	;[
 		'grunt-prettier',
 		'grunt-contrib-clean',
 		'grunt-contrib-jshint',
@@ -289,46 +312,37 @@ module.exports = function(grunt) {
 		'grunt-contrib-watch',
 		'grunt-contrib-connect',
 		'grunt-contrib-concat',
-		'grunt-contrib-uglify'
+		'grunt-contrib-uglify',
 	].forEach(function (task) {
-		grunt.loadNpmTasks(task);
-	});
+		grunt.loadNpmTasks(task)
+	})
 
 	// Important not to remove this if coveralls.options.coverage:true or grunt will hang
 	grunt.event.on('coverage', function (lcovFileContents, done) {
-		void lcovFileContents;
-		done();
-	});
+		void lcovFileContents
+		done()
+	})
 
 	// Default task.
-	grunt.registerTask('all', ['windows', 'docs', 'build', 'coverage']);
-	grunt.registerTask('default', ['windows', 'coverage']);
-	grunt.registerTask('preversion', ['jshint:all', 'coverage']);
-	grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc']);
-	grunt.registerTask('build', ['concat:dist', 'uglify:dist']);
+	grunt.registerTask('all', ['windows', 'docs', 'build', 'coverage'])
+	grunt.registerTask('default', ['windows', 'coverage'])
+	grunt.registerTask('preversion', ['jshint:all', 'coverage'])
+	grunt.registerTask('docs', ['clean:jsdoc', 'jsdoc'])
+	grunt.registerTask('build', ['concat:dist', 'uglify:dist'])
 	grunt.registerTask('test', [
 		// hyphens in name make the config section annoying
 		// as template lookup with <%= mocha-chai-sinon %> won't work
-		'mocha-chai-sinon'
-	]);
-	grunt.registerTask('serve:test', [
-		'connect:test',
-		'watch'
-	]);
-	grunt.registerTask('coverage', [
-		'mocha_istanbul:coverage'
-	]);
-	grunt.registerTask('coveralls', [
-		'mocha_istanbul:coveralls'
-	]);
+		'mocha-chai-sinon',
+	])
+	grunt.registerTask('serve:test', ['connect:test', 'watch'])
+	grunt.registerTask('coverage', ['mocha_istanbul:coverage'])
+	grunt.registerTask('coveralls', ['mocha_istanbul:coveralls'])
 	grunt.registerTask('jshint:all', [
 		'prettier',
 		'jshint:gruntfile',
 		'jshint:lib',
-		'jshint:test'
-	]);
-	grunt.registerTask('windows', [
-		'jshint:all'
-	]);
-	grunt.registerTask('single', ['jshint:single']);
-};
+		'jshint:test',
+	])
+	grunt.registerTask('windows', ['jshint:all'])
+	grunt.registerTask('single', ['jshint:single'])
+}

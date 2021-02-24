@@ -1,9 +1,13 @@
 {
-	"tags":{"allowUnknownTags":true},
-	"templates":{"monospaceLinks":false,"cleverLinks":false,"default":{"outputSourceFiles":true}},
-	"source":{
-		"includePattern":".+(\\.js(doc)?)$",
-		"excludePattern":"(^|\\/|\\\\)_"
+	"tags": { "allowUnknownTags": true },
+	"templates": {
+		"monospaceLinks": false,
+		"cleverLinks": false,
+		"default": { "outputSourceFiles": true }
 	},
-	"plugins":[]
+	"source": {
+		"includePattern": ".+(\\.js(doc)?)$",
+		"excludePattern": "(^|\\/|\\\\)_"
+	},
+	"plugins": []
 }
