@@ -8,7 +8,8 @@
   "scripts": {
     "usage": "pnpm run; grunt --help",
     "check": "npm-check --color-always || true",
-    "prettier": "prettier --no-semi --single-quote --trailing-comma all --use-tabs --tab-width 4 --write $SRC",
+    "prettier": "prettier --write $SRC $TESTS",
+    "rawprettier": "prettier --no-semi --single-quote --trailing-comma all --use-tabs --tab-width 4 --write $SRC $TEST",
     "test": "grunt",
     "test:tap": "mocha --reporter tap",
     "watch": "grunt watch",

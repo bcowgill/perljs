@@ -7,6 +7,8 @@
 	// internally so have to set indent to 4 if you will use tabs for indentation.
 	// cannot force the use of tabs though.
 	"indent": 4,
+	// ignore missing semicolons (automatic semicolon insertion)
+	"asi": true,
 	"smarttabs": true,
 	"maxparams": 3,
 	"maxdepth": 2,

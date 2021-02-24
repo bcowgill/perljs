@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>perljs - mocha test page</title>
+	<head>
+		<meta charset="UTF-8" />
+		<title>perljs - mocha test page</title>
 
-	<link rel="stylesheet" media="all" href="../node_modules/mocha/mocha.css">
-	<script src="../node_modules/mocha/mocha.js"></script>
+		<link
+			rel="stylesheet"
+			media="all"
+			href="../node_modules/mocha/mocha.css"
+		/>
+		<script src="../node_modules/mocha/mocha.js"></script>
 
-	<!--
+		<!--
 	<link rel="stylesheet" media="all" href="../node_modules/mocha/mocha-dark.css">
 	<script src="../node_modules/mocha/mocha-dark.js"></script>
 	-->
-	<script>
-		mocha.setup({
-			ui: 'bdd'
-		});
-	</script>
-</head>
-<body class="mocha-dark">
-	<div id="mocha"><p><a href=".">Index</a></p></div>
-	<div id="messages"></div>
-	<div id="fixtures"></div>
+		<script>
+			mocha.setup({
+				ui: 'bdd',
+			})
+		</script>
+	</head>
+	<body class="mocha-dark">
+		<div id="mocha">
+			<p><a href=".">Index</a></p>
+		</div>
+		<div id="messages"></div>
+		<div id="fixtures"></div>
 
-	<!-- require's setup-test-framework.js -->
-	<script data-main="setup-test-framework" src="../bower_components/requirejs/require.js"></script>
-</body>
+		<!-- require's setup-test-framework.js -->
+		<script
+			data-main="setup-test-framework"
+			src="../bower_components/requirejs/require.js"
+		></script>
+	</body>
 
-<!-- hard coded livereload port if your browser plugin doesn't work -->
-<script src="//localhost:35729/livereload.js"></script>
-
+	<!-- hard coded livereload port if your browser plugin doesn't work -->
+	<script src="//localhost:35729/livereload.js"></script>
 </html>

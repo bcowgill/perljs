@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Browser Require1k Test Page</title>
-    <script src="../bower_components/require1k/require1k.js"></script>
-</head>
-<body>
-<h1>Browser Require1k Test Page</h1>
-<p>open the console to see results...</p>
-</body>
-<script>
-    var require = R, moduleLoaded = function (error) {
-        if (error) {
-            console.error('require error: ' + error.statusText + ' @ ' + error.responseURL + ' ' + error.responseText, error);
-        }
-        return !error;
-    };
+	<head>
+		<meta charset="UTF-8" />
+		<title>Browser Require1k Test Page</title>
+		<script src="../bower_components/require1k/require1k.js"></script>
+	</head>
+	<body>
+		<h1>Browser Require1k Test Page</h1>
+		<p>open the console to see results...</p>
+	</body>
+	<script>
+		var require = R,
+			moduleLoaded = function (error) {
+				if (error) {
+					console.error(
+						'require error: ' +
+							error.statusText +
+							' @ ' +
+							error.responseURL +
+							' ' +
+							error.responseText,
+						error
+					)
+				}
+				return !error
+			}
 
-    require('../notfound', moduleLoaded);
+		require('../notfound', moduleLoaded)
 
-    // Asynchronous module loading
-    require('../index', function (error, perljs) {
-        if (moduleLoaded(error)) {
-            var versions = perljs.version.split('.');
-            console.log('This is perljs version ' + versions[0] +
-                    ', subversion ' + versions[1] + ', patch ' + versions[2] +
-                    ' built for in-browser Javascript.'
-            );
-            console.dir(perljs);
-            console.log(perljs.x('we hope you like it.\n', 3))
-            console.dir(perljs.qwm('shape rectangle x 42 y 23 w 23 h 34'));
-        }
-    });
-</script>
+		// Asynchronous module loading
+		require('../index', function (error, perljs) {
+			if (moduleLoaded(error)) {
+				var versions = perljs.version.split('.')
+				console.log(
+					'This is perljs version ' +
+						versions[0] +
+						', subversion ' +
+						versions[1] +
+						', patch ' +
+						versions[2] +
+						' built for in-browser Javascript.'
+				)
+				console.dir(perljs)
+				console.log(perljs.x('we hope you like it.\n', 3))
+				console.dir(perljs.qwm('shape rectangle x 42 y 23 w 23 h 34'))
+			}
+		})
+	</script>
 </html>

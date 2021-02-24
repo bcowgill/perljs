@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Browser DefineJS Test Page</title>
-    <script global="window" src="../bower_components/definejs/define.js"></script>
-</head>
-<body>
-<h1>Browser DefineJS Test Page</h1>
-<p>open the console to see results...</p>
-</body>
-<script>
-    require(['../notfound'], function () {
-        // doesn't get here if module load fails.
-        console.error(arguments);
-    });
+	<head>
+		<meta charset="UTF-8" />
+		<title>Browser DefineJS Test Page</title>
+		<script
+			global="window"
+			src="../bower_components/definejs/define.js"
+		></script>
+	</head>
+	<body>
+		<h1>Browser DefineJS Test Page</h1>
+		<p>open the console to see results...</p>
+	</body>
+	<script>
+		require(['../notfound'], function () {
+			// doesn't get here if module load fails.
+			console.error(arguments)
+		})
 
-    // Asynchronous module loading
-    require(['../../perljs.min'], function (perljs) {
-        var versions = perljs.version.split('.');
-        console.log('This is perljs version ' + versions[0] +
-                ', subversion ' + versions[1] + ', patch ' + versions[2] +
-                ' built for in-browser Javascript.'
-        );
-        console.dir(perljs);
-        console.log(perljs.x('we hope you like it.\n', 3))
-        console.dir(perljs.qwm('shape rectangle x 42 y 23 w 23 h 34'));
-    });
-</script>
+		// Asynchronous module loading
+		require(['../../perljs.min'], function (perljs) {
+			var versions = perljs.version.split('.')
+			console.log(
+				'This is perljs version ' +
+					versions[0] +
+					', subversion ' +
+					versions[1] +
+					', patch ' +
+					versions[2] +
+					' built for in-browser Javascript.'
+			)
+			console.dir(perljs)
+			console.log(perljs.x('we hope you like it.\n', 3))
+			console.dir(perljs.qwm('shape rectangle x 42 y 23 w 23 h 34'))
+		})
+	</script>
 </html>
