@@ -8,6 +8,7 @@
   "scripts": {
     "usage": "pnpm run; grunt --help",
     "check": "npm-check --color-always || true",
+    "prettier": "prettier --no-semi --single-quote --trailing-comma all --use-tabs --tab-width 4 --write $SRC",
     "test": "grunt",
     "test:tap": "mocha --reporter tap",
     "watch": "grunt watch",
@@ -53,6 +54,7 @@
     "jsdoc": "^3.6.6",
     "mocha": "8.3.0",
     "npm-check": "^5.9.2",
+    "prettier": "^2.2.1",
     "uncommentify": "^0.1.1"
   }
 }
