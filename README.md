@@ -104,9 +104,10 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 
 Check the releasing scripts for pnpm/npm.
 Document the version/release targets/procedure.
-Get rid of grunt, just use build targets.
+Get rid of grunt, just use build targets, Makefile.
 Install husky and prettier with build targets.
 Change to eslint from jshint.
+Look at how lodash builds its library everything combined into one library yet also functions can be imported singly.
 
 ## Release History
 
