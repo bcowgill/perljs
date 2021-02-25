@@ -1,4 +1,5 @@
 /*jshint indent: 4, smarttabs: true, maxstatements: 100, maxlen: 140 */
+// eslint-disable-next-line no-redeclare
 /*global module:false */
 /**
 	@file Gruntfile.js
@@ -48,6 +49,7 @@ module.exports = function (grunt) {
 		},
 		/**
 			prettier format the code and configuration files in a standard style.
+			grunt-prettier runs more slowly than from the command line.
 			@see {@link https://www.npmjs.com/package/grunt-prettier About prettier grunt plugin}
 			@see {@link https://prettier.io/docs/en/options.html Configuring Prettier}
 		*/
@@ -70,6 +72,20 @@ module.exports = function (grunt) {
 					'Gruntfile.js',
 				],
 			},
+		},
+		/**
+			eslint validation of javascript code.
+			@see {@link https://www.npmjs.com/package/grunt-eslint About eslint grunt plugin}
+			@see {@link https://eslint.org/docs/developer-guide/nodejs-api#cliengine eslint options}
+		*/
+		eslint: {
+			options: {
+				configFile: '.eslintrc.json',
+				//outputFile: 'eslint.log', // diverts output to a log file
+				maxWarnings: 0, // Fail on number of warnings as well as errors
+				reportUnusedDisableDirectives: true,
+			},
+			target: ['lib/**/*.js', 'test/**/*.js', 'Gruntfile.js'],
 		},
 		/**
 			jshint validation of javascript code.
@@ -304,6 +320,7 @@ module.exports = function (grunt) {
 
 	// These plugins provide necessary tasks.
 	;[
+		'grunt-eslint',
 		'grunt-prettier',
 		'grunt-contrib-clean',
 		'grunt-contrib-jshint',
@@ -338,13 +355,13 @@ module.exports = function (grunt) {
 	grunt.registerTask('serve:test', ['connect:test', 'watch'])
 	grunt.registerTask('coverage', ['mocha_istanbul:coverage'])
 	grunt.registerTask('coveralls', ['mocha_istanbul:coveralls'])
-	grunt.registerTask('lint', ['jshint:all'])
+	grunt.registerTask('lint', ['prettier', 'eslint', 'jshint:all'])
 	grunt.registerTask('jshint:all', [
-		'prettier',
 		'jshint:gruntfile',
 		'jshint:lib',
 		'jshint:test',
 	])
-	grunt.registerTask('windows', ['jshint:all'])
+	// grunt.registerTask('windows', ['jshint:all'])
+	grunt.registerTask('windows', ['lint']) // prettier,eslint not tested on windows
 	grunt.registerTask('single', ['jshint:single'])
 }

@@ -2,9 +2,10 @@
 
 'use strict'
 
-// W054 is warning The Function constructor is a form of eval.
+// eslint-disable-next-line no-redeclare
 /* global mocha, window */
 
+// W054 is warning The Function constructor is a form of eval.
 /* jshint -W054 */
 var isBrowser = new Function(
 	'try { return this === window; } catch (e) { return false; }'
@@ -22,6 +23,7 @@ if (isBrowser()) {
 		require(prerequisites, function () {
 			require(specs, function () {
 				/* jshint maxcomplexity: 2 */
+				// eslint-disable-next-line no-extra-semi
 				;(window.mochaPhantomJS || mocha).run()
 				console.log(new Date(), 'test-suite-browser')
 			})

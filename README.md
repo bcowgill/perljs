@@ -132,7 +132,6 @@ release.sh takes a version number, pushes, publishes to npm and bower installs n
 
 ## TODO
 
-Change to eslint from jshint.
 Change istanbul to nyc
 Check the releasing scripts for pnpm/npm.
 Document the version/release targets/procedure.

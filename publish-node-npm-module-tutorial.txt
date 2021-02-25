@@ -259,3 +259,55 @@ echo '[ -x .husky/pre-push ] && .husky/pre-push $1 $2' >> .git/hooks/pre-push
 chmod +x .git/hooks/pre-push
 
 Removed the pre-push hook as build will always update files
+
+
+=======================
+adding eslint to replace jshint (will keep configuration alongside each other for now)
+https://www.npmjs.com/package/eslint
+https://www.npmjs.com/package/grunt-eslint
+https://eslint.org/docs/developer-guide/nodejs-api#cliengine
+
+npm install --save-dev eslint grunt-eslint
+./node_modules/.bin/eslint --init
+.eslintrc.json.prompted
+$ eslint --init
+✔ How would you like to use ESLint? · style
+✔ What type of modules does your project use? · commonjs
+✔ Which framework does your project use? · none
+✔ Does your project use TypeScript? · No / Yes
+✔ Where does your code run? · browser, node
+✔ How would you like to define a style for your project? · prompt
+✔ What format do you want your config file to be in? · JSON
+✔ What style of indentation do you use? · tab
+✔ What quotes do you use for strings? · single
+✔ What line endings do you use? · unix
+✔ Do you require semicolons? · No / Yes
+Successfully created .eslintrc.json file in /home/me/workspace/play/perljs
+
+Tried again scanning my code.
+.eslintrc.json.scanned
+$ eslint --init
+✔ How would you like to use ESLint? · style
+✔ What type of modules does your project use? · commonjs
+✔ Which framework does your project use? · none
+✔ Does your project use TypeScript? · No / Yes
+✔ Where does your code run? · browser, node
+✔ How would you like to define a style for your project? · auto
+✔ Which file(s), path(s), or glob(s) should be examined? · lib test
+✔ What format do you want your config file to be in? · JSON
+Determining Config: 100% [==============================] 1.1s elapsed, eta 0.0s 
+
+Enabled 208 out of 258 rules based on 5 files.
+Successfully created .eslintrc.json file in /home/me/workspace/play/perljs
+
+And again with no style fixing.
+.eslintrc.json.nostyle
+$ eslint --init
+✔ How would you like to use ESLint? · problems
+✔ What type of modules does your project use? · commonjs
+✔ Which framework does your project use? · none
+✔ Does your project use TypeScript? · No / Yes
+✔ Where does your code run? · browser, node
+✔ What format do you want your config file to be in? · JSON
+Successfully created .eslintrc.json file in /home/me/workspace/play/perljs
+
