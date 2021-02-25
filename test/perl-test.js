@@ -143,7 +143,7 @@ describe('#perl methods', function () {
 		it('single quotes a string', function () {
 			perl.q('quote me baby').should.equal("'quote me baby'")
 		})
-		it("single quotes a string but doesn't enquote single quotes", function () {
+		it('single quotes a string but doesn’t enquote single quotes', function () {
 			perl.q("quote 'me' baby").should.equal("'quote 'me' baby'")
 		})
 		describe('non-perl q// operator behaviour', function () {
@@ -490,12 +490,12 @@ describe('#perl methods', function () {
 				'repeat after merepeat after merepeat after merepeat after me'
 			)
 		})
-		it("repeats itself 'N' times", function () {
+		it('repeats itself ’N’ times', function () {
 			perl.x('repeat after me', '4').should.equal(
 				'repeat after merepeat after merepeat after merepeat after me'
 			)
 		})
-		it("repeat isn't fully numeric but will repeat partially", function () {
+		it('repeat isn’t fully numeric but will repeat partially', function () {
 			var konsole = perl._console
 
 			perl._console = oLogger
@@ -504,9 +504,7 @@ describe('#perl methods', function () {
 			)
 			oLogger
 				.check()
-				.should.be.equal(
-					'Argument "4.2c" isn\'t numeric in repeat .x()'
-				)
+				.should.be.equal('Argument "4.2c" isn’t numeric in repeat .x()')
 			perl._console = konsole
 		})
 		describe('non-perl x operator behaviour', function () {
