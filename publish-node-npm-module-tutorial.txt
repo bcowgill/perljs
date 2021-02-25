@@ -253,3 +253,6 @@ sources a ~/.huskyrc definition file - may be needed with nvm
 keeps husky hooks in .husky dir in project.
 needs git 2.9 or better.
 
+npx husky add .husky/pre-push 'npm build'
+echo '[ -x .husky/pre-push ] && .husky/pre-push' > .git/hooks/pre-push
+

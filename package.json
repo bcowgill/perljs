@@ -20,6 +20,7 @@
 		"watch": "grunt watch",
 		"develop": "grunt all watch --force",
 		"strip": "./scripts/strip.js",
+		"build": "grunt all",
 		"preversion": "./scripts/pre-version.sh",
 		"version": "./scripts/version.sh",
 		"postversion": "./scripts/post-version.sh",

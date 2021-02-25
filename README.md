@@ -71,6 +71,17 @@ Or more javascripty test output:
 
 To see additional pnpm and grunt targets like watch or develop
 
+### Note on Git and Husky for developers:
+
+This project has husky installed which does pre-commit checks with git > 2.9.
+
+If your git is older you can manually configure git to invoke the husky pre-commit:
+
+```bash
+	echo '[ -x .husky/pre-commit ] && .husky/pre-commit' > .git/hooks/pre-commit
+	chmod +x .git/hooks/pre-commit
+```
+
 ## Perl Goodness Presently Supported
 
 ```javascript
