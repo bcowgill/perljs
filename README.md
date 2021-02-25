@@ -82,6 +82,8 @@ If your git is older you can manually configure git to invoke the husky pre-comm
 	chmod +x .git/hooks/pre-commit
 ```
 
+Or you can copy the relevant parts of any .husky/ files into .git/hooks (after the exit statement)
+
 ## Perl Goodness Presently Supported
 
 ```javascript
@@ -130,8 +132,6 @@ release.sh takes a version number, pushes, publishes to npm and bower installs n
 
 ## TODO
 
-Install husky and prettier with build targets.
-note about husky requiring git > 2.9 or manual intervention needed.
 Change to eslint from jshint.
 Change istanbul to nyc
 Check the releasing scripts for pnpm/npm.
