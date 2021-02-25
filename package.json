@@ -11,7 +11,7 @@
 		"preprettier": "pnpm run prettier:json",
 		"prettier": "pnpm run prettier:code",
 		"prettier:code": "prettier --write Gruntfile.js $SRC $TESTS",
-		"prettier:json": "prettier --write --parser json *.json .prettierrc .jshintrc-*",
+		"prettier:json": "prettier --write --parser json *.json .*.json",
 		"rawprettier": "prettier --no-semi --single-quote --trailing-comma all --use-tabs --tab-width 4 --write $SRC $TEST",
 		"test": "grunt",
 		"test:tap": "mocha --reporter tap",

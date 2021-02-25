@@ -47,22 +47,23 @@ module.exports = function (grunt) {
 			},
 		},
 		prettier: {
-			options: { progress: true },
-			files: {
-				src: ['lib/*.js', 'test/*.js', 'test/*.html', 'Gruntfile.js'],
+			options: {
+				progress: true,
+				trailingComma: 'es5',
+				tabWidth: 4,
+				useTabs: true,
+				semi: false,
+				singleQuote: true,
 			},
-			json: {
-				options: { parser: 'json' },
-				files: {
-					src: [
-						'.prettierrc',
-						// more than one file not working???
-						//'bower.json',
-						//'jsdoc.conf.json',
-						//'npm-shrinkwrap.json',
-						//'package.json',
-					],
-				},
+			files: {
+				src: [
+					'lib/**/*.js',
+					'test/**/*.js',
+					'test/**/*.html',
+					'*.json',
+					'.*.json',
+					'Gruntfile.js',
+				],
 			},
 		},
 		/**
@@ -73,20 +74,15 @@ module.exports = function (grunt) {
 		*/
 		jshint: {
 			options: {
-				jshintrc: '.jshintrc-node',
+				jshintrc: '.jshintrc-node.json',
 				globals: {},
 			},
 			gruntfile: {
 				options: {
-					jshintrc: '.jshintrc-gruntfile',
+					jshintrc: '.jshintrc-gruntfile.json',
 					globals: {},
 				},
-				src: [
-					'package.json',
-					'bower.json',
-					'.jshintrc*',
-					'Gruntfile.js',
-				],
+				src: ['*.json', 'Gruntfile.js'],
 			},
 			single: {
 				// grunt jshint:single --check-file filename
@@ -97,7 +93,7 @@ module.exports = function (grunt) {
 			},
 			test: {
 				options: {
-					jshintrc: '.jshintrc-mocha-chai-sinon',
+					jshintrc: '.jshintrc-mocha-chai-sinon.json',
 					globals: {},
 				},
 				spec: ['test/**/*-test.js'], // for coverage
