@@ -46,6 +46,11 @@ module.exports = function (grunt) {
 				src: ['doc/'],
 			},
 		},
+		/**
+			prettier format the code and configuration files in a standard style.
+			@see {@link https://www.npmjs.com/package/grunt-prettier About prettier grunt plugin}
+			@see {@link https://prettier.io/docs/en/options.html Configuring Prettier}
+		*/
 		prettier: {
 			options: {
 				progress: true,

@@ -237,3 +237,15 @@ INDENT_TAB=0 INDENT=2 fix-spaces.sh *.json .*.json lib/perl.js Gruntfile.js test
 npm run prettier
 or grunt prettier
 
+
+=======================
+adding husky to run the tests before commit / push
+https://typicode.github.io/husky/#/
+
+npm install --save-dev husky pinst && npm exec husky init
+
+husky - Git hooks installed
+husky - created .husky/pre-commit
+⚠ if you're publishing your package to npm, you need to disable postinstall script using pinst.
+see https://typicode.github.io/husky/#/?id=install
+
