@@ -249,6 +249,7 @@ husky - created .husky/pre-commit
 ⚠ if you're publishing your package to npm, you need to disable postinstall script using pinst.
 see https://typicode.github.io/husky/#/?id=install
 
-sources a ~/.huskyrc definition file
+sources a ~/.huskyrc definition file - may be needed with nvm
 keeps husky hooks in .husky dir in project.
+needs git 2.9 or better.
 

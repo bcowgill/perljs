@@ -120,6 +120,7 @@ release.sh takes a version number, pushes, publishes to npm and bower installs n
 ## TODO
 
 Install husky and prettier with build targets.
+note about husky requiring git > 2.9 or manual intervention needed.
 Change to eslint from jshint.
 Change istanbul to nyc
 Check the releasing scripts for pnpm/npm.
