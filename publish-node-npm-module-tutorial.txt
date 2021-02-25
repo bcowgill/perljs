@@ -254,5 +254,7 @@ keeps husky hooks in .husky dir in project.
 needs git 2.9 or better.
 
 npx husky add .husky/pre-push 'npm build'
-echo '[ -x .husky/pre-push ] && .husky/pre-push' > .git/hooks/pre-push
+echo '#!/bin/sh' > .git/hooks/pre-push
+echo '[ -x .husky/pre-push ] && .husky/pre-push $1 $2' >> .git/hooks/pre-push
+chmod +x .git/hooks/pre-push
 
