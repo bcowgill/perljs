@@ -8,7 +8,9 @@
 	"scripts": {
 		"usage": "pnpm run; grunt --help",
 		"check": "npm-check --color-always || true",
-		"prettier": "prettier --write Gruntfile.js $SRC $TESTS",
+		"preprettier": "pnpm run prettier:json",
+		"prettier": "pnpm run prettier:code",
+		"prettier:code": "prettier --write Gruntfile.js $SRC $TESTS",
 		"prettier:json": "prettier --write --parser json *.json .prettierrc .jshintrc-*",
 		"rawprettier": "prettier --no-semi --single-quote --trailing-comma all --use-tabs --tab-width 4 --write $SRC $TEST",
 		"test": "grunt",
