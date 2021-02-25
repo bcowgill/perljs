@@ -222,3 +222,18 @@ node and browser.
 these documents may be helpful for next time, try it in a virgin project.
 https://sean.is/writing/client-side-testing-with-mocha-and-karma/
 https://github.com/bbraithwaite/karma-seed
+
+=======================
+using prettier and grunt-prettier for uniform code styling.
+
+npm install --save-dev prettier grunt-prettier
+
+prettier runs much faster than grunt-prettier.
+
+uses .prettierrc.json for the npm script command and internally configured options for the grunt prettier command
+
+Can convert all tabs to spaces in files then check that prettier has been configured to work on all files:
+INDENT_TAB=0 INDENT=2 fix-spaces.sh *.json .*.json lib/perl.js Gruntfile.js test/*.js test/*.html
+npm run prettier
+or grunt prettier
+

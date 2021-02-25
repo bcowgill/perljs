@@ -333,6 +333,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('serve:test', ['connect:test', 'watch'])
 	grunt.registerTask('coverage', ['mocha_istanbul:coverage'])
 	grunt.registerTask('coveralls', ['mocha_istanbul:coveralls'])
+	grunt.registerTask('lint', ['jshint:all'])
 	grunt.registerTask('jshint:all', [
 		'prettier',
 		'jshint:gruntfile',
