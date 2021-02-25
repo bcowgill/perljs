@@ -133,6 +133,7 @@ release.sh takes a version number, pushes, publishes to npm and bower installs n
 ## TODO
 
 Change istanbul to nyc
+Change to jest for test runner
 Check the releasing scripts for pnpm/npm.
 Document the version/release targets/procedure.
 Get rid of grunt, just use build targets, Makefile.

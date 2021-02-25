@@ -13,7 +13,7 @@
 		"prettier": "pnpm run prettier:code",
 		"prettier:code": "prettier --write Gruntfile.js $SRC $TESTS",
 		"prettier:json": "prettier --write --parser json *.json .*.json",
-		"rawprettier": "prettier --no-semi --single-quote --trailing-comma all --use-tabs --tab-width 4 --write $SRC $TEST",
+		"rawprettier": "prettier --no-semi --single-quote --trailing-comma all --use-tabs --tab-width 4 --write $SRC $TESTS",
 		"eslint": "eslint --cache --report-unused-disable-directives Gruntfile.js $SRC $TESTS",
 		"lint": "grunt lint",
 		"test": "grunt",
