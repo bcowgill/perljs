@@ -1,5 +1,6 @@
+/* BSAC - changes for coverage with dark colour scheme */
 .pln {
-	color: #000;
+	color: rgba(255,255,255,0.4); /* BSAC was #000;*/
 }
 @media screen {
 	.str {
