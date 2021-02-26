@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run coveralls
+#exit 1  # enable to force the hook to stop the git command for debugging...
+exit $?
+
+# For git <= 2.9 have to manually hand control over to husky for each hook:
+#!/bin/sh
+# git 1.9.1 too early for husky so we must manually hand control over...
+[ -x .husky/pre-push ] && .husky/pre-push
