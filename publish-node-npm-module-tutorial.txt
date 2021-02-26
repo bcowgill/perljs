@@ -311,7 +311,6 @@ $ eslint --init
 ✔ What format do you want your config file to be in? · JSON
 Successfully created .eslintrc.json file in /home/me/workspace/play/perljs
 
-
 =======================
 Adding nyc to replace istanbul for coverage as it is deprecated.
 https://www.npmjs.com/package/nyc
@@ -328,3 +327,18 @@ Added scripts/*.css from nyc coverage output and modified for dark theme.
 Also saved scripts/*.html coverage html for testing all color schemes
 npm coverage commands will copy these CSS files to doc/coverage after a build
 
+=======================
+Adding htmllint and grunt-htmllint
+https://github.com/htmllint/htmllint-cli
+https://github.com/htmllint/grunt-htmllint
+https://github.com/htmllint/htmllint/wiki/Options
+https://github.com/htmllint/htmllint/wiki/Option-by-Error-Code
+
+htmllint init
+
+creates .htmllintrc configuration file
+renamed .json and created a symlink.
+ln -s .htmllintrc.json .htmllintrc
+
+
+=======================

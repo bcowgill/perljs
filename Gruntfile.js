@@ -74,6 +74,18 @@ module.exports = function (grunt) {
 			},
 		},
 		/**
+			htmllint validation of html documents.
+			@see {@link https://github.com/htmllint/grunt-htmllint About htmllint grunt plugin}
+			@see {@link https://github.com/htmllint/htmllint/wiki/Options htmllint options}
+			@see {@link https://github.com/htmllint/htmllint/wiki/Option-by-Error-Code htmllint error codes}
+		*/
+		htmllint: {
+			options: {
+				htmllintrc: '.htmllintrc.json',
+			},
+			src: ['test/**/*.html'],
+		},
+		/**
 			eslint validation of javascript code.
 			@see {@link https://www.npmjs.com/package/grunt-eslint About eslint grunt plugin}
 			@see {@link https://eslint.org/docs/developer-guide/nodejs-api#cliengine eslint options}
@@ -321,6 +333,7 @@ module.exports = function (grunt) {
 	// These plugins provide necessary tasks.
 	;[
 		'grunt-eslint',
+		'grunt-htmllint',
 		'grunt-prettier',
 		'grunt-contrib-clean',
 		'grunt-contrib-jshint',
@@ -355,7 +368,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('serve:test', ['connect:test', 'watch'])
 	grunt.registerTask('coverage', ['mocha_istanbul:coverage'])
 	grunt.registerTask('coveralls', ['mocha_istanbul:coveralls'])
-	grunt.registerTask('lint', ['prettier', 'eslint', 'jshint:all'])
+	grunt.registerTask('lint', ['prettier', 'htmllint', 'eslint', 'jshint:all'])
 	grunt.registerTask('jshint:all', [
 		'jshint:gruntfile',
 		'jshint:lib',
