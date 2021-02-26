@@ -324,3 +324,7 @@ You can add
 // istanbul ignore else
 // istanbul ignore next
 
+Added scripts/*.css from nyc coverage output and modified for dark theme.
+Also saved scripts/*.html coverage html for testing all color schemes
+npm coverage commands will copy these CSS files to doc/coverage after a build
+

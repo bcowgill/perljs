@@ -132,13 +132,13 @@ release.sh takes a version number, pushes, publishes to npm and bower installs n
 
 ## TODO
 
-Change istanbul to nyc
 Add htmllint
 Change to jest for test runner (which uses nyc already)
 Check the releasing scripts for pnpm/npm.
 Document the version/release targets/procedure.
 Get rid of grunt, just use build targets, Makefile.
 Look at how lodash builds its library everything combined into one library yet also functions can be imported singly.
+Remove istanbul package
 
 ## Release History
 
