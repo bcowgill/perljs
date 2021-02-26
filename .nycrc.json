@@ -1,0 +1,11 @@
+{
+	"cache": true,
+	"report-dir": "./doc/coverage",
+	"reporter": ["text", "text-summary", "html"],
+	"statements": 100,
+	"branches": 100,
+	"functions": 100,
+	"lines": 100,
+	"per-file": true,
+	"exclude": ["Gruntfile.js", "test"]
+}

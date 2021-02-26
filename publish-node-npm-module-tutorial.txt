@@ -311,3 +311,16 @@ $ eslint --init
 ✔ What format do you want your config file to be in? · JSON
 Successfully created .eslintrc.json file in /home/me/workspace/play/perljs
 
+
+=======================
+Adding nyc to replace istanbul for coverage as it is deprecated.
+https://www.npmjs.com/package/nyc
+Supported reporters: https://git.io/vHysA
+
+npm install --save-dev nyc
+
+You can add
+// istanbul ignore if
+// istanbul ignore else
+// istanbul ignore next
+

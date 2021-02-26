@@ -27,6 +27,10 @@
 		"postversion": "./scripts/post-version.sh",
 		"doc": "pnpm run docs",
 		"docs": "jsdoc --configure jsdoc.conf.json --destination doc --recurse test/*.js lib/perl.js Gruntfile.js README.md",
+		"coverage": "nyc grunt test",
+		"coveralls": "nyc --check-coverage grunt test",
+		"postcoverage": "cp scripts/*.css doc/coverage",
+		"postcoveralls": "cp scripts/*.css doc/coverage",
 		"coverage-view": "chromium-browser doc/coverage/index.html",
 		"doc-view": "chromium-browser doc/index.html",
 		"docs-view": "chromium-browser doc/index.html",
@@ -67,6 +71,7 @@
 		"jsdoc": "^3.6.6",
 		"mocha": "8.3.0",
 		"npm-check": "^5.9.2",
+		"nyc": "^15.1.0",
 		"pinst": "^2.1.6",
 		"prettier": "^2.2.1",
 		"uncommentify": "^0.1.1"
