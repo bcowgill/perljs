@@ -86,6 +86,26 @@ module.exports = function (grunt) {
 			src: ['test/**/*.html'],
 		},
 		/**
+			sttylelint validation of css stylesheets.
+			@see {@link https://www.npmjs.com/package/grunt-stylelint About stylelint grunt plugin}
+			@see {@link https://github.com/stylelint/stylelint/blob/master/docs/user-guide/rules/list.md stylelint rules}
+		*/
+		stylelint: {
+			options: {
+				configFile: '.stylelintrc.json',
+				formatter: 'verbose',
+				ignoreDisables: false,
+				failOnError: true,
+				outputFile: '',
+				reportNeedlessDisables: true,
+				reporInvalidScopeDisables: true,
+				reporDescriptionlessDisables: true,
+				// fix: false, omitting allows grunt stylelint --fix
+				syntax: '',
+			},
+			src: ['scripts/**/*.css'],
+		},
+		/**
 			eslint validation of javascript code.
 			@see {@link https://www.npmjs.com/package/grunt-eslint About eslint grunt plugin}
 			@see {@link https://eslint.org/docs/developer-guide/nodejs-api#cliengine eslint options}
@@ -334,6 +354,7 @@ module.exports = function (grunt) {
 	;[
 		'grunt-eslint',
 		'grunt-htmllint',
+		'grunt-stylelint',
 		'grunt-prettier',
 		'grunt-contrib-clean',
 		'grunt-contrib-jshint',
@@ -368,7 +389,13 @@ module.exports = function (grunt) {
 	grunt.registerTask('serve:test', ['connect:test', 'watch'])
 	grunt.registerTask('coverage', ['mocha_istanbul:coverage'])
 	grunt.registerTask('coveralls', ['mocha_istanbul:coveralls'])
-	grunt.registerTask('lint', ['prettier', 'htmllint', 'eslint', 'jshint:all'])
+	grunt.registerTask('lint', [
+		'prettier',
+		'htmllint',
+		'stylelint',
+		'eslint',
+		'jshint:all',
+	])
 	grunt.registerTask('jshint:all', [
 		'jshint:gruntfile',
 		'jshint:lib',

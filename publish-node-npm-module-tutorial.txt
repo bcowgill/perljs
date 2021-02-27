@@ -334,11 +334,33 @@ https://github.com/htmllint/grunt-htmllint
 https://github.com/htmllint/htmllint/wiki/Options
 https://github.com/htmllint/htmllint/wiki/Option-by-Error-Code
 
+npm install --save-dev htmllint grunt-htmllint
 htmllint init
 
 creates .htmllintrc configuration file
 renamed .json and created a symlink.
 ln -s .htmllintrc.json .htmllintrc
 
+
+=======================
+Adding stylelint and grunt-stylelint
+https://github.com/stylelint/stylelint
+https://www.npmjs.com/package/grunt-stylelint
+https://github.com/stylelint/stylelint/blob/master/docs/user-guide/rules/list.md#possible-errors
+
+npm install --save-dev stylelint stylelint-config-standard grunt-stylelint
+
+manually create .stylelintrc.json
+
+
+    --formatter, -f               [default: "string"]
+
+      The output formatter: "compact", "json", "string", "tap", "unix" or "verbose".
+
+	  verbose is nice
+
+--report-needless-disables
+--report-invalid-scope-disables
+--report-descriptionless-disables
 
 =======================

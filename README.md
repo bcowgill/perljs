@@ -132,7 +132,6 @@ release.sh takes a version number, pushes, publishes to npm and bower installs n
 
 ## TODO
 
-Add htmllint
 Change to jest for test runner (which uses nyc already)
 Check the releasing scripts for pnpm/npm.
 Document the version/release targets/procedure.
