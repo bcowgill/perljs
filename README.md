@@ -139,6 +139,15 @@ Get rid of grunt, just use build targets, Makefile.
 Look at how lodash builds its library everything combined into one library yet also functions can be imported singly.
 Remove istanbul package
 
+## Internal Notes
+
+Branches for converting nyc coverage html/css to a dark theme:
+nyc-15.1.0-coverage-css
+nyc-15.1.0-coverage-css-dark
+
+This was before installing stylelint and so there are a number or style lint violations.
+Consider submitting the changes/pull request to nyc/istanbul
+
 ## Release History
 
 * 0.1.0 Initial release q qq qw x - go forth and perlize

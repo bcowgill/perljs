@@ -1,4 +1,9 @@
-/* BSAC - changes for coverage with dark colour scheme */
+/*
+	BSAC - nyc@15.1.0 changes for coverage with dark colour scheme
+	Branches for converting nyc coverage html/css to a dark theme:
+	nyc-15.1.0-coverage-css
+	nyc-15.1.0-coverage-css-dark
+*/
 .pln {
 	color: rgba(255,255,255,0.4); /* BSAC was #000;*/
 }
