@@ -165,7 +165,7 @@ describe('#perl methods', function () {
 				perl.q(true).should.equal("'true'")
 			})
 			it("single quotes false as 'false'", function () {
-				perl.q(true).should.equal("'true'")
+				perl.q(false).should.equal("'false'")
 			})
 			it('single quotes numbers', function () {
 				perl.q(12.345).should.equal("'12.345'")

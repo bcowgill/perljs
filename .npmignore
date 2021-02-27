@@ -6,13 +6,17 @@ test
 perl
 doc
 coverage
+.nyc_output
 scripts
 .idea
+.husky
 Makefile
 Gruntfile.js
 .jshint*
 jsdoc.conf.json
 *.txt
+*.lst
+*.log
 *.bak
 *.sublime-*
 *.timestamp
