@@ -1,5 +1,5 @@
 /*  perljs v0.3.3 https://github.com/bcowgill/perljs
-    Brent Cowgill <brent.cowgill@workshare.com> (http://github.com/bcowgill)
+    Brent S.A. Cowgill <zardozcs@gmail.com> (http://github.com/bcowgill)
     Unlicense http://unlicense.org/
 */
 /**

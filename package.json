@@ -4,7 +4,7 @@
 	"main": "index.js",
 	"version": "0.3.3",
 	"homepage": "https://github.com/bcowgill/perljs",
-	"author": "Brent Cowgill <brent.cowgill@workshare.com> (http://github.com/bcowgill)",
+	"author": "Brent S.A. Cowgill <zardozcs@gmail.com> (http://github.com/bcowgill)",
 	"description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
 	"scripts": {
 		"usage": "pnpm run; grunt --help",

@@ -3,7 +3,7 @@
 	"main": ["perljs.min.js", "perljs.min.js.map", "index.js"],
 	"version": "0.3.3",
 	"homepage": "https://github.com/bcowgill/perljs",
-	"authors": ["Brent S.A. Cowgill <brent.cowgill@workshare.com>"],
+	"authors": ["Brent S.A. Cowgill <zardozcs@gmail.com>"],
 	"description": "Perl for Javascript. Just some functions that a perl developer misses in Javascript.",
 	"moduleType": ["amd", "globals", "node"],
 	"keywords": ["perl"],
