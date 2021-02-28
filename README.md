@@ -3,6 +3,8 @@ perljs
 
 Perl for Javascript. Just some functions that a perl developer misses in Javascript.
 
+Works with browsers and node v0.10.0+
+
 ## Installation
 
 ```bash

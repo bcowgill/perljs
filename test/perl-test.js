@@ -195,7 +195,7 @@ describe('#perl methods', function () {
 				oObject.should.deep.equal({ 1: 2, 3: 4 })
 			})
 		})
-	})
+	}) // .q()
 
 	describe('.qq()', function () {
 		it('double quotes a string', function () {
@@ -217,7 +217,7 @@ describe('#perl methods', function () {
 				oObject.should.deep.equal({ 1: 2, 3: 4 })
 			})
 		})
-	})
+	}) // .qq()
 
 	describe('.qw()', function () {
 		it('makes array out of string', function () {
@@ -225,7 +225,7 @@ describe('#perl methods', function () {
 				.join('/')
 				.should.equal('split/me/baby/you/know/you/want/to')
 		})
-	})
+	}) // .qw()
 
 	// Not a direct perl function, but equivalent to
 	// my @Quoted = map { qq{"$ARG"} } qw( value1 value2 );
@@ -242,7 +242,7 @@ describe('#perl methods', function () {
 				perl.qqA(aList, '<', '>').should.deep.equal(['<one>', '<two>'])
 			})
 		})
-	})
+	}) // .qqA()
 
 	// Not a direct perl function, but equivalent to
 	// my %Quoted = map { ($ARG, qq{"$Map{$ARG}"}) } %Map;
@@ -262,7 +262,7 @@ describe('#perl methods', function () {
 				})
 			})
 		})
-	})
+	}) // .qqO()
 
 	// Not a direct perl function, but equivalent to
 	// my %Map = qw( key1 value1 key2 value2 );
@@ -310,7 +310,7 @@ describe('#perl methods', function () {
 				oMap.empty.should.be.equal('')
 			})
 		})
-	})
+	}) // .qwm()
 
 	// Not a direct perl function, but an idiom of creating a map from an array
 	describe('.mapFromArray()', function () {
