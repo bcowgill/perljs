@@ -14,7 +14,7 @@ https://bytesafe.dev/posts/npm-release-management/
 
 ===================
 
-npm set init.author.name "Brent Cowgill"
+npm set init.author.name "Brent S.A. Cowgill"
 npm set init.author.email "xxx@xxx.ccc"
 npm set init.author.url "http://github.com/bcowgill"
 npm login

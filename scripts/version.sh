@@ -32,26 +32,7 @@ else
 	exit 1
 fi
 
-# Update the version numbers in some files
-perl -i.bak -pne 's{(\@version \s+)([\.0-9]+)}{$1$ENV{REL_VER}}xmsg; \
-   s{(version \s* = \s*.)([\.0-9]+)(.;)}{$1$ENV{REL_VER}$3}xmsg;' \
-   lib/perl.js
-
-perl -i.bak -pne 's{("version": \s+ ")([\.0-9]+)(",)}{$1$ENV{REL_VER}$3}xmsg;' \
-   bower.json
-
-if grep "$REL_VER" bower.json ; then
-	echo ok bower.json version updated
-else
-	echo NOT OK - bower.json does not contain $REL_VER release version
-	exit 1
-fi
-if grep "$REL_VER" lib/perl.js ; then
-	echo ok lib/perl.js version updated
-else
-	echo NOT OK - lib/perl.js does not contain $REL_VER release version
-	exit 1
-fi
+update-version.sh "$REL_VER" || exit 1
 
 # Build documentation and minified distribution for web
 grunt all

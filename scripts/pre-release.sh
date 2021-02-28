@@ -9,23 +9,7 @@ PNPM=pnpm
 
 export REL_VER=$1
 
-if [ "${REL_VER:-}" == "" ]; then
-	echo Please supply a release version number i.e. 0.2.1 [Major.Minor.Patch]
-	echo MAJOR version when you make incompatible API changes,
-	echo MINOR version when you add functionality in a backwards-compatible manner, and
-	echo PATCH version when you make backwards-compatible bug fixes.
-	grep version package.json lib/perl.js
-	exit 1
-fi
-
-# Update the version numbers in some files
-perl -i.bak -pne 's{(\@version \s+)([\.0-9]+)}{$1$ENV{REL_VER}}xmsg; \
-   s{(version \s* = \s*.)([\.0-9]+)(.;)}{$1$ENV{REL_VER}$3}xmsg;' \
-   lib/perl.js
-
-#npm version $REL_VER
-#bower version $REL_VER
-perl -i.bak -pne 's{("version": \s+ ")([\.0-9]+)(",)}{$1$ENV{REL_VER}$3}xmsg' package.json bower.json
+update-version.sh "$REL_VER" package.json || exit 1
 
 if grep "\* $REL_VER" README.md ; then
 	echo ok
