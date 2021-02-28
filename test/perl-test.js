@@ -348,7 +348,7 @@ describe('#perl methods', function () {
 				true: 'value2',
 			})
 		})
-	})
+	}) // .mapFromArray()
 
 	// Not a direct perl function, but an idiom of creating a map with all keys from an array
 	// my %Map = map { ( $ARG, 1 ) } @Array;
@@ -432,7 +432,7 @@ describe('#perl methods', function () {
 				value2: true,
 			})
 		})
-	})
+	}) // .makeMap()
 
 	// Not a direct perl function, but an idiom of reversing a key/value map to value/key
 	// like perl %ReverseMap = map { ($Map{$ARG}, $ARG) } keys(%Map)
@@ -482,7 +482,7 @@ describe('#perl methods', function () {
 				value2: true,
 			})
 		})
-	})
+	}) // reverseMap()
 
 	describe('.x()', function () {
 		it('repeats itself N times', function () {
@@ -524,5 +524,5 @@ describe('#perl methods', function () {
 				perl.x(-Infinity, 4).should.equal('')
 			})
 		})
-	})
+	}) // .x()
 })

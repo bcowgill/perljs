@@ -3,13 +3,20 @@
 export REL_VER=$1
 FILE="$2"
 
-if [ "${REL_VER:-}" == "" ]; then
+function usage {
 	echo Please supply a release version number i.e. 0.2.1 [Major.Minor.Patch]
-	echo MAJOR version when you make incompatible API changes,
-	echo MINOR version when you add functionality in a backwards-compatible manner, and
-	echo PATCH version when you make backwards-compatible bug fixes.
-	grep version package.json lib/perl.js
+	echo "   MAJOR version when you make incompatible API changes,"
+	echo "   MINOR version when you add functionality in a backwards-compatible manner, and"
+	echo "   PATCH version when you make backwards-compatible bug fixes."
+	egrep 'version.+[0-9]' package.json bower.json lib/perl.js README.md
 	exit 1
+}
+
+if [ "${REL_VER:-}" == "" ]; then
+	usage
+fi
+if [ -e "$REL_VER" ]; then
+	usage
 fi
 
 # Update the version numbers in some files
