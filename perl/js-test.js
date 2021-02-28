@@ -4,7 +4,7 @@
 // perl -e '$src = "./js-test.js"; $log = "./js-test.log"; while (1) { system("$src | tee $log") if (-M "$src" < -M "$log"); sleep(5) }'
 
 const RUN_TESTS = true
-const TAP_OUT = process.env.HARNESS_ACTIVE === '1'
+const TAP_OUT = process && process.env && process.env.HARNESS_ACTIVE === '1'
 
 var perl = require('../'),
 	oLogger = {
