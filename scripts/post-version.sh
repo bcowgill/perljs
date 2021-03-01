@@ -6,6 +6,7 @@
 
 NPM=npm
 PNPM=pnpm
+PKG=$NPMPKG
 
 REL_VER=`packagever.sh`
 if [ -z "$REL_VER" ]; then
@@ -20,9 +21,9 @@ rm *.bak lib/*.bak
 
 # install module globally
 echo checking npm package install
-npm ls -g | grep perljs
+npm ls -g | grep $PKG
 npm install . -g
-npm ls -g | grep perljs
+npm ls -g | grep $PKG
 
 # publish it on the npm registry and check it
 echo NPM add user (git credentials)
@@ -32,10 +33,10 @@ npm publish
 
 sleep 3
 echo checking npm site
-curl --silent --location https://www.npmjs.org/package/perljs \
+curl --silent --location https://www.npmjs.org/package/$PKG \
 	| grep 'is the latest' --before-context=1 --after-context=1
 
-npm install -g perljs
+npm install -g $PKG
 
 # publish it on the bower registry and check it
 #bower register perljs https://github.com/bcowgill/perljs.git
@@ -43,14 +44,14 @@ npm install -g perljs
 #curl --silent --location http://bower.io/search/?q=perljs
 
 echo checking bower package install
-bower ls | grep perljs
-bower install perljs
-bower ls | grep perljs
+bower ls | grep $PKG
+bower install $PKG
+bower ls | grep $PKG
 
-npm info perljs > packageinfo.txt
-bower info perljs >> packageinfo.txt
+npm info $PKG > packageinfo.txt
+bower info $PKG >> packageinfo.txt
 less packageinfo.txt
 
-find bower_components/perljs -ls
+find bower_components/$PKG -ls
 echo check there are no extra files in then boser install.
 

@@ -5,6 +5,7 @@
 
 NPM=npm
 PNPM=pnpm
+PKG=$NPMPKG
 
 export REL_VER=$1
 
@@ -44,9 +45,9 @@ echo GIT push
 git push origin master --tags
 
 # install module globally
-npm ls -g | grep perljs
+npm ls -g | grep $PKG
 npm install . -g
-npm ls -g | grep perljs
+npm ls -g | grep $PKG
 
 # publish it on the npm registry and check it
 echo NPM add user
@@ -55,10 +56,10 @@ echo NPM publish
 npm publish
 sleep 3
 echo checking npm site
-curl --silent --location https://www.npmjs.org/package/perljs \
+curl --silent --location https://www.npmjs.org/package/$PKG \
 	| grep 'is the latest' --before-context=1 --after-context=1
 
-npm install -g perljs
+npm install -g $PKG
 
 # publish it on the bower registry and check it
 #bower register perljs https://github.com/bcowgill/perljs.git
@@ -66,11 +67,11 @@ npm install -g perljs
 # wont show on bower search for an hour
 #curl --silent --location http://bower.io/search/?q=perljs
 
-bower ls | grep perljs
-bower install perljs
-bower ls | grep perljs
-find bower_components/perljs -ls
+bower ls | grep $PKG
+bower install $PKG
+bower ls | grep $PKG
+find bower_components/$PKG -ls
 
-npm info perljs > packageinfo.txt
-bower info perljs >> packageinfo.txt
+npm info $PKG > packageinfo.txt
+bower info $PKG >> packageinfo.txt
 less packageinfo.txt

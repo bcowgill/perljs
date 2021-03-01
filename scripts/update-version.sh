@@ -33,7 +33,8 @@ function check_version {
 		echo NOT OK - "$file" does not contain $REL_VER release version
 		exit 1
 	fi
-}
+
+	}
 
 #npm version $REL_VER
 #bower version $REL_VER
@@ -42,6 +43,6 @@ perl -i.bak -pne 's{("version": \s+ ")([\.0-9]+)(",)}{$1$ENV{REL_VER}$3}xmsg' \
 
 if [ ! -z "$FILE" ]; then
 	check_version "$FILE"
-fi
+nfi
 check_version bower.json
 check_version lib/perl.js

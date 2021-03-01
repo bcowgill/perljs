@@ -134,15 +134,15 @@ release.sh takes a version number, pushes, publishes to npm and bower installs n
 
 ## TODO
 
-Create a TAP based test in perl/js-test.js and test with oldest version of node possible.
 Change to jest for test runner (which uses nyc already)
+Publish to Github packages.
 Check the releasing scripts for pnpm/npm.
 Document the version/release targets/procedure.
 Get rid of grunt, just use build targets, Makefile.
 Add Badges for Travis, Coverage, Stylelint etc
 Look at how lodash builds its library everything combined into one library yet also functions can be imported singly.
 Remove istanbul package
-Submit CSS dark changes to nyc/istanbul project
+wip Submit CSS dark changes to nyc/istanbul project
 
 ## Internal Notes
 
