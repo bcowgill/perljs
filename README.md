@@ -134,6 +134,7 @@ release.sh takes a version number, pushes, publishes to npm and bower installs n
 
 ## TODO
 
+For bower put the minified and no comment version into a sub dir, or omit from bower package.
 Change to jest for test runner (which uses nyc already)
 Publish to Github packages.
 Check the releasing scripts for pnpm/npm.

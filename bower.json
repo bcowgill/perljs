@@ -1,6 +1,6 @@
 {
 	"name": "perljs",
-	"main": ["perljs.min.js", "perljs.min.js.map", "index.js"],
+	"main": ["index.js"],
 	"version": "0.3.3",
 	"homepage": "https://github.com/bcowgill/perljs",
 	"authors": ["Brent S.A. Cowgill <zardozcs@gmail.com>"],
@@ -10,6 +10,9 @@
 	"license": "Unlicense",
 	"ignore": [
 		"**/.*",
+		"perljs.min.js",
+		"perljs.min.js.map",
+		"perljs.no-comments.js",
 		"node_modules",
 		"bower_components",
 		"umd",
@@ -23,6 +26,7 @@
 		"Makefile",
 		"Gruntfile.js",
 		"jsdoc.conf.json",
+		"go.sh",
 		"*.txt",
 		"*.bak",
 		"*.sublime-*",

@@ -1,27 +1,22 @@
 #!/bin/bash
 PKG=$NPMPKG
 
-echo version numbers:
+echo VERSION NUMBERS:
 egrep 'version.+[0-9]' package.json bower.json lib/perl.js README.md
-echo ""
-echo git config
-git config --list | grep user
-echo ""
-echo npm config
-npm config ls -l | grep author
-echo ""
-echo npm profile
-npm profile get
-npm token list
-
-echo "starred npm packages"
-npm stars | sort
 
 echo ""
-echo npm owner/search/view $PKG
+echo NPM OWNER/SEARCH/VIEW SUBSET $PKG
 npm owner ls $PKG
-npm search $PKG --no-description
-npm view $PKG
+npm search $PKG --no-description | egrep "$PKG|VERSION"
+npm view $PKG | egrep "$PKG|latest:|published"
+
+echo ""
+echo BOWER LOOKUP $PKG
+bower lookup $PKG
+
+echo ""
+echo BOWER INFO SUBSET $PKG
+bower info $PKG | egrep "cached|validate|version:"
 
 echo ""
 if which after.sh > /dev/null; then
