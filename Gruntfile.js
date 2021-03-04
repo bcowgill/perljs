@@ -289,6 +289,7 @@ module.exports = function (grunt) {
 		*/
 		connect: {
 			test: {
+				// connect:test
 				options: {
 					port: PORT_SERVER,
 					livereload: PORT_LIVERELOAD,
@@ -297,7 +298,7 @@ module.exports = function (grunt) {
 					keepalive: false,
 					open: {
 						target:
-							'http://localhost:<%= connect.test.options.port %>/doc/',
+							'http://localhost:<%= connect.test.options.port %>/test/',
 					},
 				},
 			},

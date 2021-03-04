@@ -128,6 +128,8 @@ release.sh takes a version number, pushes, publishes to npm and installs npm mod
 
 ## TODO
 
+Add mocha dark css for documentation
+Document using grunt serve:test for the browser based tests and to view docs or coverage
 Check test/index.html, etc for browser use without bower.
 Add Badges for Travis, Coverage, Stylelint etc
 Publish to Github packages.
