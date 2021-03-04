@@ -157,6 +157,8 @@ themes
 https://github.com/terryweiss/docstrap
 
 =======================
+Bower is end of life, suggests to use yarn, parcel, etc.
+
 bower
 
 npm install -g bower
@@ -334,7 +336,7 @@ https://github.com/htmllint/grunt-htmllint
 https://github.com/htmllint/htmllint/wiki/Options
 https://github.com/htmllint/htmllint/wiki/Option-by-Error-Code
 
-npm install --save-dev htmllint grunt-htmllint
+npm install --save-dev htmllint htmllint-cli grunt-htmllint
 htmllint init
 
 creates .htmllintrc configuration file

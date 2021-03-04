@@ -36,7 +36,6 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		// Metadata.
 		pkg: grunt.file.readJSON('package.json'),
-		bower: grunt.file.readJSON('bower.json'),
 		// Task configuration.
 		/**
 			clean up files on disk before build.
@@ -298,7 +297,7 @@ module.exports = function (grunt) {
 					keepalive: false,
 					open: {
 						target:
-							'http://localhost:<%= connect.test.options.port %>/test/',
+							'http://localhost:<%= connect.test.options.port %>/doc/',
 					},
 				},
 			},

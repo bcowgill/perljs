@@ -2,7 +2,7 @@
 PKG=$NPMPKG
 
 echo VERSION NUMBERS:
-egrep 'version.+[0-9]' package.json bower.json lib/perl.js README.md
+egrep 'version.+[0-9]' package.json lib/perl.js README.md
 
 echo ""
 echo GIT CONFIG
@@ -23,14 +23,6 @@ echo NPM OWNER/SEARCH/VIEW $PKG
 npm owner ls $PKG
 npm search $PKG --no-description
 npm view $PKG
-
-echo ""
-echo BOWER LOOKUP $PKG
-bower lookup $PKG
-
-echo ""
-echo BOWER INFO $PKG
-bower info $PKG
 
 echo ""
 if which after.sh > /dev/null; then

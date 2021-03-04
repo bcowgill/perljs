@@ -6,7 +6,7 @@ PKG=$NPMPKG
 
 function usage {
 	echo Please supply a release version number to check for published versions. i.e. 0.2.1 [Major.Minor.Patch]
-	egrep 'version.+[0-9]' package.json bower.json lib/perl.js README.md
+	egrep 'version.+[0-9]' package.json lib/perl.js README.md
 	exit 1
 }
 
@@ -22,7 +22,5 @@ else
 	npm search $PKG
 	CODE=1
 fi
-
-# TODO bower check...
 
 exit $CODE

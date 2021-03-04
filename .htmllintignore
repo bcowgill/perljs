@@ -1,0 +1,9 @@
+node_modules
+bower_components
+doc
+coverage
+.git
+.eslintcache
+.stylelintcache
+# emacs lock files should be ignored by htmllint
+.#*.*

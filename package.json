@@ -15,9 +15,10 @@
 		"prettier:json": "prettier --write --parser json *.json .*.json",
 		"rawprettier": "prettier --no-semi --single-quote --trailing-comma all --use-tabs --tab-width 4 --write $SRC $TESTS",
 		"eslint": "eslint --cache --report-unused-disable-directives Gruntfile.js $SRC $TESTS",
+		"eslint:context": "pnpm run eslint -- --format codeframe",
 		"htmllint": "htmllint $TESTS/**/*.html",
 		"stylelint": "stylelint --cache --report-needless-disables --report-invalid-scope-disables --report-descriptionless-disables --formatter verbose scripts/**/*.css",
-		"stylelint:fix": "stylelint --cache --fix scripts/**/*.css",
+		"stylelint:fix": "stylelint --cache scripts/**/*.css --fix",
 		"lint": "grunt lint",
 		"test": "grunt",
 		"test:tap": "mocha --reporter tap",
@@ -59,7 +60,6 @@
 		"url": "https://github.com/bcowgill/perljs/issues"
 	},
 	"devDependencies": {
-		"bower": "^1.8.12",
 		"chai": "4.3.0",
 		"eslint": "^7.20.0",
 		"grunt": "^1.3.0",

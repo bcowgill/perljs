@@ -8,7 +8,7 @@ function usage {
 	echo "   MAJOR version when you make incompatible API changes,"
 	echo "   MINOR version when you add functionality in a backwards-compatible manner, and"
 	echo "   PATCH version when you make backwards-compatible bug fixes."
-	egrep 'version.+[0-9]' package.json bower.json lib/perl.js README.md
+	egrep 'version.+[0-9]' package.json lib/perl.js README.md
 	exit 1
 }
 
@@ -37,12 +37,11 @@ function check_version {
 	}
 
 #npm version $REL_VER
-#bower version $REL_VER
-perl -i.bak -pne 's{("version": \s+ ")([\.0-9]+)(",)}{$1$ENV{REL_VER}$3}xmsg' \
-	bower.json "$FILE"
+perl -i.bak -pne '
+	s{("version": \s+ ")([\.0-9]+)(",)}{$1$ENV{REL_VER}$3}xmsg;
+' "$FILE"
 
 if [ ! -z "$FILE" ]; then
 	check_version "$FILE"
 nfi
-check_version bower.json
 check_version lib/perl.js

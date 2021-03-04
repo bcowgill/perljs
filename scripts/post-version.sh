@@ -26,9 +26,9 @@ npm install . -g
 npm ls -g | grep $PKG
 
 # publish it on the npm registry and check it
-echo NPM add user (git credentials)
-npm adduser
-echo NPM publish (git credentials)
+echo NPM add user (npm credentials)
+npm login # adduser?
+echo NPM publish (npm credentials)
 npm publish
 
 sleep 3
@@ -38,20 +38,6 @@ curl --silent --location https://www.npmjs.org/package/$PKG \
 
 npm install -g $PKG
 
-# publish it on the bower registry and check it
-#bower register perljs https://github.com/bcowgill/perljs.git
-# wont show on bower search for an hour
-#curl --silent --location http://bower.io/search/?q=perljs
-
-echo checking bower package install
-bower ls | grep $PKG
-bower install $PKG
-bower ls | grep $PKG
-
 npm info $PKG > packageinfo.txt
-bower info $PKG >> packageinfo.txt
 less packageinfo.txt
-
-find bower_components/$PKG -ls
-echo check there are no extra files in then boser install.
 

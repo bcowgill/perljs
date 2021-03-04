@@ -8,13 +8,7 @@ Works with browsers and node v0.10.0+
 ## Installation
 
 ```bash
-	npm install perljs --save
-```
-
-or
-
-```bash
-	bower install perljs --save
+	npm install perljs --save # or use yarn or pnpm
 ```
 
 or get it all
@@ -126,23 +120,23 @@ npm version patch -m "release %s featuring ..."
 
 pre-version.sh command does the lint and coverage check.
 version.sh takes the version number from package.json and injects it into source files and adds a note to README.md then builds everything and adds to git
-post-version.sh pushes everything, installs module globally, and publishes it to npm and bower
+post-version.sh pushes everything, installs module globally, and publishes it to npm
 
 this might be what's used now...
 pre-release.sh asks for version and updates files, runs build and docs and makes npm package
-release.sh takes a version number, pushes, publishes to npm and bower installs npm and bower modules locally
+release.sh takes a version number, pushes, publishes to npm and installs npm module locally
 
 ## TODO
 
-For bower put the minified and no comment version into a sub dir, or omit from bower package.
-Change to jest for test runner (which uses nyc already)
-Publish to Github packages.
-Check the releasing scripts for pnpm/npm.
-Document the version/release targets/procedure.
-Get rid of grunt, just use build targets, Makefile.
+Check test/index.html, etc for browser use without bower.
 Add Badges for Travis, Coverage, Stylelint etc
+Publish to Github packages.
+Document the version/release targets/procedure.
+Check the releasing scripts for pnpm/npm.
+Change to jest for test runner (which uses nyc already)
 Look at how lodash builds its library everything combined into one library yet also functions can be imported singly.
 Remove istanbul package
+Get rid of grunt, just use build targets, Makefile.
 wip Submit CSS dark changes to nyc/istanbul project
 
 ## Internal Notes

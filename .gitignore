@@ -27,5 +27,12 @@ node_modules
 bower_components
 umd
 
-# Editor files
+# Editor files / backups
 .idea
+*.bak
+*~
+.#*.*
+
+# Cache directories
+.eslintcache
+.stylelintcache
