@@ -22,14 +22,22 @@ or get it all
 ```javascript
 
 	var perl = require('perljs')
-	   q = perl.q,
-	   qq = perl.qq,
-	   qw = perl.qw,
-	   x = perl.x,
+	   q = perl.q, // single quote a string/array/object
+	   qq = perl.qq, // double quote a string/array/object
+	   qw = perl.qw, // quote words -- convert string to array on word boundaries
+	   x = perl.x, // string multiply -- repeat string N times
 	   name = 'perl rocks the javascript world';
 
 	console.log('q', q(name), 'qq', qq(name), 'qw', qw(name), 'x', x(name + '\n', 3));
 ```
+
+`q` and `qq` behave differently from perl, they single or double quote strings.
+
+`qw` is similar to perl's quote words, it splits strings into arrays based on word boundaries.
+
+`x` behaves like perl's `x` operater to repeat strings a number of times.
+
+Full usage documentation is available in `doc/`
 
 ## Tests
 
@@ -39,7 +47,11 @@ For perlish test output:
 	bash
 	source env.local
 	pnpm test:tap
+	# or
+	prove scripts/tap-test.sh
 ```
+
+Which shows output in TAP -- [Test Anywhere Protocol](http://testanything.org/)
 
 Or more javascripty test output:
 
@@ -47,6 +59,8 @@ Or more javascripty test output:
 
 	pnpm test
 ```
+
+Which will prettify and lint the source as well as run the tests.
 
 ## Full Documentation
 
