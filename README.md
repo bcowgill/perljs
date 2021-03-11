@@ -5,19 +5,7 @@ Perl for Javascript. Just some functions that a perl developer misses in Javascr
 
 Works with browsers and node v0.10.0+
 
-## Installation
-
-```bash
-	npm install perljs --save # or use yarn or pnpm
-```
-
-or get it all
-
-```bash
-	git clone https://github.com/bcowgill/perljs.git
-```
-
-## Usage
+## Quick Usage
 
 ```javascript
 
@@ -39,6 +27,63 @@ or get it all
 
 Full usage documentation is available in `doc/`
 
+## Motivation
+
+In addition to providing some useful functions which are available in perl but not Javascript, this project exists to learn about publishing modules, tools for linting and testing code as well as integration with Travis and other open source tools.
+
+## Installation
+
+```bash
+	npm install perljs --save # or use yarn or pnpm
+```
+
+or get it all
+
+```bash
+	git clone https://github.com/bcowgill/perljs.git
+```
+
+## Perl Goodness Presently Supported
+
+```javascript
+
+	q('what') => "'what'"
+
+	qq('what') => '"what"'
+	qq('what', '@') => '@what@'
+	qq('what', '<', '>') => '<what>'
+
+	qw('this is it') => ['this', 'is', 'it']
+
+	x('=', 76) => 76 equal signs in a row
+
+	qqA(['this', 'is', 'it']) => ['"this"', '"is"', '"it"']
+	qqA(['this', 'is', 'it'], '@') => ['@this@', '@is@', '@it@']
+	qqO({ 'key1': 'value1', 'key2': 'value2' }) => { 'key1': '"value1"', 'key2': '"value2"' }
+	qqO({ 'key1': 'value1', 'key2': 'value2' }, '<', '>') => { 'key1': '<value1>', 'key2': '<value2>' }
+
+	// my %Map = qw( key1 value1 key2 value2 );
+	qwm('key1 value1 key2 value2') => { 'key1': 'value1', 'key2': 'value2' }
+
+	mapFromArray() - does the same for an array instead of a string.
+
+	// my %Map = map { ( $ARG, 1 ) } @Array;
+	makeMap(['key1', 'key2']); => { 'key1': true, 'key2': true }
+
+	// my %ReverseMap = map { ($Map{$ARG}, $ARG) } keys(%Map)
+	reverseMap({ 'inch': 1, 'foot': 12 }) => { '1': 'inch', '12': 'foot' }
+```
+
+## Full Documentation
+
+Is available in the `doc` dir and can be generated:
+
+```bash
+
+	pnpm run doc
+	pnpm run doc-view
+```
+
 ## Tests
 
 For perlish test output:
@@ -51,7 +96,7 @@ For perlish test output:
 	prove scripts/tap-test.sh
 ```
 
-Which shows output in TAP -- [Test Anywhere Protocol](http://testanything.org/)
+Which shows output as TAP -- [Test Anywhere Protocol](http://testanything.org/)
 
 Or more javascripty test output:
 
@@ -62,13 +107,7 @@ Or more javascripty test output:
 
 Which will prettify and lint the source as well as run the tests.
 
-## Full Documentation
-
-```bash
-
-	pnpm run doc
-	pnpm run doc-view
-```
+Coverage output will be shown and is available in `doc/coverage/index.html`
 
 ## Development
 
@@ -94,34 +133,17 @@ If your git is older you can manually configure git to invoke the husky pre-comm
 
 Or you can copy the relevant parts of any .husky/ files into .git/hooks (after the exit statement)
 
-## Perl Goodness Presently Supported
-
-```javascript
-
-	q('what') => ''what''
-
-	qq('what') => '"what"'
-
-	qw('this is it') => ['this', 'is', 'it']
-
-	x('=', 76) => 76 equal signs in a row
-
-	// my %Map = qw( key1 value1 key2 value2 );
-	qwm('key1 value1 key2 value2') => { 'key1': 'value1', 'key2': 'value2' }
-
-	mapFromArray() - does the same for an array instead of a string.
-
-	// my %Map = map { ( $ARG, 1 ) } @Array;
-	makeMap(['key1', 'key2']); => { 'key1': true, 'key2': true }
-
-	// my %ReverseMap = map { ($Map{$ARG}, $ARG) } keys(%Map)
-	reverseMap({ 'inch': 1, 'foot': 12 }) => { '1': 'inch', '12': 'foot' }
-```
-
 ## Contributing
 
-In lieu of a formal styleguide, take care to maintain the existing coding style.
-Add unit tests for any new or changed functionality. Lint and test your code.
+The existing coding style is maintained by the use of [prettier](https://www.npmjs.com/package/prettier) as part of the check in process using [husky](https://www.npmjs.com/package/husky).
+Add unit tests for any new or changed functionality. Lint and test your code using the supplied npm targets.
+Review the test coverage output to ensure you've tested whatever has been added.
+
+## License
+
+The Unlicense
+
+A license with no conditions whatsoever which dedicates works to the public domain. Unlicensed works, modifications, and larger works may be distributed under different terms and without source code.
 
 ## Version and Release
 
