@@ -39,6 +39,7 @@ var perl = require('../lib/perl'),
 describe('#perl helpers', function () {
 	describe('._value()', function () {
 		it('handles undef', function () {
+			// debugger;
 			expect(perl._value('undef')).to.equal(void should)
 		})
 		it('handles undefined', function () {

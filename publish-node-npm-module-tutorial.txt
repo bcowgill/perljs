@@ -366,3 +366,15 @@ manually create .stylelintrc.json
 --report-descriptionless-disables
 
 =======================
+Created a Travis CI account
+https://travis-ci.org/
+Actually you log in with github ID and activate your chosen repositories.
+
+=======================
+Created a Coveralls account
+https://coveralls.io/
+Actually you log in with github ID and activate your chosen repositories.
+
+=======================
+Contributing.md template taken from babel
+https://github.com/babel/babel/blob/master/CONTRIBUTING.md

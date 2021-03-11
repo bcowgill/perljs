@@ -120,24 +120,13 @@ Coverage output will be shown and is available in `doc/coverage/index.html`
 
 To see additional pnpm and grunt targets like watch or develop
 
-### Note on Git and Husky for developers:
-
-This project has husky installed which does pre-commit checks with git > 2.9.
-
-If your git is older you can manually configure git to invoke the husky pre-commit:
-
-```bash
-	echo '[ -x .husky/pre-commit ] && .husky/pre-commit' > .git/hooks/pre-commit
-	chmod +x .git/hooks/pre-commit
-```
-
-Or you can copy the relevant parts of any .husky/ files into .git/hooks (after the exit statement)
-
 ## Contributing
 
 The existing coding style is maintained by the use of [prettier](https://www.npmjs.com/package/prettier) as part of the check in process using [husky](https://www.npmjs.com/package/husky).
 Add unit tests for any new or changed functionality. Lint and test your code using the supplied npm targets.
 Review the test coverage output to ensure you've tested whatever has been added.
+
+See CONTRIBUTING.md for further details.
 
 ## License
 

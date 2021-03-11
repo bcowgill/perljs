@@ -256,21 +256,21 @@ module.exports = function (grunt) {
 		watch: {
 			gruntfile: {
 				files: '<%= jshint.gruntfile.src %>',
-				tasks: ['jshint:gruntfile', 'coverage'],
+				tasks: ['jshint:gruntfile', 'watchlint', 'coverage'],
 				options: {
 					livereload: PORT_LIVERELOAD,
 				},
 			},
 			lib: {
 				files: '<%= jshint.lib.src %>',
-				tasks: ['jshint:lib', 'coverage'],
+				tasks: ['jshint:lib', 'watchlint', 'coverage'],
 				options: {
 					livereload: PORT_LIVERELOAD,
 				},
 			},
 			test: {
 				files: '<%= jshint.test.src %>',
-				tasks: ['jshint:test', 'coverage'],
+				tasks: ['jshint:test', 'watchlint', 'coverage'],
 				options: {
 					livereload: PORT_LIVERELOAD,
 				},
@@ -389,13 +389,13 @@ module.exports = function (grunt) {
 	grunt.registerTask('serve:test', ['connect:test', 'watch'])
 	grunt.registerTask('coverage', ['mocha_istanbul:coverage'])
 	grunt.registerTask('coveralls', ['mocha_istanbul:coveralls'])
-	grunt.registerTask('lint', [
+	grunt.registerTask('watchlint', [
 		'prettier',
 		'htmllint',
 		'stylelint',
 		'eslint',
-		'jshint:all',
 	])
+	grunt.registerTask('lint', ['watchlint', 'jshint:all'])
 	grunt.registerTask('jshint:all', [
 		'jshint:gruntfile',
 		'jshint:lib',
