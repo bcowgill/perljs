@@ -1,5 +1,11 @@
 #!/usr/bin/env node
 // based on simple js test framework ~/bin/template/javascript/unit-test-simple.js
+
+// nvm use v0.10.0
+// ./perl/js-test.js
+// or
+// prove ./perl/js-test.js
+
 // a cheap watch command...
 // perl -e '$src = "./js-test.js"; $log = "./js-test.log"; while (1) { system("$src | tee $log") if (-M "$src" < -M "$log"); sleep(5) }'
 
