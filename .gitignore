@@ -36,3 +36,6 @@ umd
 # Cache directories
 .eslintcache
 .stylelintcache
+
+# Symbolic link
+.htmllintrc

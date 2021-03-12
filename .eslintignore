@@ -2,9 +2,8 @@ node_modules
 bower_components
 doc
 coverage
-scripts/test
 .git
 .eslintcache
 .stylelintcache
-# emacs lock files should be ignored by stylelint
+# emacs lock files should be ignored by eslint
 .#*.*
