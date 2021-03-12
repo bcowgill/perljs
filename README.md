@@ -154,9 +154,7 @@ release.sh takes a version number, pushes, publishes to npm and installs npm mod
 ## TODO
 
 Add fix up mocha dark CSS for latest mocha release 8.x in ~/bin/mocha-dark
-Change the test/index.html files to use my mocha dark.
-Document using grunt serve:test for the browser based tests and to view docs or coverage
-Check test/index.html, etc for browser use without bower.
+Change the test/index.html files to use my mocha dark as an npm module once released..
 Add Badges for Travis, Coverage, Stylelint etc
 Publish to Github packages.
 Document the version/release targets/procedure.

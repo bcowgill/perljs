@@ -5,19 +5,21 @@
 		<title>perljs - mocha test page</title>
 
 		<!-- htmllint attr-req-value="false" -->
+		<!-- fallback in case mocha-dark is missing... -->
 		<link
 			rel="stylesheet"
 			media="all"
 			href="../node_modules/mocha/mocha.css"
 		/>
-		<script src="../node_modules/mocha/mocha.js"></script>
-
+		<!-- dark css overrides normal mocha css -->
 		<link
 			rel="stylesheet"
 			media="all"
 			href="../node_modules/mocha/mocha-dark.css"
 		/>
 		<!-- htmllint attr-req-value="$previous" -->
+		<!-- include dark js or normal mocha js but not both -->
+		<!-- <script src="../node_modules/mocha/mocha.js"></script> -->
 		<script src="../node_modules/mocha/mocha-dark.js"></script>
 		<script>
 			mocha.setup({
@@ -26,6 +28,12 @@
 		</script>
 	</head>
 	<body class="mocha-dark">
+		<p>
+			Other test suites using:
+			<a href="./test-global.html" target="_blank">global</a> |
+			<a href="./test-define.html" target="_blank">DefineJS</a> |
+			<a href="./test-require.html" target="_blank">Require1k</a>
+		</p>
 		<div id="mocha">
 			<p><a href=".">Index</a></p>
 		</div>

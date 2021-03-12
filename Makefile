@@ -18,6 +18,9 @@ debug:
 test:
 	pnpm run test
 
+test-browser:
+	grunt serve:test
+
 cover:
 	pnpm run cover
 
@@ -71,6 +74,8 @@ strip:
 .PHONY: test-only
 
 .PHONY: test
+
+.PHONY: test-browser
 
 .PHONY: cover
 

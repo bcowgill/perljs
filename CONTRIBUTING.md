@@ -120,7 +120,23 @@ You can run tests/coverage + prettier/lint via:
 $ make test
 ```
 
-If you just want to run all tests:
+If you want to run the tests in a browser and re-run when changes are made:
+
+```sh
+$ make test-browser
+```
+
+There are also three other test pages accessible which uses perljs as a global variable, or included using DefineJS or Require1k.
+
+You can change to a dark color scheme in the browser from the Javascript console via:
+
+```javascript
+mocha.setColorScheme('mocha-dark') // or 'mocha-light'
+```
+
+or clicking on the circular (100%) test progress indicator.
+
+If you just want to run all tests in node:
 
 ```sh
 $ make test-only
@@ -175,10 +191,6 @@ You can strip comments from the perljs library via:
 $ make strip
 ```
 
-#### Troubleshooting Tests
-
-TODO
-
 ### Writing tests
 
 The test plan is `test/perl-test.js` and tests for new functions beling there.  This test plan can run in node or the browser with a suitable `require` function..
@@ -191,7 +203,15 @@ In addition there is a `perl/js-test.js` test program with no dependencies on te
 
 Finally, there is a `perl/perl=test.pl` perl program which was used to see how perl behaves and the specific error messages given when functions are used incorrectly.
 
-TODO Browser based tests...
+#### Browser based package tests
+
+To test that the packaging method works (global, AMD, CommonJS) there are three html test pages which include the perljs library in different ways.
+
+* `test/test-global.html` - uses perljs as a global variable and invokes a few functions.
+
+* `test/test-require.html` - uses Require1k loader to pull in perljs and invokes a few functions.
+
+* `test/test-define.html` - uses DefineJS loader to pull in perljs and invokes a few functions.
 
 ### Debugging code in tests
 
