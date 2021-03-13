@@ -30,9 +30,9 @@ coveralls:
 # must symlink the htmllint config file, ignore error if already exists.
 travis:
 	-ln -s .htmllintrc.json .htmllintrc
-	npm run htmllint
+	TESTS=test npm run htmllint
 	npm run stylelint
-	npm run eslint
+	SRC=lib TESTS=test npm run eslint
 	npm run travis
 
 docs:
