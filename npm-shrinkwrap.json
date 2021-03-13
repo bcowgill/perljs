@@ -46,13 +46,17 @@
 				"maxmin": "^3.0.0",
 				"mkdirp": "^1.0.4",
 				"mocha": "8.3.0",
+				"morgan": "^1.10.0",
 				"npm-check": "^5.9.2",
 				"nyc": "^15.1.0",
 				"pinst": "^2.1.6",
 				"prettier": "^2.2.1",
+				"sinon": "^9.2.4",
 				"stylelint": "^13.11.0",
 				"stylelint-config-standard": "^20.0.0",
-				"uncommentify": "^0.1.1"
+				"tiny-lr": "^2.0.0",
+				"uncommentify": "^0.1.1",
+				"uri-path": "^1.0.0"
 			},
 			"engines": {
 				"node": ">=0.10.0"
