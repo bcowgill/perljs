@@ -28,6 +28,7 @@ devDependencies:
   iconv-lite: 0.6.2
   istanbul: 0.4.5
   jsdoc: 3.6.6
+  mkdirp: 1.0.4
   mocha: 8.3.0
   npm-check: 5.9.2
   nyc: 15.1.0
@@ -7456,6 +7457,7 @@ specifiers:
   iconv-lite: ^0.6.2
   istanbul: ^0.4.3
   jsdoc: ^3.6.6
+  mkdirp: ^1.0.4
   mocha: 8.3.0
   npm-check: ^5.9.2
   nyc: ^15.1.0
