@@ -1,4 +1,4 @@
-Contributing to perljs
+Contributing to perljs [![Build Status](https://travis-ci.org/bcowgill/perljs.svg?branch=master)](https://travis-ci.org/bcowgill/perljs)
 ======================
 
 Contributions are always welcome, no matter how large or small!
@@ -7,7 +7,6 @@ The existing coding style is maintained by the use of [prettier](https://www.npm
 Add unit tests for any new or changed functionality. Lint and test your code using the supplied npm targets.
 Review the test coverage output to ensure you've tested whatever has been added.
 
-[![Build Status](https://travis-ci.org/bcowgill/perljs.svg?branch=master)](https://travis-ci.org/bcowgill/perljs)
 
 ## Developing
 
