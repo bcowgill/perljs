@@ -1,10 +1,13 @@
 devDependencies:
+  blanket: 1.2.3
   bower: 1.8.12
   chai: 4.3.0
+  connect: 3.7.0
   coveralls: 3.1.0
   dateformat: 4.5.1
   eslint: 7.20.0
   eventemitter2: 6.4.4
+  gaze: 1.1.3
   grunt: 1.3.0
   grunt-cli: 1.3.2
   grunt-contrib-clean: 2.0.0_grunt@1.3.0
@@ -29,6 +32,7 @@ devDependencies:
   istanbul: 0.4.5
   jsdoc: 3.6.6
   jshint: 2.12.0
+  maxmin: 3.0.0
   mkdirp: 1.0.4
   mocha: 8.3.0
   npm-check: 5.9.2
@@ -859,6 +863,19 @@ packages:
       node: '>=0.10.7'
     resolution:
       integrity: sha1-m+r8WbZmvUetlOxkCCvxl++Ms0I=
+  /blanket/1.2.3:
+    dependencies:
+      acorn: 1.2.2
+      falafel: 1.2.0
+      foreach: 2.0.5
+      isarray: 0.0.1
+      object-keys: 1.1.1
+      xtend: 4.0.2
+    dev: true
+    engines:
+      node: '>=0.10.7'
+    resolution:
+      integrity: sha1-FRtJh8O9hFUrtfA7kO9fflkx5HM=
   /bluebird/3.7.2:
     dev: true
     resolution:
@@ -2296,6 +2313,14 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-y+Hjr/zxzUS4DK3+0o3Hk6lwHS4=
+  /figures/3.2.0:
+    dependencies:
+      escape-string-regexp: 1.0.5
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-yaduQFRKLXYOGgEn6AZau90j3ggSOyiqXU0F9JZfeXYhNa+Jk4X+s45A2zg5jns87GAFa34BBm2kXw4XpNcbdg==
   /file-entry-cache/6.0.1:
     dependencies:
       flat-cache: 3.0.4
@@ -2755,7 +2780,7 @@ packages:
   /globule/1.3.2:
     dependencies:
       glob: 7.1.6
-      lodash: 4.17.20
+      lodash: 4.17.21
       minimatch: 3.0.4
     dev: true
     engines:
@@ -3041,6 +3066,15 @@ packages:
       node: '>=0.12.0'
     resolution:
       integrity: sha1-VGGI6b3DN/Zzdy+BZgRks4nc5SA=
+  /gzip-size/5.1.1:
+    dependencies:
+      duplexer: 0.1.2
+      pify: 4.0.1
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-FNHi6mmoHvs1mxZAds4PpdCS6QG8B4C1krxJsMutgxl5t3+GlRTzzI3NEkifXx2pVsOvJdOGSmIgDhQ55FwdPA==
   /handlebars/4.7.6:
     dependencies:
       minimist: 1.2.5
@@ -4352,6 +4386,17 @@ packages:
       node: '>=0.12'
     resolution:
       integrity: sha1-TTsiCQPZXu5+t6x/qGTnLcCaMWY=
+  /maxmin/3.0.0:
+    dependencies:
+      chalk: 4.1.0
+      figures: 3.2.0
+      gzip-size: 5.1.1
+      pretty-bytes: 5.6.0
+    dev: true
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-wcahMInmGtg/7c6a75fr21Ch/Ks1Tb+Jtoan5Ft4bAI0ZvJqyOw8kkM7e7p8hDSzY805vmxwHT50KcjGwKyJ0g==
   /mdast-util-from-markdown/0.8.5:
     dependencies:
       '@types/mdast': 3.0.3
@@ -5338,6 +5383,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
+  /pify/4.0.1:
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
   /pinkie-promise/2.0.1:
     dependencies:
       pinkie: 2.0.4
@@ -5524,6 +5575,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-J9AAjXeAY6C0gRuzXHnxvV1fvM8=
+  /pretty-bytes/5.6.0:
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-FFw039TmrBqFK8ma/7OL3sDz/VytdtJr044/QUJtH0wK9lb9jLq9tJyIxUwtQJHwar2BqtiA4iCWSwo9JLkzFg==
   /process-nextick-args/2.0.1:
     dev: true
     resolution:
@@ -7429,12 +7486,15 @@ packages:
       tarball: https://codeload.github.com/substack/esprima/tar.gz/0a7f8489a11b44b019ce168506f535f22d0be290
     version: 1.1.0-dev
 specifiers:
+  blanket: ^1.2.3
   bower: ^1.8.12
   chai: 4.3.0
+  connect: ^3.7.0
   coveralls: ^3.1.0
   dateformat: ^4.5.1
   eslint: ^7.20.0
   eventemitter2: ^6.4.4
+  gaze: ^1.1.3
   grunt: ^1.3.0
   grunt-cli: ^1.3.2
   grunt-contrib-clean: ^2.0.0
@@ -7459,6 +7519,7 @@ specifiers:
   istanbul: ^0.4.3
   jsdoc: ^3.6.6
   jshint: ^2.12.0
+  maxmin: ^3.0.0
   mkdirp: ^1.0.4
   mocha: 8.3.0
   npm-check: ^5.9.2
