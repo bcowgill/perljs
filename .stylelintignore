@@ -1,7 +1,7 @@
 node_modules
 bower_components
 doc
-coverage
+./coverage
 scripts/test
 .git
 .eslintcache

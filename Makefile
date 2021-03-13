@@ -28,6 +28,9 @@ coveralls:
 	pnpm run coveralls
 
 travis:
+	npm run htmllint
+	npm run stylelint
+	npm run eslint
 	npm run travis
 
 docs:
