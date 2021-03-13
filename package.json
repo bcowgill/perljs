@@ -1,6 +1,6 @@
 {
 	"private": false,
-	"name": "perljs",
+	"name": "@bcowgill/perljs",
 	"main": "index.js",
 	"version": "0.3.3",
 	"engines": {

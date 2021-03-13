@@ -29,7 +29,7 @@ npm ls -g | grep $PKG
 echo NPM add user (npm credentials)
 npm login # adduser?
 echo NPM publish (npm credentials)
-npm publish
+npm publish --access=public
 
 sleep 3
 echo checking npm site

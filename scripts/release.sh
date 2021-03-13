@@ -34,17 +34,12 @@ else
 	exit 1
 fi
 
-if git tag "$REL_VER" ; then
-	echo ok tagged for release as $REL_VER
+if tag-version.sh "$REL_VER"; then
+	echo "install module globally"
 else
-	echo already tagged for release -- has it been?
 	exit 1
 fi
 
-echo GIT push
-git push origin master --tags
-
-# install module globally
 npm ls -g | grep $PKG
 npm install . -g
 npm ls -g | grep $PKG
@@ -53,7 +48,7 @@ npm ls -g | grep $PKG
 echo NPM add user
 npm adduser # login?
 echo NPM publish
-npm publish
+npm publish --access=public
 sleep 3
 echo checking npm site
 curl --silent --location https://www.npmjs.org/package/$PKG \
