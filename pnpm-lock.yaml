@@ -28,6 +28,7 @@ devDependencies:
   iconv-lite: 0.6.2
   istanbul: 0.4.5
   jsdoc: 3.6.6
+  jshint: 2.12.0
   mkdirp: 1.0.4
   mocha: 8.3.0
   npm-check: 5.9.2
@@ -3959,7 +3960,7 @@ packages:
       console-browserify: 1.1.0
       exit: 0.1.2
       htmlparser2: 3.8.3
-      lodash: 4.17.20
+      lodash: 4.17.21
       minimatch: 3.0.4
       shelljs: 0.3.0
       strip-json-comments: 1.0.4
@@ -7457,6 +7458,7 @@ specifiers:
   iconv-lite: ^0.6.2
   istanbul: ^0.4.3
   jsdoc: ^3.6.6
+  jshint: ^2.12.0
   mkdirp: ^1.0.4
   mocha: 8.3.0
   npm-check: ^5.9.2
