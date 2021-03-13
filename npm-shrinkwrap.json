@@ -37,6 +37,7 @@
 				"grunt-mocha-istanbul": "^5.0.1",
 				"grunt-prettier": "^2.1.0",
 				"grunt-stylelint": "^0.16.0",
+				"handlebars": "^4.7.7",
 				"htmllint": "0.7.2",
 				"htmllint-cli": "^0.0.7",
 				"husky": "^5.1.1",
