@@ -370,11 +370,22 @@ Created a Travis CI account
 https://travis-ci.org/
 Actually you log in with github ID and activate your chosen repositories.
 
+add a .travis.yml
+
 =======================
 Created a Coveralls account
 https://coveralls.io/
 Actually you log in with github ID and activate your chosen repositories.
 
+And install coveralls
+
+npm install --save-dev coveralls
+
+nyc command needs reporter lcovonly added
+and .travis.yml needs to run coverage instead of just tests.
+
 =======================
 Contributing.md template taken from babel
 https://github.com/babel/babel/blob/master/CONTRIBUTING.md
+
+

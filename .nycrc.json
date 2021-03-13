@@ -1,7 +1,7 @@
 {
 	"cache": true,
 	"report-dir": "./doc/coverage",
-	"reporter": ["text", "text-summary", "html"],
+	"reporter": ["text", "text-summary", "html", "lcovonly"],
 	"statements": 100,
 	"branches": 100,
 	"functions": 100,
