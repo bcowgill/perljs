@@ -27,7 +27,9 @@ cover:
 coveralls:
 	pnpm run coveralls
 
+# must symlink the htmllint config file, ignore error if already exists.
 travis:
+	-ln -s .htmllintrc.json .htmllintrc
 	npm run htmllint
 	npm run stylelint
 	npm run eslint
