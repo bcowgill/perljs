@@ -28,6 +28,7 @@
 		"lint": "grunt lint",
 		"test": "grunt",
 		"test:tap": "mocha --reporter tap",
+		"travis": "nyc mocha",
 		"watch": "grunt watch",
 		"develop": "grunt all watch --force",
 		"strip": "./scripts/strip.js",

@@ -27,6 +27,9 @@ cover:
 coveralls:
 	pnpm run coveralls
 
+travis:
+	npm run travis
+
 docs:
 	grunt docs
 
@@ -72,6 +75,8 @@ strip:
 .PHONY: debug
 
 .PHONY: test-only
+
+.PHONY: travis
 
 .PHONY: test
 
