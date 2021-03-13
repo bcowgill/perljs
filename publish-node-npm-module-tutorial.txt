@@ -372,6 +372,13 @@ Actually you log in with github ID and activate your chosen repositories.
 
 add a .travis.yml
 
+view travis builds on every push at https://travis-ci.org/github/bcowgill/perljs
+
+Needed to install additional packages for running on travis:
+
+pnpm install --save-dev grunt-cli grunt-legacy-util
+\npm shrinkwrap
+
 =======================
 Created a Coveralls account
 https://coveralls.io/
