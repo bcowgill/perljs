@@ -28,6 +28,7 @@ devDependencies:
   jsdoc: 3.6.6
   mkdirp: 1.0.4
   mocha: 8.3.0
+  nopt: 5.0.0
   npm-check: 5.9.2
   nyc: 15.1.0
   pinst: 2.1.6
@@ -4749,6 +4750,15 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-CvaGwVMztSMJLOeXPrez7fyfObdZqNUK1cPAEzLHrTybIua9pMdmmPR5YwtfNftIOMv3DPUhFaxsZMNTQO20Kg==
+  /nopt/5.0.0:
+    dependencies:
+      abbrev: 1.1.1
+    dev: true
+    engines:
+      node: '>=6'
+    hasBin: true
+    resolution:
+      integrity: sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==
   /normalize-package-data/2.5.0:
     dependencies:
       hosted-git-info: 2.8.8
@@ -7461,6 +7471,7 @@ specifiers:
   jsdoc: ^3.6.6
   mkdirp: ^1.0.4
   mocha: 8.3.0
+  nopt: ^5.0.0
   npm-check: ^5.9.2
   nyc: ^15.1.0
   pinst: ^2.1.6
