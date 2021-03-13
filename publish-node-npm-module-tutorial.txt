@@ -381,7 +381,7 @@ pnpm install --save-dev grunt-cli grunt-legacy-util grunt-legacy-log dateformat 
 
 Created a make travis and npm travis target which runs the tests and lint without grunt
 this time had to install:
-abbrev
+abbrev mkdirp
 
 =======================
 Created a Coveralls account
