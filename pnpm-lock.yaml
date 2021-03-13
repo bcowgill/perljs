@@ -36,6 +36,7 @@ devDependencies:
   mkdirp: 1.0.4
   mocha: 8.3.0
   morgan: 1.10.0
+  node-http2: 4.0.1
   npm-check: 5.9.2
   nyc: 15.1.0
   pinst: 2.1.6
@@ -7623,6 +7624,7 @@ specifiers:
   mkdirp: ^1.0.4
   mocha: 8.3.0
   morgan: ^1.10.0
+  node-http2: ^4.0.1
   npm-check: ^5.9.2
   nyc: ^15.1.0
   pinst: ^2.1.6
