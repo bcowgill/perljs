@@ -25,6 +25,7 @@ devDependencies:
   htmllint: 0.7.2
   htmllint-cli: 0.0.7
   husky: 5.1.1
+  iconv-lite: 0.6.2
   istanbul: 0.4.5
   jsdoc: 3.6.6
   mocha: 8.3.0
@@ -3304,6 +3305,14 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
+  /iconv-lite/0.6.2:
+    dependencies:
+      safer-buffer: 2.1.2
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-2y91h5OpQlolefMPmUlivelittSWy0rP+oYVpn6A7GwVHNE8AWzoYOBNmlwks3LobaJxgHCYZAnyNo2GgpNRNQ==
   /ignore/4.0.6:
     dev: true
     engines:
@@ -7444,6 +7453,7 @@ specifiers:
   htmllint: 0.7.2
   htmllint-cli: ^0.0.7
   husky: ^5.1.1
+  iconv-lite: ^0.6.2
   istanbul: ^0.4.3
   jsdoc: ^3.6.6
   mocha: 8.3.0

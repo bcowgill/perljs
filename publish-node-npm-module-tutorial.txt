@@ -376,7 +376,7 @@ view travis builds on every push at https://travis-ci.org/github/bcowgill/perljs
 
 Needed to install additional packages for running on travis:
 
-pnpm install --save-dev grunt-cli grunt-legacy-util grunt-legacy-log dateformat eventemitter2
+pnpm install --save-dev grunt-cli grunt-legacy-util grunt-legacy-log dateformat eventemitter2 iconv-lite
 \npm shrinkwrap
 
 =======================
