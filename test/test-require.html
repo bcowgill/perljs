@@ -6,8 +6,31 @@
 		<script src="../bower_components/require1k/require1k.js"></script>
 	</head>
 	<body>
+		<p>
+			<!-- htmllint attr-req-value="false" -->
+			<a href="https://travis-ci.org/bcowgill/perljs" target="_blank">
+				<img
+					src="https://travis-ci.org/bcowgill/perljs.svg?branch=master"
+					alt="Build Status"
+			/></a>
+			<a
+				href="https://coveralls.io/github/bcowgill/perljs?branch=master"
+				target="_blank"
+			>
+				<img
+					src="https://coveralls.io/repos/github/bcowgill/perljs/badge.svg?branch=master"
+					alt="Coverage Status"
+			/></a>
+			<!-- htmllint attr-req-value="$previous" -->
+		</p>
 		<h1>Browser Require1k Test Page</h1>
 		<p>open the console to see results...</p>
+		<p>
+			Other test suites using:
+			<a href="./index.html" target="_mocha">mocha</a> |
+			<a href="./test-global.html" target="_global">global</a> |
+			<a href="./test-define.html" target="_define">DefineJS</a> |
+		</p>
 	</body>
 	<script>
 		var require = R,
