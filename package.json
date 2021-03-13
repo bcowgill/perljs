@@ -82,6 +82,7 @@
 		"grunt-eslint": "^23.0.0",
 		"grunt-htmllint": "^0.3.0",
 		"grunt-jsdoc": "^2.4.1",
+		"grunt-legacy-log": "^3.0.0",
 		"grunt-legacy-util": "^2.0.0",
 		"grunt-mocha-chai-sinon": "0.0.9",
 		"grunt-mocha-istanbul": "^5.0.1",

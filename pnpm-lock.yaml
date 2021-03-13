@@ -14,6 +14,7 @@ devDependencies:
   grunt-eslint: 23.0.0_grunt@1.3.0
   grunt-htmllint: 0.3.0_grunt@1.3.0
   grunt-jsdoc: 2.4.1
+  grunt-legacy-log: 3.0.0
   grunt-legacy-util: 2.0.0
   grunt-mocha-chai-sinon: 0.0.9
   grunt-mocha-istanbul: 5.0.2_grunt@1.3.0
@@ -2927,7 +2928,7 @@ packages:
   /grunt-legacy-log-utils/2.1.0:
     dependencies:
       chalk: 4.1.0
-      lodash: 4.17.20
+      lodash: 4.17.21
     dev: true
     engines:
       node: '>=10'
@@ -2938,7 +2939,7 @@ packages:
       colors: 1.1.2
       grunt-legacy-log-utils: 2.1.0
       hooker: 0.2.3
-      lodash: 4.17.20
+      lodash: 4.17.21
     dev: true
     engines:
       node: '>= 0.10.0'
@@ -7422,6 +7423,7 @@ specifiers:
   grunt-eslint: ^23.0.0
   grunt-htmllint: ^0.3.0
   grunt-jsdoc: ^2.4.1
+  grunt-legacy-log: ^3.0.0
   grunt-legacy-util: ^2.0.0
   grunt-mocha-chai-sinon: 0.0.9
   grunt-mocha-istanbul: ^5.0.1
