@@ -7,6 +7,8 @@ The existing coding style is maintained by the use of [prettier](https://www.npm
 Add unit tests for any new or changed functionality. Lint and test your code using the supplied npm targets.
 Review the test coverage output to ensure you've tested whatever has been added.
 
+[![Build Status](https://travis-ci.org/bcowgill/perljs.svg?branch=master)](https://travis-ci.org/bcowgill/perljs)
+
 ## Developing
 
 *Node*: Check that Node is [installed](https://nodejs.org/en/download/) with version 12 and up. You can check this with `node -v`.

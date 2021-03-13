@@ -5,6 +5,8 @@ Perl for Javascript. Just some functions that a perl developer misses in Javascr
 
 Works with browsers and node v0.10.0+
 
+[![Build Status](https://travis-ci.org/bcowgill/perljs.svg?branch=master)](https://travis-ci.org/bcowgill/perljs)
+
 ## Quick Usage
 
 ```javascript
