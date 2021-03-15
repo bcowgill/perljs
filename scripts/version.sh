@@ -1,5 +1,6 @@
 #!/bin/bash
-# npm version handler after version number has been bumped
+echo npm version handler after version number has been bumped: $*
+exit
 # https://docs.npmjs.com/cli/version
 
 # TODO update npm commands to pnpm or npm for publishing?

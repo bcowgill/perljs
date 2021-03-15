@@ -400,3 +400,24 @@ Contributing.md template taken from babel
 https://github.com/babel/babel/blob/master/CONTRIBUTING.md
 
 
+=======================
+Trying to use npm version to up the version number
+
+npm version patch -m "release Version patch %s after toolchain updated"; echo == $? ==
+
+tries to run:
+/usr/bin/git status --porcelain=v1 -uno
+
+which is invalid for my version of git,
+/usr/bin/git status --porcelain -uno
+works though...
+
+our git is too old so we tell npm to skip the git command on the release command line and we do it ourself in our pre-version script.
+npm version patch --no-git-tag-version -m "release Version patch %s after toolchain updated"; echo == $? ==
+
+use this hack:
+cp git.xxx git
+export PATH=`pwd`:$PATH
+npm version patch -m "release Version patch %s after toolchain updated"; echo == $? ==
+
+to run with the git command and trace what git commands are being used.

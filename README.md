@@ -154,8 +154,8 @@ release.sh takes a version number, pushes, publishes to npm and installs npm mod
 
 ## TODO
 
-Check the releasing scripts for pnpm/npm.
-Document the version/release targets/procedure.
+wip Check the releasing scripts for pnpm/npm.
+wip Document the version/release targets/procedure.
 Publish to Github packages.
 Add Badges for Stylelint etc
 wip Submit CSS dark changes to nyc/istanbul project and/or release as nyc-html-dark npm package
@@ -188,3 +188,4 @@ Consider submitting the changes/pull request to nyc/istanbul
 * 0.3.2 slight bower.json ignore change
 * 0.3.3 test of npm version command tooling
 * 2020-10-24 not released - updated all modules and switched to pnpm
+* 0.3.3 

@@ -1,5 +1,9 @@
 #!/bin/bash
-# pre npm version handler
+CMD=pre-version.sh
+# echo pre npm version handler: $*
+
+repo-check.sh
+exit
 # https://docs.npmjs.com/cli/version
 
 # TODO update npm commands to pnpm or npm for publishing?
@@ -20,3 +24,4 @@ fi
 
 # pre-release ensure tests all pass
 grunt preversion
+# TODO before a version release should run full build and give opportunity to commit the changes.

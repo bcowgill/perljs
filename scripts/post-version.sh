@@ -1,5 +1,6 @@
 #!/bin/bash
-# post npm version handler
+echo post npm version handler: $*
+exit
 # https://docs.npmjs.com/cli/version
 
 # TODO update npm commands to pnpm or npm for publishing?

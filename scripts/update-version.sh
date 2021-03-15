@@ -43,5 +43,5 @@ perl -i.bak -pne '
 
 if [ ! -z "$FILE" ]; then
 	check_version "$FILE"
-nfi
+fi
 check_version lib/perl.js
