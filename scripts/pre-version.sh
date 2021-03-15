@@ -2,6 +2,7 @@
 CMD=pre-version.sh
 # echo pre npm version handler: $*
 
+check-ver-lite.sh | tee --append local-git.log
 repo-check.sh
 exit
 # https://docs.npmjs.com/cli/version

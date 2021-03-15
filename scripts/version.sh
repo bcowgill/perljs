@@ -1,5 +1,6 @@
 #!/bin/bash
-echo npm version handler after version number has been bumped: $*
+echo npm version handler after version number has been bumped: $* | tee --append local-git.log
+check-ver-lite.sh | tee --append local-git.log
 exit
 # https://docs.npmjs.com/cli/version
 

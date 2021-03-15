@@ -1,5 +1,6 @@
 #!/bin/bash
-echo post npm version handler: $*
+echo post npm version handler: $* | tee --append local-git.log
+check-ver-lite.sh | tee --append local-git.log
 exit
 # https://docs.npmjs.com/cli/version
 
