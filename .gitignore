@@ -12,6 +12,7 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 ./coverage
+doc/coverage
 .nyc_output
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
@@ -39,3 +40,6 @@ umd
 
 # Symbolic link
 .htmllintrc
+
+# Archives
+*.tgz
