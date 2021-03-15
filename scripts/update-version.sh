@@ -8,7 +8,7 @@ function usage {
 	echo "   MAJOR version when you make incompatible API changes,"
 	echo "   MINOR version when you add functionality in a backwards-compatible manner, and"
 	echo "   PATCH version when you make backwards-compatible bug fixes."
-	egrep 'version.+[0-9]' package.json lib/perl.js README.md
+	vers.sh
 	exit 1
 }
 

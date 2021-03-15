@@ -416,8 +416,13 @@ our git is too old so we tell npm to skip the git command on the release command
 npm version patch --no-git-tag-version -m "release Version patch %s after toolchain updated"; echo == $? ==
 
 use this hack:
-cp git.xxx git
+rm git; ln -s git.xxx git
 export PATH=`pwd`:$PATH
 npm version patch -m "release Version patch %s after toolchain updated"; echo == $? ==
 
 to run with the git command and trace what git commands are being used.
+
+\git reset HEAD npm-shrinkwrap.json package.json ; \git checkout -- package.json npm-shrinkwrap.json
+rm local-git.log
+\npm version patch -m "release Version patch %s after toolchain updated"; echo == $? ==
+

@@ -46,4 +46,4 @@ rm perljs-*.tgz
 echo If there are files in the package which should not be, press Ctrl-C
 read prompt
 
-git add README.md index.js perljs.min.* lib/perl.js package.json doc/*.html
+git add README.md index.js perljs.min.* lib/perl.js package.json npm-shrinkwrap.json doc/*.html

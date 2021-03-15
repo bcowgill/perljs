@@ -6,7 +6,7 @@ PKG=$NPMPKG
 
 function usage {
 	echo Please supply a release version number to check for published versions. i.e. 0.2.1 [Major.Minor.Patch]
-	egrep 'version.+[0-9]' package.json lib/perl.js README.md
+	vers.sh
 	exit 1
 }
 

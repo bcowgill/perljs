@@ -2,7 +2,7 @@
 	"private": false,
 	"name": "@bcowgill/perljs",
 	"main": "index.js",
-	"version": "0.3.6",
+	"version": "0.3.3",
 	"engines": {
 		"node": ">=0.10.0"
 	},
@@ -59,9 +59,7 @@
 		"type": "git",
 		"url": "https://github.com/bcowgill/perljs.git"
 	},
-	"keywords": [
-		"perl"
-	],
+	"keywords": ["perl"],
 	"license": {
 		"type": "Unlicense",
 		"url": "http://unlicense.org/"

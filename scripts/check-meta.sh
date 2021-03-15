@@ -1,8 +1,7 @@
 #!/bin/bash
 PKG=$NPMPKG
 
-echo VERSION NUMBERS:
-egrep 'version.+[0-9]' package.json lib/perl.js README.md
+vers.sh
 
 echo ""
 echo GIT CONFIG
