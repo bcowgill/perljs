@@ -1,7 +1,5 @@
 #!/bin/bash
-PKG=$NPMPKG
-
 echo REL_VER=$REL_VER
 echo GIT TAGS:
-git tag
+git tag | tail | perl -pne '$_ = qq{   $_}'
 vers.sh

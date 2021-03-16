@@ -1,31 +1,26 @@
 #!/bin/bash
 PKG=$NPMPKG
+NPM=pnpm
 
 vers.sh
 
 echo ""
 echo GIT CONFIG
-git config --list | grep user
+git config --list | grep user | perl -pne '$_ = qq{   $_}'
 echo ""
 echo NPM CONFIG
-npm config ls -l | grep author
+$NPM config ls -l | grep author | perl -pne '$_ = qq{   $_}'
 echo ""
 echo NPM PROFILE
-npm profile get
-npm token list
+$NPM profile get | perl -pne '$_ = qq{   $_}'
+$NPM token list | perl -pne '$_ = qq{   $_}'
+echo ""
 
-#echo "STARRED NPM PACKAGES"
-#npm stars | sort
+echo "STARRED NPM PACKAGES"
+$NPM stars | sort | perl -pne '$_ = qq{   $_}'
+echo ""
+
+check-npm.sh --full
 
 echo ""
-echo NPM OWNER/SEARCH/VIEW $PKG
-npm owner ls $PKG
-npm search $PKG --no-description
-npm view $PKG
-
-echo ""
-if which after.sh > /dev/null; then
-	after.sh History < README.md
-else
-	tail README.md
-fi
+check-hist.sh

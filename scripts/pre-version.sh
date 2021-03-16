@@ -1,19 +1,19 @@
 #!/bin/bash
+# https://docs.npmjs.com/cli/v7/commands/npm-version
+# terminate on first error
+set -e
 CMD=pre-version.sh
-# echo pre npm version handler: $*
+# echo $CMD handler: $*
 
-check-ver-lite.sh | tee --append local-git.log
+#check-ver-lite.sh | tee --append local-git.log
 repo-check.sh
 exit
-# https://docs.npmjs.com/cli/version
 
 # TODO update npm commands to pnpm or npm for publishing?
 
 NPM=npm
 PNPM=pnpm
 
-# terminate on first error
-set -e
 # turn on trace of currently running command if you need it
 #set -x
 

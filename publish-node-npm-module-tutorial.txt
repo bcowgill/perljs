@@ -426,3 +426,16 @@ to run with the git command and trace what git commands are being used.
 rm local-git.log
 \npm version patch -m "release Version patch %s after toolchain updated"; echo == $? ==
 
+=== Summary of what happens when npm version command runs:
+
+npm calls /usr/bin/git status --porcelain=v1 -uno  to check if the repo is clean.
+the package.json preversion script runs
+npm updates the version number in package.json and npm-shrinkwrap.json
+the package.json version script runs
+npm adds package.json and npm-shrinkwrap.json then commits and tags using the commit message provided.
+	/usr/bin/git add /home/me/workspace/play/perljs/package.json
+	/usr/bin/git add /home/me/workspace/play/perljs/npm-shrinkwrap.json
+	/usr/bin/git commit -m release Version patch 0.3.4 after toolchain updated
+	/usr/bin/git tag -m release Version patch 0.3.4 after toolchain updated v0.3.4
+the package.json postversion script runs
+

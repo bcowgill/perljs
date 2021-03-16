@@ -1,5 +1,7 @@
 #!/bin/bash
-
 echo VERSION NUMBERS:
-egrep 'version.+[0-9]' package.json lib/perl.js README.md
-egrep --with-filename 'version.+[0-9]' npm-shrinkwrap.json | head -2
+echo "   npm published: `npm view $NPMPKG version`"
+echo "   local: `packagever.sh`"
+(egrep 'version.+[0-9]' $VERFILES; \
+egrep --with-filename 'version.+[0-9]' npm-shrinkwrap.json | head -2) \
+| perl -pne '$_ = qq{   $_}'

@@ -188,4 +188,3 @@ Consider submitting the changes/pull request to nyc/istanbul
 * 0.3.2 slight bower.json ignore change
 * 0.3.3 test of npm version command tooling
 * 2020-10-24 not released - updated all modules and switched to pnpm
-* 0.3.3 

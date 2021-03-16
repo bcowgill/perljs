@@ -1,8 +1,10 @@
 #!/bin/bash
+#  check that a specific version is published on the npm registry.
 
 export REL_VER=$1
 FILE="$2"
 PKG=$NPMPKG
+NPM=pnpm
 
 function usage {
 	echo Please supply a release version number to check for published versions. i.e. 0.2.1 [Major.Minor.Patch]
@@ -15,11 +17,12 @@ if [ "${REL_VER:-}" == "" ]; then
 fi
 
 CODE=0
-if npm search $PKG --no-description --parseable | head -2 | grep "$REL_VER" ; then
+PUB_VER=`$NPM view $PKG version`
+if [ "$PUB_VER" == "$REL_VER" ]; then
 	echo OK $PKG version "$REL_VER"
 else
-	echo npm registry does not show version "$REL_VER" of $PKG
-	npm search $PKG
+	echo npm registry does not show version "$REL_VER" of $PKG latest is "$PUB_VER"
+	$NPM search $PKG
 	CODE=1
 fi
 
