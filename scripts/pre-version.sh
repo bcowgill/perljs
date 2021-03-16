@@ -2,20 +2,15 @@
 # https://docs.npmjs.com/cli/v7/commands/npm-version
 # terminate on first error
 set -e
+
+# turn on trace of currently running command if you need it
+#set -x
+
 CMD=pre-version.sh
 # echo $CMD handler: $*
 
 #check-ver-lite.sh | tee --append local-git.log
-repo-check.sh
-exit
-
-# TODO update npm commands to pnpm or npm for publishing?
-
-NPM=npm
-PNPM=pnpm
-
-# turn on trace of currently running command if you need it
-#set -x
+repo-check.sh --untracked
 
 PREVER=`packagever.sh`
 if [ -z "$PREVER" ]; then
@@ -24,5 +19,5 @@ if [ -z "$PREVER" ]; then
 fi
 
 # pre-release ensure tests all pass
-grunt preversion
-# TODO before a version release should run full build and give opportunity to commit the changes.
+make test
+exit 1

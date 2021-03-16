@@ -7,6 +7,19 @@ The existing coding style is maintained by the use of [prettier](https://www.npm
 Add unit tests for any new or changed functionality. Lint and test your code using the supplied npm targets.
 Review the test coverage output to ensure you've tested whatever has been added.
 
+## Releasing
+
+Due to current use of an old Git version 1.9.1 and [npm 7+ bug](https://github.com/npm/cli/issues/2871) we run the npm version command with --no-git-version-tag and leave the git operations to pre-version.sh, version.sh and post-version.sh scripts.
+
+You can begin a version release via:
+
+```sh
+npm version patch --no-git-tag-version -m "release Version patch %s RELEASE DESCRIPTION"
+```
+
+Change patch to minor, major, etc based on what kind of version release it is. see [NPM version help](https://docs.npmjs.com/cli/v7/commands/npm-version)
+
+TODO more docs here...
 
 ## Developing
 
