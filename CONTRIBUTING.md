@@ -14,7 +14,8 @@ Due to current use of an old Git version 1.9.1 and [npm 7+ bug](https://github.c
 You can begin a version release via:
 
 ```sh
-npm version patch --no-git-tag-version -m "release Version patch %s RELEASE DESCRIPTION"
+scripts/bump.sh "RELEASE DESCRIPTION" patch
+# npm version patch --no-git-tag-version -m "release Version patch %s RELEASE DESCRIPTION"
 ```
 
 Change patch to minor, major, etc based on what kind of version release it is. see [NPM version help](https://docs.npmjs.com/cli/v7/commands/npm-version)

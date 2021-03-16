@@ -1,20 +1,16 @@
 #!/bin/bash
-echo npm version handler after version number has been bumped: $* | tee --append local-git.log
-check-ver-lite.sh | tee --append local-git.log
-exit
-# https://docs.npmjs.com/cli/version
-
-# TODO update npm commands to pnpm or npm for publishing?
-
-# npm version patch -m "release %s featuring ..."
-
-NPM=npm
-PNPM=pnpm
+CMD=version.sh
+# After package version updated, copy it to other files, update release note, build everything, add to git, commit and tag.
+# https://docs.npmjs.com/cli/v7/commands/npm-version
 
 # terminate on first error
 set -e
+
 # turn on trace of currently running command if you need it
 #set -x
+
+#echo $CMD handler after npm updates version number: $* | tee --append local-git.log
+#check-ver-lite.sh | tee --append local-git.log
 
 export REL_VER=`packagever.sh`
 if [ -z "$REL_VER" ]; then
@@ -22,6 +18,16 @@ if [ -z "$REL_VER" ]; then
     exit 1
 fi
 echo ok version $REL_VER
+
+set | grep xyzzy
+exit 1
+
+# TODO update npm commands to pnpm or npm for publishing?
+
+# npm version patch -m "release %s featuring ..."
+
+NPM=npm
+PNPM=pnpm
 
 echo adding release note to README.md
 echo "* $REL_VER " >> README.md
