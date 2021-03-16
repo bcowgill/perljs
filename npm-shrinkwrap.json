@@ -1,12 +1,12 @@
 {
 	"name": "@bcowgill/perljs",
-	"version": "0.3.5",
+	"version": "0.3.3",
 	"lockfileVersion": 2,
 	"requires": true,
 	"packages": {
 		"": {
 			"name": "@bcowgill/perljs",
-			"version": "0.3.5",
+			"version": "0.3.3",
 			"hasInstallScript": true,
 			"license": "Unlicense",
 			"devDependencies": {
