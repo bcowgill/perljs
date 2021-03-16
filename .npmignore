@@ -1,4 +1,5 @@
 .gitignore
+package
 bower_components
 bower.json
 umd

@@ -1,6 +1,9 @@
 #!/bin/bash
 CMD=version.sh
 NPM=pnpm
+GNPM=npm
+TAR=bcowgill-perljs-*.tgz
+
 # After package version updated, copy it to other files, update release note, build everything, add to git, commit and tag.
 # https://docs.npmjs.com/cli/v7/commands/npm-version
 
@@ -50,17 +53,21 @@ make build
 
 echo ""
 echo Step 4: Pack the npm module and show it to check there are no extra files included.
-$NPM pack && tar tvzf bcowgill-perljs-*.tgz
-rm bcowgill-perljs-*.tgz
+$NPM pack && tar tvzf $TAR
 
 echo If there are files in the package which should not be you need to add them to the .npmignore file, press Ctrl-C
 read prompt
 
-# What npm would normally do after running version script:
+echo Step 5: Test the extracted module to see if it works.
+tar xvzf $TAR
+grep version package/*.js*
+./perl/js-test.js ../package/ | grep version
+rm -rf $TAR ./package
+
+exit 99
+
+echo Step 6: Add, commit, tag, push. What npm would normally do after running version script:
 git add $VERFILES npm-shrinkwrap.json index.js perljs.min.* doc/*.html
 git commit -m "release Version $VMETHOD $REL_VER $VMESSAGE"
 tag-version.sh $REL_VER "release Version $VMETHOD $REL_VER $VMESSAGE"
-
-repo-check.sh --untracked
-exit 99
 

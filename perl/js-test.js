@@ -11,8 +11,9 @@
 
 const RUN_TESTS = true
 const TAP_OUT = process && process.env && process.env.HARNESS_ACTIVE === '1'
+const library = process.argv[2] || '../'
 
-var perl = require('../'),
+var perl = require(library),
 	oLogger = {
 		logged: '',
 		check: function () {
@@ -27,7 +28,7 @@ var perl = require('../'),
 	}
 
 console.error('standalone test of perljs module for checking backward compatability with nodejs.\n')
-console.error('version', perl.version)
+console.error('version', library, perl.version)
 
 //=== utilities ============================================================
 
@@ -68,7 +69,7 @@ function plan(number) {
 } // plan()
 
 function heading(message) {
-	console.log(' - ' + message)
+	log(' - ' + message)
 }
 
 var group
@@ -123,8 +124,10 @@ function failDump(message, actual, expected, description) {
 } // failDump()
 
 function testSummary() {
+	var code = 0
 	if (!TESTS.total) {
 		warn('no unit tests performed')
+		code = 1
 	} else if (TESTS.pass === TESTS.total) {
 		log('all ' + TESTS.pass + ' tests passed.')
 	} else {
@@ -140,6 +143,10 @@ function testSummary() {
 				' total.',
 			].join('')
 		)
+		code = Math.min(TESTS.fail, 255)
+		setImmediate(function terminate() {
+			process.exit(code)
+		})
 	}
 } // testSummary()
 
@@ -284,7 +291,7 @@ function assertInstanceOf(actual, expected, title) {
 
 function test() {
 	plan(71)
-	describe('perljs - legacy', function testSuite() {
+	describe('perljs - legacy node test', function testSuite() {
 		describe('.q()', function testQSuite() {
 			it('should single quote a string', function testQ1() {
 				assert(perl.q('quote me baby'), "'quote me baby'", 'default')
