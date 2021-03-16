@@ -9,6 +9,7 @@
 // a cheap watch command...
 // perl -e '$src = "./js-test.js"; $log = "./js-test.log"; while (1) { system("$src | tee $log") if (-M "$src" < -M "$log"); sleep(5) }'
 
+const PLAN = 72
 const RUN_TESTS = true
 const TAP_OUT = process && process.env && process.env.HARNESS_ACTIVE === '1'
 const library = process.argv[2] || '../'
@@ -26,6 +27,8 @@ var perl = require(library),
 			oLogger.logged += Array.prototype.slice.call(arguments).join('\n')
 		},
 	}
+
+const version = process.argv[3] || perl.version
 
 console.error('standalone test of perljs module for checking backward compatability with nodejs.\n')
 console.error('version', library, perl.version)
@@ -290,8 +293,9 @@ function assertInstanceOf(actual, expected, title) {
 //=== unit tests ===========================================================
 
 function test() {
-	plan(71)
+	plan(PLAN)
 	describe('perljs - legacy node test', function testSuite() {
+		assert(perl.version, version, 'check version number')
 		describe('.q()', function testQSuite() {
 			it('should single quote a string', function testQ1() {
 				assert(perl.q('quote me baby'), "'quote me baby'", 'default')

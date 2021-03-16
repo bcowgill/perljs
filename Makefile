@@ -1,11 +1,11 @@
 build:
-	grunt all
+	pnpm run build
 
 watch:
-	grunt watch
+	pnpm run watch
 
 develop:
-	grunt all watch --force
+	pnpm run develop
 
 test-only:
 	mocha --reporter nyan test/

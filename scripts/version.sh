@@ -33,6 +33,7 @@ if [ -z "$REL_VER" ]; then
 fi
 echo ok version $REL_VER
 
+echo ""
 echo Step 1: adding release note to README.md.
 echo "* $REL_VER $VMETHOD $VMESSAGE" >> README.md
 $EDITOR README.md
@@ -44,6 +45,7 @@ else
 	exit 63
 fi
 
+echo ""
 echo Step 2: update source files with new version number.
 update-version.sh "$REL_VER" || exit 64
 
@@ -58,10 +60,10 @@ $NPM pack && tar tvzf $TAR
 echo If there are files in the package which should not be you need to add them to the .npmignore file, press Ctrl-C
 read prompt
 
-echo Step 5: Test the extracted module to see if it works.
+echo Step 5: Test the extracted npm module locally to see if it works.
 tar xvzf $TAR
-grep version package/*.js*
-./perl/js-test.js ../package/ | grep version
+#grep version package/*.js*
+./perl/js-test.js ../package/ $REL_VER | grep perljs
 rm -rf $TAR ./package
 
 exit 99

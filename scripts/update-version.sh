@@ -20,8 +20,9 @@ if [ -e "$REL_VER" ]; then
 fi
 
 # Update the version numbers in some files
+# package/index.js: perljs.version = '0.3.3'
 perl -i.bak -pne 's{(\@version \s+)([\.0-9]+)}{$1$ENV{REL_VER}}xmsg; \
-   s{(version \s* = \s*.)([\.0-9]+)(.;)}{$1$ENV{REL_VER}$3}xmsg;' \
+	s{(version \s* = \s*(.))([\.0-9]+)(\2;?)}{$1$ENV{REL_VER}$4}xmsg;' \
    lib/perl.js
 
 function check_version {
