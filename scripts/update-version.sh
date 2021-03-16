@@ -31,17 +31,16 @@ function check_version {
 		echo ok "$file" version updated
 	else
 		echo NOT OK - "$file" does not contain $REL_VER release version
-		exit 1
+		exit 40
 	fi
 
 	}
 
-#npm version $REL_VER
-perl -i.bak -pne '
-	s{("version": \s+ ")([\.0-9]+)(",)}{$1$ENV{REL_VER}$3}xmsg;
-' "$FILE"
-
 if [ ! -z "$FILE" ]; then
+	perl -i.bak -pne '
+		s{("version": \s+ ")([\.0-9]+)(",)}{$1$ENV{REL_VER}$3}xmsg;
+	' "$FILE"
+
 	check_version "$FILE"
 fi
 check_version lib/perl.js

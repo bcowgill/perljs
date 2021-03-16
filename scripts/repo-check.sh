@@ -5,7 +5,7 @@ if [ "`git --version`" == "git version 1.9.1" ]; then
 	# echo CLEAN=$CLEAN
 	if [ $CLEAN != 0 ]; then
 		echo $CMD ERR: Git working directory not clean.  $CLEAN uncommitted changes.  1>&2
-		exit 1
+		exit 20
 	fi
 else
 	echo NOTICE: Your git version may support --porcelain=v1 syntax so you may not need this hack and the --no-git-tag-version in your npm version command.

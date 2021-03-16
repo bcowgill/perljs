@@ -1,9 +1,10 @@
 #!/bin/bash
 
 export REL_VER=$1
+MESSAGE="$2"
 
 function usage {
-	echo $0 version-number
+	echo $0 version-number "tag message"
 	echo Please supply a release version number i.e. 0.2.1 [Major.Minor.Patch]
 	echo "   MAJOR version when you make incompatible API changes,"
 	echo "   MINOR version when you add functionality in a backwards-compatible manner, and"
@@ -28,24 +29,19 @@ TAG_DATE=version-$REL_VER-$NOW
 echo TAG=$TAG
 echo TAG_DATE=$TAG_DATE
 
-git tag $TAG
-git tag $TAG_DATE
-# to push the tags:
-# git push origin master --tags
-
-if git tag "$TAG" ; then
+if git tag "$TAG" -m "$MESSGE" ; then
 	echo ok tagged for release as $TAG
-	if git tag "$TAG_DATE" ; then
+	if git tag "$TAG_DATE" -m "$MESSAGE" ; then
 		echo ok date tagged for release as $TAG_DATE
 	else
 		echo already date tagged for release -- has it been?
-		exit 1
+		exit 30
 	fi
 else
 	echo already tagged for release -- has it been?
-	exit 1
+	exit 31
 fi
 
-echo GIT push
+echo GIT push version $REL_VER $MESSAGE
 git push origin master --tags
 

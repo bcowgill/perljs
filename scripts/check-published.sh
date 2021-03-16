@@ -23,7 +23,7 @@ if [ "$PUB_VER" == "$REL_VER" ]; then
 else
 	echo npm registry does not show version "$REL_VER" of $PKG latest is "$PUB_VER"
 	$NPM search $PKG
-	CODE=1
+	CODE=10
 fi
 
-exit $CODE
+exit $CODE # 0 or 10

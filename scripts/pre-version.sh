@@ -12,16 +12,23 @@ set -e
 #echo $CMD handler: $* | tee --append local-git.log
 #check-ver-lite.sh | tee --append local-git.log
 
-set | grep xyzzy
+if [ -z "$VMETHOD" ]; then
+	echo NOT OK VMETHOD is not defined, please use bump.sh to begin a version release.
+	exit 50
+fi
+
+if [ -z "$VMESSAGE" ]; then
+	echo NOT OK VMESSAGE is not defined, please use bump.sh to begin a version release.
+	exit 51
+fi
 
 repo-check.sh --untracked
 
 PREVER=`packagever.sh`
 if [ -z "$PREVER" ]; then
 	echo NOT OK getting version number
-    exit 1
+	exit 52
 fi
 
 # pre-version ensure tests all pass
 make test
-exit 1

@@ -1,5 +1,6 @@
 .gitignore
 bower_components
+bower.json
 umd
 lib/perl.js
 test
@@ -13,8 +14,20 @@ scripts
 Makefile
 Gruntfile.js
 .jshint*
+.prettier*
+.eslint*
+.htmllint*
+.stylelint*
+.nyc*
+.nvmrc
+.travis.yml
 jsdoc.conf.json
+env.local
+git.xxx
+mytools.sh
 go.sh
+*.tgz
+*.zip
 *.txt
 *.lst
 *.log
