@@ -14,6 +14,10 @@ check-ver-lite.sh | tee --append local-git.log
 
 # Git checks normally done, but we are running with --no-git-checks due to our old version of git. TODO
 repo-check.sh
+if [ "`git rev-list --count --left-only @{u}...HEAD`" != '0' ]; then
+	echo NOT OK you are publishing from before the HEAD commit.
+	exit 78 # TODO
+fi
 BRANCH=`git symbolic-ref --short HEAD`
 if [ "$BRANCH" != 'master' ]; then
 	echo "You're on branch \"$BRANCH\" but your \"publish-branch\" is set to \"master|main\". Do you want to continue? \(y/N\) "
@@ -23,12 +27,6 @@ if [ "$BRANCH" != 'master' ]; then
 		Y)		echo ok publishing from branch $BRANCH;;
 		*)		exit 79;; # TODO
 	esac
-fi
-
-
-if [ "`git rev-list --count --left-only @{u}...HEAD`" != '0' ]; then
-	echo NOT OK you are publishing from before the HEAD commit.
-	exit 78 # TODO
 fi
 
 REL_VER=`packagever.sh`
