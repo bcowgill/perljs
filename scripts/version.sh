@@ -48,7 +48,7 @@ fi
 echo ""
 echo Step 2: update source files with new version number.
 update-version.sh "$REL_VER" || exit 64
-rm *.bak lib/*.bak
+rm *.bak lib/*.bak || echo "no backup files to remove."
 
 echo ""
 echo Step 3: Build documentation and minified distribution for web.
