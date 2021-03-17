@@ -1,7 +1,9 @@
 #!/bin/bash
-CMD=pre-version.sh
-# Pre-version script, check the repo and run the tests before the package version number is updated by npm.
+# Do not run directly, npm will invoke this script at the right time.
+# pre-version script, check the repo and run the tests before the package version number is updated by npm.
 # https://docs.npmjs.com/cli/v7/commands/npm-version
+
+CMD=pre-version.sh
 
 # terminate on first error
 set -e

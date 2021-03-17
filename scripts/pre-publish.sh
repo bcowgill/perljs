@@ -1,9 +1,11 @@
 #!/bin/bash
+# Do not run directly, npm will invoke this script at the right time.
+# pre-publish script, check the repo and package version vs published version.
+# https://docs.npmjs.com/cli/v7/commands/npm-version
+
 CMD=pre-publish.sh
 PKG=$NPMPKG
 NPM=pnpm
-# Pre-publish script, check the repo and package version vs published version.
-# https://docs.npmjs.com/cli/v7/commands/npm-version
 
 # terminate on first error
 set -e

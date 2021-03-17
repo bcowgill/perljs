@@ -1,11 +1,12 @@
 #!/bin/bash
+# Do not run directly, npm will invoke this script at the right time.
+# version script After package version updated, copy it to other files, update release note, build everything, add to git, commit, tag and push.
+# https://docs.npmjs.com/cli/v7/commands/npm-version
+
 CMD=version.sh
 NPM=pnpm
 GNPM=npm
 TAR=bcowgill-perljs-*.tgz
-
-# After package version updated, copy it to other files, update release note, build everything, add to git, commit and tag.
-# https://docs.npmjs.com/cli/v7/commands/npm-version
 
 # terminate on first error
 set -e
