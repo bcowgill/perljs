@@ -48,6 +48,7 @@ fi
 echo ""
 echo Step 2: update source files with new version number.
 update-version.sh "$REL_VER" || exit 64
+rm *.bak lib/*.bak
 
 echo ""
 echo Step 3: Build documentation and minified distribution for web.
@@ -72,4 +73,3 @@ echo Step 6: Add, commit, tag, push. What npm would normally do after running ve
 git add $VERFILES npm-shrinkwrap.json index.js perljs.min.* doc/*.html
 git commit -m "release Version $VMETHOD $REL_VER $VMESSAGE"
 tag-version.sh $REL_VER "release Version $VMETHOD $REL_VER $VMESSAGE"
-
