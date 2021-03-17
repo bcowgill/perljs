@@ -85,5 +85,12 @@ if [ "$REL_VER" == "$PUB_VER" ]; then
 	exit 78
 fi
 
-# after this, the package.json prepublishOnly script will run, so the pinst --disable will make a change to package.json to prevent postinstall action.
+rm -rf package || echo "ok no package/ directory exists"
+
+# after this, the package.json prepublishOnly script will run
+# it is called once with the directory name as the first argument, then once with no directory name
+# so the pinst --disable will make a change to package.json to prevent postinstall action.
+# after that the npm pack command is run to create the .tgz archive and it is published.
+# Then the publish script runs and then the postpublish runs twice
+# first without the directory name, then with the directory name.
 echo $CMD handler out | tee --append local-git.log

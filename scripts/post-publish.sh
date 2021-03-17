@@ -16,6 +16,12 @@ set -e
 echo $CMD handler: $* | tee --append local-git.log
 check-ver-lite.sh | tee --append local-git.log
 
+if [ -d package ]; then
+	echo package/ exists, remove and exit.
+	rm -rf package
+	exit
+fi
+
 # on any exit, for husky we reenable the postinstall script
 function restore_pinst {
 	echo Finally, enable postinstall
