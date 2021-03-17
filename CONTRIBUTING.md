@@ -20,7 +20,14 @@ scripts/bump.sh "RELEASE DESCRIPTION" patch
 
 Change patch to minor, major, etc based on what kind of version release it is. see [NPM version help](https://docs.npmjs.com/cli/v7/commands/npm-version)
 
-TODO more docs here...
+once the new version number has been built you can release to the npm registry with:
+
+```sh
+npm login
+npm publish
+```
+
+This will check that the current version does not match the currently available version on npm and then publish it.
 
 ## Developing
 

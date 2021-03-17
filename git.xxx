@@ -1,0 +1,41 @@
+#!/bin/bash
+# a mock git command to trace what npm is sending to git when npm version is executed
+LOG=local-git.log
+echo local git >> $LOG
+echo /usr/bin/git $* >> $LOG
+if [ "$2" == "--porcelain=v1" ]; then
+	echo BRANCH1 >> $LOG
+	shift
+	shift
+	/usr/bin/git status --porcelain $*
+else
+	echo BRANCH2 >> $LOG
+	echo PARAM3: "$1 $2" >> $LOG
+	if [ "$1 $2" == "commit -m" ]; then
+		echo BRANCH3 >> $LOG
+		shift
+		shift
+		#git commit -m "release Version patch 0.3.4 after toolchain updated
+		echo WILL3: /usr/bin/git commit -m "$*" >> $LOG
+		/usr/bin/git commit --no-verify -m "$*"
+	else
+		if [ "$1 $2" == "tag -m" ]; then
+			echo BRANCH4 >> $LOG
+			shift
+			shift
+			#git tag -m "release Version patch 0.3.4 after toolchain updated
+			echo WILL4: /usr/bin/git tag -m "$1" $2 >> $LOG
+			/usr/bin/git tag -m "$1" $2
+		else
+			if [ "$2" == "--porcelain" ]; then
+				echo BRANCH6 >> $LOG
+				echo WILL6: /usr/bin/git $* -uno >> $LOG
+				/usr/bin/git $* -uno
+			else
+				echo BRANCH5 >> $LOG
+				/usr/bin/git $*
+			fi
+		fi
+	fi
+fi
+

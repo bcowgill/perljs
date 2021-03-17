@@ -34,9 +34,6 @@
 		"strip": "./scripts/strip.js",
 		"prebuild": "pnpm run strip",
 		"build": "grunt all",
-		"preversion": "./scripts/pre-version.sh",
-		"version": "./scripts/version.sh",
-		"postversion": "./scripts/post-version.sh",
 		"doc": "pnpm run docs",
 		"docs": "jsdoc --configure jsdoc.conf.json --destination doc --recurse test/*.js lib/perl.js Gruntfile.js README.md",
 		"cover": "nyc grunt test",
@@ -53,8 +50,15 @@
 		"docs-view": "chromium-browser doc/index.html",
 		"edit": "subl Gruntfile.js `find lib/ test/ -type f`",
 		"postinstall": "husky install",
-		"prepublishOnly": "pinst --disable",
-		"postpublish": "pinst --enable"
+		"preversion": "./scripts/pre-version.sh",
+		"version": "./scripts/version.sh",
+		"postversion": "./scripts/post-version.sh",
+		"NOTprepublishOnly": "pinst --disable",
+		"prepublishOnly": "./scripts/npm-trace.sh prepublishOnly",
+		"prepublish": "./scripts/pre-publish.sh",
+		"publish": "./scripts/npm-trace.sh publish",
+		"postpublish": "./scripts/npm-trace.sh postpublish",
+		"NOTpostpublish": "pinst --enable"
 	},
 	"repository": {
 		"type": "git",
