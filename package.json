@@ -53,11 +53,8 @@
 		"preversion": "./scripts/pre-version.sh",
 		"version": "./scripts/version.sh",
 		"prepublish": "./scripts/pre-publish.sh",
-		"prepublishOnly": "./scripts/npm-trace.sh prepublishOnly",
-		"NOTprepublishOnly": "pinst --disable",
-		"publish": "./scripts/npm-trace.sh publish",
-		"postpublish": "./scripts/npm-trace.sh postpublish",
-		"NOTpostpublish": "pinst --enable"
+		"prepublishOnly": "pinst --disable",
+		"postpublish": "./scripts/post-publish.sh"
 	},
 	"repository": {
 		"type": "git",
