@@ -1,4 +1,5 @@
 #!/bin/bash
+# TODO DELETE THIS FILE
 echo post npm version handler: $* | tee --append local-git.log
 check-ver-lite.sh | tee --append local-git.log
 exit

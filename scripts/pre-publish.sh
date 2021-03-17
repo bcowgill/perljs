@@ -37,17 +37,48 @@ if [ -z "$REL_VER" ]; then
 	exit 72
 fi
 
+COUNT=2
+if [ "`grep $REL_VER lib/perl.js | wc -l`" == "$COUNT" ] ; then
+	echo ok "lib/perl.js" version updated
+else
+	echo NOT OK - "lib/perl.js" does not contain $COUNT release version $REL_VER numbers
+	exit 73
+fi
+
+if grep "\* $REL_VER" README.md ; then
+	echo ok README.md
+else
+	echo NOT OK - README.md does not contain a version $REL_VER release note
+	exit 74
+fi
+
+COUNT=6
+if [ "`grep $REL_VER *.js | wc -l`" == "$COUNT" ] ; then
+	echo ok built .js files versions updated
+else
+	echo NOT OK - built .js files do not contain $COUNT release version $REL_VER numbers
+	exit 75
+fi
+
+COUNT=4
+if [ "`grep $REL_VER doc/*.html | wc -l`" == "$COUNT" ] ; then
+	echo ok built documentation files versions updated
+else
+	echo NOT OK - built documentation files do not contain $COUNT release version $REL_VER numbers
+	exit 76
+fi
+
 PUB_VER=`$NPM view $PKG version`
 if [ -z "$PUB_VER" ]; then
 	echo NOT OK getting published version number
-	exit 73
+	exit 77
 fi
 
 echo VERS: /$REL_VER/$PUB_VER/
 
 if [ "$REL_VER" == "$PUB_VER" ]; then
 	echo NOT OK current version has already been published to the npm registry.
-	exit 74
+	exit 78
 fi
 
 exit 99
