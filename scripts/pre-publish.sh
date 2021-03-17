@@ -14,7 +14,7 @@ set -e
 #set -x
 
 echo $CMD handler: $* | tee --append local-git.log
-check-ver-lite.sh | tee --append local-git.log
+#check-ver-lite.sh | tee --append local-git.log
 
 # Git checks normally done by npm, but we are running with --no-git-checks due to our old version of git. TODO
 echo $CMD handler GIT CHECKS | tee --append local-git.log
