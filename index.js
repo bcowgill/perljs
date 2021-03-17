@@ -1,13 +1,16 @@
-/*  perljs v0.3.3 https://github.com/bcowgill/perljs
+/*  @bcowgill/perljs v0.3.4 https://github.com/bcowgill/perljs
     Brent S.A. Cowgill <zardozcs@gmail.com> (http://github.com/bcowgill)
     Unlicense http://unlicense.org/
 */
 /**
 	@file
 	File info for perljs to make javascript more perl-like.
+	{@link https://coveralls.io/github/bcowgill/perljs?branch=master
+	<img src="https://coveralls.io/repos/github/bcowgill/perljs/badge.svg?branch=master"
+	alt="Coverage Status" />}
 
 	@author Brent S.A. Cowgill
-	@version  0.3.3
+	@version  0.3.4
 	@license {@link http://unlicense.org The Unlicense}
 
 	@example
@@ -22,7 +25,7 @@
 	@todo vivify(window, 'path.to.key', value) window.path.to.key = value
 	@todo vivify('path.to.key', value) global.path.to.key = value
 	@todo unless(function () {}) = returns a function which returns negation
-	 of the return of the function
+	of the return of the function
 	@todo unless(condition, fn) - executes the function if !condition
 	@todo array(item) like @{} make the thing you have an array.
 */
@@ -31,40 +34,49 @@
 
 /**
 	Module to make javascript more perl-like.
+	{@link https://coveralls.io/github/bcowgill/perljs?branch=master
+	<img src="https://coveralls.io/repos/github/bcowgill/perljs/badge.svg?branch=master"
+	alt="Coverage Status" />}
 	@module perljs
 */
 
 // module boilerplate based on https://github.com/umdjs/umd/blob/master/templates/returnExports.js
-(function (root, factory) {
+// eslint-disable-next-line no-extra-semi
+;(function (root, factory) {
 	/* jshint maxcomplexity: 5 */
-	'use strict';
+	'use strict'
+	// istanbul ignore next
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
-		define([], factory);
+		define([], factory)
 	} else if (typeof module === 'object' && module.exports) {
 		// Node. Does not work with strict CommonJS, but
 		// only CommonJS-like environments that support module.exports,
 		// like Node.
-		module.exports = factory();
+		module.exports = factory()
 	} else {
 		// Browser globals (root is window)
-		root.perljs = factory();
+		root.perljs = factory()
 	}
-}(this, function () {
-	'use strict';
+})(this, function () {
+	'use strict'
 
 	/**
 		@exports perljs
 	*/
-	var perljs = { name: 'perljs' };
+	// W110 is warning mixed single and double quotes.
+	/* jshint -W110 */
+	var singleQuote = "'"
+	/* jshint +W110 */
+	var perljs = { name: 'perljs' }
 
-	perljs.version = '0.3.3';
+	perljs.version = '0.3.4'
 	/**
 		@property {object} _console Console logging object to use for warnings.
-	 		default to the console.
+			default to the console.
 		@protected
 	*/
-	perljs._console = console;
+	perljs._console = console
 
 	/**
 		@property {object} _valueMap Map of strings to values for Perlish automatic type detection.
@@ -82,17 +94,17 @@
 		@property {number} _valueMap."-Infinity" '-Infinity' becomes number -Infinity
 	*/
 	perljs._valueMap = {
-		'null' : null,
-		'undefined' : void 0,
-		'undef' : void 0, // perl version of undefined
-		'empty' : '',     // because qw() can't define an empty string
+		null: null,
+		undefined: void 0,
+		undef: void 0, // perl equivalent of undefined
+		empty: '', // because qw() can't define an empty string
 		// @todo space, tab, etc possibly
-		'true' : true,
-		'false' : false,
-		'NaN' : NaN,
-		'Infinity' : Infinity,
-		'-Infinity' : -Infinity
-	};
+		true: true,
+		false: false,
+		NaN: NaN,
+		Infinity: Infinity,
+		'-Infinity': -Infinity,
+	}
 
 	/**
 		Perlish automatic type detection. Looks at a string and turns it
@@ -103,20 +115,19 @@
 		@return {Mixed} a boolean, number, undefined, null, Nan, +/-Infinity, empty string
 		see {@link module:perljs._valueMap}
 	*/
-	perljs._value = function (string)
-	{
-		var value = string;
-		if (! /^function|object|array$/.test(typeof string))
-		{
-			value = Number(string);
-			if (isNaN(value))
-			{
-				value = (string in perljs._valueMap) ?
-					perljs._valueMap[string] : string;
+	perljs._value = function (string) {
+		var value = string
+		if (!/^function|object|array$/.test(typeof string)) {
+			value = Number(string)
+			if (isNaN(value)) {
+				value =
+					string in perljs._valueMap
+						? perljs._valueMap[string]
+						: string
 			}
 		}
-		return value;
-	};
+		return value
+	}
 
 	/**
 		Stringification of data types. null and undefined as well as the invalid
@@ -127,26 +138,25 @@
 		@param  {Mixed} mixed a native data type to stringify.
 		@return {string} string representation of the native data type.
 	*/
-	perljs._stringify = function (mixed)
-	{
+	perljs._stringify = function (mixed) {
 		/* jshint maxcomplexity: 9 */
-		if ('function' === typeof mixed)
-		{
-			return perljs._stringify(mixed());
+		if ('function' === typeof mixed) {
+			return perljs._stringify(mixed())
 		}
-		if (mixed === null || mixed === undefined ||
-			'number' === typeof mixed && (isNaN(mixed) ||
-			mixed === Infinity || mixed === -Infinity))
-		{
-			mixed = '';
+		if (
+			mixed === null ||
+			mixed === undefined ||
+			('number' === typeof mixed &&
+				(isNaN(mixed) || mixed === Infinity || mixed === -Infinity))
+		) {
+			mixed = ''
 		}
 		// arrays also handled as their typeof is object
-		else if ('object' !== typeof mixed)
-		{
-			mixed = mixed.toString();
+		else if ('object' !== typeof mixed) {
+			mixed = mixed.toString()
 		}
-		return mixed;
-	};
+		return mixed
+	}
 
 	/**
 		Enquote a string with single quotes. Like perl's q// operator.
@@ -159,21 +169,18 @@
 		@return {string} the original string with single quotes around it. null and
 		undefined are quoted as the empty string. see {@link module:perljs._stringify}() method.
 	*/
-	perljs.q = function (string, open, close)
-	{
+	perljs.q = function (string, open, close) {
 		// jshint maxcomplexity: 6
-		open = open || '\'';
-		close = close || open;
-		if (Array.isArray(string))
-		{
-			return perljs.qA(string, open, close);
+		open = open || singleQuote
+		close = close || open
+		if (Array.isArray(string)) {
+			return perljs.qA(string, open, close)
 		}
-		if ('object' === typeof string && string !== null)
-		{
-			return perljs.qO(string, open, close);
+		if ('object' === typeof string && string !== null) {
+			return perljs.qO(string, open, close)
 		}
-		return open + perljs._stringify(string) + close;
-	};
+		return open + perljs._stringify(string) + close
+	}
 
 	/**
 		Enquote a string with double quotes. Like perl's qq// operator.
@@ -188,10 +195,9 @@
 
 		@todo qx// for nodejs
 	*/
-	perljs.qq = function (string, open, close)
-	{
-		return perljs.q(string, open || '"', close);
-	};
+	perljs.qq = function (string, open, close) {
+		return perljs.q(string, open || '"', close)
+	}
 
 	/**
 		Create an Array from a space separated list of items. Like perl's qw// operator.
@@ -200,10 +206,9 @@
 		@param  {string} string some string to turn into an Array.
 		@return {array} an array formed by splitting the string on whitespace.
 	*/
-	perljs.qw = function (string)
-	{
-		return string.replace(/^\s+/, '').replace(/\s+$/, '').split(/\s+/g);
-	};
+	perljs.qw = function (string) {
+		return string.replace(/^\s+/, '').replace(/\s+$/, '').split(/\s+/g)
+	}
 
 	/**
 		Enquote an Array with single quotes. Inspired by perl's q// operator.
@@ -222,14 +227,13 @@
 		[ '\'inch\'', '\'foot\'', '\'yard\'' ]
 
 	*/
-	perljs.qA = function (aArray, open, close)
-	{
-		var aNewArray = [];
+	perljs.qA = function (aArray, open, close) {
+		var aNewArray = []
 		aArray.forEach(function (value) {
-			aNewArray.push(perljs.q(value, open, close));
-		});
-		return aNewArray;
-	};
+			aNewArray.push(perljs.q(value, open, close))
+		})
+		return aNewArray
+	}
 
 	/**
 		Enquote an Array with double quotes. Inspired by perl's qq// operator.
@@ -248,10 +252,9 @@
 		[ '"inch"', '"foot"', '"yard"' ]
 
 	*/
-	perljs.qqA = function (aArray, open, close)
-	{
-		return perljs.qA(aArray, open || '"', close);
-	};
+	perljs.qqA = function (aArray, open, close) {
+		return perljs.qA(aArray, open || '"', close)
+	}
 
 	/**
 		Enquote an Object with single quotes. Inspired by perl's q// operator.
@@ -274,14 +277,13 @@
 		}
 
 	*/
-	perljs.qO = function (oObject, open, close)
-	{
-		var oNewObject = {};
+	perljs.qO = function (oObject, open, close) {
+		var oNewObject = {}
 		Object.keys(oObject).forEach(function (key) {
-			oNewObject[key] = perljs.q(oObject[key], open, close);
-		});
-		return oNewObject;
-	};
+			oNewObject[key] = perljs.q(oObject[key], open, close)
+		})
+		return oNewObject
+	}
 
 	/**
 		Enquote an Object with double quotes. Inspired by perl's qq// operator.
@@ -304,10 +306,9 @@
 		}
 
 	*/
-	perljs.qqO = function (oObject, open, close)
-	{
-		return perljs.qO(oObject, open || '"', close);
-	};
+	perljs.qqO = function (oObject, open, close) {
+		return perljs.qO(oObject, open || '"', close)
+	}
 
 	/**
 		Create an Object (key-value map) from a space separated list of items.
@@ -330,29 +331,27 @@
 		@return {Object} an object formed by splitting the string on whitespace and
 		getting key/value words.
 	*/
-	perljs.qwm = function (string)
-	{
-		var oMap = {}, key;
+	perljs.qwm = function (string) {
+		var oMap = {},
+			key
 		perljs.qw(string).forEach(function (keyValue) {
-			if ('undefined' === typeof key)
-			{
-				key = keyValue;
+			if ('undefined' === typeof key) {
+				key = keyValue
+			} else {
+				oMap[key] = perljs._value(keyValue)
+				key = void 0
 			}
-			else
-			{
-				oMap[key] = perljs._value(keyValue);
-				key = void 0;
-			}
-		});
-		if ('undefined' !== typeof key)
-		{
-			oMap[key] = void 0;
-			perljs._console.warn('Odd number of elements in ' +
-				'hash assignment from '
-				+ perljs.q(string));
+		})
+		if ('undefined' !== typeof key) {
+			oMap[key] = void 0
+			perljs._console.warn(
+				'Odd number of elements in ' +
+					'hash assignment from ' +
+					perljs.q(string)
+			)
 		}
-		return oMap;
-	};
+		return oMap
+	}
 	/**
 		An alternate name for the {@link module:perljs.qwm}() method.
 		@method
@@ -360,7 +359,7 @@
 		@return {object} an object formed by splitting the string on whitespace and
 		getting key/value words.
 	*/
-	perljs.mapFromString = perljs.qwm;
+	perljs.mapFromString = perljs.qwm
 
 	/**
 		Create a new Object from an Array like perl %Map = @Array would.
@@ -381,27 +380,27 @@
 		}
 	*/
 	perljs.mapFromArray = function (aArray) {
-		var oMap = {}, key;
-		aArray = aArray || [];
+		var oMap = {},
+			key
+		aArray = aArray || []
 		aArray.forEach(function (keyValue) {
-			if ('undefined' === typeof key)
-			{
-				key = String(keyValue);
+			if ('undefined' === typeof key) {
+				key = String(keyValue)
+			} else {
+				oMap[key] = keyValue
+				key = void 0
 			}
-			else
-			{
-				oMap[key] = keyValue;
-				key = void 0;
-			}
-		});
-		if ('undefined' !== typeof key)
-		{
-			oMap[key] = void 0;
-			perljs._console.warn('Odd number of elements in hash assignment from ['
-			 + aArray.join(', ') + ']');
+		})
+		if ('undefined' !== typeof key) {
+			oMap[key] = void 0
+			perljs._console.warn(
+				'Odd number of elements in hash assignment from [' +
+					aArray.join(', ') +
+					']'
+			)
 		}
-		return oMap;
-	};
+		return oMap
+	}
 
 	/**
 		Create a new Object from an existing Object by reversing the key/values.
@@ -429,13 +428,17 @@
 
 	*/
 	perljs.reverseMap = function (oMap, fn) {
-		var oReverseMap = {};
-		fn = fn || function (value) { return value; };
+		var oReverseMap = {}
+		fn =
+			fn ||
+			function (value) {
+				return value
+			}
 		Object.keys(oMap).forEach(function (key) {
-			oReverseMap[fn(oMap[key], oReverseMap)] = perljs._value(key);
-		});
-		return oReverseMap;
-	};
+			oReverseMap[fn(oMap[key], oReverseMap)] = perljs._value(key)
+		})
+		return oReverseMap
+	}
 
 	/**
 		Create a new Object from an Array so you can check whether an item is
@@ -462,20 +465,26 @@
 
 	*/
 	perljs.makeMap = function (aArray, defaultValue) {
-		var fn, oMap = {},
-			truth = function () { return true; },
-			fnDefaultValue = function () { return defaultValue; };
-		aArray = aArray || [];
-		fn = ('undefined' === typeof defaultValue)
-			? truth
-			: (('function' === typeof defaultValue)
-			? defaultValue : fnDefaultValue);
+		var fn,
+			oMap = {},
+			truth = function () {
+				return true
+			},
+			fnDefaultValue = function () {
+				return defaultValue
+			}
+		aArray = aArray || []
+		fn =
+			'undefined' === typeof defaultValue
+				? truth
+				: 'function' === typeof defaultValue
+				? defaultValue
+				: fnDefaultValue
 		aArray.forEach(function (key) {
-
-			oMap[String(key)] = fn(key);
-		});
-		return oMap;
-	};
+			oMap[String(key)] = fn(key)
+		})
+		return oMap
+	}
 
 	/**
 		Create string by repeating a substring N times. Like perl's $string x $number operator.
@@ -486,25 +495,25 @@
 		@return {string} the sub-string repeated N times. undefined, null and
 		some other values are repeated as an empty string. see {@link module:perljs._stringify}()
 	*/
-	perljs.x = function (token, repeat)
-	{
-		var idx, string = '';
-		token = perljs._stringify(token);
-		if (isNaN(repeat))
-		{
-			perljs._console.warn('Argument '
-				+ perljs.qq(repeat) +
-				' isn\'t numeric in repeat .x()');
+	perljs.x = function (token, repeat) {
+		var idx,
+			string = ''
+		token = perljs._stringify(token)
+		if (isNaN(repeat)) {
+			perljs._console.warn(
+				'Argument ' +
+					perljs.qq(repeat) +
+					' isn’t numeric in repeat .x()'
+			)
 		}
-		repeat = parseInt(repeat);
-		for (idx = 0; idx < repeat; idx += 1)
-		{
-			string += token;
+		repeat = parseInt(repeat)
+		for (idx = 0; idx < repeat; idx += 1) {
+			string += token
 		}
-		return string;
-	};
+		return string
+	}
 
 	// @todo string.prototype.x ...
 
-	return perljs;
-}));
+	return perljs
+})
