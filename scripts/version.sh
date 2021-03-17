@@ -69,6 +69,6 @@ tar xvzf $TAR
 rm -rf $TAR ./package
 
 echo Step 6: Add, commit, tag, push. What npm would normally do after running version script:
-git add $VERFILES npm-shrinkwrap.json index.js perljs.min.* doc/*.html
+git add $VERFILES npm-shrinkwrap.json index.js perljs*.* doc/*.html
 git commit -m "release Version $VMETHOD $REL_VER $VMESSAGE"
 tag-version.sh $REL_VER "release Version $VMETHOD $REL_VER $VMESSAGE"
