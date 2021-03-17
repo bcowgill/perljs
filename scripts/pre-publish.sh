@@ -29,6 +29,7 @@ if [ "$BRANCH" != 'master' ]; then
 	esac
 fi
 
+
 REL_VER=`packagever.sh`
 if [ -z "$REL_VER" ]; then
 	echo NOT OK getting version number
