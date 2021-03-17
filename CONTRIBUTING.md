@@ -24,7 +24,7 @@ once the new version number has been built you can release to the npm registry w
 
 ```sh
 npm login
-npm publish
+npm publish --no-git-checks --dry-run
 ```
 
 This will check that the current version does not match the currently available version on npm and then publish it.
