@@ -135,28 +135,11 @@ The Unlicense
 
 A license with no conditions whatsoever which dedicates works to the public domain. Unlicensed works, modifications, and larger works may be distributed under different terms and without source code.
 
-## Version and Release
-
-First you update the version number in package.json then run npm version command.
-
-i.e.
-
-might not be used...
-npm version patch -m "release %s featuring ..."
-
-pre-version.sh command does the lint and coverage check.
-version.sh takes the version number from package.json and injects it into source files and adds a note to README.md then builds everything and adds to git
-post-version.sh pushes everything, installs module globally, and publishes it to npm
-
-this might be what's used now...
-pre-release.sh asks for version and updates files, runs build and docs and makes npm package
-release.sh takes a version number, pushes, publishes to npm and installs npm module locally
-
 ## TODO
 
 wip Check the releasing scripts for pnpm/npm.
 wip Document the version/release targets/procedure.
-Publish to Github packages.
+wip Publish to Github packages.
 Add Badges for Stylelint etc
 wip Submit CSS dark changes to nyc/istanbul project and/or release as nyc-html-dark npm package
 Fix up mocha dark CSS for latest mocha release 8.x in ~/bin/mocha-dark

@@ -9,7 +9,7 @@ Review the test coverage output to ensure you've tested whatever has been added.
 
 ## Releasing
 
-Due to current use of an old Git version 1.9.1 and [npm 7+ bug](https://github.com/npm/cli/issues/2871) we run the npm version command with --no-git-version-tag and leave the git operations to pre-version.sh, version.sh and post-version.sh scripts.
+Due to current use of an old Git version 1.9.1 and [npm 7+ bug](https://github.com/npm/cli/issues/2871) we run the npm version command with --no-git-version-tag and leave the git operations to pre-version.sh and version.sh scripts.
 
 You can begin a version release via:
 
