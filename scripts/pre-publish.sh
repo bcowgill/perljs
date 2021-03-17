@@ -17,6 +17,7 @@ echo $CMD handler: $* | tee --append local-git.log
 check-ver-lite.sh | tee --append local-git.log
 
 # Git checks normally done by npm, but we are running with --no-git-checks due to our old version of git. TODO
+echo $CMD handler GIT CHECKS | tee --append local-git.log
 repo-check.sh
 BRANCH=`git symbolic-ref --short HEAD`
 if [ "$BRANCH" != 'master' ]; then
@@ -32,6 +33,7 @@ if [ "`git rev-list --count --left-only @{u}...HEAD`" != '0' ]; then
 	echo NOT OK you are publishing from before the HEAD commit or without having set an upstream.
 	exit 71
 fi
+echo $CMD handler GIT CHECKS DONE | tee --append local-git.log
 
 REL_VER=`packagever.sh`
 if [ -z "$REL_VER" ]; then
@@ -83,4 +85,5 @@ if [ "$REL_VER" == "$PUB_VER" ]; then
 	exit 78
 fi
 
-exit 99
+# after this, the package.json prepublishOnly script will run, so the pinst --disable will make a change to package.json to prevent postinstall action.
+echo $CMD handler out | tee --append local-git.log

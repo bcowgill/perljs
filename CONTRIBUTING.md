@@ -26,6 +26,7 @@ once the new version number has been built you can release to the npm registry w
 npm login
 npm publish --access=public  --no-git-checks --dry-run
 ```
+This runs the prepublish, prepublishOnly, publish, then postpublish scripts from package.json.
 
 This will check that the current version does not match the currently available version on npm and then publish it.
 

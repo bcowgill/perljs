@@ -52,9 +52,9 @@
 		"postinstall": "husky install",
 		"preversion": "./scripts/pre-version.sh",
 		"version": "./scripts/version.sh",
-		"NOTprepublishOnly": "pinst --disable",
-		"prepublishOnly": "./scripts/npm-trace.sh prepublishOnly",
 		"prepublish": "./scripts/pre-publish.sh",
+		"prepublishOnly": "./scripts/npm-trace.sh prepublishOnly",
+		"NOTprepublishOnly": "pinst --disable",
 		"publish": "./scripts/npm-trace.sh publish",
 		"postpublish": "./scripts/npm-trace.sh postpublish",
 		"NOTpostpublish": "pinst --enable"
