@@ -24,6 +24,8 @@ if [ "$BRANCH" != 'master' ]; then
 		*)		exit 79;; # TODO
 	esac
 fi
+
+
 if [ "`git rev-list --count --left-only @{u}...HEAD`" != '0' ]; then
 	echo NOT OK you are publishing from before the HEAD commit.
 	exit 78 # TODO
