@@ -15,7 +15,7 @@ check-ver-lite.sh | tee --append local-git.log
 # Git checks normally done, but we are running with --no-git-checks due to our old version of git. TODO
 repo-check.sh
 if [ "`git rev-list --count --left-only @{u}...HEAD`" != '0' ]; then
-	echo NOT OK you are publishing from before the HEAD commit.
+	echo NOT OK you are publishing from before the HEAD commit or without having set an upstream.
 	exit 78 # TODO
 fi
 BRANCH=`git symbolic-ref --short HEAD`
