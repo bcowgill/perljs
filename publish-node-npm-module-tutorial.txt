@@ -464,3 +464,9 @@ We use a package/ directory as a semaphore to prevend doing the same thing twice
 NPM package published:
 https://www.npmjs.com/package/@bcowgi11/perljs
 
+=======================
+
+Adding GitHub badges to README and CONTRIBUTING pages.
+
+https://www.makeuseof.com/badges-that-will-supercharge-your-github-repository/
+

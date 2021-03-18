@@ -1,5 +1,9 @@
-Contributing to perljs [![Build Status](https://travis-ci.org/bcowgill/perljs.svg?branch=master)](https://travis-ci.org/bcowgill/perljs) [![Coverage Status](https://coveralls.io/repos/github/bcowgill/perljs/badge.svg?branch=master)](https://coveralls.io/github/bcowgill/perljs?branch=master)
+Contributing to perljs ![perljs's Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https://github.com/bcowgill/perljs) [![Build Status](https://travis-ci.org/bcowgill/perljs.svg?branch=master)](https://travis-ci.org/bcowgill/perljs) [![Coverage Status](https://coveralls.io/repos/github/bcowgill/perljs/badge.svg?branch=master)](https://coveralls.io/github/bcowgill/perljs?branch=master)
 ======================
+
+![perljs's Contributors Image](https://contrib.rocks/image?repo=bcowgill/perljs)
+![bcowgill's Profile View Counter](https://komarev.com/ghpvc/?username=bcowgill)
+
 
 Contributions are always welcome, no matter how large or small!
 

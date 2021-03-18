@@ -1,10 +1,9 @@
-perljs [![Build Status](https://travis-ci.org/bcowgill/perljs.svg?branch=master)](https://travis-ci.org/bcowgill/perljs) [![Coverage Status](https://coveralls.io/repos/github/bcowgill/perljs/badge.svg?branch=master)](https://coveralls.io/github/bcowgill/perljs?branch=master)
+perljs ![perljs's Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https://github.com/bcowgill/perljs) [![Build Status](https://travis-ci.org/bcowgill/perljs.svg?branch=master)](https://travis-ci.org/bcowgill/perljs) [![Coverage Status](https://coveralls.io/repos/github/bcowgill/perljs/badge.svg?branch=master)](https://coveralls.io/github/bcowgill/perljs?branch=master)
 ======
 
 Perl for Javascript. Just some functions that a perl developer misses in Javascript.
 
 Works with browsers and node v0.10.0+
-
 
 ## Quick Usage
 
@@ -121,7 +120,7 @@ Coverage output will be shown and is available in `doc/coverage/index.html`
 
 To see additional pnpm and grunt targets like watch or develop
 
-## Contributing
+## Contributing ![perljs's Contributors Image](https://contrib.rocks/image?repo=bcowgill/perljs)
 
 The existing coding style is maintained by the use of [prettier](https://www.npmjs.com/package/prettier) as part of the check in process using [husky](https://www.npmjs.com/package/husky).
 Add unit tests for any new or changed functionality. Lint and test your code using the supplied npm targets.
@@ -134,6 +133,10 @@ See CONTRIBUTING.md for further details.
 The Unlicense
 
 A license with no conditions whatsoever which dedicates works to the public domain. Unlicensed works, modifications, and larger works may be distributed under different terms and without source code.
+
+## Stats
+
+![perljs's Stats](https://github-readme-stats.vercel.app/api?username=bcowgill&show_icons=true) ![perljs's Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=bcowgill&theme=blue-green)
 
 ## TODO
 
