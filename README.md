@@ -172,3 +172,4 @@ Consider submitting the changes/pull request to nyc/istanbul
 * 2020-10-24 not released - updated all modules and switched to pnpm
 * internal - 0.3.4 patch after toolchain updated 2021: test of npm version but had an issue
 * internal - 0.3.5 patch after toolchain updated 2021: husky, nyc, prettier, eslint, stylelint, htmllint, mocha-dark internally, nyc-dark internally
+* 0.3.6 patch documentation rebuild for release

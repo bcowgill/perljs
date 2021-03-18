@@ -1,4 +1,4 @@
-/*  @bcowgill/perljs v0.3.5 https://github.com/bcowgill/perljs
+/*  @bcowgill/perljs v0.3.6 https://github.com/bcowgill/perljs
     Brent S.A. Cowgill <zardozcs@gmail.com> (http://github.com/bcowgill)
     Unlicense http://unlicense.org/
 */
@@ -10,7 +10,7 @@
 	alt="Coverage Status" />}
 
 	@author Brent S.A. Cowgill
-	@version  0.3.5
+	@version  0.3.6
 	@license {@link http://unlicense.org The Unlicense}
 
 	@example
@@ -70,7 +70,7 @@
 	/* jshint +W110 */
 	var perljs = { name: 'perljs' }
 
-	perljs.version = '0.3.5'
+	perljs.version = '0.3.6'
 	/**
 		@property {object} _console Console logging object to use for warnings.
 			default to the console.
