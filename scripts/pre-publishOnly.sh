@@ -26,6 +26,7 @@ else
 	exit
 fi
 
+echo ""
 echo Step 1: Git checks.
 # Git checks normally done by npm, but we are running with --no-git-checks due to our old version of git.
 #echo $CMD handler GIT CHECKS | tee --append local-git.log
@@ -46,6 +47,7 @@ if [ "`git rev-list --count --left-only @{u}...HEAD`" != '0' ]; then
 fi
 #echo $CMD handler GIT CHECKS DONE | tee --append local-git.log
 
+echo ""
 echo Step 2: Version number build checks.
 REL_VER=`packagever.sh`
 if [ -z "$REL_VER" ]; then
@@ -99,9 +101,11 @@ if [ "$REL_VER" == "$PUB_VER" ]; then
 	exit 78
 fi
 
+echo ""
 echo Step 3: Prepare for package install test.
 rm -rf package || echo "ok no package/ directory exists"
 
+echo ""
 echo Step 4: Disable postinstall script for husky.
 # For husky we need to disable the postinstall action while publishing.
 pinst --disable

@@ -32,6 +32,7 @@ fi
 
 # on any exit, for husky we reenable the postinstall script
 function restore_pinst {
+	echo ""
 	echo Finally, enable postinstall for husky.
 	pinst --enable
 }
@@ -45,15 +46,19 @@ if [ -z "$REL_VER" ]; then
 	exit 80
 fi
 
+echo ""
 echo Step 5: It can take a while for the NPM site to update, we will wait a minute before continuing...
 sleep 60
 echo checking npm site
 check-published.sh $REL_VER
 
+echo ""
 echo Step 6: Checking published NPM package for version $REL_VER. | tee packageinfo.txt
+echo "Press Escape to continue..." >> packageinfo.txt
 $NPM info $PKG >> packageinfo.txt
 less -R packageinfo.txt
 
+echo ""
 echo Step 7: Install package from NPM registry locally.
 rm -rf package || echo "ok no package dir"
 mkdir package
@@ -65,6 +70,7 @@ echo "{
 pushd package
 	$NPM install
 popd
+echo ""
 echo Step 8: Test local package installed from NPM registry.
 ./perl/js-test.js ../package/node_modules/$PKG/ $REL_VER
 
