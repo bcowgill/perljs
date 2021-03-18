@@ -7,18 +7,13 @@ CMD=post-publish.sh
 PKG=$NPMPKG
 NPM=pnpm
 
-# TravisCI this script is invoked when the project installs.  Perhaps it should all be prepublishOnly!
-if [ "$CI" == 'true' ]; then
-	exit
-fi
-
 # terminate on first error
 set -e
 
 # turn on trace of currently running command if you need it
 #set -x
 
-#echo $CMD handler: $* | tee --append local-git.log
+echo $CMD handler: $* | tee --append local-git.log
 #check-ver-lite.sh | tee --append local-git.log
 
 if [ -d package ]; then
