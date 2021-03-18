@@ -7,6 +7,10 @@ CMD=pre-publish.sh
 PKG=$NPMPKG
 NPM=pnpm
 
+echo === ENVIRONMENT ====
+echo PATH=$PATH
+set
+
 # terminate on first error
 set -e
 

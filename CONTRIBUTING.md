@@ -9,7 +9,9 @@ Review the test coverage output to ensure you’ve tested whatever has been adde
 
 ## Releasing
 
-Due to current use of an old Git version 1.9.1 and [npm 7+ bug](https://github.com/npm/cli/issues/2871) we run the npm version command with --no-git-version-tag and leave the git operations to pre-version.sh and version.sh scripts.
+Due to current use of an old Git version 1.9.1 and [npm 7+ bug](https://github.com/npm/cli/issues/2871) we run the *npm version* command with *--no-git-version-tag* and leave the *git* operations to *pre-version.sh* and *version.sh* scripts.
+
+### Version Bump
 
 You can begin a version release via:
 
@@ -18,17 +20,22 @@ scripts/bump.sh "RELEASE DESCRIPTION" patch
 # npm version patch --no-git-tag-version -m "release Version patch %s RELEASE DESCRIPTION"
 ```
 
-Change patch to minor, major, etc based on what kind of version release it is. see [NPM version help](https://docs.npmjs.com/cli/v7/commands/npm-version)
+Change *patch* to *minor*, *major*, etc based on what kind of version release it is. see [NPM version help](https://docs.npmjs.com/cli/v7/commands/npm-version)
 
-once the new version number has been built you can release to the npm registry with:
+### Publish
+
+Once the new version number has been built you can release to the NPM registry with:
 
 ```sh
 npm login
-npm publish --access=public  --no-git-checks --dry-run
+# your user/email/password...
+npm publish --access=public  --no-git-checks
 ```
-This runs the prepublish, prepublishOnly, publish, then postpublish scripts from package.json.
+This runs the *prepublish*, *prepublishOnly*, *publish*, then *postpublish* scripts from *package.json*.
 
-This will check that the current version does not match the currently available version on npm and then publish it.
+This will check that the current version does not match the currently available version on NPM and then publish it.
+
+After publishing it installs the package locally from NPM and runs the legacy test to verify it works.
 
 ## Developing
 
