@@ -28,7 +28,7 @@
 		"lint": "grunt lint",
 		"test": "grunt",
 		"test:tap": "mocha --reporter tap",
-		"travis": "nyc --reporter lcovonly mocha",
+		"travis": "NODE_OPTIONS=--trace-warnings nyc --reporter lcovonly mocha",
 		"watch": "grunt watch",
 		"develop": "grunt all watch --force",
 		"strip": "./scripts/strip.js",
