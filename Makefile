@@ -1,5 +1,17 @@
+publish:
+	-rmdir npm-prepublishOnlyLOCKED
+	pnpm publish --access=public --no-git-checks
+
 build:
 	pnpm run build
+
+# must symlink the htmllint config file, ignore error if already exists.
+travis:
+	-ln -s .htmllintrc.json .htmllintrc
+	TESTS=test npm run htmllint
+	npm run stylelint
+	SRC=lib TESTS=test npm run eslint
+	npm run travis
 
 watch:
 	pnpm run watch
@@ -26,14 +38,6 @@ cover:
 
 coveralls:
 	pnpm run coveralls
-
-# must symlink the htmllint config file, ignore error if already exists.
-travis:
-	-ln -s .htmllintrc.json .htmllintrc
-	TESTS=test npm run htmllint
-	npm run stylelint
-	SRC=lib TESTS=test npm run eslint
-	npm run travis
 
 docs:
 	grunt docs
@@ -113,3 +117,5 @@ strip:
 .PHONY: depends
 
 .PHONY: strip
+
+.PHONY: publish

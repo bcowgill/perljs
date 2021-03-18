@@ -137,7 +137,6 @@ A license with no conditions whatsoever which dedicates works to the public doma
 
 ## TODO
 
-Change prepublish script to prepublishOnly so to avoid being balled when npm install on TravisCI
 Add Badges for Stylelint etc
 wip Submit CSS dark changes to nyc/istanbul project and/or release as nyc-html-dark npm package
 Fix up mocha dark CSS for latest mocha release 8.x in ~/bin/mocha-dark
