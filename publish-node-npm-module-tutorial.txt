@@ -470,3 +470,7 @@ Adding GitHub badges to README and CONTRIBUTING pages.
 
 https://www.makeuseof.com/badges-that-will-supercharge-your-github-repository/
 
+More badge options here:
+https://shields.io/
+Allows you to construct your own personal badge URL/Markdown by filling in your user name/repo
+

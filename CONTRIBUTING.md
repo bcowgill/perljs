@@ -1,4 +1,4 @@
-Contributing to perljs ![perljs's Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https://github.com/bcowgill/perljs) [![Build Status](https://travis-ci.org/bcowgill/perljs.svg?branch=master)](https://travis-ci.org/bcowgill/perljs) [![Coverage Status](https://coveralls.io/repos/github/bcowgill/perljs/badge.svg?branch=master)](https://coveralls.io/github/bcowgill/perljs?branch=master)
+Contributing to perljs ![perljs's Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https://github.com/bcowgill/perljs) [![Build Status](https://travis-ci.org/bcowgill/perljs.svg?branch=master)](https://travis-ci.org/bcowgill/perljs) [![Coverage Status](https://coveralls.io/repos/github/bcowgill/perljs/badge.svg?branch=master)](https://coveralls.io/github/bcowgill/perljs?branch=master) ![GitHub last commit](https://img.shields.io/github/last-commit/bcowgill/perljs)
 ======================
 
 ![perljs's Contributors Image](https://contrib.rocks/image?repo=bcowgill/perljs)
@@ -295,3 +295,7 @@ nyc-15.1.0-coverage-css-dark
 
 This was before installing stylelint and so there are a number or style lint violations.
 Consider submitting the changes/pull request to nyc/istanbul
+
+## Joke
+
+![Jokes Card](https://readme-jokes.vercel.app/api)

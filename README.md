@@ -1,4 +1,4 @@
-perljs ![perljs's Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https://github.com/bcowgill/perljs) [![Build Status](https://travis-ci.org/bcowgill/perljs.svg?branch=master)](https://travis-ci.org/bcowgill/perljs) [![Coverage Status](https://coveralls.io/repos/github/bcowgill/perljs/badge.svg?branch=master)](https://coveralls.io/github/bcowgill/perljs?branch=master)
+perljs ![perljs's Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https://github.com/bcowgill/perljs) [![Build Status](https://travis-ci.org/bcowgill/perljs.svg?branch=master)](https://travis-ci.org/bcowgill/perljs) [![Coverage Status](https://coveralls.io/repos/github/bcowgill/perljs/badge.svg?branch=master)](https://coveralls.io/github/bcowgill/perljs?branch=master) ![GitHub last commit](https://img.shields.io/github/last-commit/bcowgill/perljs)
 ======
 
 Perl for Javascript. Just some functions that a perl developer misses in Javascript.
