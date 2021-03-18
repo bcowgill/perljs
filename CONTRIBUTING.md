@@ -5,7 +5,7 @@ Contributions are always welcome, no matter how large or small!
 
 The existing coding style is maintained by the use of [prettier](https://www.npmjs.com/package/prettier) as part of the check in process using [husky](https://www.npmjs.com/package/husky).
 Add unit tests for any new or changed functionality. Lint and test your code using the supplied npm targets.
-Review the test coverage output to ensure you've tested whatever has been added.
+Review the test coverage output to ensure you’ve tested whatever has been added.
 
 ## Releasing
 
@@ -87,13 +87,15 @@ The targets that are built are as follows:
 If you wish to build a copy of perljs for distribution, then run:
 
 ```sh
-$ make TODO build-dist
+$ make build
 ```
+
+But see the Releasing section above for details.
 
 You can check if any package dependencies require update via:
 
 ```sh
-$ make depend
+$ make depends
 ```
 
 ### Note on Git and Husky for developers:
@@ -131,7 +133,7 @@ You can get more context from lint errors via:
 $ make context
 ```
 
-You can run stylelint/eslint's autofix via:
+You can run stylelint/eslint’s autofix via:
 
 ```sh
 $ make fix

@@ -6,7 +6,7 @@
 CMD=version.sh
 NPM=pnpm
 GNPM=npm
-TAR=bcowgill-perljs-*.tgz
+TAR=$TARPKG-*.tgz
 
 # terminate on first error
 set -e
@@ -65,10 +65,10 @@ read prompt
 echo Step 5: Test the extracted npm module locally to see if it works.
 tar xvzf $TAR
 #grep version package/*.js*
-./perl/js-test.js ../package/ $REL_VER | grep perljs
+./perl/js-test.js ../package/ $REL_VER | grep $PROJ
 rm -rf $TAR ./package
 
 echo Step 6: Add, commit, tag, push. What npm would normally do after running version script:
-git add $VERFILES npm-shrinkwrap.json index.js perljs*.* doc/*.html
+git add $VERFILES npm-shrinkwrap.json index.js $PROJ*.* doc/*.html
 git commit -m "release Version $VMETHOD $REL_VER $VMESSAGE"
 tag-version.sh $REL_VER "release Version $VMETHOD $REL_VER $VMESSAGE"

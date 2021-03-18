@@ -1,6 +1,4 @@
 #!/bin/bash
-PKG=$NPMPKG
-NPM=pnpm
 
 vers.sh
 

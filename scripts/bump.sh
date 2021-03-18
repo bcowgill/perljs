@@ -15,5 +15,5 @@ version-bump   can be patch, minor, major or any other value allowd by npm-versi
 	exit 1
 fi
 
-VMETHOD="$METHOD" VMESSAGE="$MESSAGE" npm version $METHOD --no-git-tag-version -m "release Version $METHOD %s $MESSAGE"
+VMETHOD="$METHOD" VMESSAGE="$MESSAGE" pnpm version $METHOD --no-git-tag-version -m "release Version $METHOD %s $MESSAGE"
 

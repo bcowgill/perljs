@@ -16,7 +16,7 @@ set -e
 echo $CMD handler: $* | tee --append local-git.log
 #check-ver-lite.sh | tee --append local-git.log
 
-# Git checks normally done by npm, but we are running with --no-git-checks due to our old version of git. TODO
+# Git checks normally done by npm, but we are running with --no-git-checks due to our old version of git.
 echo $CMD handler GIT CHECKS | tee --append local-git.log
 repo-check.sh
 BRANCH=`git symbolic-ref --short HEAD`
@@ -74,8 +74,7 @@ fi
 
 PUB_VER=`$NPM view $PKG version`
 if [ -z "$PUB_VER" ]; then
-	echo NOT OK getting published version number
-	exit 77
+	echo WARNING getting published version number, ok if this is first release.
 fi
 
 echo VERS: /$REL_VER/$PUB_VER/

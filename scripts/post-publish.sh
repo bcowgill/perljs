@@ -39,7 +39,6 @@ fi
 
 sleep 3
 echo checking npm site
-REL_VER=0.3.3  # TODO temporary hack to make it pass
 check-published.sh $REL_VER
 
 $NPM info $PKG > packageinfo.txt
