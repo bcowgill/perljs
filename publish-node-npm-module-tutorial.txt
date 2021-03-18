@@ -20,11 +20,14 @@ npm set init.author.url "http://github.com/bcowgill"
 npm login
 npm adduser
 
-Username: bcowgill
+Username: bcowgill (now bcowgi11)
 Password:
 Email: (this IS public) xxx@xxx.ccc
 npm http PUT https://registry.npmjs.org/-/user/org.couchdb.user:bcowgill
 npm http 201 https://registry.npmjs.org/-/user/org.couchdb.user:bcowgill
+
+This user pw lost, I am now bcowgi11
+npm login before we publish.
 
 ===================
 

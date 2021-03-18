@@ -162,14 +162,14 @@ Consider submitting the changes/pull request to nyc/istanbul
 
 ## Release History
 
-* 0.1.0 Initial release q qq qw x - go forth and perlize
-* 0.2.1 Release some (hash) mapping functions mapFromArray(), makeMap() and reverseMap()
-* 0.2.2 Create some release management scripts
-* 0.3.0 Made browser compatible as AMD or global and bower.json for bower packaging
-* 0.3.1 Made browser compatible as CommonJS/AMD or global and bower.json for bower packaging (private: false)
-* 0.3.2 slight bower.json ignore change
-* 0.3.3 test of npm version command tooling
-* 2020-10-24 not released - updated all modules and switched to pnpm
-* internal - 0.3.4 patch after toolchain updated 2021: test of npm version but had an issue
-* internal - 0.3.5 patch after toolchain updated 2021: husky, nyc, prettier, eslint, stylelint, htmllint, mocha-dark internally, nyc-dark internally
-* 0.3.6 patch documentation rebuild for release
+* 0.1.0 Initial release q qq qw x - go forth and perlize.
+* 0.2.1 Release some (hash) mapping functions mapFromArray(), makeMap() and reverseMap().
+* 0.2.2 Create some release management scripts.
+* 0.3.0 Made browser compatible as AMD or global and bower.json for bower packaging.
+* 0.3.1 Made browser compatible as CommonJS/AMD or global and bower.json for bower packaging (private: false).
+* 0.3.2 slight bower.json ignore change.
+* 0.3.3 test of npm version command tooling.
+* 2020-10-24 not released - updated all modules and switched to pnpm.
+* internal - 0.3.4 patch after toolchain updated 2021: test of npm version but had an issue.
+* internal - 0.3.5 patch after toolchain updated 2021: husky, nyc, prettier, eslint, stylelint, htmllint, mocha-dark internally, nyc-dark internally.
+* internal - 0.3.6 patch documentation rebuild for release failed release due to username.

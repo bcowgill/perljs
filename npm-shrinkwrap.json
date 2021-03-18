@@ -1,11 +1,11 @@
 {
-	"name": "@bcowgill/perljs",
+	"name": "@bcowgi11/perljs",
 	"version": "0.3.6",
 	"lockfileVersion": 2,
 	"requires": true,
 	"packages": {
 		"": {
-			"name": "@bcowgill/perljs",
+			"name": "@bcowgi11/perljs",
 			"version": "0.3.6",
 			"hasInstallScript": true,
 			"license": "Unlicense",
