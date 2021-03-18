@@ -54,8 +54,7 @@
 		"preversion": "./scripts/pre-version.sh",
 		"version": "./scripts/version.sh",
 		"prepublishOnly": "./scripts/pre-publishOnly.sh",
-		"postpublishOnly": "echo POST PUB ONLY",
-		"postpublish": "echo POST PUB ./scripts/post-publish.sh"
+		"postpublish": "./scripts/post-publish.sh"
 	},
 	"repository": {
 		"type": "git",

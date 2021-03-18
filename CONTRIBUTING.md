@@ -31,6 +31,7 @@ Change *patch* to *minor*, *major*, etc based on what kind of version release it
 Once the new version number has been built you can release to the NPM registry with:
 
 ```sh
+rmdir npm-prepublishOnlyLOCKED
 npm login
 # your user/email/password...
 npm publish --access=public  --no-git-checks

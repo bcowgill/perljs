@@ -1,11 +1,13 @@
 #!/bin/bash
-# Do not run directly, npm will invoke this script at the right time.
+# Do not run directly, npm will invoke this script at the right time (twice).
 # pre-publishOnly script, check the repo and package version vs published version.
+# this script runs twice during an npm publish so we use a LOCK directory to prevent double actions.
 # https://docs.npmjs.com/cli/v7/commands/npm-version
 
 CMD=pre-publishOnly.sh
 PKG=$NPMPKG
 NPM=pnpm
+LOCK=npm-prepublishOnlyLOCKED
 
 # terminate on first error
 set -e
@@ -13,9 +15,18 @@ set -e
 # turn on trace of currently running command if you need it
 #set -x
 
-echo $CMD handler: $* | tee --append local-git.log
+#echo $CMD handler: $* | tee --append local-git.log
 #check-ver-lite.sh | tee --append local-git.log
 
+if mkdir $LOCK ; then
+	echo $CMD handler semaphore dir $LOCK created.
+	rmdir $LOCK
+else
+	echo $CMD handler semaphore dir $LOCK exists skip actions this time.
+	exit
+fi
+
+echo Step 1: Git checks.
 # Git checks normally done by npm, but we are running with --no-git-checks due to our old version of git.
 #echo $CMD handler GIT CHECKS | tee --append local-git.log
 repo-check.sh
@@ -35,6 +46,7 @@ if [ "`git rev-list --count --left-only @{u}...HEAD`" != '0' ]; then
 fi
 #echo $CMD handler GIT CHECKS DONE | tee --append local-git.log
 
+echo Step 2: Version number build checks.
 REL_VER=`packagever.sh`
 if [ -z "$REL_VER" ]; then
 	echo NOT OK getting version number
@@ -84,18 +96,22 @@ echo VERS: /$REL_VER/$PUB_VER/
 
 if [ "$REL_VER" == "$PUB_VER" ]; then
 	echo NOT OK current version has already been published to the npm registry.
-# TODO restore this after diagnosis test	exit 78
+	exit 78
 fi
 
+echo Step 3: Prepare for package install test.
 rm -rf package || echo "ok no package/ directory exists"
 
+echo Step 4: Disable postinstall script for husky.
 # For husky we need to disable the postinstall action while publishing.
 pinst --disable
+mkdir $LOCK
 
-# after this, the package.json prepublishOnly script will run
-# it is called once with the directory name as the first argument, then once with no directory name
+# after this, the package.json prepublishOnly script will run once again.
+# it is called by npm once printing the directory name, then once printing no directory name.
 # so the pinst --disable will make a change to package.json to prevent postinstall action.
 # after that the npm pack command is run to create the .tgz archive and it is published.
 # Then the publish script runs and then the postpublish runs twice
 # first without the directory name, then with the directory name.
+
 #echo $CMD handler out | tee --append local-git.log
