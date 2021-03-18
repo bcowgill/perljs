@@ -13,11 +13,11 @@ set -e
 # turn on trace of currently running command if you need it
 #set -x
 
-echo $CMD handler: $* | tee --append local-git.log
+#echo $CMD handler: $* | tee --append local-git.log
 #check-ver-lite.sh | tee --append local-git.log
 
 # Git checks normally done by npm, but we are running with --no-git-checks due to our old version of git.
-echo $CMD handler GIT CHECKS | tee --append local-git.log
+#echo $CMD handler GIT CHECKS | tee --append local-git.log
 repo-check.sh
 BRANCH=`git symbolic-ref --short HEAD`
 if [ "$BRANCH" != 'master' ]; then
@@ -33,7 +33,7 @@ if [ "`git rev-list --count --left-only @{u}...HEAD`" != '0' ]; then
 	echo NOT OK you are publishing from before the HEAD commit or without having set an upstream.
 	exit 71
 fi
-echo $CMD handler GIT CHECKS DONE | tee --append local-git.log
+#echo $CMD handler GIT CHECKS DONE | tee --append local-git.log
 
 REL_VER=`packagever.sh`
 if [ -z "$REL_VER" ]; then
@@ -95,4 +95,4 @@ rm -rf package || echo "ok no package/ directory exists"
 # after that the npm pack command is run to create the .tgz archive and it is published.
 # Then the publish script runs and then the postpublish runs twice
 # first without the directory name, then with the directory name.
-echo $CMD handler out | tee --append local-git.log
+#echo $CMD handler out | tee --append local-git.log

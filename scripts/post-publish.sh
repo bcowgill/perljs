@@ -1,5 +1,5 @@
 #!/bin/bash
-# Do not run directly, npm will invoke this script at the right time.
+# You can run this directly, but npm will invoke this script at the right time.
 # post-publish script, checks the published npm version number is correct, installs the module and tests it.
 # https://docs.npmjs.com/cli/v7/commands/npm-version
 
@@ -13,7 +13,7 @@ set -e
 # turn on trace of currently running command if you need it
 #set -x
 
-echo $CMD handler: $* | tee --append local-git.log
+#echo $CMD handler: $* | tee --append local-git.log
 #check-ver-lite.sh | tee --append local-git.log
 
 if [ -d package ]; then
@@ -37,7 +37,8 @@ if [ -z "$REL_VER" ]; then
 	exit 80
 fi
 
-sleep 3
+echo It can take a while for the npm site to update, we will wait a minute before continuing...
+sleep 60
 echo checking npm site
 check-published.sh $REL_VER
 
