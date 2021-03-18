@@ -72,7 +72,10 @@ else
 	exit 76
 fi
 
+# Error here is ok if we have never been published.
+set +e
 PUB_VER=`$NPM view $PKG version`
+set -e
 if [ -z "$PUB_VER" ]; then
 	echo WARNING getting published version number, ok if this is first release.
 fi
