@@ -32,7 +32,9 @@
 	
 	var perljs = { name: 'perljs' }
 
-	perljs.version = '0.3.7'
+	perljs.version = '0.3.8'
+	perljs.VERSION = perljs.version 
+
 	
 	perljs._console = console
 

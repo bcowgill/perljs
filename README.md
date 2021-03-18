@@ -171,3 +171,4 @@ Consider submitting the changes/pull request to nyc/istanbul
 * internal - 0.3.5 patch after toolchain updated 2021: husky, nyc, prettier, eslint, stylelint, htmllint, mocha-dark internally, nyc-dark internally.
 * internal - 0.3.6 patch documentation rebuild for release failed release due to username.
 * 0.3.7 patch corrected npm user name for release.
+* 0.3.8 patch prepublishOnly script fixed for TravisCI
