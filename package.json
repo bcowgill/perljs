@@ -53,8 +53,7 @@
 		"postinstall": "husky install",
 		"preversion": "./scripts/pre-version.sh",
 		"version": "./scripts/version.sh",
-		"prepublish": "echo PRE PUB",
-		"prepublishOnly": "echo PRE PUB ONLY ./scripts/pre-publish.sh",
+		"prepublishOnly": "./scripts/pre-publishOnly.sh",
 		"postpublishOnly": "echo POST PUB ONLY",
 		"postpublish": "echo POST PUB ./scripts/post-publish.sh"
 	},
