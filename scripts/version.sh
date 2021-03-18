@@ -68,6 +68,7 @@ tar xvzf $TAR
 ./perl/js-test.js ../package/ $REL_VER | grep $PROJ
 rm -rf $TAR ./package
 
+echo ""
 echo Step 6: Add, commit, tag, push. What npm would normally do after running version script:
 git add $VERFILES npm-shrinkwrap.json index.js $PROJ*.* doc/*.html
 git commit -m "release Version $VMETHOD $REL_VER $VMESSAGE"
