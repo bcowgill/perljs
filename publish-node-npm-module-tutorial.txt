@@ -442,3 +442,25 @@ npm adds package.json and npm-shrinkwrap.json then commits and tags using the co
 	/usr/bin/git tag -m release Version patch 0.3.4 after toolchain updated v0.3.4
 the package.json postversion script runs
 
+=== Summary of what happens when npm publish command runs:
+
+npm calls /usr/bin/git status --porcelain to check if the repo is clean (note this is too much, checks untracked files.)
+npm calls /usr/bin/git symbolic-ref --short HEAD  to check that you are on the master branch. or asks if it is still ok to release.
+npm calls /usr/bin/git rev-list --count --left-only @{u}...HEAD  to check that you have an upstream set and are at the HEAD revision.
+the package.json prepublish script runs
+the package.json prepublishOnly script runs
+the package.json prepublishOnly script runs again!
+the package.json publish script runs
+the package.json postpublish script runs
+the package.json publish script runs again!
+the package.json postpublish script runs again!
+
+When the scripts run twice, it runs once showing the module directory and again showing no directory.
+
+We use a package/ directory as a semaphore to prevend doing the same thing twice in the post-publish script.
+
+=======================
+
+NPM package published:
+https://www.npmjs.com/package/@bcowgi11/perljs
+

@@ -137,8 +137,6 @@ A license with no conditions whatsoever which dedicates works to the public doma
 
 ## TODO
 
-wip Document the version/release targets/procedure.
-wip Publish to Github packages.
 Add Badges for Stylelint etc
 wip Submit CSS dark changes to nyc/istanbul project and/or release as nyc-html-dark npm package
 Fix up mocha dark CSS for latest mocha release 8.x in ~/bin/mocha-dark
@@ -149,7 +147,6 @@ Look at how lodash builds its library everything combined into one library yet a
 Remove istanbul package
 Get rid of grunt, just use build targets, Makefile.
 frontend-test - api error message fix, coverage of rest, Investigate react-intl, react accessible components, create react app, html5 boilerplate. chalk
-
 
 ## Internal Notes
 

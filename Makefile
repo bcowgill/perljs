@@ -66,6 +66,7 @@ view-cover:
 	pnpm run cover-view
 
 depends:
+	pnpm ls
 	pnpm run check
 
 strip:
