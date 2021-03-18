@@ -84,7 +84,7 @@ echo VERS: /$REL_VER/$PUB_VER/
 
 if [ "$REL_VER" == "$PUB_VER" ]; then
 	echo NOT OK current version has already been published to the npm registry.
-	exit 78
+# TODO restore this after diagnosis test	exit 78
 fi
 
 rm -rf package || echo "ok no package/ directory exists"
