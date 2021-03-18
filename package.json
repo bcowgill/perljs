@@ -60,7 +60,15 @@
 		"type": "git",
 		"url": "https://github.com/bcowgill/perljs.git"
 	},
-	"keywords": ["perl"],
+	"keywords": [
+		"perl",
+		"single-quote",
+		"double-quote",
+		"quote-words",
+		"key-value-reverse",
+		"array-lookup",
+		"string-repeat"
+	],
 	"license": {
 		"type": "Unlicense",
 		"url": "http://unlicense.org/"
