@@ -7,6 +7,11 @@ CMD=post-publish.sh
 PKG=$NPMPKG
 NPM=pnpm
 
+# TravisCI this script is invoked when the project installs.  Perhaps it should all be prepublishOnly!
+if [ "$CI" == 'true' ]; then
+	exit
+fi
+
 # terminate on first error
 set -e
 
