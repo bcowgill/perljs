@@ -28,7 +28,8 @@
 		"lint": "grunt lint",
 		"test": "grunt",
 		"test:tap": "mocha --reporter tap",
-		"travis": "NODE_OPTIONS=--trace-warnings nyc --reporter lcovonly mocha",
+		"travis": "nyc --reporter lcovonly mocha",
+		"travis:trace": "NODE_OPTIONS=--trace-warnings nyc --reporter lcovonly mocha",
 		"watch": "grunt watch",
 		"develop": "grunt all watch --force",
 		"strip": "./scripts/strip.js",
@@ -52,9 +53,10 @@
 		"postinstall": "husky install",
 		"preversion": "./scripts/pre-version.sh",
 		"version": "./scripts/version.sh",
-		"prepublish": "./scripts/pre-publish.sh",
-		"prepublishOnly": "pinst --disable",
-		"postpublish": "./scripts/post-publish.sh"
+		"prepublish": "echo PRE PUB",
+		"prepublishOnly": "echo PRE PUB ONLY ./scripts/pre-publish.sh",
+		"postpublishOnly": "echo POST PUB ONLY",
+		"postpublish": "echo POST PUB ./scripts/post-publish.sh"
 	},
 	"repository": {
 		"type": "git",

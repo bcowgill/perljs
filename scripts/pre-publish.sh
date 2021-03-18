@@ -1,9 +1,9 @@
 #!/bin/bash
 # Do not run directly, npm will invoke this script at the right time.
-# pre-publish script, check the repo and package version vs published version.
+# pre-publishOnly script, check the repo and package version vs published version.
 # https://docs.npmjs.com/cli/v7/commands/npm-version
 
-CMD=pre-publish.sh
+CMD=pre-publishOnly.sh
 PKG=$NPMPKG
 NPM=pnpm
 
@@ -93,6 +93,9 @@ if [ "$REL_VER" == "$PUB_VER" ]; then
 fi
 
 rm -rf package || echo "ok no package/ directory exists"
+
+# For husky we need to disable the postinstall action while publishing.
+pinst --disable
 
 # after this, the package.json prepublishOnly script will run
 # it is called once with the directory name as the first argument, then once with no directory name
