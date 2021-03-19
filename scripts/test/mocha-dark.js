@@ -6393,8 +6393,11 @@ exports.stackTraceFilter = function() {
 
   function isMochaInternal(line) {
     return (~line.indexOf('node_modules' + slash + 'mocha' + slash))
+      || (~line.indexOf('node_modules' + slash + 'mocha-dark' + slash)) /* BSAC DARK SCHEME */
       || (~line.indexOf('components' + slash + 'mochajs' + slash))
+      || (~line.indexOf('components' + slash + 'mocha-dark' + slash)) /* BSAC DARK SCHEME */
       || (~line.indexOf('components' + slash + 'mocha' + slash))
+      || (~line.indexOf(slash + 'mocha-dark.js')) /* BSAC DARK SCHEME */
       || (~line.indexOf(slash + 'mocha.js'));
   }
 
