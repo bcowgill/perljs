@@ -320,6 +320,7 @@ Progress.prototype.draw = function(ctx) {
     var w = ctx.measureText(text).width;
 
     try {
+      ctx.fillStyle = "black"; // BSAC DARK SCHEME
       if (document.getElementsByClassName('mocha-dark').length) {
         ctx.fillStyle = "yellow"; // BSAC DARK SCHEME
       }
@@ -2429,6 +2430,17 @@ function HTML(runner) {
     progress.size(40);
   }
 
+  /* BSAC DARK SCHEME */
+  function drawProgress(total) {
+    mocha.totalTests = total || mocha.totalTests;
+    var percent = stats.tests / mocha.totalTests * 100 | 0;
+    if (progress) {
+      progress.update(percent).draw(ctx);
+    }
+  }
+  mocha.drawProgress = drawProgress
+  /* BSAC DARK SCHEME */
+
   runner.on('suite', function(suite) {
     if (suite.root) {
       return;
@@ -2462,10 +2474,7 @@ function HTML(runner) {
 
   runner.on('test end', function(test) {
     // TODO: add to stats
-    var percent = stats.tests / this.total * 100 | 0;
-    if (progress) {
-      progress.update(percent).draw(ctx);
-    }
+    drawProgress(this.total); /* BSAC DARK SCHEME */
 
     // update stats
     var ms = new Date() - stats.start;
@@ -12710,7 +12719,7 @@ mocha.run = function(fn){
   4. mocha.updateColorScheme('mocha-dark') in the console or code and the setting will be remembered in local storage or cookie.
   5. mocha.updateColorScheme() to clear the local storage and cookie to reset to default.
 */
-/* BSAC */
+/* BSAC ADDED */
 function prefersColorScheme() {
   let prefers = 'mocha-light'; // 'no-preference';
   try {
@@ -12726,7 +12735,7 @@ function prefersColorScheme() {
   return prefers;
 }
 
-/* BSAC */
+/* BSAC ADDED */
 function getColorSchemeCookie() {
   var scheme;
   try {
@@ -12738,7 +12747,7 @@ function getColorSchemeCookie() {
   return scheme;
 }
 
-/* BSAC */
+/* BSAC ADDED */
 function getColorSchemeStorage() {
   var scheme;
   try {
@@ -12750,7 +12759,7 @@ function getColorSchemeStorage() {
   return scheme;
 }
 
-/* BSAC */
+/* BSAC ADDED */
 function getColorSchemeBody() {
   var scheme;
   try {
@@ -12762,7 +12771,7 @@ function getColorSchemeBody() {
   return scheme;
 }
 
-/* BSAC */
+/* BSAC ADDED */
 function setColorSchemeBody(scheme) {
   try {
     scheme = (scheme || '').trim();
@@ -12777,7 +12786,7 @@ function setColorSchemeBody(scheme) {
   return scheme;
 }
 
-/* BSAC */
+/* BSAC ADDED */
 function setColorSchemeStorage(scheme) {
   try {
     localStorage.setItem('mocha-scheme', scheme)
@@ -12787,12 +12796,12 @@ function setColorSchemeStorage(scheme) {
   return scheme;
 }
 
-/* BSAC */
+/* BSAC ADDED */
 mocha.getColorScheme = function () {
   return getColorSchemeStorage() || /* getColorSchemeCookie() || */ getColorSchemeBody() || prefersColorScheme()
 };
 
-/* BSAC */
+/* BSAC ADDED */
 mocha.setColorScheme = function (scheme) {
   var cookieValue;
   try {
@@ -12808,7 +12817,7 @@ mocha.setColorScheme = function (scheme) {
   return cookieValue;
 };
 
-/* BSAC */
+/* BSAC ADDED */
 mocha.updateColorScheme = function (scheme) {
   // var maxAgeInSeconds = (60*60*24*365);
   var cookieValue = mocha.setColorScheme(scheme);
@@ -12821,14 +12830,15 @@ mocha.updateColorScheme = function (scheme) {
   return cookieValue;
 };
 
-/* BSAC */
+/* BSAC ADDED */
 mocha.toggleColorScheme = function () {
   var scheme = mocha.getColorScheme();
   scheme = scheme === 'mocha-dark' ? 'mocha-light' : 'mocha-dark';
   mocha.updateColorScheme(scheme);
+  mocha.drawProgress();
 };
 
-/* BSAC */
+/* BSAC ADDED */
 function installSchemeToggle() {
   var interval = setInterval(function () {
     var dom = document.querySelectorAll('li.progress')
@@ -12839,7 +12849,7 @@ function installSchemeToggle() {
   }, 500);
 }
 
-/* BSAC */
+/* BSAC ADDED */
 mocha.initColorScheme = function (scheme) {
   try {
     installSchemeToggle();
