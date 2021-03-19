@@ -12789,7 +12789,7 @@ function setColorSchemeStorage(scheme) {
 
 /* BSAC */
 mocha.getColorScheme = function () {
-  return getColorSchemeStorage() || getColorSchemeCookie() || getColorSchemeBody() || prefersColorScheme()
+  return getColorSchemeStorage() || /* getColorSchemeCookie() || */ getColorSchemeBody() || prefersColorScheme()
 };
 
 /* BSAC */
@@ -12810,11 +12810,11 @@ mocha.setColorScheme = function (scheme) {
 
 /* BSAC */
 mocha.updateColorScheme = function (scheme) {
-  var maxAgeInSeconds = (60*60*24*365);
+  // var maxAgeInSeconds = (60*60*24*365);
   var cookieValue = mocha.setColorScheme(scheme);
   cookieValue = scheme ? cookieValue : '';
   try {
-    document.cookie = 'mocha-scheme=' + cookieValue + ';SameSite=Strict;max-age=' + maxAgeInSeconds;
+    // document.cookie = 'mocha-scheme=' + cookieValue + ';SameSite=Strict;max-age=' + maxAgeInSeconds;
     setColorSchemeStorage(cookieValue)
   }
   finally {};
