@@ -12229,7 +12229,7 @@ var exec = require('child_process').exec
 function which(name) {
   var paths = process.env.PATH.split(':');
   var loc;
-  
+
   for (var i = 0, len = paths.length; i < len; ++i) {
     loc = path.join(paths[i], name);
     if (exists(loc)) return loc;
@@ -12464,18 +12464,18 @@ function mkdirP (p, opts, f, made) {
     else if (!opts || typeof opts !== 'object') {
         opts = { mode: opts };
     }
-    
+
     var mode = opts.mode;
     var xfs = opts.fs || fs;
-    
+
     if (mode === undefined) {
         mode = _0777 & (~process.umask());
     }
     if (!made) made = null;
-    
+
     var cb = f || function () {};
     p = path.resolve(p);
-    
+
     xfs.mkdir(p, mode, function (er) {
         if (!er) {
             made = made || p;
@@ -12508,10 +12508,10 @@ mkdirP.sync = function sync (p, opts, made) {
     if (!opts || typeof opts !== 'object') {
         opts = { mode: opts };
     }
-    
+
     var mode = opts.mode;
     var xfs = opts.fs || fs;
-    
+
     if (mode === undefined) {
         mode = _0777 & (~process.umask());
     }
@@ -12707,7 +12707,8 @@ mocha.run = function(fn){
   https://davidwalsh.name/prefers-color-scheme
   2. Adding <body class="mocha-dark"> to your index.html runner page to force it dark initially..
   3. Clicking on the circular (100%) progress indicator to toggle between light and dark.  This will be saved in local storage or cookie so that the next refresh will remember your setting.
-  4. mocha.setColorScheme('mocha-dark') in the console or code and the setting will be remembered in local storage or cookie.
+  4. mocha.updateColorScheme('mocha-dark') in the console or code and the setting will be remembered in local storage or cookie.
+  5. mocha.updateColorScheme() to clear the local storage and cookie to reset to default.
 */
 /* BSAC */
 function prefersColorScheme() {
@@ -12762,6 +12763,21 @@ function getColorSchemeBody() {
 }
 
 /* BSAC */
+function setColorSchemeBody(scheme) {
+  try {
+    scheme = (scheme || '').trim();
+    document.body.className = document.body.className.replace(/\bmocha-[a-z]+\b/g, '');
+    if (scheme) {
+      document.body.className += ' ' + scheme;
+    }
+    document.body.className = document.body.className.trim();
+  }
+  finally {};
+  // console.log('set DOM body.className', scheme)
+  return scheme;
+}
+
+/* BSAC */
 function setColorSchemeStorage(scheme) {
   try {
     localStorage.setItem('mocha-scheme', scheme)
@@ -12778,29 +12794,38 @@ mocha.getColorScheme = function () {
 
 /* BSAC */
 mocha.setColorScheme = function (scheme) {
-  var cookieValue, maxAgeInSeconds = (60*60*24*365);
+  var cookieValue;
   try {
-    document.body.className = document.body.className.replace(/\bmocha-[a-z]+\b/g, '');
+    setColorSchemeBody();
     if (scheme) {
-      scheme = scheme.trim();
-      document.body.className += ' ' + scheme;
-      cookieValue = scheme;
+      cookieValue = setColorSchemeBody(scheme);
     }
     else {
       cookieValue = prefersColorScheme();
     }
-    document.body.className = document.body.className.trim();
+  }
+  finally {};
+  return cookieValue;
+};
+
+/* BSAC */
+mocha.updateColorScheme = function (scheme) {
+  var maxAgeInSeconds = (60*60*24*365);
+  var cookieValue = mocha.setColorScheme(scheme);
+  cookieValue = scheme ? cookieValue : '';
+  try {
     document.cookie = 'mocha-scheme=' + cookieValue + ';SameSite=Strict;max-age=' + maxAgeInSeconds;
     setColorSchemeStorage(cookieValue)
   }
   finally {};
+  return cookieValue;
 };
 
 /* BSAC */
 mocha.toggleColorScheme = function () {
   var scheme = mocha.getColorScheme();
   scheme = scheme === 'mocha-dark' ? 'mocha-light' : 'mocha-dark';
-  mocha.setColorScheme(scheme);
+  mocha.updateColorScheme(scheme);
 };
 
 /* BSAC */
@@ -12820,13 +12845,8 @@ mocha.initColorScheme = function (scheme) {
     installSchemeToggle();
     var mochaScheme = mocha.getColorScheme();
     console.log('mochaScheme', mochaScheme)
-    console.log('change light/dark color scheme with mocha.setColorScheme("mocha-dark") or click the circular progress indicator to save your setting.')
-    if (mochaScheme) {
-      mocha.setColorScheme(mochaScheme);
-    }
-    else {
-      mocha.setColorScheme(scheme);
-    }
+    console.log('change light/dark color scheme with mocha.updateColorScheme("mocha-dark") or click the circular progress indicator to save your setting.')
+    mocha.setColorScheme(mochaScheme || shceme);
   }
   finally {};
 };
