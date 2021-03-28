@@ -29,7 +29,7 @@ TAG_DATE=version-$REL_VER-$NOW
 echo TAG=$TAG
 echo TAG_DATE=$TAG_DATE
 
-if git tag "$TAG" -m "$MESSGE" ; then
+if git tag "$TAG" -m "$MESSAGE" ; then
 	echo ok tagged for release as $TAG
 	if git tag "$TAG_DATE" -m "$MESSAGE" ; then
 		echo ok date tagged for release as $TAG_DATE

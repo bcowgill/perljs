@@ -2,7 +2,6 @@
 #  check that a specific version is published on the npm registry.
 
 export REL_VER=$1
-FILE="$2"
 PKG=$NPMPKG
 NPM=pnpm
 

@@ -25,10 +25,13 @@ perl -i.bak -pne 's{(\@version \s+)([\.0-9]+)}{$1$ENV{REL_VER}}xmsg; \
 	s{(version \s* = \s*(.))([\.0-9]+)(\2;?)}{$1$ENV{REL_VER}$4}xmsg;' \
    lib/perl.js
 
+# from mocha-dark
+# perl -i.bak -pne 's{(version.*?[=:].*?)([0-9]+\.[0-9]+\.[0-9]+)}{$1$ENV{REL_VER}}xmsg;' \
+
 function check_version {
 	local file
 	file="$1"
-	if grep "$REL_VER" "$file" ; then
+	if egrep "version.*[:=]" "$file" | grep "$REL_VER" ; then
 		echo ok "$file" version updated
 	else
 		echo NOT OK - "$file" does not contain $REL_VER release version

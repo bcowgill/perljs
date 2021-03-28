@@ -64,7 +64,7 @@ Then, run:
 $ git clone https://github.com/<your-github-username>/perljs
 $ cd perljs
 $ bash
-$ source env.local1
+$ source env.local
 ```
 
 By sourcing `env.local` you will get *npm* aliased to *pnpm* and will have the correct *node* version via *nvm* as well as get your *PATH* and some other environment variables set for you.
@@ -278,9 +278,7 @@ You can open chrome to `chrome://inspect` to attach to the debugging session.
 
 * wip Add Badges for Stylelint etc
 * wip Submit CSS dark changes to nyc/istanbul project and/or release as nyc-html-dark npm package
-* Fix up mocha dark CSS for latest mocha release 8.x in ~/bin/mocha-dark
 * Build jsdoc documents with a dark theme CSS (release as jsdoc-dark-theme)
-* Change the test/index.html files to use my mocha dark as an npm module once released..
 * Change to jest for test runner (which uses nyc already)
 * Look at how lodash builds its library everything combined into one library yet also functions can be imported singly.
 * Remove istanbul package
