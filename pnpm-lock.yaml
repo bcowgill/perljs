@@ -31,6 +31,7 @@ devDependencies:
   nopt: 5.0.0
   npm-check: 5.9.2
   nyc: 15.1.0
+  nyc-dark: 3.0.2
   pinst: 2.1.6
   prettier: 2.2.1
   stylelint: 13.11.0
@@ -4671,6 +4672,13 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
+  /nyc-dark/3.0.2:
+    dev: true
+    engines:
+      node: '>= 10.12.0'
+      npm: '>= 1.4.x'
+    resolution:
+      integrity: sha512-YgMrShBwgBiRouFmZ37bDezs77cRteKeXYDA1lmFksSII3NRy9xPrua93+cxHSWzysfgxFsupX8biUecgZUdRQ==
   /nyc/15.1.0:
     dependencies:
       '@istanbuljs/load-nyc-config': 1.1.0
@@ -7183,6 +7191,7 @@ specifiers:
   nopt: ^5.0.0
   npm-check: ^5.9.2
   nyc: ^15.1.0
+  nyc-dark: ^3.0.2
   pinst: ^2.1.6
   prettier: ^2.2.1
   stylelint: ^13.11.0
