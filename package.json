@@ -2,7 +2,7 @@
 	"private": false,
 	"name": "@bcowgi11/perljs",
 	"main": "index.js",
-	"version": "0.3.9",
+	"version": "0.3.8",
 	"engines": {
 		"node": ">=0.10.0"
 	},
@@ -104,6 +104,7 @@
 		"istanbul": "^0.4.3",
 		"jsdoc": "^3.6.6",
 		"mkdirp": "^1.0.4",
+		"mocha": "8.3.2",
 		"mocha-dark": "^8.3.2",
 		"nopt": "^5.0.0",
 		"npm-check": "^5.9.2",
