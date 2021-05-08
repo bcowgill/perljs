@@ -277,6 +277,8 @@ You can open chrome to `chrome://inspect` to attach to the debugging session.
 
 ## TODO
 
+* Configure jshint best part: maxcomplexity, maxstatements..., etc ignore all other rules.
+* Try xo module for more eslint goodness https://github.com/xojs/xo based on unicorn https://github.com/sindresorhus/eslint-plugin-unicorn
 * wip Add Badges for Stylelint etc
 * Build jsdoc documents with a dark theme CSS (release as jsdoc-dark-theme)
 * Change to jest for test runner (which uses nyc already)

@@ -151,6 +151,13 @@ module.exports = function (grunt) {
 				spec: ['test/**/*-test.js'], // for coverage
 				src: ['test/**/*.js'],
 			},
+			experiment: {
+				options: {
+					jshintrc: '.jshintrc-best-parts.json',
+					globals: {},
+				},
+				src: ['*.json', 'Gruntfile.js', 'lib/**/*.js', 'test/**/*.js'],
+			},
 		},
 		/**
 			Running tests in the console using mocha/chai/sinon.

@@ -1,8 +1,9 @@
 // configure jshint settings for test plans which can have tighter complexity settings
 // warning codes for jshint are in:
-// node_modules/grunt-contrib-jshint/node_modules/jshint/src/messages.js
+// node_modules/.../jshint/.../messages.js
 {
 	"node": true,
+	"mocha": true,
 	// closest support for tabs possible at moment jshint considers a tab 4 spaces
 	// internally so have to set indent to 4 if you will use tabs for indentation.
 	// cannot force the use of tabs though.
@@ -37,15 +38,5 @@
 	"laxbreak": true,
 	"multistr": true,
 	"maxerr": 5000,
-	"globals": {
-		"after": false,
-		"afterEach": false,
-		"before": false,
-		"beforeEach": false,
-		"describe": false,
-		"expect": true,
-		"it": false,
-		"xdescribe": false,
-		"xit": false
-	}
+	"globals": {}
 }

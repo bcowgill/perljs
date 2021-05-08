@@ -1,0 +1,85 @@
+// updated for jshint 2.12.0 from jshint options.js file.
+// configure jshint to ignore style settings except maxcomplexity, etc
+// warning codes for jshint are in:
+// node_modules/...jshint/.../messages.js
+{
+	"enforceall": false, // @depr def: false
+
+	// environments (mootools, couch, jasmine, jquery, qunit, rhino,
+	// shelljs, prototypejs, yui, mocha, module, wsh, worker, nonstandard,
+	// browser, browserify, devel, dojo, typed, phantom)
+	"node": true,
+
+	"esversion": 5,
+	// es3, es5, esnext deprecated
+	"strict": true, // def: true (false, global, implied)
+	// globalstrict deprecated
+	"varstmt": false, // def: false should be true for es6+
+
+	// closest support for tabs possible at moment jshint considers a tab 4 spaces
+	// internally so have to set indent to 4 if you will use tabs for indentation.
+	// cannot force the use of tabs though.
+	"indent": false, // style def: false
+
+	"maxlen": 100, // style def: false
+	"maxstatements": 11, // style def: false
+	"maxdepth": 2, // style def: false
+	"maxparams": 3, // style def: false
+	"maxcomplexity": 4, // style def: false
+
+	// enforcing rules
+	"bitwise": true, // def: true
+	"freeze": true, // def: true
+	"camelcase": false, // style def: true
+	"curly": true, // def: true
+	"eqeqeq": true, // def: true
+	"futurehostile": true, // def: true
+	"forin": true, // def: true
+	"immed": false, // style def: true
+	"leanswitch": true, // def: true
+	"newcap": false, // style def: true
+	"noarg": true, // def: true
+	"nocomma": true, // def: true
+	"noempty": false, // style def: true
+	"nonbsp": true, // def: true
+	"nonew": true, // def: true
+	"noreturnawait": true, // def: true
+	"regexpu": true, // def: true
+	"undef": true, // def: true
+	"singleGroups": false, // def: false
+	"trailingcomma": false, // def: false
+
+	// relaxing rules
+	// ignore missing semicolons (automatic semicolon insertion)
+	"asi": true, // def: true
+	"multistr": true, // style def: true
+	"debug": true, // def: true
+	"boss": true, // def: true
+	"evil": true, // def: true
+	"funcscope": true, // def:true
+	"iterator": true, // def: true
+	"notypeof": true, // def: true
+	"plusplus": true, // def: true
+	"proto": true, // def: true
+	"scripturl": true, // def: true
+	"sub": true, // style def: true
+	"supernew": true, // def: true
+	"laxbreak": true, // style def: true
+	"laxcomma": true, // style def: true
+	"validthis": true, // def: true
+	"withstmt": true, // def: true
+	"moz": true, // def: true
+	"noyield": true, // def: true
+	"eqnull": true, // def: true
+	"lastsemic": true, // def: true
+	"loopfunc": true, // def: true
+	"expr": true, // def: true
+	"elision": true, // def: true
+
+	// value based rules
+	"quotmark": false, // style def: false (true, single, double)
+	"shadow": false, // def: false
+	"unused": "strict", // def: true (false, vars, strict)
+	"latedef": true, // def: false (true, nofunc)
+	"maxerr": 5000 // def: false 50
+}
