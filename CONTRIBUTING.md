@@ -24,6 +24,7 @@ Due to current use of an old Git version 1.9.1 and [npm 7+ bug](https://github.c
 You can begin a version release via:
 
 ```sh
+# note, push changes first and check Travis before doing this...
 scripts/bump.sh "RELEASE DESCRIPTION" patch
 # npm version patch --no-git-tag-version -m "release Version patch %s RELEASE DESCRIPTION"
 ```
