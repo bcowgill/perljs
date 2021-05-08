@@ -1,4 +1,4 @@
-/*  @bcowgi11/perljs v0.3.9 https://github.com/bcowgill/perljs
+/*  @bcowgi11/perljs v0.3.10 https://github.com/bcowgill/perljs
     Brent S.A. Cowgill <zardozcs@gmail.com> (http://github.com/bcowgill)
     Unlicense http://unlicense.org/
 */
@@ -10,7 +10,7 @@
 	alt="Coverage Status" />}
 
 	@author Brent S.A. Cowgill
-	@version  0.3.9
+	@version  0.3.10
 	@license {@link http://unlicense.org The Unlicense}
 
 	@example
@@ -69,7 +69,7 @@
 	/* jshint +W110 */
 	var perljs = { name: 'perljs' }
 
-	perljs.version = '0.3.9'
+	perljs.version = '0.3.10'
 	perljs.VERSION = perljs.version // for module exports compatability
 
 	/**

@@ -154,3 +154,4 @@ A license with no conditions whatsoever which dedicates works to the public doma
 * 0.3.7 patch corrected npm user name for release.
 * 0.3.8 patch prepublishOnly script fixed for TravisCI
 * 0.3.9 patch Using nyc-dark, mocha-dark externally, Evaluating eslint-plugin-unicorn
+* 0.3.10 patch Re-relese bump as previous bump failed to pass Travis
