@@ -277,7 +277,6 @@ You can open chrome to `chrome://inspect` to attach to the debugging session.
 ## TODO
 
 * wip Add Badges for Stylelint etc
-* wip Submit CSS dark changes to nyc/istanbul project and/or release as nyc-html-dark npm package
 * Build jsdoc documents with a dark theme CSS (release as jsdoc-dark-theme)
 * Change to jest for test runner (which uses nyc already)
 * Look at how lodash builds its library everything combined into one library yet also functions can be imported singly.

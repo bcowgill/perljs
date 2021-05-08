@@ -1,5 +1,5 @@
 /*jshint indent: 4, smarttabs: true, maxstatements: 100, maxlen: 140 */
-// eslint-disable-next-line no-redeclare
+/* eslint-disable unicorn/filename-case */
 /*global module:false */
 /**
 	@file Gruntfile.js
@@ -351,7 +351,7 @@ module.exports = function (grunt) {
 	})
 
 	// These plugins provide necessary tasks.
-	;[
+	for (var task of [
 		'grunt-eslint',
 		'grunt-htmllint',
 		'grunt-stylelint',
@@ -365,9 +365,9 @@ module.exports = function (grunt) {
 		'grunt-contrib-connect',
 		'grunt-contrib-concat',
 		'grunt-contrib-uglify',
-	].forEach(function (task) {
+	]) {
 		grunt.loadNpmTasks(task)
-	})
+	}
 
 	// Important not to remove this if coveralls.options.coverage:true or grunt will hang
 	grunt.event.on('coverage', function (lcovFileContents, done) {

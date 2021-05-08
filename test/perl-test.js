@@ -14,6 +14,8 @@
 
 console.log(new Date(), 'perljs')
 var perl = require('../lib/perl'),
+	// eslint-disable-next-line unicorn/no-null
+	NULL = null,
 	oLogger = {
 		logged: '',
 		check: function () {
@@ -25,7 +27,11 @@ var perl = require('../lib/perl'),
 		warn: function () {
 			oLogger.logged += Array.prototype.slice.call(arguments).join('\n')
 		},
-	}
+	},
+	function_ = function () {
+		return NULL
+	},
+	functionEmpty = function () {}
 
 /*	q = perl.q,
 	qq = perl.qq,
@@ -46,7 +52,7 @@ describe('#perl helpers', function () {
 			expect(perl._value('undefined')).to.equal(void 0)
 		})
 		it('handles null', function () {
-			expect(perl._value('null')).to.equal(null)
+			expect(perl._value('null')).to.equal(NULL)
 		})
 		it('handles string empty', function () {
 			perl._value('empty').should.equal('')
@@ -58,7 +64,7 @@ describe('#perl helpers', function () {
 			perl._value('false').should.equal(false)
 		})
 		it('handles number NaN', function () {
-			perl._value('NaN').should.deep.equal(NaN)
+			perl._value('NaN').should.deep.equal(Number.NaN)
 		})
 		it('handles number Infinity', function () {
 			perl._value('Infinity').should.equal(1 / 0)
@@ -90,8 +96,7 @@ describe('#perl helpers', function () {
 			perl._value({ 1: 2, 3: 4 }).should.be.deep.equal({ 1: 2, 3: 4 })
 		})
 		it('handles a function', function () {
-			var fnEmpty = function () {}
-			perl._value(fnEmpty).should.equal(fnEmpty)
+			perl._value(functionEmpty).should.equal(functionEmpty)
 		})
 		it('handles a regular expression', function () {
 			var regex = /^regex$/
@@ -103,7 +108,7 @@ describe('#perl helpers', function () {
 			perl._stringify().should.equal('')
 		})
 		it('handles null as empty string', function () {
-			perl._stringify(null).should.equal('')
+			perl._stringify(NULL).should.equal('')
 		})
 		it('handles true as true', function () {
 			perl._stringify(true).should.equal('true')
@@ -115,13 +120,13 @@ describe('#perl helpers', function () {
 			perl._stringify(12.345).should.equal('12.345')
 		})
 		it('handles NaN as empty string', function () {
-			perl._stringify(NaN).should.equal('')
+			perl._stringify(Number.NaN).should.equal('')
 		})
 		it('handles Infinity as empty string', function () {
-			perl._stringify(Infinity).should.equal('')
+			perl._stringify(Number.POSITIVE_INFINITY).should.equal('')
 		})
 		it('handles -Infinity as empty string', function () {
-			perl._stringify(-Infinity).should.equal('')
+			perl._stringify(Number.NEGATIVE_INFINITY).should.equal('')
 		})
 		it('handles an array by returning the array', function () {
 			var anArray = [1, 2, 3]
@@ -133,7 +138,7 @@ describe('#perl helpers', function () {
 		})
 		it('handles a function by calling it and stringifying the result', function () {
 			perl._stringify(function () {
-				return null
+				return NULL
 			}).should.equal('')
 		})
 	})
@@ -160,7 +165,7 @@ describe('#perl methods', function () {
 				perl.q().should.equal("''")
 			})
 			it('single quotes null as empty string', function () {
-				perl.q(null).should.equal("''")
+				perl.q(NULL).should.equal("''")
 			})
 			it("single quotes true as 'true'", function () {
 				perl.q(true).should.equal("'true'")
@@ -172,22 +177,19 @@ describe('#perl methods', function () {
 				perl.q(12.345).should.equal("'12.345'")
 			})
 			it('single quotes NaN as empty string', function () {
-				perl.q(NaN).should.equal("''")
+				perl.q(Number.NaN).should.equal("''")
 			})
 			it('single quotes Infinity as empty string', function () {
-				perl.q(Infinity).should.equal("''")
+				perl.q(Number.POSITIVE_INFINITY).should.equal("''")
 			})
 			it('single quotes -Infinity as empty string', function () {
-				perl.q(-Infinity).should.equal("''")
+				perl.q(Number.NEGATIVE_INFINITY).should.equal("''")
 			})
 			it('a.k.a qA() single quotes an Array by quoting all the elements of the array', function () {
-				var fn = function () {
-						return null
-					},
-					aArray = [1, 2, fn]
+				var aArray = [1, 2, function_]
 				perl.q(aArray).should.deep.equal(["'1'", "'2'", "''"])
 				// ensure original array not modified
-				aArray.should.deep.equal([1, 2, fn])
+				aArray.should.deep.equal([1, 2, function_])
 			})
 			it('a.k.a qO() single quotes an Object by quoting all the values of the object', function () {
 				var oObject = { 1: 2, 3: 4 }
@@ -302,12 +304,12 @@ describe('#perl methods', function () {
 				oMap.split.should.be.equal(42)
 				oMap.me.should.be.equal(true)
 				oMap.baby.should.be.equal(false)
-				oMap.you.should.deep.equal(NaN)
+				oMap.you.should.deep.equal(Number.NaN)
 				expect(oMap.know).to.equal(undefined)
 				oMap.want.should.be.equal(-12.3)
-				expect(oMap.it).to.equal(null)
-				oMap.to.should.be.equal(Infinity)
-				oMap.be.should.be.equal(-Infinity)
+				expect(oMap.it).to.equal(NULL)
+				oMap.to.should.be.equal(Number.POSITIVE_INFINITY)
+				oMap.be.should.be.equal(Number.NEGATIVE_INFINITY)
 				oMap.empty.should.be.equal('')
 			})
 		})
@@ -395,17 +397,17 @@ describe('#perl methods', function () {
 		})
 		it('makes a map Object out of an Array with a specific value (null)', function () {
 			var aArray = perl.qw('key1 value1 key2 value2')
-			perl.makeMap(aArray, null).should.deep.equal({
-				key1: null,
-				value1: null,
-				key2: null,
-				value2: null,
+			perl.makeMap(aArray, NULL).should.deep.equal({
+				key1: NULL,
+				value1: NULL,
+				key2: NULL,
+				value2: NULL,
 			})
 		})
 		it('makes a map Object out of an Array with a valuation function', function () {
 			var aArray = perl.qw('key1 value1 key2 value2')
 			perl.makeMap(aArray, function (value) {
-				return String(value).substring(0, 1)
+				return String(value).slice(0, 1)
 			}).should.deep.equal({
 				key1: 'k',
 				value1: 'v',
@@ -454,10 +456,10 @@ describe('#perl methods', function () {
 		})
 		it('reverse the key/values with a hashing function', function () {
 			/* jshint plusplus: false */
-			var idx = 0,
+			var index = 0,
 				oMap = perl.qwm('key1 value1 key2 value2 key3 value1')
 			perl.reverseMap(oMap, function (key) {
-				return key + idx++
+				return key + index++
 			}).should.deep.equal({
 				value10: 'key1',
 				value21: 'key2',
@@ -466,10 +468,10 @@ describe('#perl methods', function () {
 		})
 		it('reverse the key/values with a hashing function which checks existence', function () {
 			/* jshint maxcomplexity: 2, plusplus: false */
-			var idx = 0,
+			var index = 0,
 				oMap = perl.qwm('key1 value1 key2 value2 key3 value1')
 			perl.reverseMap(oMap, function (key, oRevMap) {
-				return key in oRevMap ? key + idx++ : key
+				return key in oRevMap ? key + index++ : key
 			}).should.deep.equal({
 				value1: 'key1',
 				value2: 'key2',
@@ -513,16 +515,16 @@ describe('#perl methods', function () {
 				perl.x(undefined, 4).should.equal('')
 			})
 			it('handles null as empty string', function () {
-				perl.x(null, 4).should.equal('')
+				perl.x(NULL, 4).should.equal('')
 			})
 			it('handles NaN as empty string', function () {
-				perl.x(NaN, 4).should.equal('')
+				perl.x(Number.NaN, 4).should.equal('')
 			})
 			it('handles Infinity as empty string', function () {
-				perl.x(Infinity, 4).should.equal('')
+				perl.x(Number.POSITIVE_INFINITY, 4).should.equal('')
 			})
 			it('handles -Infinity as empty string', function () {
-				perl.x(-Infinity, 4).should.equal('')
+				perl.x(Number.NEGATIVE_INFINITY, 4).should.equal('')
 			})
 		})
 	}) // .x()

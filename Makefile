@@ -59,6 +59,8 @@ fix:
 perl-test:
 	./perl/perl-test.pl
 
+# bash
+# nvm use v0.10.0 && make node-test
 node-test:
 	./perl/js-test.js
 	node --version

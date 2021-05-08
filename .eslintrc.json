@@ -5,9 +5,13 @@
 		"es2021": true,
 		"node": true
 	},
-	"extends": "eslint:recommended",
+	"extends": "plugin:unicorn/recommended",
 	"parserOptions": {
 		"ecmaVersion": 12
 	},
-	"rules": {}
+	"plugins": ["unicorn"],
+	"rules": {
+		"unicorn/no-array-for-each": "off",
+		"unicorn/prefer-module": "off"
+	}
 }
