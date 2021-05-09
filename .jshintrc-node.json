@@ -28,7 +28,7 @@
 	"noempty": true,
 	"nonew": true,
 	"plusplus": true,
-	"quotmark": true,
+	"quotmark": false,
 	"undef": true,
 	"unused": "strict",
 	"globalstrict": true,

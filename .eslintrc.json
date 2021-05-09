@@ -12,6 +12,60 @@
 	"plugins": ["unicorn"],
 	"rules": {
 		"unicorn/no-array-for-each": "off",
-		"unicorn/prefer-module": "off"
+		"unicorn/prefer-module": "off",
+		"unicorn/string-content": [
+			// need option to set some as error and others as warnings?
+			"warn",
+			{
+				"patterns": {
+					"'([^']*)'": {
+						"suggest": "‘$1’", // message would be:  Prefer `‘$1’` over `'([^']*)'`
+						"message": "Please use unicode single quotes ‘…’ instead of '…' in strings.",
+						"fix": false
+					},
+					"\"([^\"]*)\"": {
+						"suggest": "“$1”",
+						"message": "Please use unicode double quotes “…” instead of \"…\" in strings. --fix",
+						"fix": true
+					},
+					"'": {
+						"suggest": "’",
+						"message": "Please use unicode apostrophe `’` instead of `'` in strings.",
+						"fix": false
+					},
+					// convert ... into unicode elipsis in strings.
+					"\\.\\.\\.": {
+						"suggest": "…",
+						"message": "Please use unicode elipsis `…` instead of `...` in strings. --fix",
+						"fix": true
+					},
+					"\\bdegC\\b": {
+						"suggest": "℃",
+						"message": "Please use unicode degree `℃ ` instead of `degC` in strings. --fix",
+						"fix": true
+					},
+					"\\bdegF\\b": {
+						"suggest": "℉",
+						"message": "Please use unicode degree `℉ ` instead of `degF` in strings. --fix",
+						"fix": true
+					},
+					"\\bdeg\\b": {
+						"suggest": "°",
+						"message": "Please use unicode degree `°` instead of `deg` in strings. --fix",
+						"fix": true
+					},
+					"\\(c\\)": {
+						"suggest": "©",
+						"message": "Please use unicode copyright `©` instead of `(c)` in strings. --fix",
+						"fix": true
+					},
+					"\\(R\\)": {
+						"suggest": "®",
+						"message": "Please use unicode reserved `®` instead of `(R)` in strings. --fix",
+						"fix": true
+					}
+				}
+			}
+		]
 	}
 }

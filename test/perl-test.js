@@ -7,9 +7,10 @@
 
 	@see {@link http://chaijs.com/api/bdd/ Chai Documentation}
 */
-// W110 is warning about mixed single and double quotes
+/* eslint-disable unicorn/string-content */
+// W110 is warning about mixed single an d double quotes
 /*jshint maxlen: 145, maxstatements: 25, -W110 */
-/*global describe, expect, it, should */
+/*global should */
 'use strict'
 
 console.log(new Date(), 'perljs')
